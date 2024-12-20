@@ -1,0 +1,69 @@
+.customDatePickerContainer {
+  position: relative;
+  .DateIcon{
+    position: absolute;
+    top:50%;
+    right: 0px;
+    transform: translate(-50% , -50%);
+  }
+  &:focus-within{
+    label{
+      top: 2px;
+      text-align: left;
+      // z-index: 1;
+      left: 10px;
+      transition: all 0.3s ease-in-out;
+    color: #777777;
+    font-size: 12px;
+    line-height: 21px;
+    }
+  }
+}
+
+.customDatePickerInput {
+  padding: 20px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  height: 57px;
+  &:focus{
+    border-color: #194A8A;
+  }
+}
+.customDatePickerLabel {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  font-size: 16px;
+  color: #777777;
+  z-index: 1;
+  pointer-events: none;
+  transition: top 0.2s, font-size 0.2s, color 0.2s;
+}
+.active .customDatePickerLabel{
+  top: 2px;
+  text-align: left;
+  z-index: 1;
+  left: 10px;
+  transition: all 0.3s ease-in-out;
+color: #777777;
+font-size: 12px;
+line-height: 21px;
+
+}
+.active .customDatePickerInput {
+  top: 10px;
+  font-size: 0.625rem;
+  color: #000000;
+  font-size: 14px;
+  text-align: left;
+  z-index: 1;
+  left: 10px;
+
+}
+.react-datepicker__input-container{
+  font-size: 18px;
+}

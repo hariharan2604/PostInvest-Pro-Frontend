@@ -1,0 +1,40 @@
+.progressBarContainer {
+    width: 100%;
+    padding: 22px 0px 12px 0px;
+    // border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .dateLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+
+    span{
+        color: #000000;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 500;
+    }
+  }
+  
+  .progressBar {
+    height: 20px;
+    background-color: gray;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .remainingMonths {
+    text-align: right;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+  }
+  

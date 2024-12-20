@@ -1,0 +1,44 @@
+import { useState, useEffect } from "react";
+import styles from "./input.module.scss";
+
+const Input = ({ variant = "label", labelText, onChange, value, name, defaultValue, ...restProps }) => {
+  const [inputValue, setInputValue] = useState(value || "");
+
+  useEffect(() => {
+    if (variant === "disabled") {
+      setInputValue(defaultValue || "");
+    }
+  }, [variant, defaultValue]);
+
+  const handleChange = (event) => {
+    if (onChange) {
+      onChange(event.target.value);
+    }
+    setInputValue(event.target.value);
+  };
+
+  const inputClass = variant === "plain" ? styles.plainInput : "";
+  const isDisabled = variant === "disabled";
+
+  return (
+    <div className={styles.inputSection}>
+      <div className={`${styles.inputGroup} ${inputClass}`}>
+        <input
+          type="text"
+          required
+          autoComplete="off"
+          onChange={handleChange}
+          name={name}
+          id={name}
+          placeholder={labelText}
+          value={inputValue}
+          disabled={isDisabled}
+          {...restProps}
+        />
+        {variant !== "plain" && <label htmlFor={name}>{labelText}</label>}
+      </div>
+    </div>
+  );
+};
+
+export default Input;

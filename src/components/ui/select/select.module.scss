@@ -1,0 +1,42 @@
+.custom_select:focus-visible {
+  outline: none;
+}
+
+.custom-height {
+  height: 70px;
+}
+
+.floating_label {
+  position: absolute;
+  left: 10px; 
+  top: 22px; 
+  padding: 0px;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+  color: #777777;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.inputGroup .custom_select:focus-within ~ .floating_label {
+  transform: translateY(-24px) scale(0.75); // Adjust these values to fit your design
+  color: #777777;
+  font-size: 12px;
+  line-height: 15px;
+  top: 29px; 
+  left: 0px;
+  
+}
+
+.selected {
+  transform: translateY(-24px) scale(0.75); // Same as above
+  color: #777777;
+  font-size: 12px;
+  line-height: 15px;
+  top: 29px; 
+  left: 0px;
+}

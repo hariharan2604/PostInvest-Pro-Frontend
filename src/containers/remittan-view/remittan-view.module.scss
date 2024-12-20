@@ -1,0 +1,115 @@
+.maturityDue {
+    background: #fff;
+    .due-head {
+        h3 {
+            color: #000000;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+
+    .due-inner {
+        
+
+        .userDetails {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #F3F3F3;
+            padding: 10px 0px;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #F3F3F3;
+              }
+        
+              &:last-child {
+                border-bottom: none;
+              }
+
+            .split {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                .userImage {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .userInfo {
+
+                    .userAccount{
+                        font-size: 12px;
+                        color: #777777;
+                        line-height: 15px;
+                        padding-bottom: 4px;
+                    }
+                    .userName {
+                        color: #000000;
+                        font-size: 14px;
+                        line-height: 17px;
+                        padding-bottom: 4px;
+                    }
+
+                    .userPhone {
+                        color: #777777;
+                        font-size: 13px;
+                        line-height: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+.pillGroup{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 16px 16px 0px;
+  }
+  
+  .remittance{
+    padding: 5px 16px 0px 16px;
+
+    p{
+      font-family: Inter;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 14.52px;
+      text-align: right;
+      color: #777777;
+      margin-block-end: 5px;
+    }
+    h3{
+      font-family: Inter;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29.05px;
+      text-align: right;
+      color: #000;
+      small{
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 14.52px;
+        text-align: left;
+        color: #777777;
+      }
+    }
+  }
+  .titlesection
+  {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  

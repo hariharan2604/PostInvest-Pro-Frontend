@@ -1,0 +1,41 @@
+.btn {
+    padding: 12px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.outline {
+    background-color: transparent;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.primary {
+    background-color: #194A8A;
+    border: 1px solid #194A8A;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    border: none;
+
+}
+
+.linkButton {
+    background-color: #EFF6FE;
+    color: #194A8A;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    border-radius: 20px;
+}

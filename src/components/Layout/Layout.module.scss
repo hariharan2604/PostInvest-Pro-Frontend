@@ -1,0 +1,21 @@
+.layout {
+  width: 100%;
+  height: calc(100svh - 56px);
+  overflow: auto;
+  scrollbar-width: none;
+  background-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 16px;
+  position: relative;
+  @media (max-width:767.98px) {
+    height: calc(100svh - 114px);
+    padding-bottom: 56px;
+  }
+}
+.mobVisible{
+  display: none;
+  @media (max-width:767.98px) {
+display: block;
+  }
+}

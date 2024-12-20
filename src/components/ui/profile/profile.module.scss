@@ -1,0 +1,28 @@
+.profile {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: unset;
+    background-color: #ebebeb;
+}
+
+.profileActive {
+    border: 1px solid #0e951b;
+    background-color: #eefff2;
+}
+.profileInactive {
+    border: 1px solid #777777;
+    background-color: #f0f0f0;
+    img {
+        filter: invert(43%) sepia(32%) saturate(0%) hue-rotate(224deg) brightness(100%) contrast(86%);
+    }
+}
+.profileText {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 600;
+    color: #000000;
+}

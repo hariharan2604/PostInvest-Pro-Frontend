@@ -1,0 +1,17 @@
+.calendarWrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .calendarArea{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    p{
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.94px;
+      text-align: left;
+    }
+  }
+}

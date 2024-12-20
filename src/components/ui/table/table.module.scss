@@ -1,0 +1,42 @@
+.table {
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+    .table-data {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #d9d9d9;
+        border-radius: 6px;
+        thead {
+            tr {
+                background-color: #e2efff;
+
+                th {
+                    padding: 8px 0;
+                    color: #000000;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 21px;
+                }
+            }
+        }
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: #f9f9f9;
+                }
+                &:nth-child(odd) {
+                    background-color: #ffffff;
+                }
+                td {
+                    text-align: center;
+                    padding: 8px 0;
+                    color: #000000;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 21px;
+                }
+            }
+        }
+    }
+}

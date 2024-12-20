@@ -1,0 +1,41 @@
+.accordionContainer {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-flex;
+  width: 100%;
+  .accordion {
+    padding: 10px 16px;
+    width: 100%;
+    .accordionHeader {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        color: #000000;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+      }
+    }
+
+    .accordionHeader span {
+      flex-grow: 1;
+      padding: 10px 0px;
+    }
+
+    .accordionHeader img {
+      transition: transform 0.3s;
+    }
+
+    .accordionHeader img.open {
+      transform: rotate(180deg);
+    }
+
+    .accordionInner {
+      padding: 10px 0px;
+    }
+  }
+}

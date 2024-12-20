@@ -1,0 +1,346 @@
+@import url("../styles/font.css");
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.height {
+  height: auto !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+}
+// select dropdown border right removed from plugin
+.css-1u9des2-indicatorSeparator{
+display: none;
+} 
+// removed from border indicator from slect 
+body {
+  font-size: 16px;
+  line-height: normal;
+  margin: 0;
+  font-weight: 400;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  font-family: Inter;
+  background-color: #194a8a;
+}
+.border-radius-20{
+  border-radius: 20px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+label {
+  display: inline-block;
+}
+
+input:focus,
+input:active {
+  border: 0;
+  outline: 0;
+}
+
+.mt-0 {
+  margin-top: 0px !important;
+}
+
+// Padding Boiler Plate
+.p-0 {
+  padding: 0 !important;
+}
+
+.pt-30 {
+  padding-top: 30px !important;
+}
+
+.p-5 {
+  padding: 5px 0px !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-60 {
+  padding: 60px 0px !important;
+}
+
+.pt-0 {
+  padding-top: 0px !important;
+}
+
+.pt-10 {
+  padding-top: 10px !important;
+}
+
+.p-20 {
+  padding: 20px !important;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-block {
+  display: block;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h-100 {
+  height: 100vh !important;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px !important;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+// Container Boiler Plate
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1501px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+// Padding Boiler Plate
+
+.pb-50 {
+  padding-bottom: 50px !important;
+}
+
+.pt-10 {
+  padding-top: 10px !important;
+}
+
+.pt-50 {
+  padding-top: 50px !important;
+}
+
+// Margin Boiler Plate
+.mtb-50 {
+  margin: 50px 0;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.ml-15 {
+  margin-left: 15px !important;
+}
+
+.ml-5 {
+  margin-left: 5px !important;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ml-0 {
+  margin-left: 0px !important;
+}
+
+// Flex Boiler Plate
+.d-flex {
+  display: flex;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+.a-i-c {
+  align-items: center;
+}
+
+.a-i-fe {
+  align-items: flex-end;
+}
+
+.a-i-b {
+  align-items: baseline;
+}
+
+// List Boiler Plate
+li {
+  list-style: none;
+}
+
+.li-st-dc {
+  list-style-type: disc;
+}
+
+// Justify Content Boiler plate
+
+.j-c-b {
+  justify-content: space-between;
+}
+
+.j-c-a {
+  justify-content: space-around;
+}
+
+.j-c-c {
+  justify-content: center;
+}
+
+.j-c-r {
+  justify-content: right;
+}
+
+.j-c-fe {
+  justify-content: flex-end;
+}
+
+.j-c-e {
+  justify-content: space-evenly;
+}
+
+.j-c-s {
+  justify-content: start;
+}
+
+.border-none {
+  border-bottom: none !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.text-underline {
+  text-decoration: underline !important;
+}
+a{
+  text-decoration: none;
+  color: #000000;
+}

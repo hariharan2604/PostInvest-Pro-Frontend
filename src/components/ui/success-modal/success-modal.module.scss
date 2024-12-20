@@ -1,0 +1,21 @@
+.success-modal {
+    display: grid;
+    place-items: center;
+    gap: 14px;
+    h3 {
+        color: #01a726;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        max-width: 276px;
+    }
+    p {
+        color: #979797;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        max-width: 290px;
+    }
+}

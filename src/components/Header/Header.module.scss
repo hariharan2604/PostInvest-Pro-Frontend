@@ -1,0 +1,37 @@
+.header {
+  background-color: #194a8a;
+  color: white;
+  // text-align: center;
+  height: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // justify-content:space-between;
+  // align-items: center;
+  gap: 25px;
+  padding: 0px 15px;
+
+  .iconGroup {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    white-space: nowrap;
+  }
+
+  .notitficatoIcon {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
+.webVisible{
+  display: none;
+  @media (min-width:768px) {
+    display: block;
+  }
+}
