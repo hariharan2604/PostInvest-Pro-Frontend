@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/user.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>BM App</title>
+        <title>Post Invest Pro</title>
       </Head>
       <Component {...pageProps} />
     </>

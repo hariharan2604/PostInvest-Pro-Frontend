@@ -33,37 +33,36 @@ export default function AddCustomer() {
   return (
     <>
 
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <Input labelText="Full Name" name="full_name" />
       </div>
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <Input labelText="Mobile No" name="mobile" />
       </div>
 
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <Input labelText="Email ID" name="email" />
       </div>
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <Input labelText="Gender" name="gender" />
       </div>
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <CustomDatePicker
           selectedDate={selectedDate}
           onChange={handleDateChange}
           label="Date of Birth"
         />
       </div>
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <Input labelText="Address" name="address" />
       </div>
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <Input labelText="Area" name="area" />
       </div>
-      <div className={addcusStyle["from-group"]}>
+      <div className={addcusStyle["form-group"]}>
         <Input labelText="Zip" name="zip" />
       </div>
-      <div className={addcusStyle["from-group"]}>
-        {/* <Input labelText="State" name="state"/> */}
+      <div className={addcusStyle["form-group"]}>
         <Selectdropdown options={State} selectText="Select State"></Selectdropdown>
       </div>
       <div className={addcusStyle["addMember"]}>

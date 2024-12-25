@@ -181,19 +181,19 @@ export default function ViewChequeLeaf() {
                 onChange={handleRadioChange}
               />
             </div>
-            <div className={styles["from-group"]}>
+            <div className={styles["form-group"]}>
               <Input labelText="CHQ Number" name="che_number"></Input>
             </div>
-            <div className={styles["from-group"]}>
+            <div className={styles["form-group"]}>
               <Input labelText="Amount" name="amount"></Input>
             </div>
-            <div className={styles["from-group"]}>
+            <div className={styles["form-group"]}>
               <Input labelText="Bank Name" name="bank_name"></Input>
             </div>
-            <div className={styles["from-group"]}>
+            <div className={styles["form-group"]}>
               <Input labelText="Account Number" name="account_number"></Input>
             </div>
-            <div className={styles["from-group"]}>
+            <div className={styles["form-group"]}>
               <CustomDatePicker
                 selectedDate={selectedDate}
                 onChange={handleDateChange}

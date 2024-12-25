@@ -24,46 +24,46 @@ export default function AddFamily() {
   ];
   return (
     <>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Customer Name" name="customer_name" variant="disabled" defaultValue="Aadhavan" />
       </div>
 
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         {/* <Input labelText="Relationship " name="mobile" /> */}
         {/* <Selectdropdown></Selectdropdown> */}
         <Selectdropdown options={options1} selectText="Select Customer"></Selectdropdown>
 
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Full Name" name="full_name" />
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Mobile No" name="mobile" />
       </div>
 
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Email ID" name="email" />
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Gender" name="gender" />
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <CustomDatePicker
           selectedDate={selectedDate}
           onChange={handleDateChange}
           label="Date of Birth"
         />
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Address" name="address" />
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Area" name="area" />
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         <Input labelText="Zip" name="zip" />
       </div>
-      <div className={style["from-group"]}>
+      <div className={style["form-group"]}>
         {/* <Input labelText="State" name="state" /> */}
         {/* <Selectdropdown></Selectdropdown> */}
         <Selectdropdown options={options} selectText="Select State"></Selectdropdown>

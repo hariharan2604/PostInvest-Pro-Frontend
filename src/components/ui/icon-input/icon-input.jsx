@@ -17,7 +17,7 @@ const IconInput = ({ variant, ...restProps }) => {
   if (variant === "date") {
     icon = <Image src={DateIcon} className={Iconinput.icon} alt="Date" />;
   } else if (variant === "eye") {
-    icon = <Image src={EyeIcon} className={Iconinput.icon} alt="Eye" />;
+    icon = <Image src={EyeIcon} className={Iconinput.icon} alt="Eye"/>;
   }
 
   return (

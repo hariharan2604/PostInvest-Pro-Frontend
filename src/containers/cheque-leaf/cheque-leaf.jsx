@@ -217,19 +217,19 @@ export default function ChequeLeaf() {
           </div>
           {inputFields.map((inputField, index) => (
             <div key={index} className={styles["border-top"]}>
-              <div className={styles["from-group"]}>
+              <div className={styles["form-group"]}>
                 <Input labelText="CHQ Number" name="field1" value={inputField.field1}></Input>
               </div>
-              <div className={styles["from-group"]}>
+              <div className={styles["form-group"]}>
                 <Input labelText="Amount" name="field2" value={inputField.field2}></Input>
               </div>
-              <div className={styles["from-group"]}>
+              <div className={styles["form-group"]}>
                 <Input labelText="Bank Name" name="field3" value={inputField.field3} ></Input>
               </div>
-              <div className={styles["from-group"]}>
+              <div className={styles["form-group"]}>
                 <Input labelText="Account Number" name="field14" value={inputField.field4}></Input>
               </div>
-              <div className={styles["from-group"]}>
+              <div className={styles["form-group"]}>
                 <CustomDatePicker
                   selectedDate={selectedDate}
                   onChange={handleDateChange}
