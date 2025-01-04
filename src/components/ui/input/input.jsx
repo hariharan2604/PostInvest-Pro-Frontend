@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./input.module.scss";
 
-const Input = ({ variant = "label", labelText, onChange, value, name, defaultValue, ...restProps }) => {
+const Input = ({ type="text",variant = "label", labelText, onChange, value, name, defaultValue, ...restProps }) => {
   const [inputValue, setInputValue] = useState(value || "");
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Input = ({ variant = "label", labelText, onChange, value, name, defaultVal
     <div className={styles.inputSection}>
       <div className={`${styles.inputGroup} ${inputClass}`}>
         <input
-          type="text"
+          type={type}
           required
           autoComplete="off"
           onChange={handleChange}

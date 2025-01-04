@@ -1,31 +1,37 @@
 import Iconinput from "./icon-input.module.scss";
 import Image from "next/image";
 import Input from "../input/input";
-//image import
-import EyeIcon from "../../../../public/images/eye.svg";
-import DateIcon from "../../../../public/images/date.svg";
+// Image imports
+import EyeOpen from "../../../../public/images/eye-open.svg";
+import EyeClose from "../../../../public/images/eye-close.svg";
+import { useState } from "react";
 
+const PasswordInput = ({ ...restProps }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
-
-const IconInput = ({ variant, ...restProps }) => {
-  const handleChange = (event) => {
-    onChange(event.target.value);
+  // Handle toggle for password visibility
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
   };
-
-  // Define the icon based on the variant
-  let icon;
-  if (variant === "date") {
-    icon = <Image src={DateIcon} className={Iconinput.icon} alt="Date" />;
-  } else if (variant === "eye") {
-    icon = <Image src={EyeIcon} className={Iconinput.icon} alt="Eye"/>;
-  }
 
   return (
     <div className={Iconinput.icon_input}>
-      <Input {...restProps}></Input>
-      {icon}
+      <Input
+        {...restProps}
+        type={passwordVisible ? "text" : "password"}
+        name="password"
+        labelText="Password"
+        placeholder="Enter your password"
+      />
+      <Image
+        src={passwordVisible ? EyeOpen : EyeClose}
+        className={Iconinput.icon}
+        alt={passwordVisible ? "Hide password" : "Show password"}
+        onClick={togglePasswordVisibility}
+        style={{ cursor: "pointer" }}
+      />
     </div>
   );
 };
 
-export default IconInput;
+export default PasswordInput;
