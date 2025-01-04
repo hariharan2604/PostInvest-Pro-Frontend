@@ -7,7 +7,7 @@ export default function Menus() {
         <>
             <Header title={'Menu'} notitficatoIcon={true} />
             <Layout>
-                <Menu profileName={'Broker Name'} profileId={'#ID00123'} />
+                <Menu profileName={'Agent Name'} profileId={'#ID00123'} />
             </Layout>
         </>
     )

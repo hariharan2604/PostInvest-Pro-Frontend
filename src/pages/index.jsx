@@ -18,7 +18,7 @@ export default function Home() {
         <div>
 
           <div className="login-details">
-            <h3><span>Welcome</span> Broker Management !</h3>
+            <h3><span>Welcome</span> Post Invest Pro !</h3>
             <p>Please use your credentials to login</p>
             <div className="login-credentials">
               <Input labelText="User ID" name="user_id" />
