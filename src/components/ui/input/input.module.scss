@@ -5,14 +5,14 @@
     input {
       padding: 18px 10px;
       outline: none;
-      border: 1px solid #DDDDDD;
+      border: 1px solid #dddddd;
       border-radius: 10px;
       font-size: 16px;
       color: #000000;
       line-height: 19px;
       height: 60px;
       width: 100%;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
 
       &::-webkit-input-placeholder {
         color: transparent;
@@ -29,15 +29,13 @@
         color: transparent;
       }
       &:focus {
-        border: 1px solid #194A8A;
+        border: 1px solid #194a8a;
         padding: 18px 10px;
-        color: #1E1B1B;
+        color: #1e1b1b;
         // line-height: 22px;
         font-weight: 500;
         padding-top: 18px;
-      
       }
-      
 
       &:focus ~ label,
       &:valid ~ label,
@@ -50,16 +48,15 @@
         top: -8px;
         padding-left: 0;
       }
-     
+
       &:disabled {
-        background-color: #F0F0F0;
+        background-color: #f0f0f0;
         color: #000000;
-        border-color: #DDDDDD;
+        border-color: #dddddd;
       }
     }
-    input[type="checkbox"]
-    {
-      height:unset;
+    input[type="checkbox"] {
+      height: unset;
     }
     label {
       position: absolute;
@@ -72,7 +69,10 @@
       font-size: 16px;
       line-height: 21px;
     }
-
-   
   }
+}
+
+.errorText {
+  color: #f93827;
+  padding-left: 3px;
 }

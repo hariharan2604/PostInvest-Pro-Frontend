@@ -8,3 +8,19 @@
         gap: 25px;
     }
 }
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.flex-class {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.errorText{
+  color: #F93827;
+}

@@ -1,12 +1,13 @@
+import { useState } from "react";
 import Iconinput from "./icon-input.module.scss";
 import Image from "next/image";
 import Input from "../input/input";
 // Image imports
 import EyeOpen from "../../../../public/images/eye-open.svg";
 import EyeClose from "../../../../public/images/eye-close.svg";
-import { useState } from "react";
 
-const PasswordInput = ({ ...restProps }) => {
+const PasswordInput = ({ name = "password", labelText = "Password",
+  placeholder = "Enter your password", errorText, ...restProps }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   // Handle toggle for password visibility
@@ -15,13 +16,13 @@ const PasswordInput = ({ ...restProps }) => {
   };
 
   return (
-    <div className={Iconinput.icon_input}>
+    <><div className={Iconinput.icon_input}>
       <Input
         {...restProps}
         type={passwordVisible ? "text" : "password"}
-        name="password"
-        labelText="Password"
-        placeholder="Enter your password"
+        name={name}
+        labelText={labelText}
+        placeholder={placeholder}
       />
       <Image
         src={passwordVisible ? EyeOpen : EyeClose}
@@ -31,6 +32,7 @@ const PasswordInput = ({ ...restProps }) => {
         style={{ cursor: "pointer" }}
       />
     </div>
+      {errorText && <div className={Iconinput.errorText}>{errorText}</div>}</>
   );
 };
 

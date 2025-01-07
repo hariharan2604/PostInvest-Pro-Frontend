@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import DateIcon from "../../../../public/images/date.svg"
 import styles from './CustomDatePicker.module.scss'
-const CustomDatePicker = ({ selectedDate, onChange, label }) => {
+const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const handleFocus = () => {
@@ -29,6 +29,7 @@ const CustomDatePicker = ({ selectedDate, onChange, label }) => {
         />
         <Image className={styles.DateIcon} src={DateIcon} alt='Custom Date' />
       </div>
+        {errorText && <div className={styles.errorText}>{errorText}</div>}
     </>
   )
 }

@@ -1,0 +1,4878 @@
+[
+    {
+        "value": "Port Blair",
+        "label": "Port Blair"
+    },
+    {
+        "value": "Faridabad",
+        "label": "Faridabad"
+    },
+    {
+        "value": "Gurgaon",
+        "label": "Gurgaon"
+    },
+    {
+        "value": "Hisar",
+        "label": "Hisar"
+    },
+    {
+        "value": "Rohtak",
+        "label": "Rohtak"
+    },
+    {
+        "value": "Panipat",
+        "label": "Panipat"
+    },
+    {
+        "value": "Karnal",
+        "label": "Karnal"
+    },
+    {
+        "value": "Sonipat",
+        "label": "Sonipat"
+    },
+    {
+        "value": "Yamunanagar",
+        "label": "Yamunanagar"
+    },
+    {
+        "value": "Panchkula",
+        "label": "Panchkula"
+    },
+    {
+        "value": "Bhiwani",
+        "label": "Bhiwani"
+    },
+    {
+        "value": "Bahadurgarh",
+        "label": "Bahadurgarh"
+    },
+    {
+        "value": "Jind",
+        "label": "Jind"
+    },
+    {
+        "value": "Sirsa",
+        "label": "Sirsa"
+    },
+    {
+        "value": "Thanesar",
+        "label": "Thanesar"
+    },
+    {
+        "value": "Kaithal",
+        "label": "Kaithal"
+    },
+    {
+        "value": "Palwal",
+        "label": "Palwal"
+    },
+    {
+        "value": "Rewari",
+        "label": "Rewari"
+    },
+    {
+        "value": "Hansi",
+        "label": "Hansi"
+    },
+    {
+        "value": "Narnaul",
+        "label": "Narnaul"
+    },
+    {
+        "value": "Fatehabad",
+        "label": "Fatehabad"
+    },
+    {
+        "value": "Gohana",
+        "label": "Gohana"
+    },
+    {
+        "value": "Tohana",
+        "label": "Tohana"
+    },
+    {
+        "value": "Narwana",
+        "label": "Narwana"
+    },
+    {
+        "value": "Mandi Dabwali",
+        "label": "Mandi Dabwali"
+    },
+    {
+        "value": "Charkhi Dadri",
+        "label": "Charkhi Dadri"
+    },
+    {
+        "value": "Shahbad",
+        "label": "Shahbad"
+    },
+    {
+        "value": "Pehowa",
+        "label": "Pehowa"
+    },
+    {
+        "value": "Samalkha",
+        "label": "Samalkha"
+    },
+    {
+        "value": "Pinjore",
+        "label": "Pinjore"
+    },
+    {
+        "value": "Ladwa",
+        "label": "Ladwa"
+    },
+    {
+        "value": "Sohna",
+        "label": "Sohna"
+    },
+    {
+        "value": "Safidon",
+        "label": "Safidon"
+    },
+    {
+        "value": "Taraori",
+        "label": "Taraori"
+    },
+    {
+        "value": "Mahendragarh",
+        "label": "Mahendragarh"
+    },
+    {
+        "value": "Ratia",
+        "label": "Ratia"
+    },
+    {
+        "value": "Rania",
+        "label": "Rania"
+    },
+    {
+        "value": "Sarsod",
+        "label": "Sarsod"
+    },
+    {
+        "value": "Chennai",
+        "label": "Chennai"
+    },
+    {
+        "value": "Coimbatore",
+        "label": "Coimbatore"
+    },
+    {
+        "value": "Madurai",
+        "label": "Madurai"
+    },
+    {
+        "value": "Tiruchirappalli",
+        "label": "Tiruchirappalli"
+    },
+    {
+        "value": "Salem",
+        "label": "Salem"
+    },
+    {
+        "value": "Tirunelveli",
+        "label": "Tirunelveli"
+    },
+    {
+        "value": "Tiruppur",
+        "label": "Tiruppur"
+    },
+    {
+        "value": "Ranipet",
+        "label": "Ranipet"
+    },
+    {
+        "value": "Nagercoil",
+        "label": "Nagercoil"
+    },
+    {
+        "value": "Thanjavur",
+        "label": "Thanjavur"
+    },
+    {
+        "value": "Vellore",
+        "label": "Vellore"
+    },
+    {
+        "value": "Kancheepuram",
+        "label": "Kancheepuram"
+    },
+    {
+        "value": "Erode",
+        "label": "Erode"
+    },
+    {
+        "value": "Tiruvannamalai",
+        "label": "Tiruvannamalai"
+    },
+    {
+        "value": "Pollachi",
+        "label": "Pollachi"
+    },
+    {
+        "value": "Rajapalayam",
+        "label": "Rajapalayam"
+    },
+    {
+        "value": "Sivakasi",
+        "label": "Sivakasi"
+    },
+    {
+        "value": "Pudukkottai",
+        "label": "Pudukkottai"
+    },
+    {
+        "value": "Neyveli (TS)",
+        "label": "Neyveli (TS)"
+    },
+    {
+        "value": "Nagapattinam",
+        "label": "Nagapattinam"
+    },
+    {
+        "value": "Viluppuram",
+        "label": "Viluppuram"
+    },
+    {
+        "value": "Tiruchengode",
+        "label": "Tiruchengode"
+    },
+    {
+        "value": "Vaniyambadi",
+        "label": "Vaniyambadi"
+    },
+    {
+        "value": "Theni Allinagaram",
+        "label": "Theni Allinagaram"
+    },
+    {
+        "value": "Udhagamandalam",
+        "label": "Udhagamandalam"
+    },
+    {
+        "value": "Aruppukkottai",
+        "label": "Aruppukkottai"
+    },
+    {
+        "value": "Paramakudi",
+        "label": "Paramakudi"
+    },
+    {
+        "value": "Arakkonam",
+        "label": "Arakkonam"
+    },
+    {
+        "value": "Virudhachalam",
+        "label": "Virudhachalam"
+    },
+    {
+        "value": "Srivilliputhur",
+        "label": "Srivilliputhur"
+    },
+    {
+        "value": "Tindivanam",
+        "label": "Tindivanam"
+    },
+    {
+        "value": "Virudhunagar",
+        "label": "Virudhunagar"
+    },
+    {
+        "value": "Karur",
+        "label": "Karur"
+    },
+    {
+        "value": "Valparai",
+        "label": "Valparai"
+    },
+    {
+        "value": "Sankarankovil",
+        "label": "Sankarankovil"
+    },
+    {
+        "value": "Tenkasi",
+        "label": "Tenkasi"
+    },
+    {
+        "value": "Palani",
+        "label": "Palani"
+    },
+    {
+        "value": "Pattukkottai",
+        "label": "Pattukkottai"
+    },
+    {
+        "value": "Tirupathur",
+        "label": "Tirupathur"
+    },
+    {
+        "value": "Ramanathapuram",
+        "label": "Ramanathapuram"
+    },
+    {
+        "value": "Udumalaipettai",
+        "label": "Udumalaipettai"
+    },
+    {
+        "value": "Gobichettipalayam",
+        "label": "Gobichettipalayam"
+    },
+    {
+        "value": "Thiruvarur",
+        "label": "Thiruvarur"
+    },
+    {
+        "value": "Thiruvallur",
+        "label": "Thiruvallur"
+    },
+    {
+        "value": "Panruti",
+        "label": "Panruti"
+    },
+    {
+        "value": "Namakkal",
+        "label": "Namakkal"
+    },
+    {
+        "value": "Thirumangalam",
+        "label": "Thirumangalam"
+    },
+    {
+        "value": "Vikramasingapuram",
+        "label": "Vikramasingapuram"
+    },
+    {
+        "value": "Nellikuppam",
+        "label": "Nellikuppam"
+    },
+    {
+        "value": "Rasipuram",
+        "label": "Rasipuram"
+    },
+    {
+        "value": "Tiruttani",
+        "label": "Tiruttani"
+    },
+    {
+        "value": "Nandivaram-Guduvancheri",
+        "label": "Nandivaram-Guduvancheri"
+    },
+    {
+        "value": "Periyakulam",
+        "label": "Periyakulam"
+    },
+    {
+        "value": "Pernampattu",
+        "label": "Pernampattu"
+    },
+    {
+        "value": "Vellakoil",
+        "label": "Vellakoil"
+    },
+    {
+        "value": "Sivaganga",
+        "label": "Sivaganga"
+    },
+    {
+        "value": "Vadalur",
+        "label": "Vadalur"
+    },
+    {
+        "value": "Rameshwaram",
+        "label": "Rameshwaram"
+    },
+    {
+        "value": "Tiruvethipuram",
+        "label": "Tiruvethipuram"
+    },
+    {
+        "value": "Perambalur",
+        "label": "Perambalur"
+    },
+    {
+        "value": "Usilampatti",
+        "label": "Usilampatti"
+    },
+    {
+        "value": "Vedaranyam",
+        "label": "Vedaranyam"
+    },
+    {
+        "value": "Sathyamangalam",
+        "label": "Sathyamangalam"
+    },
+    {
+        "value": "Puliyankudi",
+        "label": "Puliyankudi"
+    },
+    {
+        "value": "Nanjikottai",
+        "label": "Nanjikottai"
+    },
+    {
+        "value": "Thuraiyur",
+        "label": "Thuraiyur"
+    },
+    {
+        "value": "Sirkali",
+        "label": "Sirkali"
+    },
+    {
+        "value": "Tiruchendur",
+        "label": "Tiruchendur"
+    },
+    {
+        "value": "Periyasemur",
+        "label": "Periyasemur"
+    },
+    {
+        "value": "Sattur",
+        "label": "Sattur"
+    },
+    {
+        "value": "Vandavasi",
+        "label": "Vandavasi"
+    },
+    {
+        "value": "Tharamangalam",
+        "label": "Tharamangalam"
+    },
+    {
+        "value": "Tirukkoyilur",
+        "label": "Tirukkoyilur"
+    },
+    {
+        "value": "Oddanchatram",
+        "label": "Oddanchatram"
+    },
+    {
+        "value": "Palladam",
+        "label": "Palladam"
+    },
+    {
+        "value": "Vadakkuvalliyur",
+        "label": "Vadakkuvalliyur"
+    },
+    {
+        "value": "Tirukalukundram",
+        "label": "Tirukalukundram"
+    },
+    {
+        "value": "Uthamapalayam",
+        "label": "Uthamapalayam"
+    },
+    {
+        "value": "Surandai",
+        "label": "Surandai"
+    },
+    {
+        "value": "Sankari",
+        "label": "Sankari"
+    },
+    {
+        "value": "Shenkottai",
+        "label": "Shenkottai"
+    },
+    {
+        "value": "Vadipatti",
+        "label": "Vadipatti"
+    },
+    {
+        "value": "Sholingur",
+        "label": "Sholingur"
+    },
+    {
+        "value": "Tirupathur",
+        "label": "Tirupathur"
+    },
+    {
+        "value": "Manachanallur",
+        "label": "Manachanallur"
+    },
+    {
+        "value": "Viswanatham",
+        "label": "Viswanatham"
+    },
+    {
+        "value": "Polur",
+        "label": "Polur"
+    },
+    {
+        "value": "Panagudi",
+        "label": "Panagudi"
+    },
+    {
+        "value": "Uthiramerur",
+        "label": "Uthiramerur"
+    },
+    {
+        "value": "Thiruthuraipoondi",
+        "label": "Thiruthuraipoondi"
+    },
+    {
+        "value": "Pallapatti",
+        "label": "Pallapatti"
+    },
+    {
+        "value": "Ponneri",
+        "label": "Ponneri"
+    },
+    {
+        "value": "Lalgudi",
+        "label": "Lalgudi"
+    },
+    {
+        "value": "Natham",
+        "label": "Natham"
+    },
+    {
+        "value": "Unnamalaikadai",
+        "label": "Unnamalaikadai"
+    },
+    {
+        "value": "P.N.Patti",
+        "label": "P.N.Patti"
+    },
+    {
+        "value": "Tharangambadi",
+        "label": "Tharangambadi"
+    },
+    {
+        "value": "Tittakudi",
+        "label": "Tittakudi"
+    },
+    {
+        "value": "Pacode",
+        "label": "Pacode"
+    },
+    {
+        "value": "O' Valley",
+        "label": "O' Valley"
+    },
+    {
+        "value": "Suriyampalayam",
+        "label": "Suriyampalayam"
+    },
+    {
+        "value": "Sholavandan",
+        "label": "Sholavandan"
+    },
+    {
+        "value": "Thammampatti",
+        "label": "Thammampatti"
+    },
+    {
+        "value": "Namagiripettai",
+        "label": "Namagiripettai"
+    },
+    {
+        "value": "Peravurani",
+        "label": "Peravurani"
+    },
+    {
+        "value": "Parangipettai",
+        "label": "Parangipettai"
+    },
+    {
+        "value": "Pudupattinam",
+        "label": "Pudupattinam"
+    },
+    {
+        "value": "Pallikonda",
+        "label": "Pallikonda"
+    },
+    {
+        "value": "Sivagiri",
+        "label": "Sivagiri"
+    },
+    {
+        "value": "Punjaipugalur",
+        "label": "Punjaipugalur"
+    },
+    {
+        "value": "Padmanabhapuram",
+        "label": "Padmanabhapuram"
+    },
+    {
+        "value": "Thirupuvanam",
+        "label": "Thirupuvanam"
+    },
+    {
+        "value": "Indore",
+        "label": "Indore"
+    },
+    {
+        "value": "Bhopal",
+        "label": "Bhopal"
+    },
+    {
+        "value": "Jabalpur",
+        "label": "Jabalpur"
+    },
+    {
+        "value": "Gwalior",
+        "label": "Gwalior"
+    },
+    {
+        "value": "Ujjain",
+        "label": "Ujjain"
+    },
+    {
+        "value": "Sagar",
+        "label": "Sagar"
+    },
+    {
+        "value": "Ratlam",
+        "label": "Ratlam"
+    },
+    {
+        "value": "Satna",
+        "label": "Satna"
+    },
+    {
+        "value": "Murwara (Katni)",
+        "label": "Murwara (Katni)"
+    },
+    {
+        "value": "Morena",
+        "label": "Morena"
+    },
+    {
+        "value": "Singrauli",
+        "label": "Singrauli"
+    },
+    {
+        "value": "Rewa",
+        "label": "Rewa"
+    },
+    {
+        "value": "Vidisha",
+        "label": "Vidisha"
+    },
+    {
+        "value": "Ganjbasoda",
+        "label": "Ganjbasoda"
+    },
+    {
+        "value": "Shivpuri",
+        "label": "Shivpuri"
+    },
+    {
+        "value": "Mandsaur",
+        "label": "Mandsaur"
+    },
+    {
+        "value": "Neemuch",
+        "label": "Neemuch"
+    },
+    {
+        "value": "Nagda",
+        "label": "Nagda"
+    },
+    {
+        "value": "Itarsi",
+        "label": "Itarsi"
+    },
+    {
+        "value": "Sarni",
+        "label": "Sarni"
+    },
+    {
+        "value": "Sehore",
+        "label": "Sehore"
+    },
+    {
+        "value": "Mhow Cantonment",
+        "label": "Mhow Cantonment"
+    },
+    {
+        "value": "Seoni",
+        "label": "Seoni"
+    },
+    {
+        "value": "Balaghat",
+        "label": "Balaghat"
+    },
+    {
+        "value": "Ashok Nagar",
+        "label": "Ashok Nagar"
+    },
+    {
+        "value": "Tikamgarh",
+        "label": "Tikamgarh"
+    },
+    {
+        "value": "Shahdol",
+        "label": "Shahdol"
+    },
+    {
+        "value": "Pithampur",
+        "label": "Pithampur"
+    },
+    {
+        "value": "Alirajpur",
+        "label": "Alirajpur"
+    },
+    {
+        "value": "Mandla",
+        "label": "Mandla"
+    },
+    {
+        "value": "Sheopur",
+        "label": "Sheopur"
+    },
+    {
+        "value": "Shajapur",
+        "label": "Shajapur"
+    },
+    {
+        "value": "Panna",
+        "label": "Panna"
+    },
+    {
+        "value": "Raghogarh-Vijaypur",
+        "label": "Raghogarh-Vijaypur"
+    },
+    {
+        "value": "Sendhwa",
+        "label": "Sendhwa"
+    },
+    {
+        "value": "Sidhi",
+        "label": "Sidhi"
+    },
+    {
+        "value": "Pipariya",
+        "label": "Pipariya"
+    },
+    {
+        "value": "Shujalpur",
+        "label": "Shujalpur"
+    },
+    {
+        "value": "Sironj",
+        "label": "Sironj"
+    },
+    {
+        "value": "Pandhurna",
+        "label": "Pandhurna"
+    },
+    {
+        "value": "Nowgong",
+        "label": "Nowgong"
+    },
+    {
+        "value": "Mandideep",
+        "label": "Mandideep"
+    },
+    {
+        "value": "Sihora",
+        "label": "Sihora"
+    },
+    {
+        "value": "Raisen",
+        "label": "Raisen"
+    },
+    {
+        "value": "Lahar",
+        "label": "Lahar"
+    },
+    {
+        "value": "Maihar",
+        "label": "Maihar"
+    },
+    {
+        "value": "Sanawad",
+        "label": "Sanawad"
+    },
+    {
+        "value": "Sabalgarh",
+        "label": "Sabalgarh"
+    },
+    {
+        "value": "Umaria",
+        "label": "Umaria"
+    },
+    {
+        "value": "Porsa",
+        "label": "Porsa"
+    },
+    {
+        "value": "Narsinghgarh",
+        "label": "Narsinghgarh"
+    },
+    {
+        "value": "Malaj Khand",
+        "label": "Malaj Khand"
+    },
+    {
+        "value": "Sarangpur",
+        "label": "Sarangpur"
+    },
+    {
+        "value": "Mundi",
+        "label": "Mundi"
+    },
+    {
+        "value": "Nepanagar",
+        "label": "Nepanagar"
+    },
+    {
+        "value": "Pasan",
+        "label": "Pasan"
+    },
+    {
+        "value": "Mahidpur",
+        "label": "Mahidpur"
+    },
+    {
+        "value": "Seoni-Malwa",
+        "label": "Seoni-Malwa"
+    },
+    {
+        "value": "Rehli",
+        "label": "Rehli"
+    },
+    {
+        "value": "Manawar",
+        "label": "Manawar"
+    },
+    {
+        "value": "Rahatgarh",
+        "label": "Rahatgarh"
+    },
+    {
+        "value": "Panagar",
+        "label": "Panagar"
+    },
+    {
+        "value": "Wara Seoni",
+        "label": "Wara Seoni"
+    },
+    {
+        "value": "Tarana",
+        "label": "Tarana"
+    },
+    {
+        "value": "Sausar",
+        "label": "Sausar"
+    },
+    {
+        "value": "Rajgarh",
+        "label": "Rajgarh"
+    },
+    {
+        "value": "Niwari",
+        "label": "Niwari"
+    },
+    {
+        "value": "Mauganj",
+        "label": "Mauganj"
+    },
+    {
+        "value": "Manasa",
+        "label": "Manasa"
+    },
+    {
+        "value": "Nainpur",
+        "label": "Nainpur"
+    },
+    {
+        "value": "Prithvipur",
+        "label": "Prithvipur"
+    },
+    {
+        "value": "Sohagpur",
+        "label": "Sohagpur"
+    },
+    {
+        "value": "Nowrozabad (Khodargama)",
+        "label": "Nowrozabad (Khodargama)"
+    },
+    {
+        "value": "Shamgarh",
+        "label": "Shamgarh"
+    },
+    {
+        "value": "Maharajpur",
+        "label": "Maharajpur"
+    },
+    {
+        "value": "Multai",
+        "label": "Multai"
+    },
+    {
+        "value": "Pali",
+        "label": "Pali"
+    },
+    {
+        "value": "Pachore",
+        "label": "Pachore"
+    },
+    {
+        "value": "Rau",
+        "label": "Rau"
+    },
+    {
+        "value": "Mhowgaon",
+        "label": "Mhowgaon"
+    },
+    {
+        "value": "Vijaypur",
+        "label": "Vijaypur"
+    },
+    {
+        "value": "Narsinghgarh",
+        "label": "Narsinghgarh"
+    },
+    {
+        "value": "Dhanbad",
+        "label": "Dhanbad"
+    },
+    {
+        "value": "Ranchi",
+        "label": "Ranchi"
+    },
+    {
+        "value": "Jamshedpur",
+        "label": "Jamshedpur"
+    },
+    {
+        "value": "Bokaro Steel City",
+        "label": "Bokaro Steel City"
+    },
+    {
+        "value": "Deoghar",
+        "label": "Deoghar"
+    },
+    {
+        "value": "Phusro",
+        "label": "Phusro"
+    },
+    {
+        "value": "Adityapur",
+        "label": "Adityapur"
+    },
+    {
+        "value": "Hazaribag",
+        "label": "Hazaribag"
+    },
+    {
+        "value": "Giridih",
+        "label": "Giridih"
+    },
+    {
+        "value": "Ramgarh",
+        "label": "Ramgarh"
+    },
+    {
+        "value": "Jhumri Tilaiya",
+        "label": "Jhumri Tilaiya"
+    },
+    {
+        "value": "Saunda",
+        "label": "Saunda"
+    },
+    {
+        "value": "Sahibganj",
+        "label": "Sahibganj"
+    },
+    {
+        "value": "Medininagar (Daltonganj)",
+        "label": "Medininagar (Daltonganj)"
+    },
+    {
+        "value": "Chaibasa",
+        "label": "Chaibasa"
+    },
+    {
+        "value": "Chatra",
+        "label": "Chatra"
+    },
+    {
+        "value": "Gumia",
+        "label": "Gumia"
+    },
+    {
+        "value": "Dumka",
+        "label": "Dumka"
+    },
+    {
+        "value": "Madhupur",
+        "label": "Madhupur"
+    },
+    {
+        "value": "Chirkunda",
+        "label": "Chirkunda"
+    },
+    {
+        "value": "Pakaur",
+        "label": "Pakaur"
+    },
+    {
+        "value": "Simdega",
+        "label": "Simdega"
+    },
+    {
+        "value": "Musabani",
+        "label": "Musabani"
+    },
+    {
+        "value": "Mihijam",
+        "label": "Mihijam"
+    },
+    {
+        "value": "Patratu",
+        "label": "Patratu"
+    },
+    {
+        "value": "Lohardaga",
+        "label": "Lohardaga"
+    },
+    {
+        "value": "Tenu dam-cum-Kathhara",
+        "label": "Tenu dam-cum-Kathhara"
+    },
+    {
+        "value": "Aizawl",
+        "label": "Aizawl"
+    },
+    {
+        "value": "Lunglei",
+        "label": "Lunglei"
+    },
+    {
+        "value": "Saiha",
+        "label": "Saiha"
+    },
+    {
+        "value": "Dimapur",
+        "label": "Dimapur"
+    },
+    {
+        "value": "Kohima",
+        "label": "Kohima"
+    },
+    {
+        "value": "Zunheboto",
+        "label": "Zunheboto"
+    },
+    {
+        "value": "Tuensang",
+        "label": "Tuensang"
+    },
+    {
+        "value": "Wokha",
+        "label": "Wokha"
+    },
+    {
+        "value": "Mokokchung",
+        "label": "Mokokchung"
+    },
+    {
+        "value": "Shimla",
+        "label": "Shimla"
+    },
+    {
+        "value": "Mandi",
+        "label": "Mandi"
+    },
+    {
+        "value": "Solan",
+        "label": "Solan"
+    },
+    {
+        "value": "Nahan",
+        "label": "Nahan"
+    },
+    {
+        "value": "Sundarnagar",
+        "label": "Sundarnagar"
+    },
+    {
+        "value": "Palampur",
+        "label": "Palampur"
+    },
+    {
+        "value": "Kullu",
+        "label": "Kullu"
+    },
+    {
+        "value": "Agartala",
+        "label": "Agartala"
+    },
+    {
+        "value": "Udaipur",
+        "label": "Udaipur"
+    },
+    {
+        "value": "Dharmanagar",
+        "label": "Dharmanagar"
+    },
+    {
+        "value": "Pratapgarh",
+        "label": "Pratapgarh"
+    },
+    {
+        "value": "Kailasahar",
+        "label": "Kailasahar"
+    },
+    {
+        "value": "Belonia",
+        "label": "Belonia"
+    },
+    {
+        "value": "Khowai",
+        "label": "Khowai"
+    },
+    {
+        "value": "Visakhapatnam",
+        "label": "Visakhapatnam"
+    },
+    {
+        "value": "Vijayawada",
+        "label": "Vijayawada"
+    },
+    {
+        "value": "Guntur",
+        "label": "Guntur"
+    },
+    {
+        "value": "Nellore",
+        "label": "Nellore"
+    },
+    {
+        "value": "Kurnool",
+        "label": "Kurnool"
+    },
+    {
+        "value": "Rajahmundry",
+        "label": "Rajahmundry"
+    },
+    {
+        "value": "Kakinada",
+        "label": "Kakinada"
+    },
+    {
+        "value": "Tirupati",
+        "label": "Tirupati"
+    },
+    {
+        "value": "Anantapur",
+        "label": "Anantapur"
+    },
+    {
+        "value": "Kadapa",
+        "label": "Kadapa"
+    },
+    {
+        "value": "Vizianagaram",
+        "label": "Vizianagaram"
+    },
+    {
+        "value": "Eluru",
+        "label": "Eluru"
+    },
+    {
+        "value": "Ongole",
+        "label": "Ongole"
+    },
+    {
+        "value": "Nandyal",
+        "label": "Nandyal"
+    },
+    {
+        "value": "Machilipatnam",
+        "label": "Machilipatnam"
+    },
+    {
+        "value": "Adoni",
+        "label": "Adoni"
+    },
+    {
+        "value": "Tenali",
+        "label": "Tenali"
+    },
+    {
+        "value": "Chittoor",
+        "label": "Chittoor"
+    },
+    {
+        "value": "Hindupur",
+        "label": "Hindupur"
+    },
+    {
+        "value": "Proddatur",
+        "label": "Proddatur"
+    },
+    {
+        "value": "Bhimavaram",
+        "label": "Bhimavaram"
+    },
+    {
+        "value": "Madanapalle",
+        "label": "Madanapalle"
+    },
+    {
+        "value": "Guntakal",
+        "label": "Guntakal"
+    },
+    {
+        "value": "Dharmavaram",
+        "label": "Dharmavaram"
+    },
+    {
+        "value": "Gudivada",
+        "label": "Gudivada"
+    },
+    {
+        "value": "Srikakulam",
+        "label": "Srikakulam"
+    },
+    {
+        "value": "Narasaraopet",
+        "label": "Narasaraopet"
+    },
+    {
+        "value": "Rajampet",
+        "label": "Rajampet"
+    },
+    {
+        "value": "Tadpatri",
+        "label": "Tadpatri"
+    },
+    {
+        "value": "Tadepalligudem",
+        "label": "Tadepalligudem"
+    },
+    {
+        "value": "Chilakaluripet",
+        "label": "Chilakaluripet"
+    },
+    {
+        "value": "Yemmiganur",
+        "label": "Yemmiganur"
+    },
+    {
+        "value": "Kadiri",
+        "label": "Kadiri"
+    },
+    {
+        "value": "Chirala",
+        "label": "Chirala"
+    },
+    {
+        "value": "Anakapalle",
+        "label": "Anakapalle"
+    },
+    {
+        "value": "Kavali",
+        "label": "Kavali"
+    },
+    {
+        "value": "Palacole",
+        "label": "Palacole"
+    },
+    {
+        "value": "Sullurpeta",
+        "label": "Sullurpeta"
+    },
+    {
+        "value": "Tanuku",
+        "label": "Tanuku"
+    },
+    {
+        "value": "Rayachoti",
+        "label": "Rayachoti"
+    },
+    {
+        "value": "Srikalahasti",
+        "label": "Srikalahasti"
+    },
+    {
+        "value": "Bapatla",
+        "label": "Bapatla"
+    },
+    {
+        "value": "Naidupet",
+        "label": "Naidupet"
+    },
+    {
+        "value": "Nagari",
+        "label": "Nagari"
+    },
+    {
+        "value": "Gudur",
+        "label": "Gudur"
+    },
+    {
+        "value": "Vinukonda",
+        "label": "Vinukonda"
+    },
+    {
+        "value": "Narasapuram",
+        "label": "Narasapuram"
+    },
+    {
+        "value": "Nuzvid",
+        "label": "Nuzvid"
+    },
+    {
+        "value": "Markapur",
+        "label": "Markapur"
+    },
+    {
+        "value": "Ponnur",
+        "label": "Ponnur"
+    },
+    {
+        "value": "Kandukur",
+        "label": "Kandukur"
+    },
+    {
+        "value": "Bobbili",
+        "label": "Bobbili"
+    },
+    {
+        "value": "Rayadurg",
+        "label": "Rayadurg"
+    },
+    {
+        "value": "Samalkot",
+        "label": "Samalkot"
+    },
+    {
+        "value": "Jaggaiahpet",
+        "label": "Jaggaiahpet"
+    },
+    {
+        "value": "Tuni",
+        "label": "Tuni"
+    },
+    {
+        "value": "Amalapuram",
+        "label": "Amalapuram"
+    },
+    {
+        "value": "Bheemunipatnam",
+        "label": "Bheemunipatnam"
+    },
+    {
+        "value": "Venkatagiri",
+        "label": "Venkatagiri"
+    },
+    {
+        "value": "Sattenapalle",
+        "label": "Sattenapalle"
+    },
+    {
+        "value": "Pithapuram",
+        "label": "Pithapuram"
+    },
+    {
+        "value": "Palasa Kasibugga",
+        "label": "Palasa Kasibugga"
+    },
+    {
+        "value": "Parvathipuram",
+        "label": "Parvathipuram"
+    },
+    {
+        "value": "Macherla",
+        "label": "Macherla"
+    },
+    {
+        "value": "Gooty",
+        "label": "Gooty"
+    },
+    {
+        "value": "Salur",
+        "label": "Salur"
+    },
+    {
+        "value": "Mandapeta",
+        "label": "Mandapeta"
+    },
+    {
+        "value": "Jammalamadugu",
+        "label": "Jammalamadugu"
+    },
+    {
+        "value": "Peddapuram",
+        "label": "Peddapuram"
+    },
+    {
+        "value": "Punganur",
+        "label": "Punganur"
+    },
+    {
+        "value": "Nidadavole",
+        "label": "Nidadavole"
+    },
+    {
+        "value": "Repalle",
+        "label": "Repalle"
+    },
+    {
+        "value": "Ramachandrapuram",
+        "label": "Ramachandrapuram"
+    },
+    {
+        "value": "Kovvur",
+        "label": "Kovvur"
+    },
+    {
+        "value": "Tiruvuru",
+        "label": "Tiruvuru"
+    },
+    {
+        "value": "Uravakonda",
+        "label": "Uravakonda"
+    },
+    {
+        "value": "Narsipatnam",
+        "label": "Narsipatnam"
+    },
+    {
+        "value": "Yerraguntla",
+        "label": "Yerraguntla"
+    },
+    {
+        "value": "Pedana",
+        "label": "Pedana"
+    },
+    {
+        "value": "Puttur",
+        "label": "Puttur"
+    },
+    {
+        "value": "Renigunta",
+        "label": "Renigunta"
+    },
+    {
+        "value": "Rajam",
+        "label": "Rajam"
+    },
+    {
+        "value": "Srisailam Project (Right Flank Colony) Township",
+        "label": "Srisailam Project (Right Flank Colony) Township"
+    },
+    {
+        "value": "Ludhiana",
+        "label": "Ludhiana"
+    },
+    {
+        "value": "Patiala",
+        "label": "Patiala"
+    },
+    {
+        "value": "Amritsar",
+        "label": "Amritsar"
+    },
+    {
+        "value": "Jalandhar",
+        "label": "Jalandhar"
+    },
+    {
+        "value": "Bathinda",
+        "label": "Bathinda"
+    },
+    {
+        "value": "Pathankot",
+        "label": "Pathankot"
+    },
+    {
+        "value": "Hoshiarpur",
+        "label": "Hoshiarpur"
+    },
+    {
+        "value": "Batala",
+        "label": "Batala"
+    },
+    {
+        "value": "Moga",
+        "label": "Moga"
+    },
+    {
+        "value": "Malerkotla",
+        "label": "Malerkotla"
+    },
+    {
+        "value": "Khanna",
+        "label": "Khanna"
+    },
+    {
+        "value": "Mohali",
+        "label": "Mohali"
+    },
+    {
+        "value": "Barnala",
+        "label": "Barnala"
+    },
+    {
+        "value": "Firozpur",
+        "label": "Firozpur"
+    },
+    {
+        "value": "Phagwara",
+        "label": "Phagwara"
+    },
+    {
+        "value": "Kapurthala",
+        "label": "Kapurthala"
+    },
+    {
+        "value": "Zirakpur",
+        "label": "Zirakpur"
+    },
+    {
+        "value": "Kot Kapura",
+        "label": "Kot Kapura"
+    },
+    {
+        "value": "Faridkot",
+        "label": "Faridkot"
+    },
+    {
+        "value": "Muktsar",
+        "label": "Muktsar"
+    },
+    {
+        "value": "Rajpura",
+        "label": "Rajpura"
+    },
+    {
+        "value": "Sangrur",
+        "label": "Sangrur"
+    },
+    {
+        "value": "Fazilka",
+        "label": "Fazilka"
+    },
+    {
+        "value": "Gurdaspur",
+        "label": "Gurdaspur"
+    },
+    {
+        "value": "Kharar",
+        "label": "Kharar"
+    },
+    {
+        "value": "Gobindgarh",
+        "label": "Gobindgarh"
+    },
+    {
+        "value": "Mansa",
+        "label": "Mansa"
+    },
+    {
+        "value": "Malout",
+        "label": "Malout"
+    },
+    {
+        "value": "Nabha",
+        "label": "Nabha"
+    },
+    {
+        "value": "Tarn Taran",
+        "label": "Tarn Taran"
+    },
+    {
+        "value": "Jagraon",
+        "label": "Jagraon"
+    },
+    {
+        "value": "Sunam",
+        "label": "Sunam"
+    },
+    {
+        "value": "Dhuri",
+        "label": "Dhuri"
+    },
+    {
+        "value": "Firozpur Cantt.",
+        "label": "Firozpur Cantt."
+    },
+    {
+        "value": "Sirhind Fatehgarh Sahib",
+        "label": "Sirhind Fatehgarh Sahib"
+    },
+    {
+        "value": "Rupnagar",
+        "label": "Rupnagar"
+    },
+    {
+        "value": "Jalandhar Cantt.",
+        "label": "Jalandhar Cantt."
+    },
+    {
+        "value": "Samana",
+        "label": "Samana"
+    },
+    {
+        "value": "Nawanshahr",
+        "label": "Nawanshahr"
+    },
+    {
+        "value": "Rampura Phul",
+        "label": "Rampura Phul"
+    },
+    {
+        "value": "Nangal",
+        "label": "Nangal"
+    },
+    {
+        "value": "Nakodar",
+        "label": "Nakodar"
+    },
+    {
+        "value": "Zira",
+        "label": "Zira"
+    },
+    {
+        "value": "Patti",
+        "label": "Patti"
+    },
+    {
+        "value": "Raikot",
+        "label": "Raikot"
+    },
+    {
+        "value": "Longowal",
+        "label": "Longowal"
+    },
+    {
+        "value": "Urmar Tanda",
+        "label": "Urmar Tanda"
+    },
+    {
+        "value": "Morinda, India",
+        "label": "Morinda, India"
+    },
+    {
+        "value": "Phillaur",
+        "label": "Phillaur"
+    },
+    {
+        "value": "Pattran",
+        "label": "Pattran"
+    },
+    {
+        "value": "Qadian",
+        "label": "Qadian"
+    },
+    {
+        "value": "Sujanpur",
+        "label": "Sujanpur"
+    },
+    {
+        "value": "Mukerian",
+        "label": "Mukerian"
+    },
+    {
+        "value": "Talwara",
+        "label": "Talwara"
+    },
+    {
+        "value": "Chandigarh",
+        "label": "Chandigarh"
+    },
+    {
+        "value": "Jaipur",
+        "label": "Jaipur"
+    },
+    {
+        "value": "Jodhpur",
+        "label": "Jodhpur"
+    },
+    {
+        "value": "Bikaner",
+        "label": "Bikaner"
+    },
+    {
+        "value": "Udaipur",
+        "label": "Udaipur"
+    },
+    {
+        "value": "Ajmer",
+        "label": "Ajmer"
+    },
+    {
+        "value": "Bhilwara",
+        "label": "Bhilwara"
+    },
+    {
+        "value": "Alwar",
+        "label": "Alwar"
+    },
+    {
+        "value": "Bharatpur",
+        "label": "Bharatpur"
+    },
+    {
+        "value": "Pali",
+        "label": "Pali"
+    },
+    {
+        "value": "Barmer",
+        "label": "Barmer"
+    },
+    {
+        "value": "Sikar",
+        "label": "Sikar"
+    },
+    {
+        "value": "Tonk",
+        "label": "Tonk"
+    },
+    {
+        "value": "Sadulpur",
+        "label": "Sadulpur"
+    },
+    {
+        "value": "Sawai Madhopur",
+        "label": "Sawai Madhopur"
+    },
+    {
+        "value": "Nagaur",
+        "label": "Nagaur"
+    },
+    {
+        "value": "Makrana",
+        "label": "Makrana"
+    },
+    {
+        "value": "Sujangarh",
+        "label": "Sujangarh"
+    },
+    {
+        "value": "Sardarshahar",
+        "label": "Sardarshahar"
+    },
+    {
+        "value": "Ladnu",
+        "label": "Ladnu"
+    },
+    {
+        "value": "Ratangarh",
+        "label": "Ratangarh"
+    },
+    {
+        "value": "Nokha",
+        "label": "Nokha"
+    },
+    {
+        "value": "Nimbahera",
+        "label": "Nimbahera"
+    },
+    {
+        "value": "Suratgarh",
+        "label": "Suratgarh"
+    },
+    {
+        "value": "Rajsamand",
+        "label": "Rajsamand"
+    },
+    {
+        "value": "Lachhmangarh",
+        "label": "Lachhmangarh"
+    },
+    {
+        "value": "Rajgarh (Churu)",
+        "label": "Rajgarh (Churu)"
+    },
+    {
+        "value": "Nasirabad",
+        "label": "Nasirabad"
+    },
+    {
+        "value": "Nohar",
+        "label": "Nohar"
+    },
+    {
+        "value": "Phalodi",
+        "label": "Phalodi"
+    },
+    {
+        "value": "Nathdwara",
+        "label": "Nathdwara"
+    },
+    {
+        "value": "Pilani",
+        "label": "Pilani"
+    },
+    {
+        "value": "Merta City",
+        "label": "Merta City"
+    },
+    {
+        "value": "Sojat",
+        "label": "Sojat"
+    },
+    {
+        "value": "Neem-Ka-Thana",
+        "label": "Neem-Ka-Thana"
+    },
+    {
+        "value": "Sirohi",
+        "label": "Sirohi"
+    },
+    {
+        "value": "Pratapgarh",
+        "label": "Pratapgarh"
+    },
+    {
+        "value": "Rawatbhata",
+        "label": "Rawatbhata"
+    },
+    {
+        "value": "Sangaria",
+        "label": "Sangaria"
+    },
+    {
+        "value": "Lalsot",
+        "label": "Lalsot"
+    },
+    {
+        "value": "Pilibanga",
+        "label": "Pilibanga"
+    },
+    {
+        "value": "Pipar City",
+        "label": "Pipar City"
+    },
+    {
+        "value": "Taranagar",
+        "label": "Taranagar"
+    },
+    {
+        "value": "Vijainagar, Ajmer",
+        "label": "Vijainagar, Ajmer"
+    },
+    {
+        "value": "Sumerpur",
+        "label": "Sumerpur"
+    },
+    {
+        "value": "Sagwara",
+        "label": "Sagwara"
+    },
+    {
+        "value": "Ramganj Mandi",
+        "label": "Ramganj Mandi"
+    },
+    {
+        "value": "Lakheri",
+        "label": "Lakheri"
+    },
+    {
+        "value": "Udaipurwati",
+        "label": "Udaipurwati"
+    },
+    {
+        "value": "Losal",
+        "label": "Losal"
+    },
+    {
+        "value": "Sri Madhopur",
+        "label": "Sri Madhopur"
+    },
+    {
+        "value": "Ramngarh",
+        "label": "Ramngarh"
+    },
+    {
+        "value": "Rawatsar",
+        "label": "Rawatsar"
+    },
+    {
+        "value": "Rajakhera",
+        "label": "Rajakhera"
+    },
+    {
+        "value": "Shahpura",
+        "label": "Shahpura"
+    },
+    {
+        "value": "Shahpura",
+        "label": "Shahpura"
+    },
+    {
+        "value": "Raisinghnagar",
+        "label": "Raisinghnagar"
+    },
+    {
+        "value": "Malpura",
+        "label": "Malpura"
+    },
+    {
+        "value": "Nadbai",
+        "label": "Nadbai"
+    },
+    {
+        "value": "Sanchore",
+        "label": "Sanchore"
+    },
+    {
+        "value": "Nagar",
+        "label": "Nagar"
+    },
+    {
+        "value": "Rajgarh (Alwar)",
+        "label": "Rajgarh (Alwar)"
+    },
+    {
+        "value": "Sheoganj",
+        "label": "Sheoganj"
+    },
+    {
+        "value": "Sadri",
+        "label": "Sadri"
+    },
+    {
+        "value": "Todaraisingh",
+        "label": "Todaraisingh"
+    },
+    {
+        "value": "Todabhim",
+        "label": "Todabhim"
+    },
+    {
+        "value": "Reengus",
+        "label": "Reengus"
+    },
+    {
+        "value": "Rajaldesar",
+        "label": "Rajaldesar"
+    },
+    {
+        "value": "Sadulshahar",
+        "label": "Sadulshahar"
+    },
+    {
+        "value": "Sambhar",
+        "label": "Sambhar"
+    },
+    {
+        "value": "Prantij",
+        "label": "Prantij"
+    },
+    {
+        "value": "Mount Abu",
+        "label": "Mount Abu"
+    },
+    {
+        "value": "Mangrol",
+        "label": "Mangrol"
+    },
+    {
+        "value": "Phulera",
+        "label": "Phulera"
+    },
+    {
+        "value": "Mandawa",
+        "label": "Mandawa"
+    },
+    {
+        "value": "Pindwara",
+        "label": "Pindwara"
+    },
+    {
+        "value": "Mandalgarh",
+        "label": "Mandalgarh"
+    },
+    {
+        "value": "Takhatgarh",
+        "label": "Takhatgarh"
+    },
+    {
+        "value": "Guwahati",
+        "label": "Guwahati"
+    },
+    {
+        "value": "Silchar",
+        "label": "Silchar"
+    },
+    {
+        "value": "Dibrugarh",
+        "label": "Dibrugarh"
+    },
+    {
+        "value": "Nagaon",
+        "label": "Nagaon"
+    },
+    {
+        "value": "Tinsukia",
+        "label": "Tinsukia"
+    },
+    {
+        "value": "Jorhat",
+        "label": "Jorhat"
+    },
+    {
+        "value": "Bongaigaon City",
+        "label": "Bongaigaon City"
+    },
+    {
+        "value": "Dhubri",
+        "label": "Dhubri"
+    },
+    {
+        "value": "Diphu",
+        "label": "Diphu"
+    },
+    {
+        "value": "North Lakhimpur",
+        "label": "North Lakhimpur"
+    },
+    {
+        "value": "Tezpur",
+        "label": "Tezpur"
+    },
+    {
+        "value": "Karimganj",
+        "label": "Karimganj"
+    },
+    {
+        "value": "Sibsagar",
+        "label": "Sibsagar"
+    },
+    {
+        "value": "Goalpara",
+        "label": "Goalpara"
+    },
+    {
+        "value": "Barpeta",
+        "label": "Barpeta"
+    },
+    {
+        "value": "Lanka",
+        "label": "Lanka"
+    },
+    {
+        "value": "Lumding",
+        "label": "Lumding"
+    },
+    {
+        "value": "Mankachar",
+        "label": "Mankachar"
+    },
+    {
+        "value": "Nalbari",
+        "label": "Nalbari"
+    },
+    {
+        "value": "Rangia",
+        "label": "Rangia"
+    },
+    {
+        "value": "Margherita",
+        "label": "Margherita"
+    },
+    {
+        "value": "Mangaldoi",
+        "label": "Mangaldoi"
+    },
+    {
+        "value": "Silapathar",
+        "label": "Silapathar"
+    },
+    {
+        "value": "Mariani",
+        "label": "Mariani"
+    },
+    {
+        "value": "Marigaon",
+        "label": "Marigaon"
+    },
+    {
+        "value": "Bhubaneswar",
+        "label": "Bhubaneswar"
+    },
+    {
+        "value": "Cuttack",
+        "label": "Cuttack"
+    },
+    {
+        "value": "Raurkela",
+        "label": "Raurkela"
+    },
+    {
+        "value": "Brahmapur",
+        "label": "Brahmapur"
+    },
+    {
+        "value": "Sambalpur",
+        "label": "Sambalpur"
+    },
+    {
+        "value": "Puri",
+        "label": "Puri"
+    },
+    {
+        "value": "Baleshwar Town",
+        "label": "Baleshwar Town"
+    },
+    {
+        "value": "Baripada Town",
+        "label": "Baripada Town"
+    },
+    {
+        "value": "Bhadrak",
+        "label": "Bhadrak"
+    },
+    {
+        "value": "Balangir",
+        "label": "Balangir"
+    },
+    {
+        "value": "Jharsuguda",
+        "label": "Jharsuguda"
+    },
+    {
+        "value": "Bargarh",
+        "label": "Bargarh"
+    },
+    {
+        "value": "Paradip",
+        "label": "Paradip"
+    },
+    {
+        "value": "Bhawanipatna",
+        "label": "Bhawanipatna"
+    },
+    {
+        "value": "Dhenkanal",
+        "label": "Dhenkanal"
+    },
+    {
+        "value": "Barbil",
+        "label": "Barbil"
+    },
+    {
+        "value": "Kendujhar",
+        "label": "Kendujhar"
+    },
+    {
+        "value": "Sunabeda",
+        "label": "Sunabeda"
+    },
+    {
+        "value": "Rayagada",
+        "label": "Rayagada"
+    },
+    {
+        "value": "Jatani",
+        "label": "Jatani"
+    },
+    {
+        "value": "Byasanagar",
+        "label": "Byasanagar"
+    },
+    {
+        "value": "Kendrapara",
+        "label": "Kendrapara"
+    },
+    {
+        "value": "Rajagangapur",
+        "label": "Rajagangapur"
+    },
+    {
+        "value": "Parlakhemundi",
+        "label": "Parlakhemundi"
+    },
+    {
+        "value": "Talcher",
+        "label": "Talcher"
+    },
+    {
+        "value": "Sundargarh",
+        "label": "Sundargarh"
+    },
+    {
+        "value": "Phulabani",
+        "label": "Phulabani"
+    },
+    {
+        "value": "Pattamundai",
+        "label": "Pattamundai"
+    },
+    {
+        "value": "Titlagarh",
+        "label": "Titlagarh"
+    },
+    {
+        "value": "Nabarangapur",
+        "label": "Nabarangapur"
+    },
+    {
+        "value": "Soro",
+        "label": "Soro"
+    },
+    {
+        "value": "Malkangiri",
+        "label": "Malkangiri"
+    },
+    {
+        "value": "Rairangpur",
+        "label": "Rairangpur"
+    },
+    {
+        "value": "Tarbha",
+        "label": "Tarbha"
+    },
+    {
+        "value": "Raipur",
+        "label": "Raipur"
+    },
+    {
+        "value": "Bhilai Nagar",
+        "label": "Bhilai Nagar"
+    },
+    {
+        "value": "Korba",
+        "label": "Korba"
+    },
+    {
+        "value": "Bilaspur",
+        "label": "Bilaspur"
+    },
+    {
+        "value": "Durg",
+        "label": "Durg"
+    },
+    {
+        "value": "Rajnandgaon",
+        "label": "Rajnandgaon"
+    },
+    {
+        "value": "Jagdalpur",
+        "label": "Jagdalpur"
+    },
+    {
+        "value": "Raigarh",
+        "label": "Raigarh"
+    },
+    {
+        "value": "Ambikapur",
+        "label": "Ambikapur"
+    },
+    {
+        "value": "Mahasamund",
+        "label": "Mahasamund"
+    },
+    {
+        "value": "Dhamtari",
+        "label": "Dhamtari"
+    },
+    {
+        "value": "Chirmiri",
+        "label": "Chirmiri"
+    },
+    {
+        "value": "Bhatapara",
+        "label": "Bhatapara"
+    },
+    {
+        "value": "Dalli-Rajhara",
+        "label": "Dalli-Rajhara"
+    },
+    {
+        "value": "Naila Janjgir",
+        "label": "Naila Janjgir"
+    },
+    {
+        "value": "Tilda Newra",
+        "label": "Tilda Newra"
+    },
+    {
+        "value": "Mungeli",
+        "label": "Mungeli"
+    },
+    {
+        "value": "Manendragarh",
+        "label": "Manendragarh"
+    },
+    {
+        "value": "Sakti",
+        "label": "Sakti"
+    },
+    {
+        "value": "Srinagar",
+        "label": "Srinagar"
+    },
+    {
+        "value": "Jammu",
+        "label": "Jammu"
+    },
+    {
+        "value": "Baramula",
+        "label": "Baramula"
+    },
+    {
+        "value": "Anantnag",
+        "label": "Anantnag"
+    },
+    {
+        "value": "Sopore",
+        "label": "Sopore"
+    },
+    {
+        "value": "KathUrban Agglomeration",
+        "label": "KathUrban Agglomeration"
+    },
+    {
+        "value": "Rajauri",
+        "label": "Rajauri"
+    },
+    {
+        "value": "Punch",
+        "label": "Punch"
+    },
+    {
+        "value": "Udhampur",
+        "label": "Udhampur"
+    },
+    {
+        "value": "Bengaluru",
+        "label": "Bengaluru"
+    },
+    {
+        "value": "Hubli-Dharwad",
+        "label": "Hubli-Dharwad"
+    },
+    {
+        "value": "Belagavi",
+        "label": "Belagavi"
+    },
+    {
+        "value": "Mangaluru",
+        "label": "Mangaluru"
+    },
+    {
+        "value": "Davanagere",
+        "label": "Davanagere"
+    },
+    {
+        "value": "Ballari",
+        "label": "Ballari"
+    },
+    {
+        "value": "Mysore",
+        "label": "Mysore"
+    },
+    {
+        "value": "Tumkur",
+        "label": "Tumkur"
+    },
+    {
+        "value": "Shivamogga",
+        "label": "Shivamogga"
+    },
+    {
+        "value": "Raayachuru",
+        "label": "Raayachuru"
+    },
+    {
+        "value": "Robertson Pet",
+        "label": "Robertson Pet"
+    },
+    {
+        "value": "Kolar",
+        "label": "Kolar"
+    },
+    {
+        "value": "Mandya",
+        "label": "Mandya"
+    },
+    {
+        "value": "Udupi",
+        "label": "Udupi"
+    },
+    {
+        "value": "Chikkamagaluru",
+        "label": "Chikkamagaluru"
+    },
+    {
+        "value": "Karwar",
+        "label": "Karwar"
+    },
+    {
+        "value": "Ranebennuru",
+        "label": "Ranebennuru"
+    },
+    {
+        "value": "Ranibennur",
+        "label": "Ranibennur"
+    },
+    {
+        "value": "Ramanagaram",
+        "label": "Ramanagaram"
+    },
+    {
+        "value": "Gokak",
+        "label": "Gokak"
+    },
+    {
+        "value": "Yadgir",
+        "label": "Yadgir"
+    },
+    {
+        "value": "Rabkavi Banhatti",
+        "label": "Rabkavi Banhatti"
+    },
+    {
+        "value": "Shahabad",
+        "label": "Shahabad"
+    },
+    {
+        "value": "Sirsi",
+        "label": "Sirsi"
+    },
+    {
+        "value": "Sindhnur",
+        "label": "Sindhnur"
+    },
+    {
+        "value": "Tiptur",
+        "label": "Tiptur"
+    },
+    {
+        "value": "Arsikere",
+        "label": "Arsikere"
+    },
+    {
+        "value": "Nanjangud",
+        "label": "Nanjangud"
+    },
+    {
+        "value": "Sagara",
+        "label": "Sagara"
+    },
+    {
+        "value": "Sira",
+        "label": "Sira"
+    },
+    {
+        "value": "Puttur",
+        "label": "Puttur"
+    },
+    {
+        "value": "Athni",
+        "label": "Athni"
+    },
+    {
+        "value": "Mulbagal",
+        "label": "Mulbagal"
+    },
+    {
+        "value": "Surapura",
+        "label": "Surapura"
+    },
+    {
+        "value": "Siruguppa",
+        "label": "Siruguppa"
+    },
+    {
+        "value": "Mudhol",
+        "label": "Mudhol"
+    },
+    {
+        "value": "Sidlaghatta",
+        "label": "Sidlaghatta"
+    },
+    {
+        "value": "Shahpur",
+        "label": "Shahpur"
+    },
+    {
+        "value": "Saundatti-Yellamma",
+        "label": "Saundatti-Yellamma"
+    },
+    {
+        "value": "Wadi",
+        "label": "Wadi"
+    },
+    {
+        "value": "Manvi",
+        "label": "Manvi"
+    },
+    {
+        "value": "Nelamangala",
+        "label": "Nelamangala"
+    },
+    {
+        "value": "Lakshmeshwar",
+        "label": "Lakshmeshwar"
+    },
+    {
+        "value": "Ramdurg",
+        "label": "Ramdurg"
+    },
+    {
+        "value": "Nargund",
+        "label": "Nargund"
+    },
+    {
+        "value": "Tarikere",
+        "label": "Tarikere"
+    },
+    {
+        "value": "Malavalli",
+        "label": "Malavalli"
+    },
+    {
+        "value": "Savanur",
+        "label": "Savanur"
+    },
+    {
+        "value": "Lingsugur",
+        "label": "Lingsugur"
+    },
+    {
+        "value": "Vijayapura",
+        "label": "Vijayapura"
+    },
+    {
+        "value": "Sankeshwara",
+        "label": "Sankeshwara"
+    },
+    {
+        "value": "Madikeri",
+        "label": "Madikeri"
+    },
+    {
+        "value": "Talikota",
+        "label": "Talikota"
+    },
+    {
+        "value": "Sedam",
+        "label": "Sedam"
+    },
+    {
+        "value": "Shikaripur",
+        "label": "Shikaripur"
+    },
+    {
+        "value": "Mahalingapura",
+        "label": "Mahalingapura"
+    },
+    {
+        "value": "Mudalagi",
+        "label": "Mudalagi"
+    },
+    {
+        "value": "Muddebihal",
+        "label": "Muddebihal"
+    },
+    {
+        "value": "Pavagada",
+        "label": "Pavagada"
+    },
+    {
+        "value": "Malur",
+        "label": "Malur"
+    },
+    {
+        "value": "Sindhagi",
+        "label": "Sindhagi"
+    },
+    {
+        "value": "Sanduru",
+        "label": "Sanduru"
+    },
+    {
+        "value": "Afzalpur",
+        "label": "Afzalpur"
+    },
+    {
+        "value": "Maddur",
+        "label": "Maddur"
+    },
+    {
+        "value": "Madhugiri",
+        "label": "Madhugiri"
+    },
+    {
+        "value": "Tekkalakote",
+        "label": "Tekkalakote"
+    },
+    {
+        "value": "Terdal",
+        "label": "Terdal"
+    },
+    {
+        "value": "Mudabidri",
+        "label": "Mudabidri"
+    },
+    {
+        "value": "Magadi",
+        "label": "Magadi"
+    },
+    {
+        "value": "Navalgund",
+        "label": "Navalgund"
+    },
+    {
+        "value": "Shiggaon",
+        "label": "Shiggaon"
+    },
+    {
+        "value": "Shrirangapattana",
+        "label": "Shrirangapattana"
+    },
+    {
+        "value": "Sindagi",
+        "label": "Sindagi"
+    },
+    {
+        "value": "Sakaleshapura",
+        "label": "Sakaleshapura"
+    },
+    {
+        "value": "Srinivaspur",
+        "label": "Srinivaspur"
+    },
+    {
+        "value": "Ron",
+        "label": "Ron"
+    },
+    {
+        "value": "Mundargi",
+        "label": "Mundargi"
+    },
+    {
+        "value": "Sadalagi",
+        "label": "Sadalagi"
+    },
+    {
+        "value": "Piriyapatna",
+        "label": "Piriyapatna"
+    },
+    {
+        "value": "Adyar",
+        "label": "Adyar"
+    },
+    {
+        "value": "Imphal",
+        "label": "Imphal"
+    },
+    {
+        "value": "Thoubal",
+        "label": "Thoubal"
+    },
+    {
+        "value": "Lilong",
+        "label": "Lilong"
+    },
+    {
+        "value": "Mayang Imphal",
+        "label": "Mayang Imphal"
+    },
+    {
+        "value": "Thiruvananthapuram",
+        "label": "Thiruvananthapuram"
+    },
+    {
+        "value": "Kochi",
+        "label": "Kochi"
+    },
+    {
+        "value": "Kozhikode",
+        "label": "Kozhikode"
+    },
+    {
+        "value": "Kollam",
+        "label": "Kollam"
+    },
+    {
+        "value": "Thrissur",
+        "label": "Thrissur"
+    },
+    {
+        "value": "Palakkad",
+        "label": "Palakkad"
+    },
+    {
+        "value": "Alappuzha",
+        "label": "Alappuzha"
+    },
+    {
+        "value": "Malappuram",
+        "label": "Malappuram"
+    },
+    {
+        "value": "Ponnani",
+        "label": "Ponnani"
+    },
+    {
+        "value": "Vatakara",
+        "label": "Vatakara"
+    },
+    {
+        "value": "Kanhangad",
+        "label": "Kanhangad"
+    },
+    {
+        "value": "Taliparamba",
+        "label": "Taliparamba"
+    },
+    {
+        "value": "Koyilandy",
+        "label": "Koyilandy"
+    },
+    {
+        "value": "Neyyattinkara",
+        "label": "Neyyattinkara"
+    },
+    {
+        "value": "Kayamkulam",
+        "label": "Kayamkulam"
+    },
+    {
+        "value": "Nedumangad",
+        "label": "Nedumangad"
+    },
+    {
+        "value": "Kannur",
+        "label": "Kannur"
+    },
+    {
+        "value": "Tirur",
+        "label": "Tirur"
+    },
+    {
+        "value": "Kottayam",
+        "label": "Kottayam"
+    },
+    {
+        "value": "Kasaragod",
+        "label": "Kasaragod"
+    },
+    {
+        "value": "Kunnamkulam",
+        "label": "Kunnamkulam"
+    },
+    {
+        "value": "Ottappalam",
+        "label": "Ottappalam"
+    },
+    {
+        "value": "Thiruvalla",
+        "label": "Thiruvalla"
+    },
+    {
+        "value": "Thodupuzha",
+        "label": "Thodupuzha"
+    },
+    {
+        "value": "Chalakudy",
+        "label": "Chalakudy"
+    },
+    {
+        "value": "Changanassery",
+        "label": "Changanassery"
+    },
+    {
+        "value": "Punalur",
+        "label": "Punalur"
+    },
+    {
+        "value": "Nilambur",
+        "label": "Nilambur"
+    },
+    {
+        "value": "Cherthala",
+        "label": "Cherthala"
+    },
+    {
+        "value": "Perinthalmanna",
+        "label": "Perinthalmanna"
+    },
+    {
+        "value": "Mattannur",
+        "label": "Mattannur"
+    },
+    {
+        "value": "Shoranur",
+        "label": "Shoranur"
+    },
+    {
+        "value": "Varkala",
+        "label": "Varkala"
+    },
+    {
+        "value": "Paravoor",
+        "label": "Paravoor"
+    },
+    {
+        "value": "Pathanamthitta",
+        "label": "Pathanamthitta"
+    },
+    {
+        "value": "Peringathur",
+        "label": "Peringathur"
+    },
+    {
+        "value": "Attingal",
+        "label": "Attingal"
+    },
+    {
+        "value": "Kodungallur",
+        "label": "Kodungallur"
+    },
+    {
+        "value": "Pappinisseri",
+        "label": "Pappinisseri"
+    },
+    {
+        "value": "Chittur-Thathamangalam",
+        "label": "Chittur-Thathamangalam"
+    },
+    {
+        "value": "Muvattupuzha",
+        "label": "Muvattupuzha"
+    },
+    {
+        "value": "Adoor",
+        "label": "Adoor"
+    },
+    {
+        "value": "Mavelikkara",
+        "label": "Mavelikkara"
+    },
+    {
+        "value": "Mavoor",
+        "label": "Mavoor"
+    },
+    {
+        "value": "Perumbavoor",
+        "label": "Perumbavoor"
+    },
+    {
+        "value": "Vaikom",
+        "label": "Vaikom"
+    },
+    {
+        "value": "Palai",
+        "label": "Palai"
+    },
+    {
+        "value": "Panniyannur",
+        "label": "Panniyannur"
+    },
+    {
+        "value": "Guruvayoor",
+        "label": "Guruvayoor"
+    },
+    {
+        "value": "Puthuppally",
+        "label": "Puthuppally"
+    },
+    {
+        "value": "Panamattom",
+        "label": "Panamattom"
+    },
+    {
+        "value": "Delhi",
+        "label": "Delhi"
+    },
+    {
+        "value": "New Delhi",
+        "label": "New Delhi"
+    },
+    {
+        "value": "Silvassa",
+        "label": "Silvassa"
+    },
+    {
+        "value": "Pondicherry",
+        "label": "Pondicherry"
+    },
+    {
+        "value": "Karaikal",
+        "label": "Karaikal"
+    },
+    {
+        "value": "Yanam",
+        "label": "Yanam"
+    },
+    {
+        "value": "Mahe",
+        "label": "Mahe"
+    },
+    {
+        "value": "Dehradun",
+        "label": "Dehradun"
+    },
+    {
+        "value": "Hardwar",
+        "label": "Hardwar"
+    },
+    {
+        "value": "Haldwani-cum-Kathgodam",
+        "label": "Haldwani-cum-Kathgodam"
+    },
+    {
+        "value": "Srinagar",
+        "label": "Srinagar"
+    },
+    {
+        "value": "Kashipur",
+        "label": "Kashipur"
+    },
+    {
+        "value": "Roorkee",
+        "label": "Roorkee"
+    },
+    {
+        "value": "Rudrapur",
+        "label": "Rudrapur"
+    },
+    {
+        "value": "Rishikesh",
+        "label": "Rishikesh"
+    },
+    {
+        "value": "Ramnagar",
+        "label": "Ramnagar"
+    },
+    {
+        "value": "Pithoragarh",
+        "label": "Pithoragarh"
+    },
+    {
+        "value": "Manglaur",
+        "label": "Manglaur"
+    },
+    {
+        "value": "Nainital",
+        "label": "Nainital"
+    },
+    {
+        "value": "Mussoorie",
+        "label": "Mussoorie"
+    },
+    {
+        "value": "Tehri",
+        "label": "Tehri"
+    },
+    {
+        "value": "Pauri",
+        "label": "Pauri"
+    },
+    {
+        "value": "Nagla",
+        "label": "Nagla"
+    },
+    {
+        "value": "Sitarganj",
+        "label": "Sitarganj"
+    },
+    {
+        "value": "Bageshwar",
+        "label": "Bageshwar"
+    },
+    {
+        "value": "Lucknow",
+        "label": "Lucknow"
+    },
+    {
+        "value": "Kanpur",
+        "label": "Kanpur"
+    },
+    {
+        "value": "Firozabad",
+        "label": "Firozabad"
+    },
+    {
+        "value": "Agra",
+        "label": "Agra"
+    },
+    {
+        "value": "Meerut",
+        "label": "Meerut"
+    },
+    {
+        "value": "Varanasi",
+        "label": "Varanasi"
+    },
+    {
+        "value": "Allahabad",
+        "label": "Allahabad"
+    },
+    {
+        "value": "Amroha",
+        "label": "Amroha"
+    },
+    {
+        "value": "Moradabad",
+        "label": "Moradabad"
+    },
+    {
+        "value": "Aligarh",
+        "label": "Aligarh"
+    },
+    {
+        "value": "Saharanpur",
+        "label": "Saharanpur"
+    },
+    {
+        "value": "Noida",
+        "label": "Noida"
+    },
+    {
+        "value": "Loni",
+        "label": "Loni"
+    },
+    {
+        "value": "Jhansi",
+        "label": "Jhansi"
+    },
+    {
+        "value": "Shahjahanpur",
+        "label": "Shahjahanpur"
+    },
+    {
+        "value": "Rampur",
+        "label": "Rampur"
+    },
+    {
+        "value": "Modinagar",
+        "label": "Modinagar"
+    },
+    {
+        "value": "Hapur",
+        "label": "Hapur"
+    },
+    {
+        "value": "Etawah",
+        "label": "Etawah"
+    },
+    {
+        "value": "Sambhal",
+        "label": "Sambhal"
+    },
+    {
+        "value": "Orai",
+        "label": "Orai"
+    },
+    {
+        "value": "Bahraich",
+        "label": "Bahraich"
+    },
+    {
+        "value": "Unnao",
+        "label": "Unnao"
+    },
+    {
+        "value": "Rae Bareli",
+        "label": "Rae Bareli"
+    },
+    {
+        "value": "Lakhimpur",
+        "label": "Lakhimpur"
+    },
+    {
+        "value": "Sitapur",
+        "label": "Sitapur"
+    },
+    {
+        "value": "Lalitpur",
+        "label": "Lalitpur"
+    },
+    {
+        "value": "Pilibhit",
+        "label": "Pilibhit"
+    },
+    {
+        "value": "Chandausi",
+        "label": "Chandausi"
+    },
+    {
+        "value": "Hardoi ",
+        "label": "Hardoi "
+    },
+    {
+        "value": "Azamgarh",
+        "label": "Azamgarh"
+    },
+    {
+        "value": "Khair",
+        "label": "Khair"
+    },
+    {
+        "value": "Sultanpur",
+        "label": "Sultanpur"
+    },
+    {
+        "value": "Tanda",
+        "label": "Tanda"
+    },
+    {
+        "value": "Nagina",
+        "label": "Nagina"
+    },
+    {
+        "value": "Shamli",
+        "label": "Shamli"
+    },
+    {
+        "value": "Najibabad",
+        "label": "Najibabad"
+    },
+    {
+        "value": "Shikohabad",
+        "label": "Shikohabad"
+    },
+    {
+        "value": "Sikandrabad",
+        "label": "Sikandrabad"
+    },
+    {
+        "value": "Shahabad, Hardoi",
+        "label": "Shahabad, Hardoi"
+    },
+    {
+        "value": "Pilkhuwa",
+        "label": "Pilkhuwa"
+    },
+    {
+        "value": "Renukoot",
+        "label": "Renukoot"
+    },
+    {
+        "value": "Vrindavan",
+        "label": "Vrindavan"
+    },
+    {
+        "value": "Ujhani",
+        "label": "Ujhani"
+    },
+    {
+        "value": "Laharpur",
+        "label": "Laharpur"
+    },
+    {
+        "value": "Tilhar",
+        "label": "Tilhar"
+    },
+    {
+        "value": "Sahaswan",
+        "label": "Sahaswan"
+    },
+    {
+        "value": "Rath",
+        "label": "Rath"
+    },
+    {
+        "value": "Sherkot",
+        "label": "Sherkot"
+    },
+    {
+        "value": "Kalpi",
+        "label": "Kalpi"
+    },
+    {
+        "value": "Tundla",
+        "label": "Tundla"
+    },
+    {
+        "value": "Sandila",
+        "label": "Sandila"
+    },
+    {
+        "value": "Nanpara",
+        "label": "Nanpara"
+    },
+    {
+        "value": "Sardhana",
+        "label": "Sardhana"
+    },
+    {
+        "value": "Nehtaur",
+        "label": "Nehtaur"
+    },
+    {
+        "value": "Seohara",
+        "label": "Seohara"
+    },
+    {
+        "value": "Padrauna",
+        "label": "Padrauna"
+    },
+    {
+        "value": "Mathura",
+        "label": "Mathura"
+    },
+    {
+        "value": "Thakurdwara",
+        "label": "Thakurdwara"
+    },
+    {
+        "value": "Nawabganj",
+        "label": "Nawabganj"
+    },
+    {
+        "value": "Siana",
+        "label": "Siana"
+    },
+    {
+        "value": "Noorpur",
+        "label": "Noorpur"
+    },
+    {
+        "value": "Sikandra Rao",
+        "label": "Sikandra Rao"
+    },
+    {
+        "value": "Puranpur",
+        "label": "Puranpur"
+    },
+    {
+        "value": "Rudauli",
+        "label": "Rudauli"
+    },
+    {
+        "value": "Thana Bhawan",
+        "label": "Thana Bhawan"
+    },
+    {
+        "value": "Palia Kalan",
+        "label": "Palia Kalan"
+    },
+    {
+        "value": "Zaidpur",
+        "label": "Zaidpur"
+    },
+    {
+        "value": "Nautanwa",
+        "label": "Nautanwa"
+    },
+    {
+        "value": "Zamania",
+        "label": "Zamania"
+    },
+    {
+        "value": "Shikarpur, Bulandshahr",
+        "label": "Shikarpur, Bulandshahr"
+    },
+    {
+        "value": "Naugawan Sadat",
+        "label": "Naugawan Sadat"
+    },
+    {
+        "value": "Fatehpur Sikri",
+        "label": "Fatehpur Sikri"
+    },
+    {
+        "value": "Shahabad, Rampur",
+        "label": "Shahabad, Rampur"
+    },
+    {
+        "value": "Robertsganj",
+        "label": "Robertsganj"
+    },
+    {
+        "value": "Utraula",
+        "label": "Utraula"
+    },
+    {
+        "value": "Sadabad",
+        "label": "Sadabad"
+    },
+    {
+        "value": "Rasra",
+        "label": "Rasra"
+    },
+    {
+        "value": "Lar",
+        "label": "Lar"
+    },
+    {
+        "value": "Lal Gopalganj Nindaura",
+        "label": "Lal Gopalganj Nindaura"
+    },
+    {
+        "value": "Sirsaganj",
+        "label": "Sirsaganj"
+    },
+    {
+        "value": "Pihani",
+        "label": "Pihani"
+    },
+    {
+        "value": "Shamsabad, Agra",
+        "label": "Shamsabad, Agra"
+    },
+    {
+        "value": "Rudrapur",
+        "label": "Rudrapur"
+    },
+    {
+        "value": "Soron",
+        "label": "Soron"
+    },
+    {
+        "value": "SUrban Agglomerationr",
+        "label": "SUrban Agglomerationr"
+    },
+    {
+        "value": "Samdhan",
+        "label": "Samdhan"
+    },
+    {
+        "value": "Sahjanwa",
+        "label": "Sahjanwa"
+    },
+    {
+        "value": "Rampur Maniharan",
+        "label": "Rampur Maniharan"
+    },
+    {
+        "value": "Sumerpur",
+        "label": "Sumerpur"
+    },
+    {
+        "value": "Shahganj",
+        "label": "Shahganj"
+    },
+    {
+        "value": "Tulsipur",
+        "label": "Tulsipur"
+    },
+    {
+        "value": "Tirwaganj",
+        "label": "Tirwaganj"
+    },
+    {
+        "value": "PurqUrban Agglomerationzi",
+        "label": "PurqUrban Agglomerationzi"
+    },
+    {
+        "value": "Shamsabad, Farrukhabad",
+        "label": "Shamsabad, Farrukhabad"
+    },
+    {
+        "value": "Warhapur",
+        "label": "Warhapur"
+    },
+    {
+        "value": "Powayan",
+        "label": "Powayan"
+    },
+    {
+        "value": "Sandi",
+        "label": "Sandi"
+    },
+    {
+        "value": "Achhnera",
+        "label": "Achhnera"
+    },
+    {
+        "value": "Naraura",
+        "label": "Naraura"
+    },
+    {
+        "value": "Nakur",
+        "label": "Nakur"
+    },
+    {
+        "value": "Sahaspur",
+        "label": "Sahaspur"
+    },
+    {
+        "value": "Safipur",
+        "label": "Safipur"
+    },
+    {
+        "value": "Reoti",
+        "label": "Reoti"
+    },
+    {
+        "value": "Sikanderpur",
+        "label": "Sikanderpur"
+    },
+    {
+        "value": "Saidpur",
+        "label": "Saidpur"
+    },
+    {
+        "value": "Sirsi",
+        "label": "Sirsi"
+    },
+    {
+        "value": "Purwa",
+        "label": "Purwa"
+    },
+    {
+        "value": "Parasi",
+        "label": "Parasi"
+    },
+    {
+        "value": "Lalganj",
+        "label": "Lalganj"
+    },
+    {
+        "value": "Phulpur",
+        "label": "Phulpur"
+    },
+    {
+        "value": "Shishgarh",
+        "label": "Shishgarh"
+    },
+    {
+        "value": "Sahawar",
+        "label": "Sahawar"
+    },
+    {
+        "value": "Samthar",
+        "label": "Samthar"
+    },
+    {
+        "value": "Pukhrayan",
+        "label": "Pukhrayan"
+    },
+    {
+        "value": "Obra",
+        "label": "Obra"
+    },
+    {
+        "value": "Niwai",
+        "label": "Niwai"
+    },
+    {
+        "value": "Mirzapur",
+        "label": "Mirzapur"
+    },
+    {
+        "value": "Patna",
+        "label": "Patna"
+    },
+    {
+        "value": "Gaya",
+        "label": "Gaya"
+    },
+    {
+        "value": "Bhagalpur",
+        "label": "Bhagalpur"
+    },
+    {
+        "value": "Muzaffarpur",
+        "label": "Muzaffarpur"
+    },
+    {
+        "value": "Darbhanga",
+        "label": "Darbhanga"
+    },
+    {
+        "value": "Arrah",
+        "label": "Arrah"
+    },
+    {
+        "value": "Begusarai",
+        "label": "Begusarai"
+    },
+    {
+        "value": "Chhapra",
+        "label": "Chhapra"
+    },
+    {
+        "value": "Katihar",
+        "label": "Katihar"
+    },
+    {
+        "value": "Munger",
+        "label": "Munger"
+    },
+    {
+        "value": "Purnia",
+        "label": "Purnia"
+    },
+    {
+        "value": "Saharsa",
+        "label": "Saharsa"
+    },
+    {
+        "value": "Sasaram",
+        "label": "Sasaram"
+    },
+    {
+        "value": "Hajipur",
+        "label": "Hajipur"
+    },
+    {
+        "value": "Dehri-on-Sone",
+        "label": "Dehri-on-Sone"
+    },
+    {
+        "value": "Bettiah",
+        "label": "Bettiah"
+    },
+    {
+        "value": "Motihari",
+        "label": "Motihari"
+    },
+    {
+        "value": "Bagaha",
+        "label": "Bagaha"
+    },
+    {
+        "value": "Siwan",
+        "label": "Siwan"
+    },
+    {
+        "value": "Kishanganj",
+        "label": "Kishanganj"
+    },
+    {
+        "value": "Jamalpur",
+        "label": "Jamalpur"
+    },
+    {
+        "value": "Buxar",
+        "label": "Buxar"
+    },
+    {
+        "value": "Jehanabad",
+        "label": "Jehanabad"
+    },
+    {
+        "value": "Aurangabad",
+        "label": "Aurangabad"
+    },
+    {
+        "value": "Lakhisarai",
+        "label": "Lakhisarai"
+    },
+    {
+        "value": "Nawada",
+        "label": "Nawada"
+    },
+    {
+        "value": "Jamui",
+        "label": "Jamui"
+    },
+    {
+        "value": "Sitamarhi",
+        "label": "Sitamarhi"
+    },
+    {
+        "value": "Araria",
+        "label": "Araria"
+    },
+    {
+        "value": "Gopalganj",
+        "label": "Gopalganj"
+    },
+    {
+        "value": "Madhubani",
+        "label": "Madhubani"
+    },
+    {
+        "value": "Masaurhi",
+        "label": "Masaurhi"
+    },
+    {
+        "value": "Samastipur",
+        "label": "Samastipur"
+    },
+    {
+        "value": "Mokameh",
+        "label": "Mokameh"
+    },
+    {
+        "value": "Supaul",
+        "label": "Supaul"
+    },
+    {
+        "value": "Dumraon",
+        "label": "Dumraon"
+    },
+    {
+        "value": "Arwal",
+        "label": "Arwal"
+    },
+    {
+        "value": "Forbesganj",
+        "label": "Forbesganj"
+    },
+    {
+        "value": "BhabUrban Agglomeration",
+        "label": "BhabUrban Agglomeration"
+    },
+    {
+        "value": "Narkatiaganj",
+        "label": "Narkatiaganj"
+    },
+    {
+        "value": "Naugachhia",
+        "label": "Naugachhia"
+    },
+    {
+        "value": "Madhepura",
+        "label": "Madhepura"
+    },
+    {
+        "value": "Sheikhpura",
+        "label": "Sheikhpura"
+    },
+    {
+        "value": "Sultanganj",
+        "label": "Sultanganj"
+    },
+    {
+        "value": "Raxaul Bazar",
+        "label": "Raxaul Bazar"
+    },
+    {
+        "value": "Ramnagar",
+        "label": "Ramnagar"
+    },
+    {
+        "value": "Mahnar Bazar",
+        "label": "Mahnar Bazar"
+    },
+    {
+        "value": "Warisaliganj",
+        "label": "Warisaliganj"
+    },
+    {
+        "value": "Revelganj",
+        "label": "Revelganj"
+    },
+    {
+        "value": "Rajgir",
+        "label": "Rajgir"
+    },
+    {
+        "value": "Sonepur",
+        "label": "Sonepur"
+    },
+    {
+        "value": "Sherghati",
+        "label": "Sherghati"
+    },
+    {
+        "value": "Sugauli",
+        "label": "Sugauli"
+    },
+    {
+        "value": "Makhdumpur",
+        "label": "Makhdumpur"
+    },
+    {
+        "value": "Maner",
+        "label": "Maner"
+    },
+    {
+        "value": "Rosera",
+        "label": "Rosera"
+    },
+    {
+        "value": "Nokha",
+        "label": "Nokha"
+    },
+    {
+        "value": "Piro",
+        "label": "Piro"
+    },
+    {
+        "value": "Rafiganj",
+        "label": "Rafiganj"
+    },
+    {
+        "value": "Marhaura",
+        "label": "Marhaura"
+    },
+    {
+        "value": "Mirganj",
+        "label": "Mirganj"
+    },
+    {
+        "value": "Lalganj",
+        "label": "Lalganj"
+    },
+    {
+        "value": "Murliganj",
+        "label": "Murliganj"
+    },
+    {
+        "value": "Motipur",
+        "label": "Motipur"
+    },
+    {
+        "value": "Manihari",
+        "label": "Manihari"
+    },
+    {
+        "value": "Sheohar",
+        "label": "Sheohar"
+    },
+    {
+        "value": "Maharajganj",
+        "label": "Maharajganj"
+    },
+    {
+        "value": "Silao",
+        "label": "Silao"
+    },
+    {
+        "value": "Barh",
+        "label": "Barh"
+    },
+    {
+        "value": "Asarganj",
+        "label": "Asarganj"
+    },
+    {
+        "value": "Ahmedabad",
+        "label": "Ahmedabad"
+    },
+    {
+        "value": "Surat",
+        "label": "Surat"
+    },
+    {
+        "value": "Vadodara",
+        "label": "Vadodara"
+    },
+    {
+        "value": "Rajkot",
+        "label": "Rajkot"
+    },
+    {
+        "value": "Bhavnagar",
+        "label": "Bhavnagar"
+    },
+    {
+        "value": "Jamnagar",
+        "label": "Jamnagar"
+    },
+    {
+        "value": "Nadiad",
+        "label": "Nadiad"
+    },
+    {
+        "value": "Porbandar",
+        "label": "Porbandar"
+    },
+    {
+        "value": "Anand",
+        "label": "Anand"
+    },
+    {
+        "value": "Morvi",
+        "label": "Morvi"
+    },
+    {
+        "value": "Mahesana",
+        "label": "Mahesana"
+    },
+    {
+        "value": "Bharuch",
+        "label": "Bharuch"
+    },
+    {
+        "value": "Vapi",
+        "label": "Vapi"
+    },
+    {
+        "value": "Navsari",
+        "label": "Navsari"
+    },
+    {
+        "value": "Veraval",
+        "label": "Veraval"
+    },
+    {
+        "value": "Bhuj",
+        "label": "Bhuj"
+    },
+    {
+        "value": "Godhra",
+        "label": "Godhra"
+    },
+    {
+        "value": "Palanpur",
+        "label": "Palanpur"
+    },
+    {
+        "value": "Valsad",
+        "label": "Valsad"
+    },
+    {
+        "value": "Patan",
+        "label": "Patan"
+    },
+    {
+        "value": "Deesa",
+        "label": "Deesa"
+    },
+    {
+        "value": "Amreli",
+        "label": "Amreli"
+    },
+    {
+        "value": "Anjar",
+        "label": "Anjar"
+    },
+    {
+        "value": "Dhoraji",
+        "label": "Dhoraji"
+    },
+    {
+        "value": "Khambhat",
+        "label": "Khambhat"
+    },
+    {
+        "value": "Mahuva",
+        "label": "Mahuva"
+    },
+    {
+        "value": "Keshod",
+        "label": "Keshod"
+    },
+    {
+        "value": "Wadhwan",
+        "label": "Wadhwan"
+    },
+    {
+        "value": "Ankleshwar",
+        "label": "Ankleshwar"
+    },
+    {
+        "value": "Savarkundla",
+        "label": "Savarkundla"
+    },
+    {
+        "value": "Kadi",
+        "label": "Kadi"
+    },
+    {
+        "value": "Visnagar",
+        "label": "Visnagar"
+    },
+    {
+        "value": "Upleta",
+        "label": "Upleta"
+    },
+    {
+        "value": "Una",
+        "label": "Una"
+    },
+    {
+        "value": "Sidhpur",
+        "label": "Sidhpur"
+    },
+    {
+        "value": "Unjha",
+        "label": "Unjha"
+    },
+    {
+        "value": "Mangrol",
+        "label": "Mangrol"
+    },
+    {
+        "value": "Viramgam",
+        "label": "Viramgam"
+    },
+    {
+        "value": "Modasa",
+        "label": "Modasa"
+    },
+    {
+        "value": "Palitana",
+        "label": "Palitana"
+    },
+    {
+        "value": "Petlad",
+        "label": "Petlad"
+    },
+    {
+        "value": "Kapadvanj",
+        "label": "Kapadvanj"
+    },
+    {
+        "value": "Sihor",
+        "label": "Sihor"
+    },
+    {
+        "value": "Wankaner",
+        "label": "Wankaner"
+    },
+    {
+        "value": "Limbdi",
+        "label": "Limbdi"
+    },
+    {
+        "value": "Mandvi",
+        "label": "Mandvi"
+    },
+    {
+        "value": "Thangadh",
+        "label": "Thangadh"
+    },
+    {
+        "value": "Vyara",
+        "label": "Vyara"
+    },
+    {
+        "value": "Padra",
+        "label": "Padra"
+    },
+    {
+        "value": "Lunawada",
+        "label": "Lunawada"
+    },
+    {
+        "value": "Rajpipla",
+        "label": "Rajpipla"
+    },
+    {
+        "value": "Vapi",
+        "label": "Vapi"
+    },
+    {
+        "value": "Umreth",
+        "label": "Umreth"
+    },
+    {
+        "value": "Sanand",
+        "label": "Sanand"
+    },
+    {
+        "value": "Rajula",
+        "label": "Rajula"
+    },
+    {
+        "value": "Radhanpur",
+        "label": "Radhanpur"
+    },
+    {
+        "value": "Mahemdabad",
+        "label": "Mahemdabad"
+    },
+    {
+        "value": "Ranavav",
+        "label": "Ranavav"
+    },
+    {
+        "value": "Tharad",
+        "label": "Tharad"
+    },
+    {
+        "value": "Mansa",
+        "label": "Mansa"
+    },
+    {
+        "value": "Umbergaon",
+        "label": "Umbergaon"
+    },
+    {
+        "value": "Talaja",
+        "label": "Talaja"
+    },
+    {
+        "value": "Vadnagar",
+        "label": "Vadnagar"
+    },
+    {
+        "value": "Manavadar",
+        "label": "Manavadar"
+    },
+    {
+        "value": "Salaya",
+        "label": "Salaya"
+    },
+    {
+        "value": "Vijapur",
+        "label": "Vijapur"
+    },
+    {
+        "value": "Pardi",
+        "label": "Pardi"
+    },
+    {
+        "value": "Rapar",
+        "label": "Rapar"
+    },
+    {
+        "value": "Songadh",
+        "label": "Songadh"
+    },
+    {
+        "value": "Lathi",
+        "label": "Lathi"
+    },
+    {
+        "value": "Adalaj",
+        "label": "Adalaj"
+    },
+    {
+        "value": "Chhapra",
+        "label": "Chhapra"
+    },
+    {
+        "value": "Gandhinagar",
+        "label": "Gandhinagar"
+    },
+    {
+        "value": "Hyderabad",
+        "label": "Hyderabad"
+    },
+    {
+        "value": "Warangal",
+        "label": "Warangal"
+    },
+    {
+        "value": "Nizamabad",
+        "label": "Nizamabad"
+    },
+    {
+        "value": "Karimnagar",
+        "label": "Karimnagar"
+    },
+    {
+        "value": "Ramagundam",
+        "label": "Ramagundam"
+    },
+    {
+        "value": "Khammam",
+        "label": "Khammam"
+    },
+    {
+        "value": "Mahbubnagar",
+        "label": "Mahbubnagar"
+    },
+    {
+        "value": "Mancherial",
+        "label": "Mancherial"
+    },
+    {
+        "value": "Adilabad",
+        "label": "Adilabad"
+    },
+    {
+        "value": "Suryapet",
+        "label": "Suryapet"
+    },
+    {
+        "value": "Jagtial",
+        "label": "Jagtial"
+    },
+    {
+        "value": "Miryalaguda",
+        "label": "Miryalaguda"
+    },
+    {
+        "value": "Nirmal",
+        "label": "Nirmal"
+    },
+    {
+        "value": "Kamareddy",
+        "label": "Kamareddy"
+    },
+    {
+        "value": "Kothagudem",
+        "label": "Kothagudem"
+    },
+    {
+        "value": "Bodhan",
+        "label": "Bodhan"
+    },
+    {
+        "value": "Palwancha",
+        "label": "Palwancha"
+    },
+    {
+        "value": "Mandamarri",
+        "label": "Mandamarri"
+    },
+    {
+        "value": "Koratla",
+        "label": "Koratla"
+    },
+    {
+        "value": "Sircilla",
+        "label": "Sircilla"
+    },
+    {
+        "value": "Tandur",
+        "label": "Tandur"
+    },
+    {
+        "value": "Siddipet",
+        "label": "Siddipet"
+    },
+    {
+        "value": "Wanaparthy",
+        "label": "Wanaparthy"
+    },
+    {
+        "value": "Kagaznagar",
+        "label": "Kagaznagar"
+    },
+    {
+        "value": "Gadwal",
+        "label": "Gadwal"
+    },
+    {
+        "value": "Sangareddy",
+        "label": "Sangareddy"
+    },
+    {
+        "value": "Bellampalle",
+        "label": "Bellampalle"
+    },
+    {
+        "value": "Bhongir",
+        "label": "Bhongir"
+    },
+    {
+        "value": "Vikarabad",
+        "label": "Vikarabad"
+    },
+    {
+        "value": "Jangaon",
+        "label": "Jangaon"
+    },
+    {
+        "value": "Bhadrachalam",
+        "label": "Bhadrachalam"
+    },
+    {
+        "value": "Bhainsa",
+        "label": "Bhainsa"
+    },
+    {
+        "value": "Farooqnagar",
+        "label": "Farooqnagar"
+    },
+    {
+        "value": "Medak",
+        "label": "Medak"
+    },
+    {
+        "value": "Narayanpet",
+        "label": "Narayanpet"
+    },
+    {
+        "value": "Sadasivpet",
+        "label": "Sadasivpet"
+    },
+    {
+        "value": "Yellandu",
+        "label": "Yellandu"
+    },
+    {
+        "value": "Manuguru",
+        "label": "Manuguru"
+    },
+    {
+        "value": "Kyathampalle",
+        "label": "Kyathampalle"
+    },
+    {
+        "value": "Nagarkurnool",
+        "label": "Nagarkurnool"
+    },
+    {
+        "value": "Shillong",
+        "label": "Shillong"
+    },
+    {
+        "value": "Tura",
+        "label": "Tura"
+    },
+    {
+        "value": "Nongstoin",
+        "label": "Nongstoin"
+    },
+    {
+        "value": "Manali",
+        "label": "Manali"
+    },
+    {
+        "value": "Naharlagun",
+        "label": "Naharlagun"
+    },
+    {
+        "value": "Pasighat",
+        "label": "Pasighat"
+    },
+    {
+        "value": "Mumbai",
+        "label": "Mumbai"
+    },
+    {
+        "value": "Pune",
+        "label": "Pune"
+    },
+    {
+        "value": "Nagpur",
+        "label": "Nagpur"
+    },
+    {
+        "value": "Thane",
+        "label": "Thane"
+    },
+    {
+        "value": "Nashik",
+        "label": "Nashik"
+    },
+    {
+        "value": "Kalyan-Dombivali",
+        "label": "Kalyan-Dombivali"
+    },
+    {
+        "value": "Vasai-Virar",
+        "label": "Vasai-Virar"
+    },
+    {
+        "value": "Solapur",
+        "label": "Solapur"
+    },
+    {
+        "value": "Mira-Bhayandar",
+        "label": "Mira-Bhayandar"
+    },
+    {
+        "value": "Bhiwandi",
+        "label": "Bhiwandi"
+    },
+    {
+        "value": "Amravati",
+        "label": "Amravati"
+    },
+    {
+        "value": "Nanded-Waghala",
+        "label": "Nanded-Waghala"
+    },
+    {
+        "value": "Sangli",
+        "label": "Sangli"
+    },
+    {
+        "value": "Malegaon",
+        "label": "Malegaon"
+    },
+    {
+        "value": "Akola",
+        "label": "Akola"
+    },
+    {
+        "value": "Latur",
+        "label": "Latur"
+    },
+    {
+        "value": "Dhule",
+        "label": "Dhule"
+    },
+    {
+        "value": "Ahmednagar",
+        "label": "Ahmednagar"
+    },
+    {
+        "value": "Ichalkaranji",
+        "label": "Ichalkaranji"
+    },
+    {
+        "value": "Parbhani",
+        "label": "Parbhani"
+    },
+    {
+        "value": "Panvel",
+        "label": "Panvel"
+    },
+    {
+        "value": "Yavatmal",
+        "label": "Yavatmal"
+    },
+    {
+        "value": "Achalpur",
+        "label": "Achalpur"
+    },
+    {
+        "value": "Osmanabad",
+        "label": "Osmanabad"
+    },
+    {
+        "value": "Nandurbar",
+        "label": "Nandurbar"
+    },
+    {
+        "value": "Satara",
+        "label": "Satara"
+    },
+    {
+        "value": "Wardha",
+        "label": "Wardha"
+    },
+    {
+        "value": "Udgir",
+        "label": "Udgir"
+    },
+    {
+        "value": "Aurangabad",
+        "label": "Aurangabad"
+    },
+    {
+        "value": "Amalner",
+        "label": "Amalner"
+    },
+    {
+        "value": "Akot",
+        "label": "Akot"
+    },
+    {
+        "value": "Pandharpur",
+        "label": "Pandharpur"
+    },
+    {
+        "value": "Shrirampur",
+        "label": "Shrirampur"
+    },
+    {
+        "value": "Parli",
+        "label": "Parli"
+    },
+    {
+        "value": "Washim",
+        "label": "Washim"
+    },
+    {
+        "value": "Ambejogai",
+        "label": "Ambejogai"
+    },
+    {
+        "value": "Manmad",
+        "label": "Manmad"
+    },
+    {
+        "value": "Ratnagiri",
+        "label": "Ratnagiri"
+    },
+    {
+        "value": "Uran Islampur",
+        "label": "Uran Islampur"
+    },
+    {
+        "value": "Pusad",
+        "label": "Pusad"
+    },
+    {
+        "value": "Sangamner",
+        "label": "Sangamner"
+    },
+    {
+        "value": "Shirpur-Warwade",
+        "label": "Shirpur-Warwade"
+    },
+    {
+        "value": "Malkapur",
+        "label": "Malkapur"
+    },
+    {
+        "value": "Wani",
+        "label": "Wani"
+    },
+    {
+        "value": "Lonavla",
+        "label": "Lonavla"
+    },
+    {
+        "value": "Talegaon Dabhade",
+        "label": "Talegaon Dabhade"
+    },
+    {
+        "value": "Anjangaon",
+        "label": "Anjangaon"
+    },
+    {
+        "value": "Umred",
+        "label": "Umred"
+    },
+    {
+        "value": "Palghar",
+        "label": "Palghar"
+    },
+    {
+        "value": "Shegaon",
+        "label": "Shegaon"
+    },
+    {
+        "value": "Ozar",
+        "label": "Ozar"
+    },
+    {
+        "value": "Phaltan",
+        "label": "Phaltan"
+    },
+    {
+        "value": "Yevla",
+        "label": "Yevla"
+    },
+    {
+        "value": "Shahade",
+        "label": "Shahade"
+    },
+    {
+        "value": "Vita",
+        "label": "Vita"
+    },
+    {
+        "value": "Umarkhed",
+        "label": "Umarkhed"
+    },
+    {
+        "value": "Warora",
+        "label": "Warora"
+    },
+    {
+        "value": "Pachora",
+        "label": "Pachora"
+    },
+    {
+        "value": "Tumsar",
+        "label": "Tumsar"
+    },
+    {
+        "value": "Manjlegaon",
+        "label": "Manjlegaon"
+    },
+    {
+        "value": "Sillod",
+        "label": "Sillod"
+    },
+    {
+        "value": "Arvi",
+        "label": "Arvi"
+    },
+    {
+        "value": "Nandura",
+        "label": "Nandura"
+    },
+    {
+        "value": "Vaijapur",
+        "label": "Vaijapur"
+    },
+    {
+        "value": "Wadgaon Road",
+        "label": "Wadgaon Road"
+    },
+    {
+        "value": "Sailu",
+        "label": "Sailu"
+    },
+    {
+        "value": "Murtijapur",
+        "label": "Murtijapur"
+    },
+    {
+        "value": "Tasgaon",
+        "label": "Tasgaon"
+    },
+    {
+        "value": "Mehkar",
+        "label": "Mehkar"
+    },
+    {
+        "value": "Yawal",
+        "label": "Yawal"
+    },
+    {
+        "value": "Pulgaon",
+        "label": "Pulgaon"
+    },
+    {
+        "value": "Nilanga",
+        "label": "Nilanga"
+    },
+    {
+        "value": "Wai",
+        "label": "Wai"
+    },
+    {
+        "value": "Umarga",
+        "label": "Umarga"
+    },
+    {
+        "value": "Paithan",
+        "label": "Paithan"
+    },
+    {
+        "value": "Rahuri",
+        "label": "Rahuri"
+    },
+    {
+        "value": "Nawapur",
+        "label": "Nawapur"
+    },
+    {
+        "value": "Tuljapur",
+        "label": "Tuljapur"
+    },
+    {
+        "value": "Morshi",
+        "label": "Morshi"
+    },
+    {
+        "value": "Purna",
+        "label": "Purna"
+    },
+    {
+        "value": "Satana",
+        "label": "Satana"
+    },
+    {
+        "value": "Pathri",
+        "label": "Pathri"
+    },
+    {
+        "value": "Sinnar",
+        "label": "Sinnar"
+    },
+    {
+        "value": "Uchgaon",
+        "label": "Uchgaon"
+    },
+    {
+        "value": "Uran",
+        "label": "Uran"
+    },
+    {
+        "value": "Pen",
+        "label": "Pen"
+    },
+    {
+        "value": "Karjat",
+        "label": "Karjat"
+    },
+    {
+        "value": "Manwath",
+        "label": "Manwath"
+    },
+    {
+        "value": "Partur",
+        "label": "Partur"
+    },
+    {
+        "value": "Sangole",
+        "label": "Sangole"
+    },
+    {
+        "value": "Mangrulpir",
+        "label": "Mangrulpir"
+    },
+    {
+        "value": "Risod",
+        "label": "Risod"
+    },
+    {
+        "value": "Shirur",
+        "label": "Shirur"
+    },
+    {
+        "value": "Savner",
+        "label": "Savner"
+    },
+    {
+        "value": "Sasvad",
+        "label": "Sasvad"
+    },
+    {
+        "value": "Pandharkaoda",
+        "label": "Pandharkaoda"
+    },
+    {
+        "value": "Talode",
+        "label": "Talode"
+    },
+    {
+        "value": "Shrigonda",
+        "label": "Shrigonda"
+    },
+    {
+        "value": "Shirdi",
+        "label": "Shirdi"
+    },
+    {
+        "value": "Raver",
+        "label": "Raver"
+    },
+    {
+        "value": "Mukhed",
+        "label": "Mukhed"
+    },
+    {
+        "value": "Rajura",
+        "label": "Rajura"
+    },
+    {
+        "value": "Vadgaon Kasba",
+        "label": "Vadgaon Kasba"
+    },
+    {
+        "value": "Tirora",
+        "label": "Tirora"
+    },
+    {
+        "value": "Mahad",
+        "label": "Mahad"
+    },
+    {
+        "value": "Lonar",
+        "label": "Lonar"
+    },
+    {
+        "value": "Sawantwadi",
+        "label": "Sawantwadi"
+    },
+    {
+        "value": "Pathardi",
+        "label": "Pathardi"
+    },
+    {
+        "value": "Pauni",
+        "label": "Pauni"
+    },
+    {
+        "value": "Ramtek",
+        "label": "Ramtek"
+    },
+    {
+        "value": "Mul",
+        "label": "Mul"
+    },
+    {
+        "value": "Soyagaon",
+        "label": "Soyagaon"
+    },
+    {
+        "value": "Mangalvedhe",
+        "label": "Mangalvedhe"
+    },
+    {
+        "value": "Narkhed",
+        "label": "Narkhed"
+    },
+    {
+        "value": "Shendurjana",
+        "label": "Shendurjana"
+    },
+    {
+        "value": "Patur",
+        "label": "Patur"
+    },
+    {
+        "value": "Mhaswad",
+        "label": "Mhaswad"
+    },
+    {
+        "value": "Loha",
+        "label": "Loha"
+    },
+    {
+        "value": "Nandgaon",
+        "label": "Nandgaon"
+    },
+    {
+        "value": "Warud",
+        "label": "Warud"
+    },
+    {
+        "value": "Marmagao",
+        "label": "Marmagao"
+    },
+    {
+        "value": "Panaji",
+        "label": "Panaji"
+    },
+    {
+        "value": "Margao",
+        "label": "Margao"
+    },
+    {
+        "value": "Mapusa",
+        "label": "Mapusa"
+    },
+    {
+        "value": "Kolkata",
+        "label": "Kolkata"
+    },
+    {
+        "value": "Siliguri",
+        "label": "Siliguri"
+    },
+    {
+        "value": "Asansol",
+        "label": "Asansol"
+    },
+    {
+        "value": "Raghunathganj",
+        "label": "Raghunathganj"
+    },
+    {
+        "value": "Kharagpur",
+        "label": "Kharagpur"
+    },
+    {
+        "value": "Naihati",
+        "label": "Naihati"
+    },
+    {
+        "value": "English Bazar",
+        "label": "English Bazar"
+    },
+    {
+        "value": "Baharampur",
+        "label": "Baharampur"
+    },
+    {
+        "value": "Hugli-Chinsurah",
+        "label": "Hugli-Chinsurah"
+    },
+    {
+        "value": "Raiganj",
+        "label": "Raiganj"
+    },
+    {
+        "value": "Jalpaiguri",
+        "label": "Jalpaiguri"
+    },
+    {
+        "value": "Santipur",
+        "label": "Santipur"
+    },
+    {
+        "value": "Balurghat",
+        "label": "Balurghat"
+    },
+    {
+        "value": "Medinipur",
+        "label": "Medinipur"
+    },
+    {
+        "value": "Habra",
+        "label": "Habra"
+    },
+    {
+        "value": "Ranaghat",
+        "label": "Ranaghat"
+    },
+    {
+        "value": "Bankura",
+        "label": "Bankura"
+    },
+    {
+        "value": "Nabadwip",
+        "label": "Nabadwip"
+    },
+    {
+        "value": "Darjiling",
+        "label": "Darjiling"
+    },
+    {
+        "value": "Purulia",
+        "label": "Purulia"
+    },
+    {
+        "value": "Arambagh",
+        "label": "Arambagh"
+    },
+    {
+        "value": "Tamluk",
+        "label": "Tamluk"
+    },
+    {
+        "value": "AlipurdUrban Agglomerationr",
+        "label": "AlipurdUrban Agglomerationr"
+    },
+    {
+        "value": "Suri",
+        "label": "Suri"
+    },
+    {
+        "value": "Jhargram",
+        "label": "Jhargram"
+    },
+    {
+        "value": "Gangarampur",
+        "label": "Gangarampur"
+    },
+    {
+        "value": "Rampurhat",
+        "label": "Rampurhat"
+    },
+    {
+        "value": "Kalimpong",
+        "label": "Kalimpong"
+    },
+    {
+        "value": "Sainthia",
+        "label": "Sainthia"
+    },
+    {
+        "value": "Taki",
+        "label": "Taki"
+    },
+    {
+        "value": "Murshidabad",
+        "label": "Murshidabad"
+    },
+    {
+        "value": "Memari",
+        "label": "Memari"
+    },
+    {
+        "value": "Paschim Punropara",
+        "label": "Paschim Punropara"
+    },
+    {
+        "value": "Tarakeswar",
+        "label": "Tarakeswar"
+    },
+    {
+        "value": "Sonamukhi",
+        "label": "Sonamukhi"
+    },
+    {
+        "value": "PandUrban Agglomeration",
+        "label": "PandUrban Agglomeration"
+    },
+    {
+        "value": "Mainaguri",
+        "label": "Mainaguri"
+    },
+    {
+        "value": "Malda",
+        "label": "Malda"
+    },
+    {
+        "value": "Panchla",
+        "label": "Panchla"
+    },
+    {
+        "value": "Raghunathpur",
+        "label": "Raghunathpur"
+    },
+    {
+        "value": "Mathabhanga",
+        "label": "Mathabhanga"
+    },
+    {
+        "value": "Monoharpur",
+        "label": "Monoharpur"
+    },
+    {
+        "value": "Srirampore",
+        "label": "Srirampore"
+    },
+    {
+        "value": "Adra",
+        "label": "Adra"
+    }
+]
