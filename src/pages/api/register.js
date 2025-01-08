@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         } catch (error) {
             console.error("Error calling external API:", error.message);
             res.json(
-                externalApiResponse.data
+                error
             )
         }
     } else {

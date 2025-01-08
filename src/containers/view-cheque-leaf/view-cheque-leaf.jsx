@@ -8,11 +8,11 @@ import {
   ModalHeader,
   ModalContent,
   ModalFooter,
-} from "@/components/ui/model/model";
+} from "@/components/ui/modal/modal";
 import Input from "@/components/ui/input/input";
 import IconInput from "@/components/ui/icon-input/icon-input";
 import Button from "@/components/ui/button/button";
-import SuccessModal from "@/components/ui/success-modal/success-modal";
+import InfoModal from "@/components/ui/info-modal/info-modal";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker";
 const data = [
@@ -211,7 +211,7 @@ export default function ViewChequeLeaf() {
           </ModalFooter>
         </Modal>
         <Modal isOpen={isModalOpen2}>
-          <SuccessModal
+          <InfoModal
             onClose={SecondModalClose}
             successTitle="Check details Updated"
             successContent="The customer's cheque has been collected by our agent."

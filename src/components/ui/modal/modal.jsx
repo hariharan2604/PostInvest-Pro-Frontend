@@ -1,4 +1,4 @@
-import styles from "./model.module.scss";
+import styles from "./modal.module.scss";
 import Image from "next/image";
 import CloseIcon from "../../../../public/images/close.svg";
 import Button from "../button/button";
@@ -16,10 +16,10 @@ export const Modal = ({ isOpen, onClose, children }) => {
 export const ModalHeader = ({ title, showButton, onClose, subTitle }) => {
   return (
     <div className={styles.modalHeader}>
-      <div className={styles.textGroup}>
+      {title && subTitle && (<div className={styles.textGroup}>
         <h2>{title}</h2>
         <p>{subTitle}</p>
-      </div>
+      </div>)}
       {showButton && (
         <Button className={styles.closeButton} onClick={onClose}>
           <Image src={CloseIcon} alt="Close" />

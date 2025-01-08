@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
 import styles from './registration.module.scss'
@@ -10,13 +11,24 @@ import State from '../../../public/data/states.json';
 import Selectdropdown from "@/components/ui/select/select";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import IconInput from '@/components/ui/icon-input/icon-input';
+import InfoModal from "@/components/ui/info-modal/info-modal";
 
 export default function Registration() {
+    const router = useRouter();
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [isError, setError] = useState(false);
     const [formData, setFormData] = useState({ gender: "Male" });
     const [cities, setCities] = useState(City);
     const [states, setStates] = useState(State);
     const [errors, setErrors] = useState({});
+    const [response, setResponse] = useState({});
 
+    const handleCloseModal = () => {
+        setModalOpen(false);
+        if (!isError) {
+            router.push("/");
+        }
+    }
 
     const validateForm = () => {
         const newErrors = {};
@@ -80,7 +92,7 @@ export default function Registration() {
         });
     };
 
-    
+
 
     const submitData = async () => {
         try {
@@ -93,13 +105,19 @@ export default function Registration() {
             });
 
             const result = await response.json();
-            console.log(result);
+            if (result.status === "success") {
+                setError(false);
+            }
+            else if (result.status === "error") {
+                setError(true);
+            }
+            setModalOpen(true);
+            setResponse(result);
         } catch (error) {
             console.error("Error submitting data:", error);
         }
     }
     const handleSubmit = (event) => {
-
         event.preventDefault();
         if (validateForm()) {
             submitData();
@@ -161,6 +179,13 @@ export default function Registration() {
                     <Button variant="outline" path='/'>Back to Login</Button>
                 </div>
             </div >
+            <div className={styles.bottom}>
+                {isModalOpen && (
+                    <div className={styles.overlay}>
+                        <InfoModal errorStatus={isError} Title={isError ? "Error in Agent Registration" : "Registration Successful"} Content={isError ? response.error.message : "Login to Continue..."} onOpen={isModalOpen} onClose={handleCloseModal} />
+                    </div>
+                )}
+            </div>
         </>
     )
 }

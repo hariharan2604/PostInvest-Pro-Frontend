@@ -7,7 +7,7 @@ import Notification from "../../../public/images/notification.svg";
 import Link from "next/link";
 import Footer from "../Footer/Footer";
 
-const Header = ({ title, showLeftArrow, notitficatoIcon, navigate = "/default-path" }) => {
+const Header = ({ title, showLeftArrow, notifyToIcon, navigate = "/default-path" }) => {
   return (
     <>
       <div className="container">
@@ -25,8 +25,8 @@ const Header = ({ title, showLeftArrow, notitficatoIcon, navigate = "/default-pa
               <Footer />
             </div>
           </div>
-          {notitficatoIcon && (
-            <div className={styles.notitficatoIcon}>
+          {notifyToIcon && (
+            <div className={styles.notifyToIcon}>
               <Image src={Notification} alt="Notification Icon" />
             </div>
           )}

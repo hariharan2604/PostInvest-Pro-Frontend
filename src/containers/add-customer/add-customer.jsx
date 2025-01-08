@@ -4,7 +4,7 @@ import Button from "@/components/ui/button/button";
 import IconInput from "@/components/ui/icon-input/icon-input";
 import NavigateLinkComponent from "@/components/ui/navigator-link/navigator-link";
 import Selectdropdown from "@/components/ui/select/select";
-import SuccessModal from "@/components/ui/success-modal/success-modal";
+import InfoModal from "@/components/ui/info-modal/info-modal";
 import { useState } from "react";
 import styles from './add-customer.module.scss'
 import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker";
@@ -76,7 +76,7 @@ export default function AddCustomer() {
       <div className={styles.bottom}>
         {isVisible && (
           <div className={styles.overlay}>
-            <SuccessModal successTitle="Check details Updated" successContent="The customer's cheque has been collected by our agent." />
+            <InfoModal successTitle="Check details Updated" successContent="The customer's cheque has been collected by our agent." />
           </div>
         )}
       </div>
