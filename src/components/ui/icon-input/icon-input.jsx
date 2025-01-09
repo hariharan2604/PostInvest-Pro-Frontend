@@ -3,8 +3,8 @@ import Iconinput from "./icon-input.module.scss";
 import Image from "next/image";
 import Input from "../input/input";
 // Image imports
-import EyeOpen from "../../../../public/images/eye-open.svg";
-import EyeClose from "../../../../public/images/eye-close.svg";
+import EyeOpen from "@icons/eye-open.svg";
+import EyeClose from "@icons/eye-close.svg";
 
 const PasswordInput = ({ name = "password", labelText = "Password",
   placeholder = "Enter your password", errorText, ...restProps }) => {

@@ -1,6 +1,6 @@
 import { ModalHeader, ModalContent, ModalFooter, Modal } from "../modal/modal";
-import success from '../../../../public/images/success.svg'
-import error from '../../../../public/images/error.svg'
+import success from '@icons/success.svg'
+import error from '@icons/error.svg'
 import Image from "next/image";
 import successStyles from './info-modal.module.scss'
 import Button from "@/components/ui/button/button";

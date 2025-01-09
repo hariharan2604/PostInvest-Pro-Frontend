@@ -1,5 +1,5 @@
-import success from '../../../../public/images/success.svg'
-import check from '../../../../public/images/check.svg'
+import success from '@icons/success.svg'
+import check from '@icons/check.svg'
 import Image from 'next/image'
 import successStyles from '@/components/ui/info-modal/info-modal.module.scss'
 import { ModalContent, ModalFooter } from '../modal/modal'

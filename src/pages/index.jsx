@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import login from '../../public/images/login.png'
+import login from '@icons/login.png'
 import Input from "@/components/ui/input/input";
 import IconInput from "@/components/ui/icon-input/icon-input";
 import Button from "@/components/ui/button/button";

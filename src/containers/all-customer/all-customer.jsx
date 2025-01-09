@@ -4,7 +4,7 @@ import SearchHead from "../search-header/search-header";
 import Link from "next/link";
 import Profile from "@/components/ui/profile/profile";
 
-import Add from "../../../public/images/icon-add.svg";
+import Add from "@icons/icon-add.svg";
 import Image from "next/image";
 import Checkbox from "@/components/ui/checkbox/checkbox";
 

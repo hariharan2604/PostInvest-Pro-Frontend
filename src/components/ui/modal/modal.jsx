@@ -1,6 +1,6 @@
 import styles from "./modal.module.scss";
 import Image from "next/image";
-import CloseIcon from "../../../../public/images/close.svg";
+import CloseIcon from "@icons/close.svg";
 import Button from "../button/button";
 
 export const Modal = ({ isOpen, onClose, children }) => {

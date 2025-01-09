@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from "next/image";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import DateIcon from "../../../../public/images/date.svg";
+import DateIcon from "@icons/date.svg";
 import styles from './CustomDatePicker.module.scss';
 
 const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {

@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./Header.module.scss";
-import leftArrow from "../../../public/images/arrow-left.svg";
-import Notification from "../../../public/images/notification.svg";
+import leftArrow from "@icons/arrow-left.svg";
+import Notification from "@icons/notification.svg";
 
 import Link from "next/link";
 import Footer from "../Footer/Footer";

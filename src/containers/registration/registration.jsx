@@ -6,8 +6,8 @@ import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
 import styles from './registration.module.scss'
 import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker";
-import City from '../../../public/data/cities.json';
-import State from '../../../public/data/states.json';
+import City from '@data/cities.json';
+import State from '@data/states.json';
 import Selectdropdown from "@/components/ui/select/select";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import IconInput from '@/components/ui/icon-input/icon-input';

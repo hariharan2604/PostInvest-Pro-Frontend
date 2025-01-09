@@ -1,7 +1,7 @@
 import { useState, Children, cloneElement } from 'react';
 import Image from 'next/image';
 import accordionStyle from './accordion.module.scss';
-import downArrow from '../../../../public/images/down-arrow.svg';
+import downArrow from '@icons/down-arrow.svg';
 
 const Accordion = ({ children }) => {
   const [openIndex, setOpenIndex] = useState(0);
