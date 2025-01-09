@@ -1,9 +1,9 @@
 import React from 'react'
 
 import styles from './Calendar.module.scss'
-import calendarLeft from '../../../public/images/leftCalender.svg'
-import calendarRight from '../../../public/images/rightCalender.svg'
-import calendarIcon from '../../../public/images/calendarIcon.svg'
+import calendarLeft from '@icons/leftCalender.svg'
+import calendarRight from '@icons/rightCalender.svg'
+import calendarIcon from '@icons/calendarIcon.svg'
 
 import Image from 'next/image'
 const Calendar = () => {

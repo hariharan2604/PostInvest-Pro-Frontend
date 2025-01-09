@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import Home from "../../../public/images/home.svg";
-import Remittance from "../../../public/images/remittance.svg";
-import User from "../../../public/images/footer-user.svg";
-import Menu from "../../../public/images/menu.svg";
+import Home from "@icons/home.svg";
+import Remittance from "@icons/remittance.svg";
+import User from "@icons/footer-user.svg";
+import Menu from "@icons/menu.svg";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 

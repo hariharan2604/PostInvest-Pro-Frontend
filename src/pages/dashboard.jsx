@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Header title="Welcome to Post Invest Pro" notitficatoIcon={true} navigate="/profile" />
+      <Header title="Welcome to Post Invest Pro" notifyToIcon={true} navigate="/profile" />
       <Layout>
         <SearchHead />
         <CardData />

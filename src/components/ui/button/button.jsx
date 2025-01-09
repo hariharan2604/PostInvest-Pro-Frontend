@@ -1,5 +1,5 @@
 import button from "./button.module.scss";
-import AddIcon from "../../../../public/images/add.svg";
+import AddIcon from "@icons/add.svg";
 import Image from "next/image";
 import { useRouter } from "next/router";
 

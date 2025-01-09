@@ -1,6 +1,6 @@
 import pillStyles from "./pill.module.scss";
 
-import cashIcon from "../../../../public/images/coinIcon.svg";
+import cashIcon from "@icons/coinIcon.svg";
 import Image from "next/image";
 
 export default function Pill({ variant, pillNumber, pillText, paymentMode }) {

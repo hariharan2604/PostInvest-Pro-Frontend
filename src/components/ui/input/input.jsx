@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./input.module.scss";
 
-const Input = ({ type="text",variant = "label", labelText, onChange, value, name, defaultValue, ...restProps }) => {
+const Input = ({ type = "text", variant = "label", labelText, onChange, value, name, defaultValue, errorText, ...restProps }) => {
   const [inputValue, setInputValue] = useState(value || "");
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Input = ({ type="text",variant = "label", labelText, onChange, value, name
   const isDisabled = variant === "disabled";
 
   return (
-    <div className={styles.inputSection}>
+    <><div className={styles.inputSection}>
       <div className={`${styles.inputGroup} ${inputClass}`}>
         <input
           type={type}
@@ -38,6 +38,7 @@ const Input = ({ type="text",variant = "label", labelText, onChange, value, name
         {variant !== "plain" && <label htmlFor={name}>{labelText}</label>}
       </div>
     </div>
+      {errorText && <div className={styles.errorText}>{errorText}</div>}</>
   );
 };
 

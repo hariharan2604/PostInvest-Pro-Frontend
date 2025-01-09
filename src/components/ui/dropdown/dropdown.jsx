@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import dropdownStyles from './dropdown.module.scss'
 import Image from 'next/image';
-import downArrow from '../../../../public/images/down-arrow.svg'
-import close from '../../../../public/images/close.svg'
-import check from '../../../../public/images/check.svg'
+import downArrow from '@icons/down-arrow.svg'
+import close from '@icons/close.svg'
+import check from '@icons/check.svg'
 export default function Dropdown() {
     let options = ['Today', 'Week', 'This Month']
     const [isopen, setIsopen] = useState(false);

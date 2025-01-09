@@ -1,5 +1,5 @@
 import profile from "./profile.module.scss";
-import user from "../../../../public/images/user.svg";
+import user from "@icons/user.svg";
 import Image from "next/image";
 
 export default function Profile({ variant, profileText, profileStatus }) {

@@ -1,4 +1,4 @@
-import styles from "./remittan-view.module.scss";
+import styles from "./remittance-view.module.scss";
 import { useState } from "react";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import DividerLine from "@/components/ui/divider-line/divider-line";
@@ -6,7 +6,7 @@ import Profile from "@/components/ui/profile/profile";
 import Calender from "../calendar/Calender";
 import Pill from "@/components/ui/pill/pill";
 
-export default function RemittanView() {
+export default function RemittanceView() {
   const data = [
     {
       userName: "Annasamy",

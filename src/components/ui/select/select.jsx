@@ -2,9 +2,7 @@ import SelectStyle from "./select.module.scss";
 import React, { useState } from "react";
 import Select from "react-select";
 
-export default function Selectdropdown({ options, selectText }) {
-  const [selectedOption, setSelectedOption] = useState(null);
-
+export default function Selectdropdown({ options, selectText, selectedOption, setSelectedOption, errorText }) {
   return (
     <>
       <div className={SelectStyle["inputGroup"]}>
@@ -37,6 +35,7 @@ export default function Selectdropdown({ options, selectText }) {
           {selectText}
         </label>
       </div>
+      {errorText && <div className={SelectStyle.errorText}>{errorText}</div>}
     </>
   );
 }

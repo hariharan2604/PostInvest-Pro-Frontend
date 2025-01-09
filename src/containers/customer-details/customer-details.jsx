@@ -5,10 +5,10 @@ import IconInput from "@/components/ui/icon-input/icon-input";
 import Profile from "@/components/ui/profile/profile";
 
 // image import
-import Email from "../../../public/images/email.svg";
-import DateIcon from "../../../public/images/date_picker.svg";
-import Location from "../../../public/images/location.svg";
-import Phone from "../../../public/images/phone.svg";
+import Email from "@icons/email.svg";
+import DateIcon from "@icons/date_picker.svg";
+import Location from "@icons/location.svg";
+import Phone from "@icons/phone.svg";
 import Image from "next/image";
 import Button from "@/components/ui/button/button";
 import Link from "next/link";

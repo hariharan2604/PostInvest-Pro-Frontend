@@ -8,11 +8,11 @@ import {
   Modal,
   ModalContent,
   ModalFooter,
-} from "@/components/ui/model/model";
+} from "@/components/ui/modal/modal";
 import Button from "@/components/ui/button/button";
 import Input from "@/components/ui/input/input";
 import IconInput from "@/components/ui/icon-input/icon-input";
-import SuccessModal from "@/components/ui/success-modal/success-modal";
+import InfoModal from "@/components/ui/info-modal/info-modal";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker";
 import Title from "@/components/ui/title/title";
@@ -251,14 +251,16 @@ export default function ChequeLeaf() {
           </Button>
         </ModalFooter>
       </Modal>
-      <Modal isOpen={isModalOpen2}>
-        <SuccessModal
-          onClose={SecondModalClose}
-          successTitle="Check details Updated"
-          successContent="The customer's cheque has been collected by our agent."
-          variant="withfooter"
-        />
-      </Modal>
+      <InfoModal
+        onOpen={isModalOpen2}
+        showButton={false}
+        onClose={SecondModalClose}
+        Title="Check details Updated"
+        Content="The customer's cheque has been collected by our agent."
+      >
+        <Button variant="outline" onClick={SecondModalClose}>Cancel</Button>
+        <Button variant="primary" onClick={SecondModalClose}>Add More Cheque</Button>
+      </InfoModal>
     </div>
   );
 }

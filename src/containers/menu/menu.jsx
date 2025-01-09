@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
-import profileImage from '../../../public/images/Profile-image.svg'
-import help from '../../../public/images/help.svg'
-import userprofile from '../../../public/images/user-profile.svg'
-import lock from '../../../public/images/lock.svg'
-import logout from '../../../public/images/logout.svg'
+import profileImage from '@icons/Profile-image.svg'
+import help from '@icons/help.svg'
+import userprofile from '@icons/user-profile.svg'
+import lock from '@icons/lock.svg'
+import logout from '@icons/logout.svg'
 import styles from './menu.module.scss'
 export default function Menu({ profileName, profileId }) {
     return (

@@ -1,6 +1,6 @@
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
-import SuccessModal from "@/components/ui/success-modal/success-modal";
+import InfoModal from "@/components/ui/info-modal/info-modal";
 import AddCustomer from "@/containers/add-customer/add-customer";
 
 const CustomerAdd = () => {
