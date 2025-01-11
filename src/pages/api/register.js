@@ -6,7 +6,6 @@ export default async function handler(req, res) {
             const externalApiResponse = await axios.post(`${process.env.API_URL}/auth/agent-register`, req.body
             );
 
-            // Respond with the data received from the external API
             res.json(
                 externalApiResponse.data,
             );
