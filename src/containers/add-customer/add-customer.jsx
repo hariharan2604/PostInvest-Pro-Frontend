@@ -1,4 +1,4 @@
-import addcusStyle from "./add-customer.module.scss";
+import customerStyle from "./add-customer.module.scss";
 import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
 import IconInput from "@/components/ui/icon-input/icon-input";
@@ -33,43 +33,43 @@ export default function AddCustomer() {
   return (
     <>
 
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Input labelText="Full Name" name="full_name" />
       </div>
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Input labelText="Mobile No" name="mobile" />
       </div>
 
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Input labelText="Email ID" name="email" />
       </div>
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Input labelText="Gender" name="gender" />
       </div>
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <CustomDatePicker
           selectedDate={selectedDate}
           onChange={handleDateChange}
           label="Date of Birth"
         />
       </div>
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Input labelText="Address" name="address" />
       </div>
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Input labelText="Area" name="area" />
       </div>
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Input labelText="Zip" name="zip" />
       </div>
-      <div className={addcusStyle["form-group"]}>
+      <div className={customerStyle["form-group"]}>
         <Selectdropdown options={State} selectText="Select State"></Selectdropdown>
       </div>
-      <div className={addcusStyle["addMember"]}>
+      <div className={customerStyle["addMember"]}>
         <NavigateLinkComponent navigateLink="/family-members" iconPosition="left" navigateLabel="Add More Family Member" />
 
       </div>
-      <div className={addcusStyle["buttonGroup"]}>
+      <div className={customerStyle["buttonGroup"]}>
         <Button variant="outline" path="/dashboard">Cancel</Button>
         <Button variant="primary" onClick={setTimeOutModal}>Save</Button>
       </div>

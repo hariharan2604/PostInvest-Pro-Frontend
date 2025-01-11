@@ -39,7 +39,7 @@ export default function AddScheme() {
         </div>
 
         <div className={schemeStyle["form-group"]}>
-          <div className={schemeStyle["invest_amout"]}>
+          <div className={schemeStyle["invest_amount"]}>
             <p>Investment Amount</p>
             <Input variant="plain" name="scheme" />
           </div>

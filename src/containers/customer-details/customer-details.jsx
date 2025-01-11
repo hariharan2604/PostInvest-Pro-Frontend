@@ -64,7 +64,7 @@ export default function CustomerDetails() {
               <AccordionItem header="Basic Info">
                 <div className={detailsStyle.detailsInfo}>
                   {detailsData.map((detail, index) => (
-                    <div key={index} className={detailsStyle.datas}>
+                    <div key={index} className={detailsStyle.data}>
                       <div className="image">
                         <Image src={detail.icon} alt="Icon" />
                       </div>
@@ -90,7 +90,7 @@ export default function CustomerDetails() {
                       <span>Wife | 10-Feb-1985 Invest Scheme 1</span>
                     </div>
                   </div>
-                  <div className={detailsStyle["addMenber"]}>
+                  <div className={detailsStyle["addMember"]}>
                     <Button variant="linkButton" path="/family-members">
                       Add Member
                     </Button>
@@ -109,12 +109,12 @@ export default function CustomerDetails() {
             {schemesData.map((scheme, index) => (
               <Link href="/fund" key={index} passHref>
                 <div className={detailsStyle["dataGroup"]}>
-                  <div className={detailsStyle["profilr_text_group"]}>
+                  <div className={detailsStyle["profile_text_group"]}>
                     <Profile
                       variant="profileText"
                       profileText={scheme.profileText}
                     />
-                    <div className={detailsStyle["detai_info"]}>
+                    <div className={detailsStyle["detail_info"]}>
                       <span>{scheme.id}</span>
                       <p>{scheme.name}</p>
                     </div>
@@ -128,7 +128,7 @@ export default function CustomerDetails() {
             ))}
           </div>
 
-          <div className={detailsStyle["addMenber"]}>
+          <div className={detailsStyle["addMember"]}>
             <Button variant="linkButton" path="/scheme">
               Add Scheme
             </Button>

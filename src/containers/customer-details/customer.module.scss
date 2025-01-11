@@ -1,137 +1,137 @@
 .customerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .accordionWrapper {
+    display: inline-flex;
+    gap: 20px;
+    width: 100%;
+    @media (max-width: 767.98px) {
+      display: flex;
+      flex-direction: column;
+    }
+    .accordionItem {
+      flex-basis: 50%;
+    }
+  }
+  .detailsInfo {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    .accordionWrapper{
-        display: inline-flex;
-       gap: 20px;
-       width: 100%;
-        @media (max-width:767.98px) {
-            display: flex;
-            flex-direction: column;
-        }
-        .accordionItem{
-            flex-basis: 50%;
-        }
-    }
-    .detailsInfo {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+    gap: 16px;
 
-        .datas {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            line-height: 0;
+    .data {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 0;
 
-            p {
-                color: #000000;
-                font-size: 14px;
-                line-height: 17px;
-            }
-        }
+      p {
+        color: #000000;
+        font-size: 14px;
+        line-height: 17px;
+      }
     }
+  }
 }
 
 .memberInfo {
-    .details {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+  .details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-        .textGroup {
-            span {
-                color: #000000;
-                font-size: 12px;
-                line-height: 15px;
-            }
+    .textGroup {
+      span {
+        color: #000000;
+        font-size: 12px;
+        line-height: 15px;
+      }
 
-            p {
-                font-size: 14px;
-                color: #000000;
-                font-weight: 600;
-                line-height: 17px;
-                padding-bottom: 4px;
-            }
-        }
+      p {
+        font-size: 14px;
+        color: #000000;
+        font-weight: 600;
+        line-height: 17px;
+        padding-bottom: 4px;
+      }
     }
+  }
 
-    .addMenber {
-        padding: 16px 0px;
-        button{
-            @media (min-width:768px) {
-                max-width: 200px;
-                margin: auto;
-            }
-        }
+  .addMember {
+    padding: 16px 0px;
+    button {
+      @media (min-width: 768px) {
+        max-width: 200px;
+        margin: auto;
+      }
     }
+  }
 }
 
 .schemesInfo {
-    .head {
-        padding: 10px 0px;
-        p {
-            color: #000000;
-            font-size: 16px;
-            line-height: 20px;
-            font-weight: 500;
-        }
+  .head {
+    padding: 10px 0px;
+    p {
+      color: #000000;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 500;
     }
+  }
 
-    .innerContent {
-        padding: 10px 0px;
+  .innerContent {
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .dataGroup {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .profile_text_group {
         display: flex;
-        flex-direction: column;
-        gap: 24px;
-        .dataGroup {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .profilr_text_group {
-                display: flex;
-                align-items: center;
-                gap: 10px;
+        align-items: center;
+        gap: 10px;
 
-                .detai_info {
-                    p {
-                        color: #000000;
-                        font-size: 14px;
-                        line-height: 17px;
-                        font-weight: 600;
-                    }
-                    span {
-                        font-size: 11px;
-                        color: #777777;
-                        line-height: 14px;
-                        padding-bottom: 4px;
-                    }
-                }
-            }
-            .amountInfo {
-                p {
-                    color: #000000;
-                    font-size: 14px;
-                    line-height: 17px;
-                    font-weight: 600;
-                }
-                span {
-                    font-size: 11px;
-                    color: #777777;
-                    line-height: 14px;
-                    padding-bottom: 4px;
-                }
-            }
+        .detail_info {
+          p {
+            color: #000000;
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 600;
+          }
+          span {
+            font-size: 11px;
+            color: #777777;
+            line-height: 14px;
+            padding-bottom: 4px;
+          }
         }
+      }
+      .amountInfo {
+        p {
+          color: #000000;
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: 600;
+        }
+        span {
+          font-size: 11px;
+          color: #777777;
+          line-height: 14px;
+          padding-bottom: 4px;
+        }
+      }
     }
+  }
 
-    .addMenber {
-        padding: 20px 0px;
-        button{
-            @media (min-width:768px) {
-                max-width: 200px;
-                margin: auto;
-            }
-        }
+  .addMember {
+    padding: 20px 0px;
+    button {
+      @media (min-width: 768px) {
+        max-width: 200px;
+        margin: auto;
+      }
     }
+  }
 }

@@ -1,5 +1,7 @@
-@import url("../styles/font.css");
-
+// @import url("../styles/font.css");
+:root {
+  font-family: var(--font-inter), sans-serif !important;
+}
 *,
 ::after,
 ::before {
@@ -17,25 +19,26 @@ html {
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-inter), sans-serif !important;
 }
 // select dropdown border right removed from plugin
-.css-1u9des2-indicatorSeparator{
-display: none;
-} 
-// removed from border indicator from slect 
+.css-1u9des2-indicatorSeparator {
+  display: none;
+}
+// removed from border indicator from select
 body {
   font-size: 16px;
   line-height: normal;
   margin: 0;
+  font-family: var(--font-inter), sans-serif !important;
   font-weight: 400;
   max-width: 100%;
   width: 100%;
   overflow: hidden;
   margin: auto;
-  font-family: Inter;
   background-color: #194a8a;
 }
-.border-radius-20{
+.border-radius-20 {
   border-radius: 20px;
 }
 h1,
@@ -61,6 +64,8 @@ ol {
 
 button {
   cursor: pointer;
+  font-family: var(--font-inter), sans-serif !important;
+
   background: none;
   border: 0;
 }
@@ -340,7 +345,18 @@ input[type="number"] {
 .text-underline {
   text-decoration: underline !important;
 }
-a{
+a {
   text-decoration: none;
   color: #000000;
+}
+
+.react-datepicker {
+  font-family: var(--font-inter), sans-serif !important;
+}
+
+.react-datepicker__header,
+.react-datepicker__day,
+.react-datepicker__day--selected,
+.react-datepicker__input-container input {
+  font-family: var(--font-inter), sans-serif !important;
 }

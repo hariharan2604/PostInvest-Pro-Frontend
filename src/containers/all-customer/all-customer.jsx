@@ -78,12 +78,12 @@ export default function AllCustomer() {
           {schemesData.map((scheme, index) => (
             <Link href="/customer-info" key={index} passHref className={style["listGroup"]}>
               <div className={style["dataGroup"]}>
-                <div className={style["profilr_text_group"]}>
+                <div className={style["profile_text_group"]}>
                   <Profile
                     variant="profileIcon"
                     profileStatus={scheme.profileStatus}
                   />
-                  <div className={style["detai_info"]}>
+                  <div className={style["detail_info"]}>
                     <p>{scheme.name}</p>
                     <span>
                       {scheme.phone} | {scheme.location}

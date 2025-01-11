@@ -11,7 +11,7 @@ const CheckUser = () => {
         <div>
           <ChequeLeaf />
           <NavigateLinkComponent navigateLink="/viewChequeLeaf" navigateLabel="View All" />
-          <div className={styles.reponsiveLine}>
+          <div className={styles.responsiveLine}>
             <DividerLine />
           </div>
         </div>
