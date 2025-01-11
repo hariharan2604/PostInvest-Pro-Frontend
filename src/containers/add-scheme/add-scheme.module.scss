@@ -1,28 +1,29 @@
-.schemeGroup{
-    position: relative;
-    height: 100%;
-    .form-group{
-        padding-bottom: 20px;
+.schemeGroup {
+  position: relative;
+  height: 100%;
+  .form-group {
+    padding-bottom: 20px;
 
-        .invest_amout,.invest_month{
-            display: grid;
-            align-items: center;
-            grid-template-columns: 2fr 1fr;
-            p{
-                font-size: 14px;
-                color: #777777;
-                line-height: 17px;
-                font-size: 500;
-            }
-        }
+    .invest_amount,
+    .invest_month {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 2fr 1fr;
+      p {
+        font-size: 14px;
+        color: #777777;
+        line-height: 17px;
+        font-size: 500;
+      }
     }
-    .formFooter{
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0px 0px 0px;
-        position: absolute;
-        width: 100%;
-        bottom: 12px;
-    }
+  }
+  .formFooter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0px 0px 0px;
+    position: absolute;
+    width: 100%;
+    bottom: 12px;
+  }
 }

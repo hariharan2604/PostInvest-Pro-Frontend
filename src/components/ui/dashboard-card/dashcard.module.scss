@@ -2,7 +2,7 @@
   place-items: center;
   // padding: 10px 0;
   gap: 0 25px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0 0 10px #f0000015;
   border-radius: 10px;
   width: 100%;
@@ -15,17 +15,17 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  
+
     p {
-      font-family: Inter;
+      font-family: var(--font-inter), sans-serif;
       font-size: 18px;
       font-weight: 700;
       line-height: 22px;
-  
+
       &.dayBetween {
         color: #01a726; /* green */
       }
-  
+
       &.cashHold {
         color: #000000; /* black */
       }
@@ -33,7 +33,7 @@
 
     .DayGap {
       display: block;
-      font-family: Inter;
+      font-family: var(--font-inter), sans-serif;
       font-size: 14px;
       font-weight: 400;
       line-height: 17px;

@@ -29,7 +29,7 @@ export default function Fund() {
         <ProgressBar startDate={startDate} endDate={endDate} />
 
       </div>
-      <div className={fundStyle["tbale"]}>
+      <div className={fundStyle["table"]}>
         <div className={fundStyle["tableHead"]}>
           <h3>Payment Report</h3>
         </div>

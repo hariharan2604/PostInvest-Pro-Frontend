@@ -6,7 +6,7 @@ export default function CardData() {
         <>
             <div className={cardStyle['card-split']}>
 
-                <Dashcard totalValue="20 Iteams" SubValue="1 to 15" variant="dayBetween" />
+                <Dashcard totalValue="20 Items" SubValue="1 to 15" variant="dayBetween" />
                 <Dashcard totalValue="₹50,000.00" SubValue="Cash on Hand" variant="cashHold" />
 
             </div>
