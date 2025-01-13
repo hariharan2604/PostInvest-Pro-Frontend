@@ -1,3 +1,4 @@
+"use client"
 import { ModalHeader, ModalContent, ModalFooter, Modal } from "../modal/modal";
 import success from '@icons/success.svg'
 import error from '@icons/error.svg'

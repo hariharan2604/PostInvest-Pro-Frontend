@@ -3,7 +3,7 @@ import Layout from "@/components/Layout/Layout";
 import CardData from "@/containers/card/card";
 import CheckUser from "@/containers/checkUser/CheckUser";
 import SearchHead from "@/containers/search-header/search-header";
-import React, { } from "react";
+import React, { Suspense } from "react";
 const Dashboard = () => {
 
   return (

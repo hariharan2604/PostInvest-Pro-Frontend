@@ -1,3 +1,4 @@
+"use client"
 import Searchinputstyle from "./search-input.module.scss";
 import Image from 'next/image';
 import Searchicon from "@icons/search-input.svg"

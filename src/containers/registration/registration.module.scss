@@ -1,8 +1,9 @@
 .register-details {
     background-color: #ffffff;
-    padding: 30px 16px 50px 16px;
+    // padding: 30px 16px 50px 16px;
     height: calc(100vh - 58px);
     overflow: auto;
+    scrollbar-width: none;
     .register-form {
         display: grid;
         gap: 25px;

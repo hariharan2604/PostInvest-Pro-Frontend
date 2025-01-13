@@ -1,4 +1,5 @@
-import { useRouter } from "next/router";
+"use client"
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import style from "./all-customer.module.scss";
 import SearchHead from "../search-header/search-header";
 import Link from "next/link";
@@ -10,6 +11,8 @@ import Checkbox from "@/components/ui/checkbox/checkbox";
 
 export default function AllCustomer() {
   const router = useRouter();
+  const pathname = usePathname()
+  // const searchParams = useSearchParams()
 
   const schemesData = [
     {

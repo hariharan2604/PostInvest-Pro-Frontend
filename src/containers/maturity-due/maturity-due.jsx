@@ -1,3 +1,4 @@
+// "use client"
 import Image from "next/image";
 import styles from "./maturity-due.module.scss";
 import Pill from "@/components/ui/pill/pill";

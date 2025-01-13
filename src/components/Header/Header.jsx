@@ -1,9 +1,9 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import styles from "./Header.module.scss";
 import leftArrow from "@icons/arrow-left.svg";
 import Notification from "@icons/notification.svg";
-
 import Link from "next/link";
 import Footer from "../Footer/Footer";
 

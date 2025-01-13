@@ -1,3 +1,4 @@
+// "use client"
 import Table from "@/components/ui/table/table";
 import fundStyle from "./provident-fund.module.scss";
 import ProgressBar from "@/components/ui/progressbar/progressbar";

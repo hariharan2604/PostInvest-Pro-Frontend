@@ -1,3 +1,4 @@
+"use client"
 
 
 import schemeStyle from "./add-scheme.module.scss";

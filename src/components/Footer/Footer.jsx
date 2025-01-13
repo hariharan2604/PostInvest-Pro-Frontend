@@ -1,5 +1,6 @@
+"use client"
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import Image from "next/image";
 import Home from "@icons/home.svg";
 import Remittance from "@icons/remittance.svg";
@@ -31,8 +32,9 @@ const Footer = () => {
       icon: Menu,
     },
   ];
-  const router = useRouter();
-
+  // const router = useRouter();
+  const pathname = usePathname()
+  // const searchParams = useSearchParams()
   return (
     <>
       <div className="container">
@@ -41,11 +43,11 @@ const Footer = () => {
             {menuItems.map((item, index) => (
               <Link key={index}
                 href={item.path}
-                className={router.pathname === item.path || (item.path === "/dashboard" && router.pathname === '/viewMaturityDue') || (item.path === "/dashboard" && router.pathname === '/viewChequeLeaf') ? styles.active : ""} prefetch>
+                className={pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') ? styles.active : ""} prefetch>
                 <Image src={item.icon} priority alt="Menu Icons" ></Image>
                 <span>
 
-                  {router.pathname === item.path || (item.path === "/dashboard" && router.pathname === '/viewMaturityDue') || (item.path === "/dashboard" && router.pathname === '/viewChequeLeaf') ? item.text : ""}
+                  {pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') ? item.text : ""}
                 </span>
               </Link>
             ))}

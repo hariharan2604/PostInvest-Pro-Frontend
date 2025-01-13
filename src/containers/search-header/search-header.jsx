@@ -1,3 +1,4 @@
+'use client'
 import SearchInput from "@/components/ui/search-input/search-input";
 import style from "./search-header.module.scss";
 import Button from "@/components/ui/button/button";

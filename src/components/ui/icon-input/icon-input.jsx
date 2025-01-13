@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import Iconinput from "./icon-input.module.scss";
 import Image from "next/image";

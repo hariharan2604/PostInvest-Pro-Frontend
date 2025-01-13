@@ -1,3 +1,4 @@
+"use client"
 import Dashcardstyle from "./dashcard.module.scss";
 
 export default function Dashcard({ totalValue, SubValue, variant }) {

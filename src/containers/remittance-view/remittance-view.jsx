@@ -1,3 +1,4 @@
+'use client'
 import styles from "./remittance-view.module.scss";
 import { useState } from "react";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";

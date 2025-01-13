@@ -1,3 +1,4 @@
+"use client"
 import Link from 'next/link';
 import navigateStyle from "./navigator-link.module.scss";
 import Image from 'next/image';

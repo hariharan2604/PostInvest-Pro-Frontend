@@ -1,7 +1,8 @@
-'use client'
+"use client"
 import React from "react";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+
 import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
 import styles from './registration.module.scss'
@@ -15,6 +16,8 @@ import InfoModal from "@/components/ui/info-modal/info-modal";
 
 export default function Registration() {
     const router = useRouter();
+    const pathname = usePathname()
+    // const searchParams = useSearchParams()
     const [isModalOpen, setModalOpen] = useState(false);
     const [isError, setError] = useState(false);
     const [formData, setFormData] = useState({ gender: "Male" });
@@ -96,7 +99,7 @@ export default function Registration() {
 
     const submitData = async () => {
         try {
-            const response = await fetch('/api/register', {
+            const response = await fetch('/api/register-agent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

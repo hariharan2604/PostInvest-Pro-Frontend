@@ -1,10 +1,14 @@
+"use client"
 import button from "./button.module.scss";
 import AddIcon from "@icons/add.svg";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+
 
 export default function Button({ variant, children, onClick, borderRadius, margintop, buttonWt, buttonMaxwt, showIcon = false, path }) {
   const router = useRouter();
+  // const pathname = usePathname()
+  // const searchParams = useSearchParams()
   let classSet = `${button.btn} `;
 
   if (variant === "outline") {

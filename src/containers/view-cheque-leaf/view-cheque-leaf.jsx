@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from "react";
 import styles from "@/containers/cheque-leaf/cheque-leaf.module.scss";
 import Pill from "@/components/ui/pill/pill";
