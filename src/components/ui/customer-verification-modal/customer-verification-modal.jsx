@@ -1,3 +1,4 @@
+"use client"
 import success from '@icons/success.svg'
 import check from '@icons/check.svg'
 import Image from 'next/image'

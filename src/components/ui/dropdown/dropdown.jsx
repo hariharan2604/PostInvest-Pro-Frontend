@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react'
 import dropdownStyles from './dropdown.module.scss'
 import Image from 'next/image';

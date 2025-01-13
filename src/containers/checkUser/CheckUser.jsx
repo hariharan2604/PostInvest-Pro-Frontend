@@ -1,3 +1,4 @@
+// "use client"
 import React from 'react'
 import styles from './checkUser.module.scss'
 import ChequeLeaf from '../cheque-leaf/cheque-leaf'

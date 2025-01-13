@@ -1,3 +1,4 @@
+"use client"
 import styles from './table.module.scss'
 
 export default function Table() {

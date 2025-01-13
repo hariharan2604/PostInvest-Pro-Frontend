@@ -1,3 +1,4 @@
+"use client"
 import Dropdown from '../dropdown/dropdown'
 import title from './title.module.scss'
 

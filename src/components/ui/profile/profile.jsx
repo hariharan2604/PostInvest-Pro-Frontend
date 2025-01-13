@@ -1,3 +1,4 @@
+"use client"
 import profile from "./profile.module.scss";
 import user from "@icons/user.svg";
 import Image from "next/image";

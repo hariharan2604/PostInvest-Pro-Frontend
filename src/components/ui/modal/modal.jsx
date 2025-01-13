@@ -1,3 +1,4 @@
+"use client"
 import styles from "./modal.module.scss";
 import Image from "next/image";
 import CloseIcon from "@icons/close.svg";

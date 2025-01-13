@@ -1,3 +1,4 @@
+"use client"
 import { useState, Children, cloneElement } from 'react';
 import Image from 'next/image';
 import accordionStyle from './accordion.module.scss';

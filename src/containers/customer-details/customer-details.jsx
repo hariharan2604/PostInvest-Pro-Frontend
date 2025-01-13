@@ -1,3 +1,4 @@
+// "use client"
 import Input from "@/components/ui/input/input";
 import detailsStyle from "./customer.module.scss";
 import { Accordion, AccordionItem } from "@/components/ui/accordion/accordion";

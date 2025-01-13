@@ -1,3 +1,4 @@
+"use client"
 import Radiobtnstyle from "./radiobutton.module.scss";
 
 export default function RadioButton({ variant, id, name, labeltext, lotText, value, checkedValue, onChange }) {

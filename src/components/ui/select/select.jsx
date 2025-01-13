@@ -1,3 +1,4 @@
+"use client"
 import SelectStyle from "./select.module.scss";
 import React, { useState } from "react";
 import Select from "react-select";

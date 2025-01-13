@@ -1,3 +1,4 @@
+// "use client"
 import cardStyle from './card.module.scss';
 import Dashcard from '@/components/ui/dashboard-card/dashboard-card';
 

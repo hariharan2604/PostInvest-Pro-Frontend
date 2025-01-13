@@ -1,3 +1,4 @@
+"use client"
 import pillStyles from "./pill.module.scss";
 
 import cashIcon from "@icons/coinIcon.svg";

@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import style from "./add-family.module.scss";
 import Input from "@/components/ui/input/input";
