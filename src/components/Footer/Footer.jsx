@@ -32,9 +32,9 @@ const Footer = () => {
       icon: Menu,
     },
   ];
-  const router = useRouter();
+  // const router = useRouter();
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+  // const searchParams = useSearchParams()
   return (
     <>
       <div className="container">

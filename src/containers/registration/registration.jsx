@@ -17,7 +17,7 @@ import InfoModal from "@/components/ui/info-modal/info-modal";
 export default function Registration() {
     const router = useRouter();
     const pathname = usePathname()
-    const searchParams = useSearchParams()
+    // const searchParams = useSearchParams()
     const [isModalOpen, setModalOpen] = useState(false);
     const [isError, setError] = useState(false);
     const [formData, setFormData] = useState({ gender: "Male" });

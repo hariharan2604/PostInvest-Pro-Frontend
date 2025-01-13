@@ -12,7 +12,7 @@ import Checkbox from "@/components/ui/checkbox/checkbox";
 export default function AllCustomer() {
   const router = useRouter();
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+  // const searchParams = useSearchParams()
 
   const schemesData = [
     {

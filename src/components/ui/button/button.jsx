@@ -7,8 +7,8 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 
 export default function Button({ variant, children, onClick, borderRadius, margintop, buttonWt, buttonMaxwt, showIcon = false, path }) {
   const router = useRouter();
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  // const pathname = usePathname()
+  // const searchParams = useSearchParams()
   let classSet = `${button.btn} `;
 
   if (variant === "outline") {
