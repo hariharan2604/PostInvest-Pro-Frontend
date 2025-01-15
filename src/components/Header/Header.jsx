@@ -7,7 +7,7 @@ import Notification from "@icons/notification.svg";
 import Link from "next/link";
 import Footer from "../Footer/Footer";
 
-const Header = ({ title, showLeftArrow, notifyToIcon, navigate = "/default-path" }) => {
+const Header = ({ title, showLeftArrow, notifyToIcon, navigate = "/default-path", footer = true }) => {
   return (
     <>
       <div className="container">
@@ -20,11 +20,11 @@ const Header = ({ title, showLeftArrow, notifyToIcon, navigate = "/default-path"
             )}
             <h1>{title}</h1>
           </div>
-          <div>
+          {footer && <div>
             <div className={styles.webVisible}>
               <Footer />
             </div>
-          </div>
+          </div>}
           {notifyToIcon && (
             <div className={styles.notifyToIcon}>
               <Image src={Notification} alt="Notification Icon" />

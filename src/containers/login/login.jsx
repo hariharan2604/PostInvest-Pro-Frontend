@@ -1,7 +1,7 @@
 "use client"
 import styles from "./login.module.scss";
 import Image from "next/image";
-import login from '@icons/login.png'
+import login from '@icons/login.svg'
 import Input from "@/components/ui/input/input";
 import IconInput from "@/components/ui/icon-input/icon-input";
 import Button from "@/components/ui/button/button";
@@ -65,24 +65,23 @@ export default function Home() {
     return (
         <>
             <div className={styles["login-container"]}>
+                <div className={styles["login-details"]}>
                 <div className={styles["logo-wrapper"]}>
-                    <Image src={login} className={styles["logo"]} alt="login-image" />
-                </div>
-                <div>
-
-                    <div className={styles["login-details"]}>
-                        <h3><span>Welcome</span> Post Invest Pro !</h3>
+                        <Image src={login} height={150} width={150} className={styles["logo"]} alt="login-image" priority={true} />
+                    <div>
+                        <h3><span>Welcome</span></h3>
                         <p>Please use your credentials to login</p>
-                        <div className={styles["login-credentials"]}>
-                            <Input labelText="User ID" name="user_id" onChange={handleInputChange("username")} value={formData.username} errorText={errors.username} />
-                            <IconInput variant='eye' labelText='Password' onChange={handleInputChange("password")} value={formData.password} errorText={errors.password} />
-                        </div>
-                        <Link href="">Forgot Password?</Link>
-                        {errors.response && <span>{errors.response}</span>}
-                        <div className={styles["login-section"]}>
-                            <Button variant="primary" onClick={handleSubmit}>Login</Button>
-                            <Button variant="outline" path='/registration'>Create Account</Button>
-                        </div>
+                    </div>
+                </div>
+                    <div className={styles["login-credentials"]}>
+                        <Input labelText="User ID" name="user_id" onChange={handleInputChange("username")} value={formData.username} errorText={errors.username} />
+                        <IconInput variant='eye' labelText='Password' onChange={handleInputChange("password")} value={formData.password} errorText={errors.password} />
+                    </div>
+                    <Link href="">Forgot Password?</Link>
+                    {errors.response && <span>{errors.response}</span>}
+                    <div className={styles["login-section"]}>
+                        <Button variant="primary" onClick={handleSubmit}>Login</Button>
+                        <Button variant="outline" path='/registration'>Create Account</Button>
                     </div>
                 </div>
             </div>

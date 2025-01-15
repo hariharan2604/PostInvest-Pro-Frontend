@@ -28,6 +28,11 @@ export const POST = async (req) => {
                 path: '/',
                 expires: new Date(0), // Expiry in the past to delete
             });
+            cookieStore.set('userId', '', {
+                httpOnly: true,
+                path: '/',
+                expires: new Date(0), // Expiry in the past to delete
+            });
             return new Response(JSON.stringify({ success: true }), { status: 200 });
         }
 
