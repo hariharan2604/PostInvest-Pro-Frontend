@@ -46,3 +46,16 @@
     background-color: rgba(0, 0, 0, 0.616);
   }
 }
+
+.login-section {
+  display: grid;
+  gap: 25px;
+  margin-top: 36px;
+  @media (max-width: 1366px) {
+    gap: 15px;
+    margin-top: 15px;
+  }
+  button {
+    width: 100%;
+  }
+}
