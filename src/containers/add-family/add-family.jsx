@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import style from "./add-family.module.scss";
 import Input from "@/components/ui/input/input";
-import IconInput from "@/components/ui/icon-input/icon-input";
 import Button from "@/components/ui/button/button";
 import Selectdropdown from "@/components/ui/select/select";
 import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker";

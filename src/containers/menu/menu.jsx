@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import Image from "next/image"
 import Link from "next/link"
 import profileImage from '@icons/Profile-image.svg'
@@ -7,7 +7,18 @@ import userprofile from '@icons/user-profile.svg'
 import lock from '@icons/lock.svg'
 import logout from '@icons/logout.svg'
 import styles from './menu.module.scss'
+import { redirect } from "next/navigation"
 export default function Menu({ profileName, profileId }) {
+    const handleLogout = async () => {
+        try {
+            await fetch('/api/auth/logout', {
+                method: 'POST'
+            });
+        } catch (error) {
+            console.error("Error submitting data:", error);
+        }
+        redirect("/");
+    }
     return (
         <>
             <div className={styles.menu}>
@@ -21,7 +32,7 @@ export default function Menu({ profileName, profileId }) {
                     <Link href=''><Image src={userprofile} alt='Image' />My account</Link>
                     <Link href=''><Image src={lock} alt='Image' />Change passwords </Link>
                     <Link href=''><Image src={help} alt='Image' />Help & Support</Link>
-                    <Link href='/'><Image src={logout} alt='Image' />Logout</Link>
+                    <Link href='' onClick={handleLogout}><Image src={logout} alt='Image' />Logout</Link>
                 </div>
             </div>
         </>

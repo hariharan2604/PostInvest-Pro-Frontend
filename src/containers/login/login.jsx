@@ -22,7 +22,7 @@ export default function Home() {
     };
     const submitData = async () => {
         try {
-            const response = await fetch('/api/login', {
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -33,13 +33,13 @@ export default function Home() {
             const result = await response.json();
 
 
-            if (result.status === "success") {
+            if (result.success) {
                 router.push("/dashboard");
             }
-            else if (result.status === "error") {
+            else {
                 setErrors((prevData) => ({
                     ...prevData,
-                    ["response"]: result.error.message,
+                    ["response"]: result.message,
                 }));
             }
         } catch (error) {
