@@ -1,5 +1,5 @@
 import "@/styles/globals.scss";
-import { inter } from "@/styles/fonts";
+import { inter } from "@/app/fonts";
 export const metadata = {
     title: 'Post Invest Pro',
     description: 'Welcome to Post Invest Pro',
