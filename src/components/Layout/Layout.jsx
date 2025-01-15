@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       <div className="container">
         <main className={styles.layout}>{children}</main>
         <div className={styles.mobVisible}>
-            <Footer />
+          {footer && <Footer />}
         </div>
       </div>
     </>

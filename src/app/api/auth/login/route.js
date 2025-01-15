@@ -16,9 +16,30 @@ export const POST = async (req) => {
             const cookieStore = await cookies();
 
             // Set access and refresh tokens in cookies
-            cookieStore.set('accessToken', response.data.accessToken, { httpOnly: true, path: '/', maxAge: 60 * 60 });
-            cookieStore.set('userId', response.data.accessToken, { httpOnly: true, path: '/', maxAge: 60 * 60 });
-            cookieStore.set('refreshToken', response.data.refreshToken, { httpOnly: true, path: '/', maxAge: 60 * 60 * 24 * 30 });
+            cookieStore.set('accessToken', response.data.accessToken, {
+                httpOnly: true,
+                secure: true, // Ensures the cookie is only sent over HTTPS
+                path: '/',
+                sameSite: 'Strict', // Prevents CSRF attacks
+                maxAge: 60 * 15, // 15 minutes
+            });
+
+            cookieStore.set('userId', response.data.id, {
+                httpOnly: true,
+                secure: true,
+                path: '/',
+                sameSite: 'Strict',
+                maxAge: 60 * 15, // Match access token validity
+            });
+
+            cookieStore.set('refreshToken', response.data.refreshToken, {
+                httpOnly: true,
+                secure: true,
+                path: '/',
+                sameSite: 'Strict',
+                maxAge: 60 * 60 * 24 * 30, // 30 days
+            });
+
 
             return new Response(JSON.stringify({ success: true, user: response.data.user }), { status: 200 });
         }
