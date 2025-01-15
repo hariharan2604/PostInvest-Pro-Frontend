@@ -67,7 +67,7 @@ export default function Home() {
             <div className={styles["login-container"]}>
                 <div className={styles["login-details"]}>
                 <div className={styles["logo-wrapper"]}>
-                    <Image src={login} height={ 150} width={150} className={styles["logo"]} alt="login-image" />
+                        <Image src={login} height={150} width={150} className={styles["logo"]} alt="login-image" priority={true} />
                     <div>
                         <h3><span>Welcome</span></h3>
                         <p>Please use your credentials to login</p>
