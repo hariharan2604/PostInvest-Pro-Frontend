@@ -177,7 +177,7 @@ export default function Registration() {
 
                     <Input labelText="Zip" name="zip" value={formData.zip} onChange={handleInputChange("zip")} errorText={errors.zip} />
                 </div>
-                <div className="login-section">
+                <div className={styles["login-section"]}>
                     <Button variant="primary" onClick={handleSubmit}>Submit</Button>
                     <Button variant="outline" path='/'>Back to Login</Button>
                 </div>

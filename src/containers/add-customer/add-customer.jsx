@@ -2,7 +2,6 @@
 import customerStyle from "./add-customer.module.scss";
 import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
-import IconInput from "@/components/ui/icon-input/icon-input";
 import NavigateLinkComponent from "@/components/ui/navigator-link/navigator-link";
 import Selectdropdown from "@/components/ui/select/select";
 import InfoModal from "@/components/ui/info-modal/info-modal";
