@@ -43,11 +43,11 @@ const Footer = () => {
             {menuItems.map((item, index) => (
               <Link key={index}
                 href={item.path}
-                className={pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') ? styles.active : ""} prefetch>
+                className={pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') || (item.path == "/profile" && (pathname == "/customer" || pathname == "/customer-info" || pathname == "/family-members")) ? styles.active : ""} prefetch>
                 <Image src={item.icon} priority alt="Menu Icons" ></Image>
                 <span>
 
-                  {pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') ? item.text : ""}
+                  {pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') || (item.path == "/profile" && (pathname == "/customer" || pathname == "/customer-info" || pathname == "/family-members")) ? item.text : ""}
                 </span>
               </Link>
             ))}
