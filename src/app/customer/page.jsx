@@ -6,7 +6,7 @@ import AddCustomer from "@/containers/add-customer/add-customer";
 const CustomerAdd = () => {
   return (
     <>
-      <Header title="Create Customer" showLeftArrow="true" navigate="/dashboard" />
+      <Header title="Create Customer" showLeftArrow="true" navigate="/profile" />
       <Layout>
         <AddCustomer />
       </Layout>

@@ -5,7 +5,7 @@ import CustomerDetails from "@/containers/customer-details/customer-details";
 const CustomerAdd = () => {
   return (
     <>
-      <Header title="Aadhavaa" showLeftArrow="true" navigate="/family-members" />
+      <Header title="Aadhavaa" showLeftArrow="true" navigate="/profile" />
       <Layout>
         <CustomerDetails />
       </Layout>
