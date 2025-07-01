@@ -99,7 +99,7 @@ export default function Registration() {
 
     const submitData = async () => {
         try {
-            const response = await fetch('/api//auth/register-agent', {
+            const response = await fetch('/api/auth/register-agent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
