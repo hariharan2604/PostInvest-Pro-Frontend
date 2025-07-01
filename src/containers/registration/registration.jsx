@@ -7,12 +7,13 @@ import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
 import styles from './registration.module.scss'
 import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker";
-import City from '@data/cities.json';
-import State from '@data/states.json';
+import City from '../../app/_data/cities.json';
+import State from '../../app/_data/states.json';
 import Selectdropdown from "@/components/ui/select/select";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import IconInput from '@/components/ui/icon-input/icon-input';
 import InfoModal from "@/components/ui/info-modal/info-modal";
+import { validateForm } from "../../app/_utils/form-validator"; 
 
 export default function Registration() {
     const router = useRouter();
@@ -21,8 +22,6 @@ export default function Registration() {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isError, setError] = useState(false);
     const [formData, setFormData] = useState({ gender: "Male" });
-    const [cities, setCities] = useState(City);
-    const [states, setStates] = useState(State);
     const [errors, setErrors] = useState({});
     const [response, setResponse] = useState({});
 
@@ -33,37 +32,6 @@ export default function Registration() {
         }
     }
 
-    const validateForm = () => {
-        const newErrors = {};
-
-        if (!formData.name) newErrors.name = "Full Name is required.";
-        if (!/^[a-zA-Z ]{2,30}$/.test(formData.name)) newErrors.name = "Full name should contain only alphabets"
-
-        if (!formData.mobile) newErrors.mobile = "Mobile number is required.";
-        else if (!/^\d{10}$/.test(formData.mobile)) newErrors.mobile = "Invalid mobile number.";
-
-        if (!formData.email) newErrors.email = "Email ID is required.";
-        else if (!/^[\w-\.]+@[\w-\.]+\.[a-zA-Z]{2,}$/.test(formData.email)) newErrors.email = "Invalid email format.";
-
-        if (!formData.password) newErrors.password = "Password is required.";
-        if (!formData.confirm_password) newErrors.confirm_password = "Please confirm your password.";
-        else if (formData.password !== formData.confirm_password) newErrors.confirm_password = "Passwords do not match.";
-
-        if (!formData.dob) newErrors.dob = "Date of Birth is required.";
-
-        if (!formData.address1) newErrors.address1 = "Address Line 1 is required.";
-
-        if (!formData.city) newErrors.city = "City is required.";
-
-        if (!formData.state) newErrors.state = "State is required.";
-
-        if (!formData.zip) newErrors.zip = "Zip code is required.";
-        else if (!/^\d{6}$/.test(formData.zip)) newErrors.zip = "Invalid zip code.";
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-
-    }
     const handleDateChange = (date) => {
         setFormData((prevData) => ({
             ...prevData,
@@ -122,7 +90,9 @@ export default function Registration() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (validateForm()) {
+        const validationErrors = validateForm(formData);
+        setErrors(validationErrors);
+        if (Object.keys(validationErrors).length === 0) {
             submitData();
             console.log(formData);
         }
@@ -171,9 +141,9 @@ export default function Registration() {
                         />
                         <Input labelText="Address Line 1" name="address1" onChange={handleInputChange("address1")} value={formData.address1} errorText={errors.address1} />
                         <Input labelText="Address Line 2" name="address2" onChange={handleInputChange("address2")} value={formData.address2} />
-                        <Input labelText="Area" name="area" onChange={handleInputChange("area")} />
-                        <Selectdropdown options={cities} selectText="Select City" setSelectedOption={(value) => handleSelectChange("city", value)} selectedOption={formData.city} errorText={errors.city}></Selectdropdown>
-                        <Selectdropdown options={states} selectText="Select State" setSelectedOption={(value) => handleSelectChange("state", value)} selectedOption={formData.state} errorText={errors.state}></Selectdropdown>
+                        <Input labelText="Area" name="area" value={formData.area} onChange={handleInputChange("area")} errorText={errors.area}/>
+                        <Selectdropdown options={City} selectText="Select City" setSelectedOption={(value) => handleSelectChange("city", value)} selectedOption={formData.city} errorText={errors.city}></Selectdropdown>
+                        <Selectdropdown options={State} selectText="Select State" setSelectedOption={(value) => handleSelectChange("state", value)} selectedOption={formData.state} errorText={errors.state}></Selectdropdown>
                         <Input labelText="Zip" name="zip" value={formData.zip} onChange={handleInputChange("zip")} errorText={errors.zip} />
                     </div>
                     <div className={styles["login-section"]}>
