@@ -8,7 +8,7 @@ export const useFormHandler = ({
     apiEndpoint = '',
     method='POST',
     redirectPath = '/',
-    onSuccess = () => { },
+    redirect=false,
     onError = () => { }
 }) => {
     const [formData, setFormData] = useState(initialFormData);
@@ -51,11 +51,13 @@ export const useFormHandler = ({
             });
 
             const result = await res.json();
+
             setResponse(result);
 
             if (result.status === 'success') {
                 setError(false);
-                onSuccess(result);
+                // onSuccess();
+                redirect && router.push(redirectPath);
             } else {
                 setError(true);
                 onError(result);
@@ -63,7 +65,6 @@ export const useFormHandler = ({
 
             setModalOpen(true);
         } catch (error) {
-            console.error("Submission error:", error);
             setError(true);
             onError(error);
         }
@@ -83,11 +84,12 @@ export const useFormHandler = ({
     const updateFormData = (newData) => {
         setFormData(prev => ({ ...prev, ...newData }));
     };
-      
+    
     return {
         formData,
         updateFormData,
         errors,
+        setErrors,
         isError,
         modalOpen,
         response,

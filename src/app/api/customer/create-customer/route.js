@@ -12,9 +12,6 @@ export async function POST(req) {
         requestBody.state = requestBody?.state?.value;
         requestBody.dob = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
-        console.log("🚀 ~ POST ~ requestBody:", requestBody);
-
-
         const externalApiResponse = await fetch(`${process.env.API_URL}/customer/create`, {
             method: 'POST',
             headers: {
