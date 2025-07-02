@@ -6,6 +6,7 @@ export const useFormHandler = ({
     initialFormData = {},
     validationRules = {},
     apiEndpoint = '',
+    method='POST',
     redirectPath = '/',
     onSuccess = () => { },
     onError = () => { }
@@ -44,7 +45,7 @@ export const useFormHandler = ({
     const submitData = async () => {
         try {
             const res = await fetch(apiEndpoint, {
-                method: 'POST',
+                method,
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
@@ -78,8 +79,14 @@ export const useFormHandler = ({
         }
     };
 
+
+    const updateFormData = (newData) => {
+        setFormData(prev => ({ ...prev, ...newData }));
+    };
+      
     return {
         formData,
+        updateFormData,
         errors,
         isError,
         modalOpen,
