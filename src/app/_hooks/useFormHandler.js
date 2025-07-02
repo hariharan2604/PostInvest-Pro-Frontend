@@ -9,6 +9,7 @@ export const useFormHandler = ({
     method='POST',
     redirectPath = '/',
     redirect=false,
+    onSuccess = () => { },
     onError = () => { }
 }) => {
     const [formData, setFormData] = useState(initialFormData);
@@ -21,9 +22,6 @@ export const useFormHandler = ({
 
     const handleCloseModal = () => {
         setModalOpen(false);
-        if (!isError) {
-            router.push(redirectPath);
-        }
     };
 
     const handleInputChange = (field) => (value) => {
@@ -56,7 +54,7 @@ export const useFormHandler = ({
 
             if (result.status === 'success') {
                 setError(false);
-                // onSuccess();
+                onSuccess(result);
                 redirect && router.push(redirectPath);
             } else {
                 setError(true);

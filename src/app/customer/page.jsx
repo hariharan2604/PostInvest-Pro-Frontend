@@ -5,7 +5,7 @@ import { Suspense } from "react";
 const CustomerAdd = () => {
   return (
     <>
-      <Header title="Create Customer" showLeftArrow="true" navigate="/profile" />
+      <Header title="Customer Registration" showLeftArrow="true" navigate="/profile" />
       <Layout>
         <Suspense fallback={<div>Loading...</div>}>
           <AddCustomer />

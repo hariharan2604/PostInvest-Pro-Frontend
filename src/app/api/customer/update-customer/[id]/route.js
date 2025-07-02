@@ -13,9 +13,6 @@ export async function PUT(req, { params }) {
         requestBody.state = requestBody?.state?.value;
         requestBody.dob = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
-
-        console.log("🚀 ~ PUT ~ requestBody:", requestBody);
-
         const externalApiResponse = await fetch(`${process.env.API_URL}/customer/update`, {
             method: 'POST',
             headers: {

@@ -47,7 +47,6 @@ export default function AddCustomer() {
     method: isUpdateMode ? "PUT" : "POST",
   });
 
-  // Fetch data if editing
   useEffect(() => {
     if (!isUpdateMode) return;
 
@@ -71,7 +70,6 @@ export default function AddCustomer() {
             state: { value: state, label: state },
           };
 
-          console.log("✅ Cleaned customer data:", cleaned);
           updateFormData(cleaned);
           setIsFormReady(true);
         }
@@ -190,7 +188,7 @@ export default function AddCustomer() {
             <InfoModal
               errorStatus={isError}
               Title={isError ? (isUpdateMode ? "Error Updating Customer" : "Error Creating Customer") : (isUpdateMode ? "Update Successful" : "Registration Successful")}
-              Content={isError ? response?.error?.message : "Login to Continue..."}
+              Content={isError ? response?.error?.message : "The Customer Details Updated.."}
               onOpen={modalOpen}
               onClose={handleCloseModal}
             />
