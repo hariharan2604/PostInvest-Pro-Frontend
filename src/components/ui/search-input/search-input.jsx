@@ -91,7 +91,7 @@ export default function SearchInput({
                                 onClick={() => {
                                     setSearchTerm("");
                                     setShowDropdown(false);
-                                    onSelect(user);
+                                    onSelect(user.id);
                                 }}
                             >
                                 <div className={styles["profileIcon"]}>

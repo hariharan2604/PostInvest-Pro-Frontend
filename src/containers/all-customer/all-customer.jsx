@@ -72,7 +72,7 @@ export default function AllCustomer() {
 
   return (
     <>
-      <SearchHead enableDropdown={true} />
+      <SearchHead enableDropdown={true} navigatePath={"/customer-info"} />
       <Checkbox labelVale="Active Customer" />
       <div className={style["schemesInfo"]}>
         <div className={style["innerContent"]}>
