@@ -89,7 +89,7 @@ export default function SearchInput({
                                 key={user.id}
                                 className={styles["dropdownItem"]}
                                 onClick={() => {
-                                    setSearchTerm("");
+                                    // setSearchTerm("");
                                     setShowDropdown(false);
                                     onSelect(user.id);
                                 }}

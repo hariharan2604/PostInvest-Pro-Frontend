@@ -17,6 +17,7 @@ export default function CustomerDetails({ customerId }) {
   const [customerData, setCustomerData] = useState([]);
   const [investments, setInvestments] = useState([]);
   const [familymembers, setFamilyMembers] = useState([]);
+  const [name, setName] = useState('');
 
   useEffect(() => {
     const fetchCustomerData = async () => {
@@ -68,6 +69,7 @@ export default function CustomerDetails({ customerId }) {
           ]);
           setFamilyMembers(relatedCustomers);
           setInvestments(Investments);
+          setName(name);
         }
       } catch (error) {
         console.error("❌ Failed to fetch customer", error);
@@ -77,26 +79,7 @@ export default function CustomerDetails({ customerId }) {
     fetchCustomerData();
   }, [customerId]);
 
-  const schemesData = [
-    {
-      id: "#000132596",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileText: "SIP",
-    },
-    {
-      id: "#000132597",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileText: "MF",
-    },
-    {
-      id: "#000132598",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileText: "SIP",
-    },
-  ];
+  
 
 
   return (
@@ -107,13 +90,13 @@ export default function CustomerDetails({ customerId }) {
             <Accordion>
               <AccordionItem header={
                 <div className={detailsStyle["headerRow"]}>
-                <div className={detailsStyle["titleGroup"]}>
-                  <span>Basic Info</span>
+                  <div className={detailsStyle["titleGroup"]}>
+                    <span>Basic Info</span>
                     <Link href={`/customer?id=${customerId}`} className={detailsStyle["editIcon"]}>
-                    <Image src={EditIcon} alt="Edit" width={18} height={18} />
-                  </Link>
+                      <Image src={EditIcon} alt="Edit" width={18} height={18} />
+                    </Link>
+                  </div>
                 </div>
-              </div>
               }>
                 <div className={detailsStyle.detailsInfo}>
                   {customerData.map((detail, index) => (
@@ -135,20 +118,19 @@ export default function CustomerDetails({ customerId }) {
               <AccordionItem header={`Family Members (${familymembers.length})`}>
                 <div className={detailsStyle["memberInfo"]}>
                   {familymembers.map((member, index) => (
-                    <Link key={index} href={`/customer-info/${member.id}`}>
-                      <div className={detailsStyle["details"]}>
-                        <div className={detailsStyle["memberImage"]}>
-                          <Profile variant="profileIcon"></Profile>
-                        </div>
-                        <div className={detailsStyle["textGroup"]}>
-                          <p>{member.name}</p>
-                          <span>{`${member.relation_type} | Investments ${member.investment_count}`}</span>
-                        </div>
+                    <Link key={index} href={`/customer-info/${member.id}`} className={detailsStyle["details"]}>
+                      <div className={detailsStyle["memberImage"]}>
+                        <Profile variant="profileIcon" />
+                      </div>
+                      <div className={detailsStyle["textGroup"]}>
+                        <p>{member.name}</p>
+                        <span>{`${member.relation_type} | Investments ${member.investment_count}`}</span>
                       </div>
                     </Link>
                   ))}
+
                   <div className={detailsStyle["addMember"]}>
-                    <Button variant="linkButton" path="/family-members">
+                    <Button variant="linkButton" path={`/family-members?customer_name=${encodeURIComponent(name)}&id=${encodeURIComponent(customerId)}`}>
                       Add Member
                     </Button>
                   </div>

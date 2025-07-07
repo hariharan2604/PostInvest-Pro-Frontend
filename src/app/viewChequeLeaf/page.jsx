@@ -6,7 +6,7 @@ import ViewChequeLeaf from "@/containers/view-cheque-leaf/view-cheque-leaf"
 const ViewCheque = () => {
     return (
         <>
-            <Header title="View Cheque Leaf" showLeftArrow={true} navigate="/dashboard"/>
+            <Header title="View Cheque Leaf" showLeftArrow={true}/>
             <Layout>
                 <ViewChequeLeaf />
             </Layout>

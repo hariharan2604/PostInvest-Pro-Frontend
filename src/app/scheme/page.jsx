@@ -4,7 +4,7 @@ import AddScheme from "@/containers/add-scheme/add-scheme";
 const Profile = () => {
   return (
     <>
-      <Header title="Add Scheme" showLeftArrow="true" navigate="/customer-info" />
+      <Header title="Add Scheme" showLeftArrow="true"/>
       <Layout>
         <AddScheme />
       </Layout>

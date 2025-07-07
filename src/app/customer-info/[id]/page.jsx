@@ -6,7 +6,7 @@ const CustomerAdd = async ({ params }) => {
   const { id } = await params;
   return (
     <>
-      <Header title="Aadhavaa" showLeftArrow="true" navigate="/profile" />
+      <Header title="Aadhavaa" showLeftArrow="true" />
       <Layout>
         <CustomerDetails customerId={id} />
       </Layout>

@@ -5,7 +5,7 @@ import AllCustomer from "@/containers/all-customer/all-customer";
 const profile = () => {
   return (
     <>
-      <Header showLeftArrow={false} title="Customer List" navigate="/dashboard" notifyToIcon={true} />
+      <Header showLeftArrow={true} title="Customer List" notifyToIcon={true} />
       <Layout>
         <AllCustomer />
       </Layout>

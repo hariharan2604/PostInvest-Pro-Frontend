@@ -173,10 +173,6 @@ export default function AddCustomer() {
         <Input labelText="Zip" name="zip" value={formData.zip} onChange={handleInputChange("zip")} errorText={errors.zip} />
       </div>
 
-      <div className={customerStyle["addMember"]}>
-        <NavigateLinkComponent navigateLink="/family-members" iconPosition="left" navigateLabel="Add More Family Member" />
-      </div>
-
       <div className={customerStyle["buttonGroup"]}>
         <Button variant="outline" path="/dashboard">Cancel</Button>
         <Button variant="primary" onClick={handleSubmit}>{isUpdateMode ? 'Update' : 'Save'}</Button>

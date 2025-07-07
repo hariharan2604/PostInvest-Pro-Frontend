@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 export default function Family() {
   return (
     <>
-      <Header title="Create Family Member" showLeftArrow="true" navigate="/customer" />
+      <Header title="Create Family Member" showLeftArrow="true" />
 
       <Layout>
         <AddFamily />
