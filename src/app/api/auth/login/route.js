@@ -33,6 +33,14 @@ export const POST = async (req) => {
                 maxAge: 60 * 15, // Match access token validity
             });
 
+            cookieStore.set('agentName', response.data.name, {
+                httpOnly: true,
+                secure: true,
+                path: '/',
+                sameSite: 'Strict',
+                maxAge: 60 * 15, // Match access token validity
+            });
+
             cookieStore.set('refreshToken', response.data.refreshToken, {
                 httpOnly: true,
                 secure: true,

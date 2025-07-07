@@ -7,8 +7,10 @@ import Notification from "@icons/notification.svg";
 import { useRouter } from "next/navigation";
 import Footer from "../Footer/Footer";
 import Button from "../ui/button/button";
+import { useTitle } from "@/contexts/TitleContext";
 
-const Header = ({ title, showLeftArrow, notifyToIcon, navigate = "/dashboard", footer = true }) => {
+const Header = ({ showLeftArrow, notifyToIcon, navigate = "/dashboard", footer = true }) => {
+  const { title } = useTitle();
   const router = useRouter();
   const handleBack = () => {
     if (window.history.length > 1) {

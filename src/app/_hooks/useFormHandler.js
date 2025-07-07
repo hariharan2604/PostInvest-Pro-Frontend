@@ -21,6 +21,7 @@ export const useFormHandler = ({
     const router = useRouter();
 
     const handleCloseModal = () => {
+        router.back();
         setModalOpen(false);
     };
 

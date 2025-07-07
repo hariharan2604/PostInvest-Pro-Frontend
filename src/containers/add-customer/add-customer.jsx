@@ -6,6 +6,7 @@ import customerStyle from "./add-customer.module.scss";
 import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
 import NavigateLinkComponent from "@/components/ui/navigator-link/navigator-link";
+import { useTitle } from "@/contexts/TitleContext";
 import Selectdropdown from "@/components/ui/select/select";
 import InfoModal from "@/components/ui/info-modal/info-modal";
 import State from '../../app/_data/states.json';
@@ -21,6 +22,7 @@ export default function AddCustomer() {
   const searchParams = useSearchParams();
   const customerId = searchParams.get("id");
   const isUpdateMode = Boolean(customerId);
+  const { setTitle } = useTitle();
 
   const [isFormReady, setIsFormReady] = useState(!isUpdateMode);
 
@@ -48,8 +50,8 @@ export default function AddCustomer() {
   });
 
   useEffect(() => {
-    if (!isUpdateMode) return;
-
+    if (!isUpdateMode) { setTitle("Add Customer"); return; };
+    setTitle("Update Customer");
     const fetchCustomerData = async () => {
       try {
         const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);

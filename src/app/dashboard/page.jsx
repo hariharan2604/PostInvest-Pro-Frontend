@@ -1,22 +1,5 @@
-"use client"
-import Header from "@/components/Header/Header";
-import Layout from "@/components/Layout/Layout";
-import CardData from "@/containers/card/card";
-import CheckUser from "@/containers/checkUser/CheckUser";
-import SearchHead from "@/containers/search-header/search-header";
-import React from "react";
-const Dashboard = () => {
-  
-  return (
-    <>
-      <Header title="Welcome to Post Invest Pro" notifyToIcon={true} />
-      <Layout>
-        <SearchHead navigatePath={`/customer-info`} />
-        <CardData />
-        <CheckUser />
-      </Layout>
-    </>
-  );
-};
+import DashboardWrapper from './dashboard-wrapper';
 
-export default Dashboard;
+export default function Page() {
+  return <DashboardWrapper />;
+}

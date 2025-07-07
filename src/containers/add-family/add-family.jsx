@@ -15,12 +15,15 @@ import SearchHead from "../search-header/search-header";
 import { useFormHandler } from "@/app/_hooks/useFormHandler";
 import { initialFormData as emptyForm } from "./formData.js";
 import { rules } from "./rules.js";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useTitle } from "@/contexts/TitleContext";
 
 export default function AddFamily() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const customer_name = searchParams.get("customer_name");
   const id = searchParams.get("id");
+  const { setTitle } = useTitle();
   const {
     formData,
     updateFormData,
@@ -47,6 +50,9 @@ export default function AddFamily() {
     }
   }, [id]);
 
+  useEffect(() => {
+    setTitle("Add Family Member");
+  })
 
   const fetchCustomerData = async (customerId) => {
     try {
@@ -178,7 +184,7 @@ export default function AddFamily() {
       </div>
 
       <div className={style["buttonGroup"]}>
-        <Button variant="outline" path="/customer">Cancel</Button>
+        <Button variant="outline" onClick={() => { router.back() }}>Cancel</Button>
         <Button variant="primary" onClick={handleSubmit}>Save</Button>
       </div>
 

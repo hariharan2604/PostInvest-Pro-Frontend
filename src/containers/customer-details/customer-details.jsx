@@ -12,12 +12,17 @@ import Image from "next/image";
 import Button from "@/components/ui/button/button";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { useTitle } from "@/contexts/TitleContext";
 
 export default function CustomerDetails({ customerId }) {
   const [customerData, setCustomerData] = useState([]);
   const [investments, setInvestments] = useState([]);
   const [familymembers, setFamilyMembers] = useState([]);
   const [name, setName] = useState('');
+  const { setTitle } = useTitle();
+  useEffect(() => {
+    setTitle("Customer Info");
+  })
 
   useEffect(() => {
     const fetchCustomerData = async () => {

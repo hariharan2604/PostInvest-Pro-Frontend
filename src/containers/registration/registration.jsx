@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormHandler } from "@/app/_hooks/useFormHandler";
 import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
@@ -13,6 +13,7 @@ import IconInput from '@/components/ui/icon-input/icon-input';
 import InfoModal from "@/components/ui/info-modal/info-modal";
 import { initialFormData } from './formData.js';
 import { rules } from './rules.js';
+import { useTitle } from "@/contexts/TitleContext";
 
 export default function Registration() {
     const {
@@ -33,7 +34,10 @@ export default function Registration() {
         apiEndpoint: '/api/auth/register-agent',
         redirectPath: '/',
     });
-
+    const { setTitle } = useTitle();
+    useEffect(() => {
+        setTitle("Agent Registration");
+    }, [])
     return (
         <div className="container">
             <div className={styles["register-container"]}>
