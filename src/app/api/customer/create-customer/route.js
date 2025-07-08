@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import { formatDate } from '@/app/_utils/dateformatter.js';
 
 export async function POST(req) {
     try {
@@ -8,9 +9,9 @@ export async function POST(req) {
         const userId = cookieStore.get('userId')?.value;
         const date = new Date(requestBody.dob);
         requestBody.agent_id = userId;
-        requestBody.city= requestBody?.city?.value;
+        requestBody.city = requestBody?.city?.value;
         requestBody.state = requestBody?.state?.value;
-        requestBody.dob = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+        requestBody.dob = formatDate(date);
 
         const externalApiResponse = await fetch(`${process.env.API_URL}/customer/create`, {
             method: 'POST',

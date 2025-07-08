@@ -1,4 +1,6 @@
 import { cookies } from 'next/headers';
+import { formatDate } from '@/app/_utils/dateformatter.js';
+
 
 export async function POST(req) {
     try {
@@ -7,7 +9,7 @@ export async function POST(req) {
         const accessToken = cookieStore.get('accessToken')?.value;
         const date = new Date(requestBody.investment_date);
         requestBody.scheme_id = requestBody?.scheme_id?.value;
-        requestBody.investment_date = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+        requestBody.investment_date = formatDate(date);
 
         const externalApiResponse = await fetch(`${process.env.API_URL}/investment/add`, {
             method: 'POST',
