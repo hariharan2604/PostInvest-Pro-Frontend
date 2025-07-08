@@ -39,7 +39,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
-
+    margin: 12px 0;
+    
     .textGroup {
       span {
         color: #000000;
@@ -135,3 +136,30 @@
     }
   }
 }
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.editIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+

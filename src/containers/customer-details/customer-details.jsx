@@ -1,70 +1,110 @@
-// "use client"
-import Input from "@/components/ui/input/input";
+"use client"
 import detailsStyle from "./customer.module.scss";
 import { Accordion, AccordionItem } from "@/components/ui/accordion/accordion";
-import IconInput from "@/components/ui/icon-input/icon-input";
 import Profile from "@/components/ui/profile/profile";
-
-// image import
+import EditIcon from '@icons/edit.svg';
 import Email from "@icons/email.svg";
+import Cif from "@icons/cif.svg";
 import DateIcon from "@icons/date_picker.svg";
 import Location from "@icons/location.svg";
 import Phone from "@icons/phone.svg";
 import Image from "next/image";
 import Button from "@/components/ui/button/button";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useTitle } from "@/contexts/TitleContext";
 
-export default function CustomerDetails() {
-  const schemesData = [
-    {
-      id: "#000132596",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileText: "SIP",
-    },
-    {
-      id: "#000132597",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileText: "MF",
-    },
-    {
-      id: "#000132598",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileText: "SIP",
-    },
-  ];
+export default function CustomerDetails({ customerId }) {
+  const [customerData, setCustomerData] = useState([]);
+  const [investments, setInvestments] = useState([]);
+  const [familymembers, setFamilyMembers] = useState([]);
+  const [name, setName] = useState('');
+  const { setTitle } = useTitle();
+  useEffect(() => {
+    setTitle("Customer Info");
+  })
 
-  //user info data
+  useEffect(() => {
+    const fetchCustomerData = async () => {
+      try {
+        const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);
+        const { data } = await res.json();
 
-  const detailsData = [
-    {
-      icon: Phone,
-      text: "+91 987456123",
-    },
-    {
-      icon: Email,
-      text: "aadhavanks@gmail.com",
-    },
-    {
-      icon: DateIcon,
-      text: "01/Feb/1980",
-    },
-    {
-      icon: Location,
-      text: "No.5, 12th Main Road, Vijaya Nagar,. Velacheri, Chennai - 600 042",
-    },
-  ];
+        if (res.ok && data) {
+          const {
+            name,
+            cif,
+            dob,
+            mobile,
+            email,
+            address1,
+            address2,
+            area,
+            city,
+            state,
+            zip,
+            Investments,
+            relatedCustomers
+          } = data;
+          const location = `${address1}, ${address2}, ${area}, ${city}, ${state} - ${zip}`;
+          const dob_data = new Date(dob);
+          setCustomerData([
+            {
+              icon: Cif,
+              text: cif ? `#${cif}` : '-',
+            },
+            {
+              icon: Phone,
+              text: `+91 ${mobile}`,
+            },
+            {
+              icon: Email,
+              text: email,
+            },
+            {
+              icon: DateIcon,
+              text: `${String(dob_data.getDate()).padStart(2, '0')
+                }/${String(dob_data.getMonth() + 1).padStart(2, '0')}/${dob_data.getFullYear()}`,
+            },
+
+            {
+              icon: Location,
+              text: location,
+            }
+          ]);
+          setFamilyMembers(relatedCustomers);
+          setInvestments(Investments);
+          setName(name);
+        }
+      } catch (error) {
+        console.error("❌ Failed to fetch customer", error);
+      }
+    };
+
+    fetchCustomerData();
+  }, [customerId]);
+
+  
+
+
   return (
     <>
       <div className={detailsStyle["customerGroup"]}>
         <div className={detailsStyle['accordionWrapper']}>
           <div className={detailsStyle['accordionItem']}>
             <Accordion>
-              <AccordionItem header="Basic Info">
+              <AccordionItem header={
+                <div className={detailsStyle["headerRow"]}>
+                  <div className={detailsStyle["titleGroup"]}>
+                    <span>Basic Info</span>
+                    <Link href={`/customer?id=${customerId}`} className={detailsStyle["editIcon"]}>
+                      <Image src={EditIcon} alt="Edit" width={18} height={18} />
+                    </Link>
+                  </div>
+                </div>
+              }>
                 <div className={detailsStyle.detailsInfo}>
-                  {detailsData.map((detail, index) => (
+                  {customerData.map((detail, index) => (
                     <div key={index} className={detailsStyle.data}>
                       <div className="image">
                         <Image src={detail.icon} alt="Icon" />
@@ -80,19 +120,22 @@ export default function CustomerDetails() {
           </div>
           <div className={detailsStyle['accordionItem']}>
             <Accordion>
-              <AccordionItem header="Family Member (2)">
+              <AccordionItem header={`Family Members (${familymembers.length})`}>
                 <div className={detailsStyle["memberInfo"]}>
-                  <div className={detailsStyle["details"]}>
-                    <div className={detailsStyle["memberImage"]}>
-                      <Profile variant="profileIcon"></Profile>
-                    </div>
-                    <div className={detailsStyle["textGroup"]}>
-                      <p>Rithika</p>
-                      <span>Wife | 10-Feb-1985 Invest Scheme 1</span>
-                    </div>
-                  </div>
+                  {familymembers.map((member, index) => (
+                    <Link key={index} href={`/customer-info/${member.id}`} className={detailsStyle["details"]}>
+                      <div className={detailsStyle["memberImage"]}>
+                        <Profile variant="profileIcon" />
+                      </div>
+                      <div className={detailsStyle["textGroup"]}>
+                        <p>{member.name}</p>
+                        <span>{`${member.relation_type} | Investments ${member.investment_count}`}</span>
+                      </div>
+                    </Link>
+                  ))}
+
                   <div className={detailsStyle["addMember"]}>
-                    <Button variant="linkButton" path="/family-members">
+                    <Button variant="linkButton" path={`/family-members?customer_name=${encodeURIComponent(name)}&id=${encodeURIComponent(customerId)}`}>
                       Add Member
                     </Button>
                   </div>
@@ -104,25 +147,25 @@ export default function CustomerDetails() {
         {/* //scheme section */}
         <div className={detailsStyle["schemesInfo"]}>
           <div className={detailsStyle["head"]}>
-            <p>Schemes ({schemesData.length})</p>
+            <p>Schemes ({investments.length})</p>
           </div>
           <div className={detailsStyle["innerContent"]}>
-            {schemesData.map((scheme, index) => (
+            {investments.map((investment, index) => (
               <Link href="/fund" key={index} passHref>
                 <div className={detailsStyle["dataGroup"]}>
                   <div className={detailsStyle["profile_text_group"]}>
                     <Profile
                       variant="profileText"
-                      profileText={scheme.profileText}
+                      profileText={investment.scheme_code}
                     />
                     <div className={detailsStyle["detail_info"]}>
-                      <span>{scheme.id}</span>
-                      <p>{scheme.name}</p>
+                      <span>{investment.investment_acc_no}</span>
+                      <p>{investment.scheme_name}</p>
                     </div>
                   </div>
                   <div className={detailsStyle["amountInfo"]}>
-                    <span>#Amount</span>
-                    <p>{scheme.amount}</p>
+                    <span>Installment Amount</span>
+                    <p>{`₹ ${investment.installment_amount}.00`}</p>
                   </div>
                 </div>
               </Link>

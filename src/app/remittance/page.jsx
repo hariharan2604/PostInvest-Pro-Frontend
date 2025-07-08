@@ -6,7 +6,7 @@ const Remittance = () => {
 
   return (
     <>
-      <Header showLeftArrow={false} title="Remittance" navigate="/dashboard" notifyToIcon={true} />
+      <Header showLeftArrow={true} title="Remittance" notifyToIcon={true} />
       <Layout>
 
         <RemittanceView />

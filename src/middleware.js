@@ -14,7 +14,9 @@ export async function middleware(request) {
     return NextResponse.next();
 }
 
-// You can specify the paths you want this middleware to apply to
 export const config = {
-    matcher: ['/protected/:path*', '/dashboard/:path*', '/customer/:path*'], // Example: Protect routes under /protected, /dashboard, and /profile
+    matcher: [
+        '/((?!api/auth|registration$|$|_next/|favicon.ico|images/|fonts/|media/|icons/).*)',
+    ],
 };
+  

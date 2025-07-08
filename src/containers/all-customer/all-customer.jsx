@@ -12,7 +12,7 @@ import Checkbox from "@/components/ui/checkbox/checkbox";
 export default function AllCustomer() {
   const router = useRouter();
 
-  const schemesData = [
+  const customerData = [
     {
       phone: "9840066220",
       location: "Salem",
@@ -67,34 +67,34 @@ export default function AllCustomer() {
 
   const handleAddIconClick = (event) => {
     event.preventDefault();
-    router.push(`/scheme`);
+    router.push(`/customer`);
   };
 
   return (
     <>
-      <SearchHead />
+      <SearchHead enableDropdown={true} navigatePath={"/customer-info"} />
       <Checkbox labelVale="Active Customer" />
       <div className={style["schemesInfo"]}>
         <div className={style["innerContent"]}>
-          {schemesData.map((scheme, index) => (
+          {customerData.map((customer, index) => (
             <Link href="/customer-info" key={index} passHref className={style["listGroup"]}>
               <div className={style["dataGroup"]}>
                 <div className={style["profile_text_group"]}>
                   <Profile
                     variant="profileIcon"
-                    profileStatus={scheme.profileStatus}
+                    profileStatus={customer.profileStatus}
                   />
                   <div className={style["detail_info"]}>
-                    <p>{scheme.name}</p>
+                    <p>{customer.name}</p>
                     <span>
-                      {scheme.phone} | {scheme.location}
+                      {customer.phone} | {customer.location}
                     </span>
                   </div>
                 </div>
                 <div className={style["addAMount"]}>
                   <div className={style["amountInfo"]}>
                     <span>#Amount</span>
-                    <p>{scheme.amount}</p>
+                    <p>{customer.amount}</p>
                   </div>
                   <div className={style["addIcon"]}>
                     <Image

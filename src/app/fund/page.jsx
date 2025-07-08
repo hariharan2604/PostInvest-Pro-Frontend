@@ -4,7 +4,7 @@ import Fund from "@/containers/provident-fund/provident-fund";
 const Profile = () => {
   return (
     <>
-      <Header title="Public Provident Fund" showLeftArrow="true" navigate="/customer-info" />
+      <Header title="Public Provident Fund" showLeftArrow="true" />
       <Layout>
         <Fund />
       </Layout>

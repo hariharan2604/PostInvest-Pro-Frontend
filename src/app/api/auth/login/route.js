@@ -12,7 +12,8 @@ export const POST = async (req) => {
             body: JSON.stringify(requestBody),
         });
         const response = await login.json()
-        if (response.data?.accessToken && response.data?.refreshToken) {
+        const { data, ...cleansed } = response;
+        if (data?.accessToken && data?.refreshToken) {
             const cookieStore = await cookies();
 
             // Set access and refresh tokens in cookies
@@ -32,6 +33,14 @@ export const POST = async (req) => {
                 maxAge: 60 * 15, // Match access token validity
             });
 
+            cookieStore.set('agentName', response.data.name, {
+                httpOnly: true,
+                secure: true,
+                path: '/',
+                sameSite: 'Strict',
+                maxAge: 60 * 15, // Match access token validity
+            });
+
             cookieStore.set('refreshToken', response.data.refreshToken, {
                 httpOnly: true,
                 secure: true,
@@ -41,10 +50,10 @@ export const POST = async (req) => {
             });
 
 
-            return new Response(JSON.stringify({ success: true, user: response.data.user }), { status: 200 });
+            return new Response(JSON.stringify(cleansed), { status: 200 });
         }
 
-        return new Response(JSON.stringify({ success: false, message: 'Invalid credentials' }), { status: 400 });
+        return new Response(JSON.stringify(cleansed), { status: 400 });
     } catch (error) {
         console.error('Login failed', error);
         return new Response(JSON.stringify({ success: false, message: error.response?.data?.message || 'Login failed' }), { status: 500 });

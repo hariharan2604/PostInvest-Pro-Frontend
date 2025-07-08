@@ -1,14 +1,15 @@
 import Header from "@/components/Header/Header";
 import Layout from "@/components/Layout/Layout";
-import InfoModal from "@/components/ui/info-modal/info-modal";
 import AddCustomer from "@/containers/add-customer/add-customer";
-
+import { Suspense } from "react";
 const CustomerAdd = () => {
   return (
     <>
-      <Header title="Create Customer" showLeftArrow="true" navigate="/profile" />
+      <Header title="Customer Registration" showLeftArrow="true" />
       <Layout>
-        <AddCustomer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <AddCustomer />
+        </Suspense>
       </Layout>
     </>
   );
