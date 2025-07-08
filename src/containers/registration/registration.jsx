@@ -57,7 +57,7 @@ export default function Registration() {
                             </div>
                         </div>
 
-                        <CustomDatePicker selectedDate={formData.dob} onChange={handleDateChange} label="Date of Birth (DD/MM/YYYY)" placeholder="DD/MM/YYYY" errorText={errors.dob} />
+                        <CustomDatePicker selectedDate={formData.dob} onChange={(date) => handleDateChange('dob', date)} label="Date of Birth (DD/MM/YYYY)" placeholder="DD/MM/YYYY" errorText={errors.dob} />
 
                         <Input labelText="Address Line 1" name="address1" onChange={handleInputChange("address1")} value={formData.address1} errorText={errors.address1} />
                         <Input labelText="Address Line 2" name="address2" onChange={handleInputChange("address2")} value={formData.address2} />

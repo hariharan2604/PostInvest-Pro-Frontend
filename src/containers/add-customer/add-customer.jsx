@@ -132,7 +132,7 @@ export default function AddCustomer() {
       <div className={customerStyle["form-group"]}>
         <CustomDatePicker
           selectedDate={formData.dob}
-          onChange={handleDateChange}
+          onChange={(date) => handleDateChange('dob', date)}
           label="Date of Birth (DD/MM/YYYY)"
           placeholder="DD/MM/YYYY"
           errorText={errors.dob}

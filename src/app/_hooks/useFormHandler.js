@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { validateForm } from '../_utils/form-validator';
 
@@ -37,9 +37,9 @@ export const useFormHandler = ({
         setFormData(prev => ({ ...prev, gender: event.target.value }));
     };
 
-    const handleDateChange = (date) => {
-        setFormData(prev => ({ ...prev, dob: date }));
-    };
+    const handleDateChange = (field, date) => {
+        setFormData(prev => ({ ...prev, [field]: date }));
+    };    
 
     const submitData = async () => {
         try {
@@ -73,6 +73,7 @@ export const useFormHandler = ({
         event.preventDefault();
         const validationErrors = validateForm(formData, validationRules);
         setErrors(validationErrors);
+        console.log("🚀 ~ handleSubmit ~ validationErrors:", validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
             submitData();
@@ -80,9 +81,18 @@ export const useFormHandler = ({
     };
 
 
-    const updateFormData = (newData) => {
-        setFormData(prev => ({ ...prev, ...newData }));
-    };
+
+
+    // const updateFormData = (newData) => {
+    //     setFormData(prev => ({ ...prev, ...newData }));
+    // };
+    const updateFormData = useCallback((updatedFields) => {
+        setFormData(prev => ({
+            ...prev,
+            ...updatedFields
+        }));
+    }, []);
+      
     
     return {
         formData,

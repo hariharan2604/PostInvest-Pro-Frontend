@@ -84,7 +84,7 @@ export default function CustomerDetails({ customerId }) {
     fetchCustomerData();
   }, [customerId]);
 
-  
+
 
 
   return (
@@ -173,7 +173,7 @@ export default function CustomerDetails({ customerId }) {
           </div>
 
           <div className={detailsStyle["addMember"]}>
-            <Button variant="linkButton" path="/scheme">
+            <Button variant="linkButton" path={`/scheme?id=${encodeURI(customerId)}&customer_name=${encodeURI(name)}`}>
               Add Scheme
             </Button>
           </div>
