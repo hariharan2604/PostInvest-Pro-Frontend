@@ -1,4 +1,4 @@
-import { useState,useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { validateForm } from '../_utils/form-validator';
 
@@ -6,9 +6,9 @@ export const useFormHandler = ({
     initialFormData = {},
     validationRules = {},
     apiEndpoint = '',
-    method='POST',
+    method = 'POST',
     redirectPath = '/',
-    redirect=false,
+    redirect = false,
     onSuccess = () => { },
     onError = () => { }
 }) => {
@@ -20,8 +20,8 @@ export const useFormHandler = ({
 
     const router = useRouter();
 
-    const handleCloseModal = () => {
-        router.back();
+    const handleCloseModal = (redirect = false) => {
+        redirect && router.back();
         setModalOpen(false);
     };
 
@@ -39,7 +39,7 @@ export const useFormHandler = ({
 
     const handleDateChange = (field, date) => {
         setFormData(prev => ({ ...prev, [field]: date }));
-    };    
+    };
 
     const submitData = async () => {
         try {
@@ -92,8 +92,8 @@ export const useFormHandler = ({
             ...updatedFields
         }));
     }, []);
-      
-    
+
+
     return {
         formData,
         updateFormData,

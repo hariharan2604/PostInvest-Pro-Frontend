@@ -32,25 +32,36 @@ const Footer = () => {
       icon: Menu,
     },
   ];
-  // const router = useRouter();
   const pathname = usePathname()
-  // const searchParams = useSearchParams()
   return (
     <>
       <div className="container">
         <footer className={styles.footer}>
           <div className={styles.nav}>
-            {menuItems.map((item, index) => (
-              <Link key={index}
-                href={item.path}
-                className={pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') || (item.path == "/profile" && (pathname == "/customer" || pathname == "/customer-info" || pathname == "/family-members")) ? styles.active : ""} prefetch>
-                <Image src={item.icon} priority alt="Menu Icons" ></Image>
-                <span>
+            {menuItems.map((item, index) => {
+              const isDashboardActive =
+                item.path === "/dashboard" &&
+                ["/viewMaturityDue", "/viewChequeLeaf"].includes(pathname);
 
-                  {pathname === item.path || (item.path === "/dashboard" && pathname === '/viewMaturityDue') || (item.path === "/dashboard" && pathname === '/viewChequeLeaf') || (item.path == "/profile" && (pathname == "/customer" || pathname == "/customer-info" || pathname == "/family-members")) ? item.text : ""}
-                </span>
-              </Link>
-            ))}
+              const isProfileActive =
+                item.path === "/profile" &&
+                (pathname.includes("customer") || pathname === "/family-members");
+
+              const isActive =
+                pathname === item.path || isDashboardActive || isProfileActive;
+
+              return (
+                <Link
+                  key={index}
+                  href={item.path}
+                  className={isActive ? styles.active : ""}
+                  prefetch
+                >
+                  <Image src={item.icon} priority alt="Menu Icons" />
+                  <span>{isActive ? item.text : ""}</span>
+                </Link>
+              );
+            })}
           </div>
         </footer>
       </div>

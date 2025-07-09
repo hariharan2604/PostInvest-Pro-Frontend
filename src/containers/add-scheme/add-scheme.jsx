@@ -94,7 +94,7 @@ export default function AddScheme() {
         </div>
 
         <div className={schemeStyle["form-group"]}>
-            <Input labelText="Tenure (Months)" name="tenure" onChange={handleInputChange("tenure")} value={formData.tenure} errorText={errors.tenure} />
+          <Input labelText="Tenure (Months)" name="tenure" onChange={handleInputChange("tenure")} value={formData.tenure} errorText={errors.tenure} />
         </div>
         <div className={schemeStyle["form-group"]}>
           <CustomDatePicker
@@ -119,7 +119,7 @@ export default function AddScheme() {
                 Title={isError ? "Error Adding Investment.." : "Investment added Successfull"}
                 Content={isError ? response?.error?.message : "Investment Details Updated.."}
                 onOpen={modalOpen}
-                onClose={handleCloseModal}
+                onClose={() => { handleCloseModal(!isError) }}
               />
             </div>
           )}

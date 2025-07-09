@@ -195,7 +195,7 @@ export default function AddFamily() {
               Title={isError ? "Error Updation Relation.." : "Customer Relation Updated"}
               Content={isError ? response?.error?.message : "The Customer Relation Details Updated.."}
               onOpen={modalOpen}
-              onClose={handleCloseModal}
+              onClose={() => { handleCloseModal(!isError) }}
             />
           </div>
         )}
