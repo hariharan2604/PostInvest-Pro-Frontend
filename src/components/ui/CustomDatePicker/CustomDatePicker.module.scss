@@ -1,73 +1,68 @@
 .customDatePickerContainer {
   position: relative;
   font-family: var(--font-inter), sans-serif;
+  z-index: 1; // Prevents stacking above modals
 
   .DateIcon {
     position: absolute;
     top: 50%;
-    right: 0px;
-    transform: translate(-50%, -50%);
+    right: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
   }
-  &:focus-within {
-    label {
-      top: 2px;
-      text-align: left;
-      // z-index: 1;
-      left: 10px;
-      transition: all 0.3s ease-in-out;
-      color: #777777;
-      font-size: 12px;
-      line-height: 21px;
-    }
+
+  &:focus-within .customDatePickerLabel,
+  &.active .customDatePickerLabel {
+    top: 6px;
+    text-align: left;
+    font-size: 12px;
+    color: #777;
+    transition: all 0.3s ease;
+  }
+
+  &:focus-within .customDatePickerInput {
+    border-color: #194a8a;
   }
 }
 
 .customDatePickerInput {
-  padding: 20px 10px;
+  padding: 18px 12px;
   font-family: var(--font-inter), sans-serif;
   font-size: 16px;
+  text-align: left;
   border: 1px solid #ccc;
-  cursor: pointer;
   background-color: #fff;
   border-radius: 10px;
   width: 100%;
   height: 57px;
+  cursor: pointer;
+  z-index: 0;
+  transition: border-color 0.3s ease;
+
   &:focus {
+    outline: none;
     border-color: #194a8a;
   }
 }
+
 .customDatePickerLabel {
   position: absolute;
-  top: 20px;
-  left: 10px;
+  top: 18px;
+  left: 12px;
   font-size: 16px;
-  color: #777777;
-  z-index: 1;
+  color: #777;
   pointer-events: none;
-  transition: top 0.2s, font-size 0.2s, color 0.2s;
+  transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+  z-index: 1; // Only above input, not above modal
 }
-.active .customDatePickerLabel {
-  top: 2px;
-  text-align: left;
-  z-index: 1;
-  left: 10px;
-  transition: all 0.3s ease-in-out;
-  color: #777777;
-  font-size: 12px;
-  line-height: 21px;
-}
-.active .customDatePickerInput {
-  top: 10px;
-  font-size: 0.625rem;
-  color: #000000;
-  font-size: 14px;
-  text-align: left;
-  z-index: 1;
-  left: 10px;
-}
+
 .react-datepicker__input-container {
-  font-size: 18px;
+  font-size: 16px;
 }
+
 .errorText {
   color: #f93827;
+  font-size: 13px;
+  margin-top: 4px;
 }
