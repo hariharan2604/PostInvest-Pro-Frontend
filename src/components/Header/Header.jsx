@@ -45,7 +45,7 @@ const Header = ({ showLeftArrow, navigate = "/dashboard" }) => {
                 className={isActiveRoute(pathname, item) ? styles.active : ""}
               >
                 <Image src={item.icon} alt="Menu Icon" />
-                <span>{isActiveRoute(pathname, item) ? item.text : ""}</span>
+                {isActiveRoute(pathname, item) && <span>{item.text}</span>}
               </Link>
             ))}
           </div>
