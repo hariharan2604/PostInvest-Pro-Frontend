@@ -183,7 +183,7 @@ export default function AddFamily() {
       </div>
 
       <div className={style["buttonGroup"]}>
-        <Button variant="outline" onClick={() => { router.back() }}>Cancel</Button>
+        <Button variant="outline" onClick={() => router.back()}>Cancel</Button>
         <Button variant="primary" onClick={handleSubmit}>Save</Button>
       </div>
 
@@ -195,7 +195,7 @@ export default function AddFamily() {
               Title={isError ? "Error Updation Relation.." : "Customer Relation Updated"}
               Content={isError ? response?.error?.message : "The Customer Relation Details Updated.."}
               onOpen={modalOpen}
-              onClose={() => { handleCloseModal(!isError) }}
+              onClose={() => handleCloseModal(!isError)}
             />
           </div>
         )}

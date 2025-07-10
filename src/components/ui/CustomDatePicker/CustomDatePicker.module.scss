@@ -1,7 +1,7 @@
 .customDatePickerContainer {
   position: relative;
   font-family: var(--font-inter), sans-serif;
-  z-index: 1; // Prevents stacking above modals
+  z-index: 0; // Keep it below modal level
 
   .DateIcon {
     position: absolute;
@@ -54,7 +54,7 @@
   color: #777;
   pointer-events: none;
   transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
-  z-index: 1; // Only above input, not above modal
+  z-index: 1; // Ensures it doesn't overlap modal
 }
 
 .react-datepicker__input-container {

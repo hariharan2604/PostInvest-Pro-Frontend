@@ -14,6 +14,7 @@ export default function Selectdropdown({
     <>
       <div className={SelectStyle["inputGroup"]}>
         <Select
+          instanceId="scheme-select"
           className={SelectStyle["custom_select"]}
           value={selectedOption}
           onChange={setSelectedOption}
@@ -27,6 +28,12 @@ export default function Selectdropdown({
               borderRadius: "10px",
               fontFamily: "var(--font-inter), sans-serif",
               boxShadow: "none",
+              ":hover": {
+                borderColor: "unset",
+                border: "1px solid #DDDDDD",
+                boxShadow: "unset",
+                outline: "unset",
+              }
             }),
             menuPortal: (base) => ({
               ...base,

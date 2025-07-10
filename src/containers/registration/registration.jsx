@@ -81,7 +81,7 @@ export default function Registration() {
                                 Title={isError ? "Error in Agent Registration" : "Registration Successful"}
                                 Content={isError ? response?.error?.message : "Login to Continue..."}
                                 onOpen={modalOpen}
-                                onClose={() => { handleCloseModal(!isError) }}
+                                onClose={() => handleCloseModal(!isError)}
                             />
                         </div>
                     )}
