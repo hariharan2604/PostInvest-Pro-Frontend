@@ -1,112 +1,123 @@
 .footer {
-  padding: 0px 15px;  
+  padding: 0 15px;
   height: 58px;
- 
-  @media (max-width:767.98px) {
-    width: 100%;
-    background-color: #fff;
-    border-top: 1px solid #efefef;
-    z-index: 1;
-  }
-
+  position: relative;
+  
   .nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 100%;
-    gap: 25px;
- 
-    a {
-      text-decoration: none;
-      font-size: 12px;
-      line-height: 15px;
-      color: #194a8a;
-      font-weight: 500;
-      padding: 7px 15px;
-      border-radius: 50px;
-      transition: all 0.3s ease-in-out;
+
+    .desktopMenu {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease-in-out;
-      position: relative;
-      span{
-        opacity: 0;
-        transition: all 0.3s ease-in-out;
+      gap: 25px;
+      height: 100%;
 
+      @media (max-width: 767.98px) {
+        display: none;
       }
-      @media (max-width:767.98px) {
-        gap: 5px;
-      }
-      img{
-        
 
-        filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(112deg) brightness(107%) contrast(100%);
-        @media (max-width:767.98px) {
-         filter: invert(47%) sepia(16%) saturate(18%) hue-rotate(336deg) brightness(95%) contrast(94%);
-        
-       }
-      }
-      &:hover {
-        // background-color: #d0e5ff;
-        // img{
-        //   filter: invert(16%) sepia(50%) saturate(3471%) hue-rotate(205deg)
-        //   brightness(98%) contrast(83%);
-        // }
-      }
-      &.active {
-        animation: fadeIn 0.8s ease-in-out;
-        background-color: #d0e5ff;
-        img {
-          animation: slide-left 0.4s ease-in-out;
-          filter: invert(16%) sepia(50%) saturate(3471%) hue-rotate(205deg)
-            brightness(98%) contrast(83%);
-        }
-        span{
-          opacity: 1;
-          animation: slide-down 0.4s ease-in-out;
-        animation-timing-function : ease-in-out;
-        }
-      }
-      span{
+      a {
         display: flex;
-        gap: 7px;
         align-items: center;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 7px 15px;
+        border-radius: 50px;
+        gap: 10px;
+        font-weight: 500;
+        color: #194a8a;
+        transition: all 0.3s;
+
+        img {
+          filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(112deg)
+            brightness(107%) contrast(100%);
+        }
+
+        span {
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        &.active {
+          background-color: #d0e5ff;
+
+          img {
+            filter: invert(16%) sepia(50%) saturate(3471%) hue-rotate(205deg)
+              brightness(98%) contrast(83%);
+          }
+
+          span {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .mobileMenu {
+      display: none;
+
+      @media (max-width: 767.98px) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+
+        button {
+          background: none;
+          border: none;
+          padding: 10px;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+          filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(112deg)
+          brightness(107%) contrast(100%);
+        }
       }
     }
   }
-}
 
-@keyframes slide-down {
-  0%{
-    opacity: 0;
-    position: relative;
-    transform: translateX(10px);
-  }
-  100%{
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-@keyframes slide-left {
-  0%{
-    opacity: 0;
-    position: relative;
-    transform: translateX(-10px);
-  }
-  100%{
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
+  .popupMenu {
+    position: fixed;
+    bottom: 58px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
 
-@keyframes fadeIn {
-  0%{
-    opacity: 0;
-    visibility: hidden;
-  }
-  100%{
-    opacity: 1;
-    visibility: visible;
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 14px;
+      color: #194a8a;
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
+
+      &.active {
+        background-color: #d0e5ff;
+        font-weight: bold;
+
+        img {
+          filter: invert(16%) sepia(50%) saturate(3471%) hue-rotate(205deg)
+            brightness(98%) contrast(83%);
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 }

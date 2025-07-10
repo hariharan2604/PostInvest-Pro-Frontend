@@ -3,10 +3,10 @@ import React from "react";
 import Image from "next/image";
 import styles from "./Header.module.scss";
 import leftArrow from "@icons/arrow-left.svg";
-import Notification from "@icons/notification.svg";
+// import Notification from "@icons/notification.svg";
 import { useRouter } from "next/navigation";
 import Footer from "../Footer/Footer";
-import Button from "../ui/button/button";
+// import Button from "../ui/button/button";
 import { useTitle } from "@/contexts/TitleContext";
 
 const Header = ({ showLeftArrow, notifyToIcon, navigate = "/dashboard", footer = true }) => {
@@ -24,23 +24,20 @@ const Header = ({ showLeftArrow, notifyToIcon, navigate = "/dashboard", footer =
     <>
       <div className="container">
         <header className={styles.header}>
-          <div className={styles.iconGroup}>
-            {showLeftArrow && (
-                <Image src={leftArrow} onClick={handleBack} alt="Left Arrow Image" />
-            )}
-            <h1>{title}</h1>
+          <div className={styles.leftSection}>
+            <div className={styles.iconGroup}>
+              {showLeftArrow && (
+                <Image src={leftArrow} onClick={handleBack} alt="Left Arrow" />
+              )}
+              <h1>{title}</h1>
+            </div>
           </div>
-          {footer && <div>
-            <div className={styles.webVisible}>
-              <Footer />
-            </div>
-          </div>}
-          {notifyToIcon && (
-            <div className={styles.notifyToIcon}>
-              <Image src={Notification} alt="Notification Icon" />
-            </div>
-          )}
+
+          <div className={styles.footerSection}>
+            {footer && <Footer />}
+          </div>
         </header>
+
       </div>
     </>
 

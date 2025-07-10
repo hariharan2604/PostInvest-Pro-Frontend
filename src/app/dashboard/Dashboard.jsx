@@ -18,7 +18,7 @@ const Dashboard = ({ name }) => {
         <>
             <Header notifyToIcon={true} />
             <Layout>
-                <SearchHead navigatePath={`/customer-info`} />
+                <SearchHead enableAddCustomer={false}/>
                 <CardData />
                 <CheckUser />
             </Layout>

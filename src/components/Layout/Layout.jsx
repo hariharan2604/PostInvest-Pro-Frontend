@@ -8,9 +8,9 @@ const Layout = ({ children }) => {
     <>
       <div className="container">
         <main className={styles.layout}>{children}</main>
-        <div className={styles.mobVisible}>
+        {/* <div className={styles.mobVisible}>
           <Footer />
-        </div>
+        </div> */}
       </div>
     </>
   );

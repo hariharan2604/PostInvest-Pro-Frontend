@@ -1,83 +1,81 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+"use client";
+import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import styles from "./Footer.module.scss";
 import Home from "@icons/home.svg";
 import Remittance from "@icons/remittance.svg";
 import User from "@icons/footer-user.svg";
 import Menu from "@icons/menu.svg";
-import Inventory from "@icons/coin_black.svg"
-import Investment from "@icons/investment.svg"
-import Link from "next/link";
-import styles from "./Footer.module.scss";
+import Inventory from "@icons/coin_black.svg";
+import Investment from "@icons/investment.svg";
 
 const Footer = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const pathname = usePathname();
+
   const menuItems = [
-    {
-      path: "/dashboard",
-      text: "Home",
-      icon: Home,
-    },
-    {
-      path: "/remittance",
-      text: "Remittance",
-      icon: Remittance,
-    },
-    {
-      path: "/profile",
-      text: "Customer",
-      icon: User,
-    },
-    {
-      path: "/viewChequeLeaf",
-      text: "Inventory",
-      icon: Inventory,
-    },
-    {
-      path: "/fund",
-      text: "Investment",
-      icon: Investment,
-    },
-    {
-      path: "/menu",
-      text: "Menu",
-      icon: Menu,
-    },
+    { path: "/dashboard", text: "Home", icon: Home },
+    { path: "/remittance", text: "Remittance", icon: Remittance },
+    { path: "/profile", text: "Customer", icon: User },
+    { path: "/viewChequeLeaf", text: "Inventory", icon: Inventory },
+    { path: "/fund", text: "Investment", icon: Investment },
   ];
-  const pathname = usePathname()
+
+  const isActive = (item) => {
+    const isDashboardActive =
+      item.path === "/dashboard" &&
+      ["/viewMaturityDue", "/viewChequeLeaf"].includes(pathname);
+    const isProfileActive =
+      item.path === "/profile" &&
+      (pathname.includes("customer") || pathname === "/family-members");
+    return pathname === item.path || isDashboardActive || isProfileActive;
+  };
+
   return (
-    <>
-      <div className="container">
-        <footer className={styles.footer}>
-          <div className={styles.nav}>
-            {menuItems.map((item, index) => {
-              const isDashboardActive =
-                item.path === "/dashboard" &&
-                ["/viewMaturityDue", "/viewChequeLeaf"].includes(pathname);
+    // <div className="container">
+    <footer className={styles.footer}>
+      <div className={styles.nav}>
+        {/* Desktop menu */}
+        <div className={styles.desktopMenu}>
+          {menuItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.path}
+              className={isActive(item) ? styles.active : ""}
+              prefetch
+            >
+              <Image src={item.icon} priority alt="Menu Icon" />
+              <span>{isActive(item) ? item.text : ""}</span>
+            </Link>
+          ))}
+        </div>
 
-              const isProfileActive =
-                item.path === "/profile" &&
-                (pathname.includes("customer") || pathname === "/family-members");
-
-              const isActive =
-                pathname === item.path || isDashboardActive || isProfileActive;
-
-              return (
-                <Link
-                  key={index}
-                  href={item.path}
-                  className={isActive ? styles.active : ""}
-                  prefetch
-                >
-                  <Image src={item.icon} priority alt="Menu Icons" />
-                  <span>{isActive ? item.text : ""}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </footer>
+        {/* Mobile hamburger */}
+        <div className={styles.mobileMenu}>
+          <Image src={Menu} alt="Menu" onClick={() => setShowMenu(!showMenu)} />
+        </div>
       </div>
-    </>
+
+      {/* Mobile menu popup */}
+      {showMenu && (
+        <div className={styles.popupMenu}>
+          {menuItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.path}
+              className={isActive(item) ? styles.active : ""}
+              onClick={() => setShowMenu(false)}
+            >
+              <Image src={item.icon} priority alt="Menu Icon" />
+              <span>{item.text}</span>
+            </Link>
+          ))}
+        </div>
+      )}
+    </footer>
+    // </div>
   );
 };
 

@@ -8,10 +8,10 @@
   border-top-right-radius: 20px;
   padding: 16px;
   position: relative;
-  @media (max-width:767.98px) {
-    height: calc(100svh - 114px);
-    padding-bottom: 56px;
-  }
+  // @media (max-width:767.98px) {
+  //   // height: calc(100svh - 114px);
+  //   padding-bottom: 56px;
+  // }
 }
 .mobVisible{
   display: none;
