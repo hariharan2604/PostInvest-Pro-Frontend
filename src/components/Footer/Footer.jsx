@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,12 +7,10 @@ import styles from "./Footer.module.scss";
 import Home from "@icons/home.svg";
 import Remittance from "@icons/remittance.svg";
 import User from "@icons/footer-user.svg";
-import Menu from "@icons/menu.svg";
 import Inventory from "@icons/coin_black.svg";
 import Investment from "@icons/investment.svg";
 
-const Footer = () => {
-  const [showMenu, setShowMenu] = useState(false);
+const Footer = ({ hideMobileMenu = false }) => {
   const pathname = usePathname();
 
   const menuItems = [
@@ -34,10 +32,8 @@ const Footer = () => {
   };
 
   return (
-    // <div className="container">
     <footer className={styles.footer}>
       <div className={styles.nav}>
-        {/* Desktop menu */}
         <div className={styles.desktopMenu}>
           {menuItems.map((item, index) => (
             <Link
@@ -52,30 +48,13 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Mobile hamburger */}
-        <div className={styles.mobileMenu}>
-          <Image src={Menu} alt="Menu" onClick={() => setShowMenu(!showMenu)} />
-        </div>
+        {!hideMobileMenu && (
+          <div className={styles.mobileMenu}>
+            <Image src={Menu} alt="Menu" />
+          </div>
+        )}
       </div>
-
-      {/* Mobile menu popup */}
-      {showMenu && (
-        <div className={styles.popupMenu}>
-          {menuItems.map((item, index) => (
-            <Link
-              key={index}
-              href={item.path}
-              className={isActive(item) ? styles.active : ""}
-              onClick={() => setShowMenu(false)}
-            >
-              <Image src={item.icon} priority alt="Menu Icon" />
-              <span>{item.text}</span>
-            </Link>
-          ))}
-        </div>
-      )}
     </footer>
-    // </div>
   );
 };
 
