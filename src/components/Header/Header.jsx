@@ -26,9 +26,7 @@ const Header = ({ showLeftArrow, notifyToIcon, navigate = "/dashboard", footer =
         <header className={styles.header}>
           <div className={styles.iconGroup}>
             {showLeftArrow && (
-              <Button onClick={handleBack}>
-                <Image src={leftArrow} alt="Left Arrow Image" />
-              </Button>
+                <Image src={leftArrow} onClick={handleBack} alt="Left Arrow Image" />
             )}
             <h1>{title}</h1>
           </div>
