@@ -6,6 +6,8 @@ import Home from "@icons/home.svg";
 import Remittance from "@icons/remittance.svg";
 import User from "@icons/footer-user.svg";
 import Menu from "@icons/menu.svg";
+import Inventory from "@icons/coin_black.svg"
+import Investment from "@icons/investment.svg"
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 
@@ -25,6 +27,16 @@ const Footer = () => {
       path: "/profile",
       text: "Customer",
       icon: User,
+    },
+    {
+      path: "/viewChequeLeaf",
+      text: "Inventory",
+      icon: Inventory,
+    },
+    {
+      path: "/fund",
+      text: "Investment",
+      icon: Investment,
     },
     {
       path: "/menu",
