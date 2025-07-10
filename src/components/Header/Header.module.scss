@@ -24,6 +24,10 @@
         white-space: nowrap;
         margin: 0;
       }
+
+      img {
+        cursor: pointer;
+      }
     }
   }
 
@@ -41,6 +45,53 @@
       justify-content: center;
     }
 
+    .desktopMenu {
+      display: flex;
+      gap: 25px;
+      height: 100%;
+
+      @media (max-width: 767.98px) {
+        display: none;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 7px 15px;
+        border-radius: 50px;
+        gap: 10px;
+        font-weight: 500;
+        color: #194a8a;
+        // background: white;
+        transition: all 0.3s;
+
+        img {
+          filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(112deg)
+            brightness(107%) contrast(100%);
+        }
+
+        span {
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        &.active {
+          background-color: #d0e5ff;
+
+          img {
+            filter: invert(16%) sepia(50%) saturate(3471%) hue-rotate(205deg)
+              brightness(98%) contrast(83%);
+          }
+
+          span {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
     .mobileMenu {
       display: none;
 
@@ -48,12 +99,14 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        width: 100%;
 
         img {
           width: 24px;
           height: 24px;
           filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(112deg)
             brightness(107%) contrast(100%);
+          cursor: pointer;
         }
       }
     }

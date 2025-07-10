@@ -1,21 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { useTitle } from "@/contexts/TitleContext";
 import styles from "./Header.module.scss";
 import leftArrow from "@icons/arrow-left.svg";
 import Menu from "@icons/menu.svg";
-import Footer from "../Footer/Footer";
-import { MenuList } from "../Menu/MenuList";
-import { isActiveRoute, menuItems } from "../Menu/menuItems";
+import { menuItems, isActiveRoute } from "../Menu/menuItems";
 
-const Header = ({ showLeftArrow, navigate = "/dashboard", footer = true }) => {
+const Header = ({ showLeftArrow, navigate = "/dashboard" }) => {
   const { title } = useTitle();
   const router = useRouter();
-  const [showMenu, setShowMenu] = useState(false);
   const pathname = usePathname();
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleBack = () => {
     if (window.history.length > 1) {
@@ -31,30 +29,48 @@ const Header = ({ showLeftArrow, navigate = "/dashboard", footer = true }) => {
         <div className={styles.leftSection}>
           <div className={styles.iconGroup}>
             {showLeftArrow && (
-              <Image src={leftArrow} onClick={handleBack} alt="Left Arrow" />
+              <Image src={leftArrow} onClick={handleBack} alt="Back" />
             )}
             <h1>{title}</h1>
           </div>
         </div>
 
         <div className={styles.footerSection}>
-          {/* Mobile menu trigger */}
+          {/* Desktop Menu */}
+          <div className={styles.desktopMenu}>
+            {menuItems.map((item, index) => (
+              <Link
+                key={index}
+                href={item.path}
+                className={isActiveRoute(pathname, item) ? styles.active : ""}
+              >
+                <Image src={item.icon} alt="Menu Icon" />
+                <span>{isActiveRoute(pathname, item) ? item.text : ""}</span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Menu Icon */}
           <div className={styles.mobileMenu}>
             <Image src={Menu} alt="Menu" onClick={() => setShowMenu(!showMenu)} />
           </div>
 
-          {/* Mobile popup menu */}
+          {/* Mobile Popup Menu */}
           {showMenu && (
             <div className={styles.popupMenu}>
-              <MenuList
-                onClick={() => setShowMenu(false)}
-                activeClass={styles.active}
-              />
+              {menuItems.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.path}
+                  className={isActiveRoute(pathname, item) ? styles.active : ""}
+                  onClick={() => setShowMenu(false)}
+                >
+                  <Image src={item.icon} alt="Menu Icon" />
+                  <span>{item.text}</span>
+                </Link>
+              ))}
             </div>
           )}
-
-          {/* Footer for desktop */}
-          {footer && <Footer hideMobileMenu />}
         </div>
       </header>
     </div>
