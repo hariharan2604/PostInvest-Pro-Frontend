@@ -85,14 +85,33 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+
     .dataGroup {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+
+      @media (max-width: 767.98px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
       .profile_text_group {
         display: flex;
         align-items: center;
         gap: 10px;
+        flex: 1;
+
+        @media (max-width: 767.98px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
         .detail_info {
           p {
@@ -109,7 +128,14 @@
           }
         }
       }
+
       .amountInfo {
+        text-align: right;
+
+        @media (max-width: 767.98px) {
+          text-align: left;
+        }
+
         p {
           color: #000000;
           font-size: 14px;
@@ -136,6 +162,7 @@
     }
   }
 }
+
 .headerRow {
   display: flex;
   align-items: center;

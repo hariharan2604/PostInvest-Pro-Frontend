@@ -1,6 +1,113 @@
 .cardSplit {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  // @media (max-width: 768px) {
+  //   // flex-direction: column;
+  // }
+}
+
+.inputWithFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  flex: 1;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.filterIconBtn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: #555;
+  }
+
+  &:hover svg {
+    fill: #000;
+  }
+}
+
+.radioDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 200px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #333;
+  animation: fadeSlideDown 0.2s ease-out;
+
+  @media (max-width: 768px) {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 12px 0 0 0;
+    animation: none;
+    font-size: 15px;
+  }
+}
+
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style for the radio button component inside dropdown */
+.radioDropdown :global(.radiobtns) {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #f5f8ff;
+    border-color: #194a8a;
+  }
+
+  input[type="radio"]:checked + label {
+    font-weight: 600;
+    color: #194a8a;
+  }
+
+  label {
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+  }
 }

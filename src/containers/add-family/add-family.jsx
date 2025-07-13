@@ -54,7 +54,9 @@ export default function AddFamily() {
     setTitle("Add Family Member");
   })
 
-  const fetchCustomerData = async (customerId) => {
+  const fetchCustomerData = async (data) => {
+    const customerId = data.id;
+
     try {
       const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);
       const { data } = await res.json();
@@ -91,7 +93,7 @@ export default function AddFamily() {
         <Input labelText="Customer Name" name="customer_name" variant="disabled" value={customer_name} />
       </div>
       <div className={style["form-group"]}>
-        <SearchHead enableAddCustomer={false} onSelect={fetchCustomerData}></SearchHead>
+        <SearchHead showRouteOptions={false} enableAdd={false} enableDropdown={true} onSelectResponse={fetchCustomerData} redirect={false}></SearchHead>
       </div>
       <div className={style["form-group"]}>
         <Input labelText="Full Name" name="name" onChange={handleInputChange("name")} value={formData.name} errorText={errors.name} />

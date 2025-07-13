@@ -57,10 +57,14 @@ export const useFormHandler = ({
                 setError(false);
                 onSuccess(result);
                 redirect && router.push(redirectPath);
+                console.log("🚀 ~ submitData ~ redirectPath:", redirectPath);
+
             } else {
                 setError(true);
                 onError(result);
             }
+
+
 
             setModalOpen(true);
         } catch (error) {
