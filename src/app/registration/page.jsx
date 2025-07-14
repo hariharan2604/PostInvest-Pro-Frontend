@@ -4,7 +4,7 @@ import Registration from "@/containers/registration/registration";
 export default function Register() {
     return (
         <>
-            <Header title='Agent Registration' showLeftArrow={false} navigate="/" footer={false} />
+            <Header title='Agent Registration' disableMobileMenu={true} showLeftArrow={false} />
                 <Registration />
         </>
     )

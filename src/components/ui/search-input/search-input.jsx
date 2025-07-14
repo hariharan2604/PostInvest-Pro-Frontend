@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./search-input.module.scss";
 import Image from "next/image";
 import Searchicon from "@icons/search-input.svg";
@@ -13,8 +13,13 @@ export default function SearchInput({
     onSelect,
     redirect,
     redirectUrl,
+    fetchOnFocus = true,
     enableDropdown = true,
     onDataFetched,
+    onError,
+    debounceDelay = 300,
+    minSearchLength = 1,
+    allowEmptySearch = false,
     type = "customer",
 }) {
     const [searchTerm, setSearchTerm] = useState("");
@@ -22,7 +27,6 @@ export default function SearchInput({
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
-    const [hasInputFocus, setHasInputFocus] = useState(false);
     const wrapperRef = useRef(null);
     const router = useRouter();
 
@@ -30,54 +34,72 @@ export default function SearchInput({
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedTerm(searchTerm.trim());
-        }, 300);
+        }, debounceDelay);
         return () => clearTimeout(timer);
-    }, [searchTerm]);
+    }, [searchTerm, debounceDelay]);
 
     // Fetch logic
     useEffect(() => {
-        const shouldFetch = (!enableDropdown) || (enableDropdown && hasInputFocus);
-        if (!shouldFetch) return;
+        const shouldFetch =
+            (!fetchOnFocus) || (fetchOnFocus && showDropdown);
+
+        const isTooShort = !allowEmptySearch && debouncedTerm.length < minSearchLength;
+
+        if (!shouldFetch || isTooShort) return;
+
+        const controller = new AbortController();
 
         const fetchResults = async () => {
             setLoading(true);
             try {
-                const res = await fetch(`${fetchUrl}?search=${encodeURIComponent(debouncedTerm)}`);
+                const res = await fetch(
+                    `${fetchUrl}?search=${encodeURIComponent(debouncedTerm)}`,
+                    { signal: controller.signal }
+                );
                 if (!res.ok) throw new Error("Failed to fetch");
                 const data = await res.json();
-                const list = (data?.data?.[type] || []).sort((a, b) =>
-                    a.name.localeCompare(b.name)
-                );
+                const list = (data?.data?.[type] || []).sort((a, b) => {
+                    if (!a?.name || !b?.name) return 0;
+                    return a.name.localeCompare(b.name);
+                });
                 setResults(list);
-                if (onDataFetched) onDataFetched(list);
+                onDataFetched?.(list);
                 if (enableDropdown) setShowDropdown(true);
             } catch (err) {
-                console.error("Search fetch error:", err.message);
-                setResults([]);
-                if (enableDropdown) setShowDropdown(true);
+                if (err.name !== "AbortError") {
+                    console.error("Search fetch error:", err.message);
+                    onError?.(err);
+                    setResults([]);
+                    if (enableDropdown) setShowDropdown(true);
+                }
             } finally {
                 setLoading(false);
             }
         };
 
         fetchResults();
-    }, [debouncedTerm, fetchUrl, enableDropdown, hasInputFocus]);
+        return () => controller.abort();
+    }, [debouncedTerm, fetchUrl, fetchOnFocus, showDropdown, enableDropdown, type, minSearchLength, allowEmptySearch]);
 
-    // Close dropdown on outside click
+    // Outside click to close dropdown
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
                 setShowDropdown(false);
             }
         };
-
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const renderCustomerItem = (user) => (
+    // Dropdown trigger on input focus
+    const handleInputFocus = () => {
+        if (fetchOnFocus) {
+            setShowDropdown(true);
+        }
+    };
+
+    const renderCustomerItem = useCallback((user) => (
         <>
             <div className={styles.profileIcon}>
                 <div
@@ -94,7 +116,7 @@ export default function SearchInput({
                 <p className={styles.userEmail}>{user.email}</p>
             </div>
         </>
-    );
+    ), []);
 
     return (
         <div ref={wrapperRef} className={styles["search-wrapper"]}>
@@ -106,8 +128,7 @@ export default function SearchInput({
                     placeholder={placeholder}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    onFocus={() => setHasInputFocus(true)}
-                    onBlur={() => setHasInputFocus(false)}
+                    onFocus={handleInputFocus}
                 />
             </div>
 
@@ -117,11 +138,14 @@ export default function SearchInput({
                     loading={loading}
                     onSelect={(id, item) => {
                         setShowDropdown(false);
-                        redirect && router.push(`${redirectUrl}/${id}`);
-                        if (onSelect) onSelect(id, item);
+                        if (redirect && redirectUrl) {
+                            router.push(`${redirectUrl}/${id}`);
+                        }
+                        onSelect?.(id, item);
                     }}
                     renderItem={renderCustomerItem}
                     keyExtractor={(item) => item.id}
+                    noResultsMessage="No results found"
                 />
             )}
         </div>

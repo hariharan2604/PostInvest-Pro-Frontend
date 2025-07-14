@@ -52,8 +52,6 @@ export const POST = async (req) => {
 
             console.log("🚀 ~ POST ~ cleansed:", cleansed);
             return new Response(JSON.stringify(cleansed), { status: 200 });
-
-
         }
 
         return new Response(JSON.stringify(cleansed), { status: 400 });

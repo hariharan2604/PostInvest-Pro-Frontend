@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./add-family.module.scss";
 import modal from "../add-customer/add-customer.module.scss"
 import Input from "@/components/ui/input/input";
@@ -24,31 +24,42 @@ export default function AddFamily() {
   const customer_name = searchParams.get("customer_name");
   const id = searchParams.get("id");
   const { setTitle } = useTitle();
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleCloseModal = (shouldRedirect = false) => {
+    shouldRedirect && router.back();
+    setModalOpen(false);
+  };
+
   const {
     formData,
     updateFormData,
     errors,
     isError,
-    modalOpen,
     response,
     handleInputChange,
     handleSelectChange,
     handleRadioChange,
     handleDateChange,
     handleSubmit,
-    handleCloseModal,
   } = useFormHandler({
     initialFormData: emptyForm,
     validationRules: rules,
     apiEndpoint: `/api/customer/add-relation`,
     redirectPath: "/",
     method: "POST",
+    onSuccess: (result) => {
+      setModalOpen(true);
+    },
+    onError: (result) => {
+      setModalOpen(true);
+    }
   });
   useEffect(() => {
     if (id) {
       updateFormData({ id });
     }
-  }, [id]);
+  }, [id, updateFormData]);
 
   useEffect(() => {
     setTitle("Add Family Member");
@@ -77,8 +88,8 @@ export default function AddFamily() {
           state: { value: state, label: state },
         };
 
-        updateFormData(cleaned);
-        updateFormData({ relation_id: id });
+        updateFormData({ ...cleaned, relation_id: id });
+
       }
 
 
@@ -123,7 +134,7 @@ export default function AddFamily() {
               labeltext="Male"
               value="Male"
               checkedValue={formData.gender}
-              onChange={handleRadioChange}
+              onChange={handleRadioChange('gender')}
             />
             <RadioButton
               variant="radiobtns"
@@ -132,7 +143,7 @@ export default function AddFamily() {
               labeltext="Female"
               value="Female"
               checkedValue={formData.gender}
-              onChange={handleRadioChange}
+              onChange={handleRadioChange('gender')}
             />
           </div>
         </div>

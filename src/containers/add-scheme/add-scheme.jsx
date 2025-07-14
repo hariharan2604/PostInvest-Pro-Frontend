@@ -21,25 +21,33 @@ export default function AddScheme() {
   const [schemes, setSchemes] = useState([]);
   const { setTitle } = useTitle();
   const router = useRouter();
-
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleCloseModal = (shouldRedirect = false) => {
+    shouldRedirect && router.back();
+    setModalOpen(false);
+  };
   const {
     formData,
     updateFormData,
     errors,
     isError,
-    modalOpen,
     response,
     handleInputChange,
     handleSelectChange,
     handleDateChange,
     handleSubmit,
-    handleCloseModal,
   } = useFormHandler({
     initialFormData: emptyForm,
     validationRules: rules,
     apiEndpoint: `/api/investment/add`,
     redirectPath: "/",
     method: "POST",
+    onSuccess: (result) => {
+      setModalOpen(true);
+    },
+    onError: (result) => {
+      setModalOpen(true);
+    }
   });
 
   useEffect(() => {

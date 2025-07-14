@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useFormHandler } from "@/app/_hooks/useFormHandler";
 import Input from "@/components/ui/input/input";
 import Button from "@/components/ui/button/button";
@@ -9,35 +9,44 @@ import City from '../../app/_data/cities.json';
 import State from '../../app/_data/states.json';
 import Selectdropdown from "@/components/ui/select/select";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
-import IconInput from '@/components/ui/icon-input/icon-input';
+import PasswordInput from '@/components/ui/icon-input/icon-input';
 import InfoModal from "@/components/ui/info-modal/info-modal";
 import { initialFormData } from './formData.js';
 import { rules } from './rules.js';
 import { useTitle } from "@/contexts/TitleContext";
 
 export default function Registration() {
+    const [modalOpen, setModalOpen] = useState(false);
+    const handleCloseModal = (shouldRedirect = false) => {
+        shouldRedirect && router.back();
+        setModalOpen(false);
+    };
     const {
         formData,
         errors,
         isError,
-        modalOpen,
         response,
         handleInputChange,
         handleSelectChange,
         handleRadioChange,
         handleDateChange,
         handleSubmit,
-        handleCloseModal
     } = useFormHandler({
         initialFormData,
         validationRules: rules,
         apiEndpoint: '/api/auth/register-agent',
         redirectPath: '/',
+        onSuccess: (result) => {
+            setModalOpen(true);
+        },
+        onError: (result) => {
+            setModalOpen(true);
+        }
     });
     const { setTitle } = useTitle();
     useEffect(() => {
         setTitle("Agent Registration");
-    }, [])
+    }, [setTitle])
     return (
         <div className="container">
             <div className={styles["register-container"]}>
@@ -46,14 +55,28 @@ export default function Registration() {
                         <Input labelText="Full Name" name="name" onChange={handleInputChange("name")} value={formData.name} errorText={errors.name} />
                         <Input labelText="Mobile No" name="mobile" onChange={handleInputChange("mobile")} value={formData.mobile} errorText={errors.mobile} />
                         <Input labelText="Email ID" name="email" onChange={handleInputChange("email")} value={formData.email} errorText={errors.email} />
-                        <IconInput name="password" variant='eye' labelText='Password' onChange={handleInputChange("password")} errorText={errors.password} />
-                        <IconInput name="confirm_password" variant='eye' labelText='Confirm Password' onChange={handleInputChange("confirm_password")} errorText={errors.confirm_password} />
+                        <PasswordInput
+                            name="password"
+                            labelText="Password"
+                            value={formData.password}
+                            onChange={handleInputChange("password")}
+                            errorText={errors.password}
+                        />
+
+                        <PasswordInput
+                            name="confirm_password"
+                            labelText="Confirm Password"
+                            value={formData.confirm_password}
+                            onChange={handleInputChange("confirm_password")}
+                            errorText={errors.confirm_password}
+                        />
+
 
                         <div className={styles["flex-class"]}>
                             <div className={styles["radioGroup"]}>
                                 <div className={styles["flex-class"]}>Gender</div>
-                                <RadioButton variant="radiobtns" name="gender" labeltext="Male" value="Male" checkedValue={formData.gender} onChange={handleRadioChange} />
-                                <RadioButton variant="radiobtns" name="gender" labeltext="Female" value="Female" checkedValue={formData.gender} onChange={handleRadioChange} />
+                                <RadioButton variant="radiobtns" name="gender" labeltext="Male" value="Male" checkedValue={formData.gender} onChange={handleRadioChange('gender')} />
+                                <RadioButton variant="radiobtns" name="gender" labeltext="Female" value="Female" checkedValue={formData.gender} onChange={handleRadioChange('gender')} />
                             </div>
                         </div>
 

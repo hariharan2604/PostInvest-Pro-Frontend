@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useFormHandler } from "@/app/_hooks/useFormHandler";
 import customerStyle from "./add-customer.module.scss";
 import Input from "@/components/ui/input/input";
@@ -19,26 +19,28 @@ import { initialFormData as emptyForm } from "./formData";
 import { rules } from './rules.js';
 
 export default function AddCustomer() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const customerId = searchParams.get("id");
   const isUpdateMode = Boolean(customerId);
   const { setTitle } = useTitle();
-
+  const [modalOpen, setModalOpen] = useState(false);
   const [isFormReady, setIsFormReady] = useState(!isUpdateMode);
-
+  const handleCloseModal = (shouldRedirect = false) => {
+    shouldRedirect && router.back();
+    setModalOpen(false);
+  };
   const {
     formData,
     updateFormData,
     errors,
     isError,
-    modalOpen,
     response,
     handleInputChange,
     handleSelectChange,
     handleRadioChange,
     handleDateChange,
     handleSubmit,
-    handleCloseModal,
   } = useFormHandler({
     initialFormData: emptyForm,
     validationRules: rules,
@@ -47,11 +49,15 @@ export default function AddCustomer() {
       : "/api/customer/create-customer",
     redirectPath: "/",
     method: isUpdateMode ? "PUT" : "POST",
+    onSuccess: (result) => {
+      setModalOpen(true);
+    },
+    onError: (result) => {
+      setModalOpen(true);
+    }
   });
 
   useEffect(() => {
-    if (!isUpdateMode) { setTitle("Add Customer"); return; };
-    setTitle("Update Customer");
     const fetchCustomerData = async () => {
       try {
         const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);
@@ -81,7 +87,12 @@ export default function AddCustomer() {
     };
 
     fetchCustomerData();
-  }, [customerId, isUpdateMode]);
+  }, [customerId, updateFormData]);
+
+  useEffect(() => {
+    if (!isUpdateMode) { setTitle("Add Customer"); return; };
+    setTitle("Update Customer");
+  }, [setTitle, isUpdateMode]);
 
   if (!isFormReady) return <div>Loading customer data...</div>;
 
@@ -114,7 +125,7 @@ export default function AddCustomer() {
               labeltext="Male"
               value="Male"
               checkedValue={formData.gender}
-              onChange={handleRadioChange}
+              onChange={handleRadioChange('gender')}
             />
             <RadioButton
               variant="radiobtns"
@@ -123,7 +134,7 @@ export default function AddCustomer() {
               labeltext="Female"
               value="Female"
               checkedValue={formData.gender}
-              onChange={handleRadioChange}
+              onChange={handleRadioChange('gender')}
             />
           </div>
         </div>
@@ -188,7 +199,7 @@ export default function AddCustomer() {
               Title={isError ? (isUpdateMode ? "Error Updating Customer" : "Error Creating Customer") : (isUpdateMode ? "Update Successful" : "Registration Successful")}
               Content={isError ? response?.error?.message : "The Customer Details Updated.."}
               onOpen={modalOpen}
-              onClose={handleCloseModal}
+              onClose={() => handleCloseModal(!isError)}
             />
           </div>
         )}

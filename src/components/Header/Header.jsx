@@ -9,7 +9,7 @@ import leftArrow from "@icons/arrow-left.svg";
 import Menu from "@icons/menu.svg";
 import { menuItems, isActiveRoute } from "../Menu/menuItems";
 
-const Header = ({ showLeftArrow, navigate = "/dashboard" }) => {
+const Header = ({ showLeftArrow, navigate = "/dashboard", disableMobileMenu = false }) => {
   const { title } = useTitle();
   const router = useRouter();
   const pathname = usePathname();
@@ -64,38 +64,10 @@ const Header = ({ showLeftArrow, navigate = "/dashboard" }) => {
           </div>
         </div>
 
-        <div className={styles.footerSection}>
-          {/* Desktop Menu */}
-          <div className={styles.desktopMenu}>
-            {menuItems.map((item, index) => {
-              const isActive = isActiveRoute(pathname, item);
-              return (
-                <Link
-                  key={index}
-                  href={item.path}
-                  className={isActive ? styles.active : ""}
-                >
-                  <Image src={item.icon} alt={`${item.text} icon`} />
-                  {isActive && <span>{item.text}</span>}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Mobile Menu Icon */}
-          <div className={styles.mobileMenu}>
-            <Image
-              src={Menu}
-              alt="Toggle menu"
-              onClick={() => setShowMenu(!showMenu)}
-              role="button"
-              tabIndex={0}
-            />
-          </div>
-
-          {/* Mobile Popup Menu */}
-          {showMenu && (
-            <div className={styles.popupMenu} ref={popupRef}>
+        {!disableMobileMenu && (
+          <div className={styles.footerSection}>
+            {/* Desktop Menu */}
+            <div className={styles.desktopMenu}>
               {menuItems.map((item, index) => {
                 const isActive = isActiveRoute(pathname, item);
                 return (
@@ -105,13 +77,43 @@ const Header = ({ showLeftArrow, navigate = "/dashboard" }) => {
                     className={isActive ? styles.active : ""}
                   >
                     <Image src={item.icon} alt={`${item.text} icon`} />
-                    <span>{item.text}</span>
+                    {isActive && <span>{item.text}</span>}
                   </Link>
                 );
               })}
             </div>
-          )}
-        </div>
+
+            {/* Mobile Menu Icon */}
+            <div className={styles.mobileMenu}>
+              <Image
+                src={Menu}
+                alt="Toggle menu"
+                onClick={() => setShowMenu(!showMenu)}
+                role="button"
+                tabIndex={0}
+              />
+            </div>
+
+            {/* Mobile Popup Menu */}
+            {showMenu && (
+              <div className={styles.popupMenu} ref={popupRef}>
+                {menuItems.map((item, index) => {
+                  const isActive = isActiveRoute(pathname, item);
+                  return (
+                    <Link
+                      key={index}
+                      href={item.path}
+                      className={isActive ? styles.active : ""}
+                    >
+                      <Image src={item.icon} alt={`${item.text} icon`} />
+                      <span>{item.text}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
       </header>
     </div>
   );

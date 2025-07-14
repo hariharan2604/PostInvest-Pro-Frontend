@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef,useCallback } from "react";
 import SearchInput from "@/components/ui/search-input/search-input";
 import style from "./search-header.module.scss";
 import Button from "@/components/ui/button/button";
@@ -16,24 +16,21 @@ export default function SearchHead({
   showRouteOptions = true,
   onDataFetched,
   onSelectResponse,
+  fetchOnFocus,
+  allowEmptySearch
 }) {
-  // const routeOptions = [
-  //   { label: "Customer", key: "customer", url: "/api/customer/get-customer-list" },
-  //   { label: "Investment", key: "investment", url: "/api/investment/get-investment-list" },
-  //   { label: "Cheque", key: "cheque", url: "/api/cheque/get-cheque-list" },
-  // ];
-
+  
   const [selectedType, setSelectedType] = useState(routeOptions[0]);
   const [showFilter, setShowFilter] = useState(false);
   const filterRef = useRef(null);
 
-  const handleDataFetched = (results) => {
+  const handleDataFetched = useCallback((results) => {
     if (onDataFetched) onDataFetched(results);
-  };
+  }, [onDataFetched]);
 
-  const handleSelect = (_, object) => {
+  const handleSelect = useCallback((_, object) => {
     if (onSelectResponse) onSelectResponse(object);
-  };
+  }, [onSelectResponse]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -58,12 +55,14 @@ export default function SearchHead({
           <SearchInput
             placeholder={`Search ${selectedType.label}`}
             fetchUrl={selectedType.url}
+            fetchOnFocus={fetchOnFocus}
             redirectUrl={selectedType.redirectUrl}
             enableDropdown={enableDropdown}
             onSelect={handleSelect}
             onDataFetched={handleDataFetched}
             redirect={redirect}
             type={selectedType.key}
+            allowEmptySearch={allowEmptySearch}
           />
 
           {showRouteOptions && (

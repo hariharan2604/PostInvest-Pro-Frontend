@@ -3,7 +3,7 @@ import styles from "./login.module.scss";
 import Image from "next/image";
 import login from '@icons/login.svg'
 import Input from "@/components/ui/input/input";
-import IconInput from "@/components/ui/icon-input/icon-input";
+import PasswordInput from "@/components/ui/icon-input/icon-input";
 import Button from "@/components/ui/button/button";
 import Link from "next/link";
 import { useFormHandler } from "@/app/_hooks/useFormHandler";
@@ -11,8 +11,8 @@ import React from "react";
 import { rules } from "./rules";
 import { initialFormData } from "./formData";
 
+
 export default function Home() {
-    
     const {
         formData,
         errors,
@@ -23,14 +23,15 @@ export default function Home() {
         initialFormData,
         validationRules: rules,
         apiEndpoint: '/api/auth/login',
-        redirect: true,
-        redirectPath:'/dashboard',
+        redirectPath: '/dashboard',
+        forwardPath: true,
         onError: (result) => {
             setErrors((prevData) => ({
                 ...prevData,
                 ["response"]: result.error.message,
             }));
-        }
+        },
+        
     });
     return (
         <>
@@ -46,7 +47,7 @@ export default function Home() {
                     <div className={styles["login-credentials"]}>
                         <Input labelText="User ID" name="username" onChange={handleInputChange("username")} value={formData.username} errorText={errors.username} />
 
-                        <IconInput variant='eye' name="password" labelText='Password' onChange={handleInputChange("password")} value={formData.password} errorText={errors.password} />
+                        <PasswordInput variant='eye' name="password" labelText='Password' onChange={handleInputChange("password")} value={formData.password} errorText={errors.password} />
                     </div>
                     <Link href="">Forgot Password?</Link>
                     {errors.response && <span>{errors.response}</span>}

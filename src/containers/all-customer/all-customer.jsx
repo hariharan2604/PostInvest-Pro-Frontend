@@ -18,7 +18,7 @@ export default function AllCustomer() {
 
   return (
     <>
-      <SearchHead enableAdd={true} showRouteOptions={false} enableDropdown={false} onDataFetched={handleDataFetch} />
+      <SearchHead fetchOnFocus={false} allowEmptySearch={true} enableAdd={true} showRouteOptions={false} enableDropdown={false} onDataFetched={handleDataFetch} />
       {/* <Checkbox labelVale="Active Customer" /> */}
       <div className={style["schemesInfo"]}>
         <div className={style["innerContent"]}>
