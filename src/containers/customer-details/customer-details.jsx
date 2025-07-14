@@ -22,8 +22,9 @@ export default function CustomerDetails({ customerId }) {
   const [name, setName] = useState('');
   const { setTitle } = useTitle();
   useEffect(() => {
-    setTitle("Customer Info");
-  })
+    setTitle(name);
+  }, [name]);
+
 
   useEffect(() => {
     const fetchCustomerData = async () => {
@@ -151,7 +152,7 @@ export default function CustomerDetails({ customerId }) {
           </div>
           <div className={detailsStyle["innerContent"]}>
             {investments.map((investment, index) => (
-              <Link href="/fund" key={index} passHref>
+              <Link href={`/fund/${investment.id}`} key={index} passHref>
                 <div className={detailsStyle["dataGroup"]}>
                   <div className={detailsStyle["profile_text_group"]}>
                     <Profile

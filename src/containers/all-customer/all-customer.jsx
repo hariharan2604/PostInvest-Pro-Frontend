@@ -8,14 +8,19 @@ import Checkbox from "@/components/ui/checkbox/checkbox";
 import { useEffect, useState } from 'react';
 import Button from '@/components/ui/button/button';
 import React from 'react';
+import { useTitle } from "@/contexts/TitleContext";
 
 export default function AllCustomer() {
   const [customers, setCustomers] = useState([]);
+  const { setTitle } = useTitle();
 
   const handleDataFetch = (result) => {
     setCustomers(result);
   }
-
+  useEffect(() => {
+    setTitle("Customer Dashboard");
+  }, []);
+  
   return (
     <>
       <SearchHead fetchOnFocus={false} allowEmptySearch={true} enableAdd={true} showRouteOptions={false} enableDropdown={false} onDataFetched={handleDataFetch} />
@@ -23,7 +28,7 @@ export default function AllCustomer() {
       <div className={style["schemesInfo"]}>
         <div className={style["innerContent"]}>
           {customers.map((customer, index) => (
-            <div key={index}  className={style["listGroup"]}>
+            <div key={index} className={style["listGroup"]}>
               <div className={style["dataGroup"]}>
                 <Link href={`/customer-info/${customer.id}`} passHref>
                   <div className={style["profile_text_group"]}>

@@ -1,33 +1,63 @@
-// "use client"
+"use client"
 import Table from "@/components/ui/table/table";
 import fundStyle from "./provident-fund.module.scss";
 import ProgressBar from "@/components/ui/progressbar/progressbar";
+import { useTitle } from "@/contexts/TitleContext";
+import React, { useEffect, useState } from "react";
 
-export default function Fund() {
-  const startDate = 'Jan 2010';
-  const endDate = 'May 2030';
+export default function Fund({ investmentId }) {
+  const { setTitle } = useTitle();
+  const [investmentDetail, setInvestmentDetail] = useState({});
+  useEffect(() => {
+    setTitle("Investment Details");
+  });
+
+  useEffect(() => {
+    const fetchInvestmentData = async () => {
+      try {
+        const res = await fetch(`/api/investment/get-investment-detail/${investmentId}`);
+        const { data } = await res.json();
+
+        if (res.ok && data) {
+          const startDate = new Date(data.investment_date);
+          const endDate = new Date(startDate);
+          endDate.setMonth(endDate.getMonth() + parseInt(data.tenure));
+          setInvestmentDetail({ ...data, startDate, endDate });
+        }
+      } catch (error) {
+        console.error("❌ Failed to fetch investment", error);
+      }
+    };
+
+    fetchInvestmentData();
+  }, [investmentId]);
+
   return (
     <>
       <div className={fundStyle["fundGroup"]}>
         <div className={fundStyle["details"]}>
           <span>Name</span>
-          <p>Aadhavan</p>
+          <p>{investmentDetail.name}</p>
         </div>
         <div className={fundStyle["details"]}>
-          <span>Id</span>
-          <p>1646 6499 6442</p>
+          <span>Scheme Name</span>
+          <p>{investmentDetail.scheme_name}</p>
         </div>
         <div className={fundStyle["details"]}>
-          <span>Folio No</span>
-          <p>#000132596</p>
+          <span>Account No</span>
+          <p>{`# ${investmentDetail.investment_acc_no}`}</p>
         </div>
         <div className={fundStyle["details"]}>
           <span>Premium</span>
-          <p>₹2500.00,00</p>
+          <p>{`₹ ${investmentDetail.installment_amount}`}</p>
+        </div>
+        <div className={fundStyle["details"]}>
+          <span>Investment Amount</span>
+          <p>{`₹ ${investmentDetail.investment_amount}`}</p>
         </div>
       </div>
       <div className={fundStyle["progressBard"]}>
-        <ProgressBar startDate={startDate} endDate={endDate} />
+        <ProgressBar startDate={new Date(investmentDetail.startDate)} endDate={new Date(investmentDetail.endDate)} />
 
       </div>
       <div className={fundStyle["table"]}>
