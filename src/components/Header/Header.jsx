@@ -7,6 +7,7 @@ import { useTitle } from "@/contexts/TitleContext";
 import styles from "./Header.module.scss";
 import leftArrow from "@icons/arrow-left.svg";
 import Menu from "@icons/menu.svg";
+import UserIcon from "@icons/user.svg";
 import { menuItems, isActiveRoute } from "../Menu/menuItems";
 
 const Header = ({ showLeftArrow, navigate = "/dashboard", disableMobileMenu = false }) => {
@@ -24,7 +25,6 @@ const Header = ({ showLeftArrow, navigate = "/dashboard", disableMobileMenu = fa
     }
   };
 
-  // Close menu on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -41,7 +41,6 @@ const Header = ({ showLeftArrow, navigate = "/dashboard", disableMobileMenu = fa
     };
   }, [showMenu]);
 
-  // Close menu on route change
   useEffect(() => {
     setShowMenu(false);
   }, [pathname]);
@@ -64,26 +63,32 @@ const Header = ({ showLeftArrow, navigate = "/dashboard", disableMobileMenu = fa
           </div>
         </div>
 
+        {/* ✅ Centered Desktop Menu */}
+        {!disableMobileMenu && (
+          <div className={styles.desktopMenu}>
+            {menuItems.map((item, index) => {
+              const isActive = isActiveRoute(pathname, item);
+              return (
+                <Link
+                  key={index}
+                  href={item.path}
+                  className={isActive ? styles.active : ""}
+                >
+                  <Image src={item.icon} alt={`${item.text} icon`} />
+                  {isActive && <span>{item.text}</span>}
+                </Link>
+              );
+            })}
+          </div>
+        )}
+
+        {/* ✅ User Icon + Mobile Menu */}
         {!disableMobileMenu && (
           <div className={styles.footerSection}>
-            {/* Desktop Menu */}
-            <div className={styles.desktopMenu}>
-              {menuItems.map((item, index) => {
-                const isActive = isActiveRoute(pathname, item);
-                return (
-                  <Link
-                    key={index}
-                    href={item.path}
-                    className={isActive ? styles.active : ""}
-                  >
-                    <Image src={item.icon} alt={`${item.text} icon`} />
-                    {isActive && <span>{item.text}</span>}
-                  </Link>
-                );
-              })}
-            </div>
+            <Link href="/menu" className={styles.userIcon}>
+              <Image src={UserIcon} alt="User menu" />
+            </Link>
 
-            {/* Mobile Menu Icon */}
             <div className={styles.mobileMenu}>
               <Image
                 src={Menu}
@@ -94,7 +99,6 @@ const Header = ({ showLeftArrow, navigate = "/dashboard", disableMobileMenu = fa
               />
             </div>
 
-            {/* Mobile Popup Menu */}
             {showMenu && (
               <div className={styles.popupMenu} ref={popupRef}>
                 {menuItems.map((item, index) => {

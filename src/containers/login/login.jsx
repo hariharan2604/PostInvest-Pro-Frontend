@@ -13,6 +13,7 @@ import { initialFormData } from "./formData";
 
 
 export default function Home() {
+    
     const {
         formData,
         errors,
@@ -42,7 +43,7 @@ export default function Home() {
                         <Image src={login} height={150} width={150} className={styles["logo"]} alt="login-image" priority={true} />
                         <div>
                             <h3><span>Welcome</span></h3>
-                            <p>Please use your credentials to login</p>
+                            <p>Login to Continue..</p>
                         </div>
                     </div>
                     <div className={styles["login-credentials"]}>

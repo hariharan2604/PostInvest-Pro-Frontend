@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { formatDate } from '@/app/_utils/dateformatter.js';
+import { formatDateStd } from '@/app/_utils/dateformatter.js';
 
 export async function POST(req) {
     try {
@@ -11,7 +11,7 @@ export async function POST(req) {
         requestBody.agent_id = userId;
         requestBody.city = requestBody?.city?.value;
         requestBody.state = requestBody?.state?.value;
-        requestBody.dob = formatDate(date);
+        requestBody.dob = formatDateStd(date);
 
         const externalApiResponse = await fetch(`${process.env.API_URL}/customer/create`, {
             method: 'POST',

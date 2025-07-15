@@ -40,10 +40,8 @@ const ProgressBar = ({ startDate, endDate }) => {
   return (
     <div className={styles.progressBarContainer}>
       <div className={styles.dateLabels}>
-        <span>{startDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-}</span>
-        <span>{endDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-}</span>
+        <span>{startDate}</span>
+        <span>{endDate}</span>
       </div>
       <div className={styles.progressBar}>
         <div

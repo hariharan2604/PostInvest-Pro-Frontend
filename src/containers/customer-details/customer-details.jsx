@@ -13,7 +13,7 @@ import Button from "@/components/ui/button/button";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useTitle } from "@/contexts/TitleContext";
-import { formatDate } from "@/app/_utils/dateformatter";
+import { formatToLocaleString } from "@/app/_utils/dateformatter";
 
 export default function CustomerDetails({ customerId }) {
   const [customerData, setCustomerData] = useState([]);
@@ -65,7 +65,7 @@ export default function CustomerDetails({ customerId }) {
             },
             {
               icon: DateIcon,
-              text: formatDate(dob_data),
+              text: formatToLocaleString(dob_data),
             },
 
             {

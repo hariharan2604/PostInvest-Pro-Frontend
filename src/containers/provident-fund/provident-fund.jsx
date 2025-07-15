@@ -4,6 +4,7 @@ import fundStyle from "./provident-fund.module.scss";
 import ProgressBar from "@/components/ui/progressbar/progressbar";
 import { useTitle } from "@/contexts/TitleContext";
 import React, { useEffect, useState } from "react";
+import { formatToLocaleString } from "@/app/_utils/dateformatter";
 
 export default function Fund({ investmentId }) {
   const { setTitle } = useTitle();
@@ -57,7 +58,7 @@ export default function Fund({ investmentId }) {
         </div>
       </div>
       <div className={fundStyle["progressBard"]}>
-        <ProgressBar startDate={new Date(investmentDetail.startDate)} endDate={new Date(investmentDetail.endDate)} />
+        <ProgressBar startDate={formatToLocaleString(investmentDetail.startDate)} endDate={formatToLocaleString(investmentDetail.endDate)} />
 
       </div>
       <div className={fundStyle["table"]}>
