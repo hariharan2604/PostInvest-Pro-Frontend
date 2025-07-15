@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-const isProd = process.env.NODE_ENV === "production";
+const isLocal = process.env.NEXT_PUBLIC_SITE_ENV === 'local';
 export const POST = async (req) => {
     try {
         const requestBody = await req.json();
@@ -15,42 +15,33 @@ export const POST = async (req) => {
         const { data, ...cleansed } = response;
         if (data?.accessToken && data?.refreshToken) {
             const cookieStore = await cookies();
-
+            const cookieOptions = {
+                httpOnly: true,
+                secure: !isLocal, 
+                path: '/',
+                sameSite: isLocal ? 'Strict' : 'Lax',  
+            }
             // Set access and refresh tokens in cookies
             cookieStore.set('accessToken', response.data.accessToken, {
-                httpOnly: true,
-                secure: isProd, // Ensures the cookie is only sent over HTTPS
-                path: '/',
-                sameSite: isProd ? 'Strict' : 'Lax',  // Prevents CSRF attacks
+                ...cookieOptions,
                 maxAge: 60 * 15, // 15 minutes
             });
 
             cookieStore.set('userId', response.data.id, {
-                httpOnly: true,
-                secure: isProd,
-                path: '/',
-                sameSite: isProd ? 'Strict' : 'Lax', 
+                ...cookieOptions,
                 maxAge: 60 * 15, // Match access token validity
             });
 
             cookieStore.set('agentName', response.data.name, {
-                httpOnly: true,
-                secure: isProd,
-                path: '/',
-                sameSite: isProd ? 'Strict' : 'Lax', 
+                ...cookieOptions,
                 maxAge: 60 * 15, // Match access token validity
             });
 
             cookieStore.set('refreshToken', response.data.refreshToken, {
-                httpOnly: true,
-                secure: isProd,
-                path: '/',
-                sameSite: isProd ? 'Strict' : 'Lax', 
+                ...cookieOptions,
                 maxAge: 60 * 60 * 24 * 30, // 30 days
             });
 
-
-            console.log("🚀 ~ POST ~ cleansed:", cleansed);
             return new Response(JSON.stringify(cleansed), { status: 200 });
         }
 

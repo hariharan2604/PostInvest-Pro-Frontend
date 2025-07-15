@@ -10,11 +10,9 @@ import { useFormHandler } from "@/app/_hooks/useFormHandler";
 import React from "react";
 import { rules } from "./rules";
 import { initialFormData } from "./formData";
-import { useRouter } from "next/navigation";
 
 
 export default function Home() {
-    const router = useRouter();
     const {
         formData,
         errors,
@@ -25,18 +23,16 @@ export default function Home() {
         initialFormData,
         validationRules: rules,
         apiEndpoint: '/api/auth/login',
-        // redirectPath: '/dashboard',
-        // forwardPath: true,
+        redirectPath: '/dashboard',
+        forwardPath: true,
         onError: (result) => {
             setErrors((prevData) => ({
                 ...prevData,
                 ["response"]: result.error.message,
             }));
         },
-        onSuccess: () => {
-            router.push("/dashboard")
-        }
         
+
     });
     return (
         <>

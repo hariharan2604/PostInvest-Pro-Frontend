@@ -52,7 +52,6 @@ export const useFormHandler = ({
                 onSuccess(result);
 
                 if (forwardPath) {
-                   
                     router.push(redirectPath); 
                 }
             } else {
