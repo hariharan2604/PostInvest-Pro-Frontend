@@ -1,44 +1,38 @@
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useCallback } from 'react';
+import {  useRouter } from 'next/navigation';
 import { validateForm } from '../_utils/form-validator';
 
 export const useFormHandler = ({
     initialFormData = {},
     validationRules = {},
     apiEndpoint = '',
-    method='POST',
+    method = 'POST',
     redirectPath = '/',
-    redirect=false,
+    forwardPath = false,
     onSuccess = () => { },
-    onError = () => { }
+    onError = () => { },
 }) => {
     const [formData, setFormData] = useState(initialFormData);
     const [errors, setErrors] = useState({});
     const [isError, setError] = useState(false);
-    const [modalOpen, setModalOpen] = useState(false);
     const [response, setResponse] = useState(null);
 
     const router = useRouter();
 
-    const handleCloseModal = () => {
-        router.back();
-        setModalOpen(false);
-    };
-
     const handleInputChange = (field) => (value) => {
-        setFormData(prev => ({ ...prev, [field]: value }));
+        setFormData((prev) => ({ ...prev, [field]: value }));
     };
 
     const handleSelectChange = (field, value) => {
-        setFormData(prev => ({ ...prev, [field]: value }));
+        setFormData((prev) => ({ ...prev, [field]: value }));
     };
 
-    const handleRadioChange = (event) => {
-        setFormData(prev => ({ ...prev, gender: event.target.value }));
+    const handleRadioChange = (field) => (event) => {
+        setFormData((prev) => ({ ...prev, [field]: event.target.value }));
     };
 
-    const handleDateChange = (date) => {
-        setFormData(prev => ({ ...prev, dob: date }));
+    const handleDateChange = (field, date) => {
+        setFormData((prev) => ({ ...prev, [field]: date }));
     };
 
     const submitData = async () => {
@@ -56,17 +50,21 @@ export const useFormHandler = ({
             if (result.status === 'success') {
                 setError(false);
                 onSuccess(result);
-                redirect && router.push(redirectPath);
+
+                if (forwardPath) {
+                   
+                    router.push(redirectPath); 
+                }
             } else {
                 setError(true);
                 onError(result);
             }
-
-            setModalOpen(true);
         } catch (error) {
             setError(true);
             onError(error);
         }
+
+
     };
 
     const handleSubmit = (event) => {
@@ -79,22 +77,21 @@ export const useFormHandler = ({
         }
     };
 
+    const updateFormData = useCallback((updatedFields) => {
+        setFormData((prev) => ({
+            ...prev,
+            ...updatedFields,
+        }));
+    }, []);
 
-    const updateFormData = (newData) => {
-        setFormData(prev => ({ ...prev, ...newData }));
-    };
-    
     return {
         formData,
         updateFormData,
         errors,
         setErrors,
         isError,
-        modalOpen,
         response,
         setFormData,
-        setModalOpen,
-        handleCloseModal,
         handleInputChange,
         handleSelectChange,
         handleRadioChange,

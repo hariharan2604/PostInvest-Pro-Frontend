@@ -24,7 +24,9 @@ const PasswordInput = ({ name = "password", labelText = "Password",
         name={name}
         labelText={labelText}
         placeholder={placeholder}
+        value={restProps.value} 
       />
+
       <Image
         src={passwordVisible ? EyeOpen : EyeClose}
         className={Iconinput.icon}

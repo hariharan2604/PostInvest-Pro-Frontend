@@ -197,7 +197,7 @@ export default function ViewChequeLeaf() {
             <div className={styles["form-group"]}>
               <CustomDatePicker
                 selectedDate={selectedDate}
-                onChange={handleDateChange}
+                onChange={(date) => handleDateChange('dob', date)}
                 label="Account Number"
               />
             </div>

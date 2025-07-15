@@ -233,7 +233,7 @@ export default function ChequeLeaf() {
               <div className={styles["form-group"]}>
                 <CustomDatePicker
                   selectedDate={selectedDate}
-                  onChange={handleDateChange}
+                  onChange={(date) => handleDateChange('dob', date)}
                   label="DD/ MM/YYYY"
                 />
               </div>

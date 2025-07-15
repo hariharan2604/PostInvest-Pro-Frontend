@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-
+import { formatDate } from '@/app/_utils/dateformatter.js';
 export async function POST(req) {
     try {
         const requestBody = await req.json();
@@ -10,7 +10,7 @@ export async function POST(req) {
         requestBody.agent_id = userId;
         requestBody.city = requestBody?.city?.value;
         requestBody.state = requestBody?.state?.value;
-        requestBody.dob = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+        requestBody.dob = formatDate(date);
 
         const externalApiResponse = await fetch(`${process.env.API_URL}/customer/add-relation`, {
             method: 'POST',

@@ -1,111 +1,53 @@
 "use client"
-import { useRouter } from 'next/navigation'
 import style from "./all-customer.module.scss";
 import SearchHead from "../search-header/search-header";
 import Link from "next/link";
 import Profile from "@/components/ui/profile/profile";
 
-import Add from "@icons/icon-add.svg";
-import Image from "next/image";
 import Checkbox from "@/components/ui/checkbox/checkbox";
+import { useEffect, useState } from 'react';
+import Button from '@/components/ui/button/button';
+import React from 'react';
 
 export default function AllCustomer() {
-  const router = useRouter();
+  const [customers, setCustomers] = useState([]);
 
-  const customerData = [
-    {
-      phone: "9840066220",
-      location: "Salem",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileStatus: "active",
-    },
-    {
-      phone: "9840066220",
-      location: "chennai",
-      id: "#000132597",
-      name: "Aadhavan",
-      amount: "-",
-      profileStatus: "disable",
-    },
-    {
-      phone: "9840066220",
-      location: "chennai",
-      name: "Aadhavan",
-      amount: "-",
-      profileStatus: "disable",
-    },
-    {
-      phone: "9840066220",
-      location: "chennai",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileStatus: "active",
-    },
-    {
-      phone: "9840066220",
-      location: "chennai",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileStatus: "active",
-    },
-    {
-      phone: "9840066220",
-      location: "Salem",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileStatus: "active",
-    },
-    {
-      phone: "9840066220",
-      location: "chennai",
-      name: "Aadhavan",
-      amount: "₹2500.00",
-      profileStatus: "active",
-    },
-  ];
-
-  const handleAddIconClick = (event) => {
-    event.preventDefault();
-    router.push(`/customer`);
-  };
+  const handleDataFetch = (result) => {
+    setCustomers(result);
+  }
 
   return (
     <>
-      <SearchHead enableDropdown={true} navigatePath={"/customer-info"} />
-      <Checkbox labelVale="Active Customer" />
+      <SearchHead fetchOnFocus={false} allowEmptySearch={true} enableAdd={true} showRouteOptions={false} enableDropdown={false} onDataFetched={handleDataFetch} />
+      {/* <Checkbox labelVale="Active Customer" /> */}
       <div className={style["schemesInfo"]}>
         <div className={style["innerContent"]}>
-          {customerData.map((customer, index) => (
-            <Link href="/customer-info" key={index} passHref className={style["listGroup"]}>
+          {customers.map((customer, index) => (
+            <div key={index}  className={style["listGroup"]}>
               <div className={style["dataGroup"]}>
-                <div className={style["profile_text_group"]}>
-                  <Profile
-                    variant="profileIcon"
-                    profileStatus={customer.profileStatus}
-                  />
-                  <div className={style["detail_info"]}>
-                    <p>{customer.name}</p>
-                    <span>
-                      {customer.phone} | {customer.location}
-                    </span>
-                  </div>
-                </div>
-                <div className={style["addAMount"]}>
-                  <div className={style["amountInfo"]}>
-                    <span>#Amount</span>
-                    <p>{customer.amount}</p>
-                  </div>
-                  <div className={style["addIcon"]}>
-                    <Image
-                      src={Add}
-                      alt="Add Icon"
-                      onClick={(event) => handleAddIconClick(event, index)}
+                <Link href={`/customer-info/${customer.id}`} passHref>
+                  <div className={style["profile_text_group"]}>
+                    <Profile
+                      variant="profileIcon"
+                      profileStatus={customer.profileStatus}
                     />
+                    <div className={style["detail_info"]}>
+                      <p>{customer.name}</p>
+                      <span>
+                        {customer.mobile} | {customer.email} | {customer.area}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+                <div className={style["addAMount"]}>
+                  <div className={style["addIcon"]}>
+                    <Button variant="linkButton" path={`/scheme?id=${encodeURI(customer.id)}&customer_name=${encodeURI(customer.name)}`}>
+                      Add Investment
+                    </Button>
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

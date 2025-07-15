@@ -9,16 +9,15 @@ import { useTitle } from "@/contexts/TitleContext";
 
 const Dashboard = ({ name }) => {
     const { setTitle } = useTitle();
-
     useEffect(() => {
         setTitle(`Welcome, ${name}`);
     }, [name, setTitle]);
-
+    
     return (
         <>
             <Header notifyToIcon={true} />
             <Layout>
-                <SearchHead navigatePath={`/customer-info`} />
+                <SearchHead  enableDropdown={true} showRouteOptions={true} />
                 <CardData />
                 <CheckUser />
             </Layout>

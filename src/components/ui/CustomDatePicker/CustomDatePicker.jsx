@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
@@ -20,35 +20,16 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
 
   const [isFocused, setIsFocused] = useState(false);
 
-  const years = range(1940, new Date().getFullYear() + 1, 1);
+  const years = range(1940, new Date().getFullYear() + 1);
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
   ];
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
 
   return (
     <>
       <div
-        className={`${styles.customDatePickerContainer} ${isFocused || selectedDate ? styles.active : ""
-          }`}
+        className={`${styles.customDatePickerContainer} ${isFocused || selectedDate ? styles.active : ""}`}
       >
         <label className={styles.customDatePickerLabel}>{label}</label>
         <DatePicker
@@ -68,7 +49,6 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
                 alignItems: "center",
                 justifyContent: "space-between",
                 backgroundColor: "#f5f5f5",
-                // padding: "10px",
               }}
             >
               <button
@@ -76,7 +56,7 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
                 disabled={prevMonthButtonDisabled}
                 style={{
                   background: "transparent",
-                  margin:"10px",
+                  margin: "10px",
                   border: "none",
                   cursor: prevMonthButtonDisabled ? "not-allowed" : "pointer",
                   opacity: prevMonthButtonDisabled ? 0.5 : 1,
@@ -103,7 +83,6 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
                     }),
                   }}
                 />
-
                 <Select
                   options={years.map((year) => ({ value: year, label: year }))}
                   value={{
@@ -120,14 +99,13 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
                   }}
                 />
               </div>
-
               <button
                 onClick={increaseMonth}
                 disabled={nextMonthButtonDisabled}
                 style={{
                   background: "transparent",
-                  border: "none",
                   margin: "10px",
+                  border: "none",
                   cursor: nextMonthButtonDisabled ? "not-allowed" : "pointer",
                   opacity: nextMonthButtonDisabled ? 0.5 : 1,
                 }}
@@ -141,19 +119,13 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
           selected={selectedDate}
           onChange={onChange}
           dateFormat="dd/MM/yyyy"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          showMonthDropdown
-          showYearDropdown
-          dropdownMode="select"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           closeOnScroll={true}
           customInput={<CustomInput />}
+          popperContainer={({ children }) => <div>{children}</div>} // ✅ added fix
         />
-        <Image
-          className={styles.DateIcon}
-          src={DateIcon}
-          alt="Custom Date"
-        />
+        <Image className={styles.DateIcon} src={DateIcon} alt="Custom Date" />
       </div>
       {errorText && <div className={styles.errorText}>{errorText}</div>}
     </>

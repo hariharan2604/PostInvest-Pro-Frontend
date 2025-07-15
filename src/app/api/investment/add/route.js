@@ -1,19 +1,17 @@
 import { cookies } from 'next/headers';
 import { formatDate } from '@/app/_utils/dateformatter.js';
 
+
 export async function POST(req) {
     try {
         const requestBody = await req.json();
         const cookieStore = await cookies();
         const accessToken = cookieStore.get('accessToken')?.value;
-        const userId = cookieStore.get('userId')?.value;
-        const date = new Date(requestBody.dob);
-        requestBody.agent_id = userId;
-        requestBody.city = requestBody?.city?.value;
-        requestBody.state = requestBody?.state?.value;
-        requestBody.dob = formatDate(date);
+        const date = new Date(requestBody.investment_date);
+        requestBody.scheme_id = requestBody?.scheme_id?.value;
+        requestBody.investment_date = formatDate(date);
 
-        const externalApiResponse = await fetch(`${process.env.API_URL}/customer/create`, {
+        const externalApiResponse = await fetch(`${process.env.API_URL}/investment/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

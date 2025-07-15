@@ -6,14 +6,11 @@ export async function GET(req) {
         const accessToken = cookieStore.get('accessToken')?.value;
 
         const { searchParams } = new URL(req.url);
-        const name = searchParams.get('name');
-        const email = searchParams.get('email');
-        const phone = searchParams.get('phone');
+        const search = searchParams.get('search');
 
-        const requestBody = {};
-        if (name) requestBody.name = name;
-        if (email) requestBody.email = email;
-        if (phone) requestBody.phone = phone;
+
+        const requestBody = { search };
+
 
         const externalApiResponse = await fetch(`${process.env.API_URL}/customer/list`, {
             method: 'POST',

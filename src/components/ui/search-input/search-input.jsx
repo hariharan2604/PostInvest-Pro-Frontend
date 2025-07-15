@@ -1,70 +1,125 @@
-"use client";
-import { useState, useEffect } from "react";
+'use client';
+import { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./search-input.module.scss";
 import Image from "next/image";
 import Searchicon from "@icons/search-input.svg";
+import SearchDropdown from "./SearchDropdown";
 import UserIcon from "@icons/user.svg";
+import { useRouter } from "next/navigation";
 
 export default function SearchInput({
     placeholder = "Search...",
     fetchUrl,
     onSelect,
+    redirect,
+    redirectUrl,
+    fetchOnFocus = true,
     enableDropdown = true,
+    onDataFetched,
+    onError,
+    debounceDelay = 300,
+    minSearchLength = 1,
+    allowEmptySearch = false,
+    type = "customer",
 }) {
     const [searchTerm, setSearchTerm] = useState("");
     const [debouncedTerm, setDebouncedTerm] = useState("");
     const [results, setResults] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
+    const wrapperRef = useRef(null);
+    const router = useRouter();
 
-    const getQueryParam = (value) => {
-        const trimmed = value.trim();
-        if (/^\d+$/.test(trimmed)) return { key: "mobile", value: trimmed };
-        if (/@/.test(trimmed)) return { key: "email", value: trimmed };
-        return { key: "name", value: trimmed };
-    };
-
+    // Debounce search term
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedTerm(searchTerm.trim());
-        }, 300);
+        }, debounceDelay);
         return () => clearTimeout(timer);
-    }, [searchTerm]);
+    }, [searchTerm, debounceDelay]);
 
+    // Fetch logic
     useEffect(() => {
-        if (!debouncedTerm) {
-            setResults([]);
-            setShowDropdown(false);
-            return;
-        }
+        const shouldFetch =
+            (!fetchOnFocus) || (fetchOnFocus && showDropdown);
+
+        const isTooShort = !allowEmptySearch && debouncedTerm.length < minSearchLength;
+
+        if (!shouldFetch || isTooShort) return;
+
+        const controller = new AbortController();
 
         const fetchResults = async () => {
             setLoading(true);
             try {
-                const { key, value } = getQueryParam(debouncedTerm);
-                const res = await fetch(`${fetchUrl}?${key}=${encodeURIComponent(value)}`);
+                const res = await fetch(
+                    `${fetchUrl}?search=${encodeURIComponent(debouncedTerm)}`,
+                    { signal: controller.signal }
+                );
                 if (!res.ok) throw new Error("Failed to fetch");
                 const data = await res.json();
-
-                const customers = data?.data?.customers || [];
-                setResults(customers);
-                setShowDropdown(true);
+                const list = (data?.data?.[type] || []).sort((a, b) => {
+                    if (!a?.name || !b?.name) return 0;
+                    return a.name.localeCompare(b.name);
+                });
+                setResults(list);
+                onDataFetched?.(list);
+                if (enableDropdown) setShowDropdown(true);
             } catch (err) {
-                console.error("Search fetch error:", err.message);
-                setResults([]);
-                setShowDropdown(true);
+                if (err.name !== "AbortError") {
+                    console.error("Search fetch error:", err.message);
+                    onError?.(err);
+                    setResults([]);
+                    if (enableDropdown) setShowDropdown(true);
+                }
             } finally {
                 setLoading(false);
             }
         };
 
-        if (enableDropdown) {
-            fetchResults();
+        fetchResults();
+        return () => controller.abort();
+    }, [debouncedTerm, fetchUrl, fetchOnFocus, showDropdown, enableDropdown, type, minSearchLength, allowEmptySearch]);
+
+    // Outside click to close dropdown
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setShowDropdown(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Dropdown trigger on input focus
+    const handleInputFocus = () => {
+        if (fetchOnFocus) {
+            setShowDropdown(true);
         }
-    }, [debouncedTerm, fetchUrl, enableDropdown]);
+    };
+
+    const renderCustomerItem = useCallback((user) => (
+        <>
+            <div className={styles.profileIcon}>
+                <div
+                    className={`${styles.profile} ${user.status === "active"
+                        ? styles.profileActive
+                        : styles.profileInactive}`}
+                >
+                    <Image src={UserIcon} alt="User Icon" />
+                </div>
+            </div>
+            <div className={styles.userInfo}>
+                <p className={styles.userName}>{user.name}</p>
+                <p className={styles.userPhone}>{user.mobile}</p>
+                <p className={styles.userEmail}>{user.email}</p>
+            </div>
+        </>
+    ), []);
 
     return (
-        <div className={styles["search-wrapper"]}>
+        <div ref={wrapperRef} className={styles["search-wrapper"]}>
             <div className={styles["input_search"]}>
                 <Image src={Searchicon} alt="Search Icon" className={styles["searchicon"]} />
                 <input
@@ -73,45 +128,25 @@ export default function SearchInput({
                     placeholder={placeholder}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    onFocus={handleInputFocus}
                 />
             </div>
 
             {enableDropdown && showDropdown && (
-                <div className={styles["dropdown"]}>
-                    {loading && <p className={styles["loading"]}>Loading...</p>}
-                    {!loading && results.length === 0 && (
-                        <p className={styles["noResult"]}>No results found</p>
-                    )}
-
-                    {!loading &&
-                        results.map((user) => (
-                            <div
-                                key={user.id}
-                                className={styles["dropdownItem"]}
-                                onClick={() => {
-                                    // setSearchTerm("");
-                                    setShowDropdown(false);
-                                    onSelect(user.id);
-                                }}
-                            >
-                                <div className={styles["profileIcon"]}>
-                                    <div
-                                        className={`${styles["profile"]} ${user.status === "active"
-                                                ? styles["profileActive"]
-                                                : styles["profileInactive"]
-                                            }`}
-                                    >
-                                        <Image src={UserIcon} alt="User Icon" />
-                                    </div>
-                                </div>
-                                <div className={styles["userInfo"]}>
-                                    <p className={styles["userName"]}>{user.name}</p>
-                                    <p className={styles["userPhone"]}>{user.mobile}</p>
-                                    <p className={styles["userEmail"]}>{user.email}</p>
-                                </div>
-                            </div>
-                        ))}
-                </div>
+                <SearchDropdown
+                    results={results}
+                    loading={loading}
+                    onSelect={(id, item) => {
+                        setShowDropdown(false);
+                        if (redirect && redirectUrl) {
+                            router.push(`${redirectUrl}/${id}`);
+                        }
+                        onSelect?.(id, item);
+                    }}
+                    renderItem={renderCustomerItem}
+                    keyExtractor={(item) => item.id}
+                    noResultsMessage="No results found"
+                />
             )}
         </div>
     );

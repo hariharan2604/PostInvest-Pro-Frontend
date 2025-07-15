@@ -13,6 +13,7 @@ import Button from "@/components/ui/button/button";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useTitle } from "@/contexts/TitleContext";
+import { formatDate } from "@/app/_utils/dateformatter";
 
 export default function CustomerDetails({ customerId }) {
   const [customerData, setCustomerData] = useState([]);
@@ -63,8 +64,7 @@ export default function CustomerDetails({ customerId }) {
             },
             {
               icon: DateIcon,
-              text: `${String(dob_data.getDate()).padStart(2, '0')
-                }/${String(dob_data.getMonth() + 1).padStart(2, '0')}/${dob_data.getFullYear()}`,
+              text: formatDate(dob_data),
             },
 
             {
@@ -84,7 +84,7 @@ export default function CustomerDetails({ customerId }) {
     fetchCustomerData();
   }, [customerId]);
 
-  
+
 
 
   return (
@@ -165,7 +165,7 @@ export default function CustomerDetails({ customerId }) {
                   </div>
                   <div className={detailsStyle["amountInfo"]}>
                     <span>Installment Amount</span>
-                    <p>{`₹ ${investment.installment_amount}.00`}</p>
+                    <p>{`₹ ${investment.installment_amount}`}</p>
                   </div>
                 </div>
               </Link>
@@ -173,7 +173,7 @@ export default function CustomerDetails({ customerId }) {
           </div>
 
           <div className={detailsStyle["addMember"]}>
-            <Button variant="linkButton" path="/scheme">
+            <Button variant="linkButton" path={`/scheme?id=${encodeURI(customerId)}&customer_name=${encodeURI(name)}`}>
               Add Scheme
             </Button>
           </div>

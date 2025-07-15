@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./add-family.module.scss";
 import modal from "../add-customer/add-customer.module.scss"
 import Input from "@/components/ui/input/input";
@@ -24,37 +24,50 @@ export default function AddFamily() {
   const customer_name = searchParams.get("customer_name");
   const id = searchParams.get("id");
   const { setTitle } = useTitle();
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleCloseModal = (shouldRedirect = false) => {
+    shouldRedirect && router.back();
+    setModalOpen(false);
+  };
+
   const {
     formData,
     updateFormData,
     errors,
     isError,
-    modalOpen,
     response,
     handleInputChange,
     handleSelectChange,
     handleRadioChange,
     handleDateChange,
     handleSubmit,
-    handleCloseModal,
   } = useFormHandler({
     initialFormData: emptyForm,
     validationRules: rules,
     apiEndpoint: `/api/customer/add-relation`,
     redirectPath: "/",
     method: "POST",
+    onSuccess: (result) => {
+      setModalOpen(true);
+    },
+    onError: (result) => {
+      setModalOpen(true);
+    }
   });
   useEffect(() => {
     if (id) {
       updateFormData({ id });
     }
-  }, [id]);
+  }, [id, updateFormData]);
 
   useEffect(() => {
     setTitle("Add Family Member");
   })
 
-  const fetchCustomerData = async (customerId) => {
+  const fetchCustomerData = async (data) => {
+    const customerId = data.id;
+
     try {
       const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);
       const { data } = await res.json();
@@ -75,9 +88,8 @@ export default function AddFamily() {
           state: { value: state, label: state },
         };
 
-        updateFormData(cleaned);
-        updateFormData({ relation_id: id });
-        console.log("🚀 ~ fetchCustomerData ~ cleaned:", cleaned);
+        updateFormData({ ...cleaned, relation_id: id });
+
       }
 
 
@@ -92,7 +104,7 @@ export default function AddFamily() {
         <Input labelText="Customer Name" name="customer_name" variant="disabled" value={customer_name} />
       </div>
       <div className={style["form-group"]}>
-        <SearchHead enableAddCustomer={false} onSelect={fetchCustomerData}></SearchHead>
+        <SearchHead showRouteOptions={false} enableAdd={false} enableDropdown={true} onSelectResponse={fetchCustomerData} redirect={false}></SearchHead>
       </div>
       <div className={style["form-group"]}>
         <Input labelText="Full Name" name="name" onChange={handleInputChange("name")} value={formData.name} errorText={errors.name} />
@@ -122,7 +134,7 @@ export default function AddFamily() {
               labeltext="Male"
               value="Male"
               checkedValue={formData.gender}
-              onChange={handleRadioChange}
+              onChange={handleRadioChange('gender')}
             />
             <RadioButton
               variant="radiobtns"
@@ -131,7 +143,7 @@ export default function AddFamily() {
               labeltext="Female"
               value="Female"
               checkedValue={formData.gender}
-              onChange={handleRadioChange}
+              onChange={handleRadioChange('gender')}
             />
           </div>
         </div>
@@ -140,7 +152,7 @@ export default function AddFamily() {
       <div className={style["form-group"]}>
         <CustomDatePicker
           selectedDate={formData.dob}
-          onChange={handleDateChange}
+          onChange={(date) => handleDateChange('dob', date)}
           label="Date of Birth (DD/MM/YYYY)"
           placeholder="DD/MM/YYYY"
           errorText={errors.dob}
@@ -184,7 +196,7 @@ export default function AddFamily() {
       </div>
 
       <div className={style["buttonGroup"]}>
-        <Button variant="outline" onClick={() => { router.back() }}>Cancel</Button>
+        <Button variant="outline" onClick={() => router.back()}>Cancel</Button>
         <Button variant="primary" onClick={handleSubmit}>Save</Button>
       </div>
 
@@ -196,7 +208,7 @@ export default function AddFamily() {
               Title={isError ? "Error Updation Relation.." : "Customer Relation Updated"}
               Content={isError ? response?.error?.message : "The Customer Relation Details Updated.."}
               onOpen={modalOpen}
-              onClose={handleCloseModal}
+              onClose={() => handleCloseModal(!isError)}
             />
           </div>
         )}
