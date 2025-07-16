@@ -129,7 +129,7 @@ export default function AddFamily() {
             <div className={radiostyle["flex-class"]}>Gender</div>
             <RadioButton
               variant="radiobtns"
-              id="Gender"
+              id="Male"
               name="gender"
               labeltext="Male"
               value="Male"
@@ -138,7 +138,7 @@ export default function AddFamily() {
             />
             <RadioButton
               variant="radiobtns"
-              id="Gender"
+              id="Female"
               name="gender"
               labeltext="Female"
               value="Female"

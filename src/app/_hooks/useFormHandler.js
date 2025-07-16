@@ -37,11 +37,15 @@ export const useFormHandler = ({
 
     const submitData = async () => {
         try {
+            console.log("🚀 ~ submitData ~ formData:", formData);
+
             const res = await fetch(apiEndpoint, {
                 method,
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
+
+
 
             const result = await res.json();
 
@@ -69,12 +73,17 @@ export const useFormHandler = ({
     const handleSubmit = (event) => {
         event.preventDefault();
         const validationErrors = validateForm(formData, validationRules);
+
+        console.log("🚀 ~ handleSubmit ~ formData:", formData);
+
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
             submitData();
         }
     };
+
+
 
     const updateFormData = useCallback((updatedFields) => {
         setFormData((prev) => ({

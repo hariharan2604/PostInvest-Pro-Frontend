@@ -1,22 +1,14 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 
 import styles from "./cheque-leaf.module.scss";
 import Pill from "@/components/ui/pill/pill";
 import Profile from "@/components/ui/profile/profile";
-import {
-  ModalHeader,
-  Modal,
-  ModalContent,
-  ModalFooter,
-} from "@/components/ui/modal/modal";
-import Button from "@/components/ui/button/button";
-import Input from "@/components/ui/input/input";
-import IconInput from "@/components/ui/icon-input/icon-input";
 import InfoModal from "@/components/ui/info-modal/info-modal";
-import RadioButton from "@/components/ui/radiobutton/radiobutton";
-import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker";
-import Title from "@/components/ui/title/title";
+import Button from "@/components/ui/button/button";
+
+import CollectionPendingModal from "../CollectionPendingModal/CollectionPendingModal";
+
 const data = [
   {
     userName: "Annasamy",
@@ -79,66 +71,59 @@ const data = [
 export default function ChequeLeaf() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen2, setModalOpen2] = useState(false);
+
   const [selectedDate, setSelectedDate] = useState(null);
-  const [chequeSelected, setchequeSelected] = useState(false);
-  const [addmore, setaddmore] = useState(false);
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    console.log('Selected Date:', selectedDate)
-  };
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  const [chequeSelected, setChequeSelected] = useState(false);
+  const [addmore, setAddMore] = useState(false);
+
   const [inputFields, setInputFields] = useState([
-    { field1: '', field2: '', field: '3', field: '4' }
+    { field1: "", field2: "", field3: "", field4: "" },
   ]);
-  const handleAddFields = () => {
-    setInputFields([...inputFields, { field1: '', field2: '' }]);
+
+  const [checkedValue, setCheckedValue] = useState("");
+
+  const handleRadioChange = (event) => {
+    const value = event.target.value;
+    setCheckedValue(value);
+    setChequeSelected(value === "Cheque" || value === "single" || value === "multiple");
+    setAddMore(value === "multiple");
   };
+
   const handleInputChange = (index, event) => {
     const values = [...inputFields];
     values[index][event.target.name] = event.target.value;
     setInputFields(values);
   };
 
+  const handleAddFields = () => {
+    setInputFields([...inputFields, { field1: "", field2: "", field3: "", field4: "" }]);
+  };
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    console.log("Selected Date:", date);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const getDataFunctions = () => {
     console.log("Done button clicked");
-    setIsModalOpen(true);
+    setIsModalOpen(false);
     setModalOpen2(true);
   };
 
   function SecondModalClose() {
     setModalOpen2(false);
   }
-  //radio button check
-  const [checkedValue, setCheckedValue] = useState("");
 
-  const handleRadioChange = (event, value) => {
-    setCheckedValue(event.target.value);
-    console.log(event.target.value);
-
-    if (event.target.value === 'Cheque' || event.target.value === 'single' || event.target.value === 'multiple') {
-      setchequeSelected(true);
-    }
-    else {
-      setchequeSelected(false);
-    }
-
-    if (event.target.value === 'multiple') {
-      setaddmore(true);
-    }
-    else {
-      setaddmore(false);
-    }
-  };
   return (
     <div className={styles.cheque}>
       <div className={styles["cheque-head"]}>
-        {/* <Title titleValue="Cheque Leaf" /> */}
         <h3>Cheque Leaf</h3>
       </div>
+
       <div
         className={styles["cheque-inner"]}
         onClick={() => setIsModalOpen(true)}
@@ -166,92 +151,22 @@ export default function ChequeLeaf() {
           </div>
         ))}
       </div>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <ModalHeader
-          title="Collection Pending"
-          subTitle="Please fill the cheque details"
-          showButton={true}
-          onClose={handleCloseModal}
-        />
-        <ModalContent>
-          <div className={styles["flex-class"]}>
-            <div className={styles["radioGroup"]}>
-              <RadioButton
-                variant="radiobtns"
-                id="Cheque"
-                name="paymentMethod"
-                labeltext="Cheque"
-                value="Cheque"
-                checkedValue={checkedValue}
-                onChange={handleRadioChange}
-              />
-              <RadioButton
-                variant="radiobtns"
-                id="Cash"
-                name="paymentMethod"
-                labeltext="Cash"
-                value="Cash"
-                checkedValue={checkedValue}
-                onChange={handleRadioChange}
-              />
-            </div>
-            {chequeSelected && <div className={styles["radioGroup"]}>
-              <RadioButton
-                variant="radiobtns"
-                id="Cheque"
-                name="paymentMethod"
-                labeltext="Single"
-                value="single"
-                checkedValue={checkedValue}
-                onChange={handleRadioChange}
-              />
-              <RadioButton
-                variant="radiobtns"
-                id="Cash"
-                name="paymentMethod"
-                labeltext="Multiple"
-                value="multiple"
-                checkedValue={checkedValue}
-                onChange={handleRadioChange}
-              />
-            </div>}
-          </div>
-          {inputFields.map((inputField, index) => (
-            <div key={index} className={styles["border-top"]}>
-              <div className={styles["form-group"]}>
-                <Input labelText="CHQ Number" name="field1" value={inputField.field1}></Input>
-              </div>
-              <div className={styles["form-group"]}>
-                <Input labelText="Amount" name="field2" value={inputField.field2}></Input>
-              </div>
-              <div className={styles["form-group"]}>
-                <Input labelText="Bank Name" name="field3" value={inputField.field3} ></Input>
-              </div>
-              <div className={styles["form-group"]}>
-                <Input labelText="Account Number" name="field14" value={inputField.field4}></Input>
-              </div>
-              <div className={styles["form-group"]}>
-                <CustomDatePicker
-                  selectedDate={selectedDate}
-                  onChange={(date) => handleDateChange('dob', date)}
-                  label="DD/ MM/YYYY"
-                />
-              </div>
 
-            </div>
-          ))}
-          {addmore ? <Button variant="linkButton" onClick={handleAddFields} margintop="20px">Add More</Button> : ""}
+      <CollectionPendingModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onSave={getDataFunctions}
+        checkedValue={checkedValue}
+        handleRadioChange={handleRadioChange}
+        chequeSelected={chequeSelected}
+        addmore={addmore}
+        inputFields={inputFields}
+        handleInputChange={handleInputChange}
+        handleAddFields={handleAddFields}
+        selectedDate={selectedDate}
+        handleDateChange={handleDateChange}
+      />
 
-        </ModalContent>
-        <ModalFooter>
-          <Button variant="outline" onClick={handleCloseModal}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={getDataFunctions}>
-            Save
-          </Button>
-        </ModalFooter>
-      </Modal>
       <InfoModal
         onOpen={isModalOpen2}
         showButton={false}
@@ -259,8 +174,12 @@ export default function ChequeLeaf() {
         Title="Check details Updated"
         Content="The customer's cheque has been collected by our agent."
       >
-        <Button variant="outline" onClick={SecondModalClose}>Cancel</Button>
-        <Button variant="primary" onClick={SecondModalClose}>Add More Cheque</Button>
+        <Button variant="outline" onClick={SecondModalClose}>
+          Cancel
+        </Button>
+        <Button variant="primary" onClick={SecondModalClose}>
+          Add More Cheque
+        </Button>
       </InfoModal>
     </div>
   );

@@ -120,7 +120,7 @@ export default function AddCustomer() {
             <div className={radioStyles["flex-class"]}>Gender</div>
             <RadioButton
               variant="radiobtns"
-              id="Gender"
+              id="Male"
               name="gender"
               labeltext="Male"
               value="Male"
@@ -129,7 +129,7 @@ export default function AddCustomer() {
             />
             <RadioButton
               variant="radiobtns"
-              id="Gender"
+              id="Female"
               name="gender"
               labeltext="Female"
               value="Female"
