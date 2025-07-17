@@ -7,8 +7,8 @@ export const validateForm = (formData, rules) => {
 
         if (Array.isArray(ruleSet)) {
             // inputFields array validation
-            errors[field] = [];
-            const arrayData = formData[field];
+            const arrayData = formData[field] || [];
+            const arrayErrors = [];
 
             arrayData.forEach((item, index) => {
                 const itemErrors = {};
@@ -35,8 +35,14 @@ export const validateForm = (formData, rules) => {
                     }
                 }
 
-                errors[field][index] = itemErrors;
+                arrayErrors[index] = itemErrors;
             });
+
+            // only include if any item has error
+            const hasAnyErrors = arrayErrors.some((errObj) => Object.keys(errObj).length > 0);
+            if (hasAnyErrors) {
+                errors[field] = arrayErrors;
+            }
         } else {
             // flat fields
             const requiredCheck = typeof ruleSet.required === "function"

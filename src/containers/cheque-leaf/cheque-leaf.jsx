@@ -153,18 +153,10 @@ export default function ChequeLeaf() {
       </div>
 
       <CollectionPendingModal
+        openMain={setModalOpen2}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        onSave={getDataFunctions}
-        checkedValue={checkedValue}
-        handleRadioChange={handleRadioChange}
-        chequeSelected={chequeSelected}
-        addmore={addmore}
-        inputFields={inputFields}
-        handleInputChange={handleInputChange}
-        handleAddFields={handleAddFields}
-        selectedDate={selectedDate}
-        handleDateChange={handleDateChange}
+        customer_id={"047ea4e3-6eae-42dc-9af2-b635a4f8ed68"}
       />
 
       <InfoModal

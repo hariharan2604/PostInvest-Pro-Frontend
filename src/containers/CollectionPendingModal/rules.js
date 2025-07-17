@@ -5,10 +5,6 @@ export const rules = {
         required: true,
         requiredMessage: "Please select a payment method.",
     },
-    chequeType: {
-        required: (formData) => formData.paymentMethod === PAYMENT_METHODS.CHEQUE,
-        requiredMessage: "Please select Cheque type.",
-    },
     inputFields: [
         {
             receipt_amount: {

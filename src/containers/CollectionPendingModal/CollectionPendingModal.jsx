@@ -24,33 +24,73 @@ import {
     PAYMENT_METHODS,
     INSTRUMENT_CLASSES,
 } from "../../app/_data/paymentConstants";
+import InfoModal from "@/components/ui/info-modal/info-modal";
 
 export default function CollectionPendingModal({ isOpen, onClose, customer_id }) {
-    
     const [banks, setBanks] = useState([]);
-
+    const [failedIndexes, setFailedIndexes] = useState([]);
+    const [successIndexes, setSuccessIndexes] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [isError, setIsError] = useState(false);
     const {
         formData,
         updateFormData,
         errors,
         handleRadioChange,
         handleSubmit,
+        resetForm,
+        setErrors,
     } = useFormHandler({
         initialFormData: emptyForm,
         validationRules: rules,
         apiEndpoint: "/api/receipt/add",
-        onSuccess: () => {
-            console.log("Saved successfully");
-            onClose();
-        },
+        onSuccess: (responseArray) => {
+
+            console.log("🚀 ~ CollectionPendingModal ~ responseArray:", responseArray);
+
+            const failed = [];
+            const success = [];
+            const updatedErrors = { inputFields: [] };
+
+            responseArray.forEach((res, index) => {
+                if (res.success) {
+                    success.push(index);
+                } else {
+                    failed.push(index);
+                    setIsError(true);
+                    const message = res.data?.error?.message || "Unknown error";
+                    const fieldErrors = {};
+
+                    if (message.toLowerCase().includes("cheque number")) {
+                        fieldErrors.chq_number = message;
+                    } else {
+                        fieldErrors.general = message;
+                    }
+                    updatedErrors.inputFields[index] = fieldErrors;
+                }
+            });
+
+            setFailedIndexes(failed);
+            setSuccessIndexes(success);
+
+            if (success.length > 0 && formData.paymentMethod == PAYMENT_METHODS.CHEQUE) {
+                const remainingFields = formData.inputFields.filter((_, i) => !success.includes(i));
+                updateFormData({ inputFields: remainingFields });
+            }
+
+            setErrors(updatedErrors);
+            setModalOpen(true);
+        }
+        ,
         onError: (err) => {
             console.error("Save failed", err);
+            setModalOpen(true);
         },
     });
 
     const isCheque = formData.paymentMethod === PAYMENT_METHODS.CHEQUE;
     const isCash = formData.paymentMethod === PAYMENT_METHODS.CASH;
-    const addmore = isCheque && formData.chequeType === "multiple";
+    const addmore = isCheque;
 
     useEffect(() => {
         if (!isOpen) return;
@@ -72,24 +112,16 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
                 console.error("❌ Failed to fetch bank data", error);
             }
         };
-        fetchBanks();
 
+        fetchBanks();
         if (customer_id) {
             updateFormData({ customer_id });
         }
     }, [isOpen]);
 
     useEffect(() => {
-        if (!isCheque) return;
-        if (formData.chequeType === "single" && formData.inputFields.length > 1) {
-            updateFormData({ inputFields: [formData.inputFields[0]] });
-        }
-    }, [formData.chequeType, isCheque]);
-
-    useEffect(() => {
         if (isCash) {
             updateFormData({
-                chequeType: "",
                 inputFields: [
                     {
                         receipt_amount: "",
@@ -112,7 +144,6 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
             };
 
             updateFormData({
-                chequeType: "single",
                 inputFields:
                     formData.inputFields.length > 0
                         ? formData.inputFields.map((field) => ({
@@ -172,7 +203,7 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
         : formData.inputFields;
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <> <Modal isOpen={isOpen} onClose={onClose}>
             <ModalHeader
                 title="Collection Pending"
                 subTitle="Please fill the cheque details"
@@ -201,33 +232,18 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
                             onChange={handleRadioChange("paymentMethod")}
                         />
                     </div>
-                    {isCheque && (
-                        <div className={styles["radioGroup"]}>
-                            <RadioButton
-                                variant="radiobtns"
-                                id="single"
-                                name="chequeType"
-                                labeltext="Single"
-                                value="single"
-                                checkedValue={formData.chequeType}
-                                onChange={handleRadioChange("chequeType")}
-                            />
-                            <RadioButton
-                                variant="radiobtns"
-                                id="multiple"
-                                name="chequeType"
-                                labeltext="Multiple"
-                                value="multiple"
-                                checkedValue={formData.chequeType}
-                                onChange={handleRadioChange("chequeType")}
-                            />
-                        </div>
-                    )}
                 </div>
 
                 {isCheque &&
                     filteredInputFields.map((inputField, index) => (
-                        <div key={index} className={styles["accordion-wrapper"]}>
+                        <div
+                            key={index}
+                            className={`${styles["accordion-wrapper"]} 
+        ${failedIndexes.includes(index) ? styles["failed-accordion"] : ""} 
+        ${successIndexes.includes(index) ? styles["success-accordion"] : ""}
+    `}
+                        >
+
                             <Accordion>
                                 <AccordionItem
                                     header={
@@ -236,7 +252,6 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
                                             {filteredInputFields.length > 1 && (
                                                 <Image
                                                     className={styles["delete-btn"]}
-
                                                     src={TrashIcon}
                                                     onClick={(e) => {
                                                         e.stopPropagation();
@@ -315,10 +330,7 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
                                                     value={INSTRUMENT_CLASSES.OTHERS}
                                                     checkedValue={inputField.instrument_class_id}
                                                     onChange={() =>
-                                                        handleInstrumentChange(
-                                                            index,
-                                                            INSTRUMENT_CLASSES.OTHERS
-                                                        )
+                                                        handleInstrumentChange(index, INSTRUMENT_CLASSES.OTHERS)
                                                     }
                                                 />
                                             </div>
@@ -362,7 +374,7 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
             </ModalContent>
 
             <ModalFooter>
-                <Button variant="outline" onClick={onClose}>
+                <Button variant="outline" onClick={() => { onClose(); resetForm() }}>
                     Cancel
                 </Button>
                 <Button variant="primary" onClick={handleSubmit}>
@@ -370,5 +382,20 @@ export default function CollectionPendingModal({ isOpen, onClose, customer_id })
                 </Button>
             </ModalFooter>
         </Modal>
+            <InfoModal
+                errorStatus={isError}
+                Title={isError ? "Error Adding Cheques" : "Receipts Added Successfully"}
+                Content={isError ? "Error in Creating receipts" : "Receipts Addition Successfull"}
+                onOpen={modalOpen}
+                showButton={false}
+            >
+                <Button variant="outline" onClick={() => { onClose(); setModalOpen(false); resetForm() }}>
+                    Cancel
+                </Button>
+                <Button variant="primary" onClick={() => setModalOpen(false)}>
+                    Add More Cheque
+                </Button>
+            </InfoModal>
+        </>
     );
 }

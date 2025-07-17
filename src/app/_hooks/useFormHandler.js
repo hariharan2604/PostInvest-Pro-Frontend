@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import {  useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { validateForm } from '../_utils/form-validator';
 
 export const useFormHandler = ({
@@ -45,36 +45,44 @@ export const useFormHandler = ({
                 body: JSON.stringify(formData),
             });
 
-
-
             const result = await res.json();
-
             setResponse(result);
 
-            if (result.status === 'success') {
-                setError(false);
-                onSuccess(result);
+            const isArrayResponse = Array.isArray(result);
 
-                if (forwardPath) {
-                    router.push(redirectPath); 
+            if (isArrayResponse) {
+                const allSuccess = result.every((r) => r.success);
+                setError(!allSuccess);
+                if (allSuccess) {
+                    onSuccess(result);
+                    if (forwardPath) router.push(redirectPath);
+                } else {
+                    onSuccess(result);
                 }
-            } else {
-                setError(true);
-                onError(result);
             }
+            // Standard single-response case
+            else {
+                if (result.status === 'success') {
+                    setError(false);
+                    onSuccess(result);
+                    if (forwardPath) router.push(redirectPath);
+                } else {
+                    setError(true);
+                    onError(result);
+                }
+            }
+
         } catch (error) {
             setError(true);
             onError(error);
         }
-
-
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        if (event?.preventDefault) event.preventDefault();
+
         const validationErrors = validateForm(formData, validationRules);
 
-        console.log("🚀 ~ handleSubmit ~ formData:", formData);
 
         setErrors(validationErrors);
 
@@ -83,15 +91,18 @@ export const useFormHandler = ({
         }
     };
 
-
-
     const updateFormData = useCallback((updatedFields) => {
         setFormData((prev) => ({
             ...prev,
             ...updatedFields,
         }));
     }, []);
-
+    const resetForm = () => {
+        setFormData(initialFormData);
+        setErrors({});
+        setError(false);
+        setResponse(null);
+    };
     return {
         formData,
         updateFormData,
@@ -105,5 +116,6 @@ export const useFormHandler = ({
         handleRadioChange,
         handleDateChange,
         handleSubmit,
+        resetForm
     };
 };

@@ -3,7 +3,6 @@ import { PAYMENT_METHODS, INSTRUMENT_CLASSES } from "../../app/_data/paymentCons
 export const initialFormData = {
     customer_id: '',
     paymentMethod: PAYMENT_METHODS.CASH,
-    chequeType: "single",
     inputFields: [
         {
             chq_number: "",
