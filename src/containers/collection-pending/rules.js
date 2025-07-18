@@ -8,11 +8,14 @@ export const rules = {
     inputFields: [
         {
             receipt_amount: {
-                required: true,
                 pattern: /^\d+(\.\d{1,2})?$/,
                 patternMessage: "Enter a valid amount.",
+                required: (formData) => formData.paymentMethod === PAYMENT_METHODS.CASH,
+                requiredMessage: "Receipt Amount is required.",
             },
             chq_number: {
+                pattern: /^\d{6,10}$/,
+                patternMessage: "Invalid cheque number.",
                 required: (formData) => formData.paymentMethod === PAYMENT_METHODS.CHEQUE,
                 requiredMessage: "Cheque number is required.",
             },
@@ -29,8 +32,8 @@ export const rules = {
                 requiredMessage: "Select Cheque type.",
             },
             cheque_date: {
-                required: (formData) => formData.paymentMethod === PAYMENT_METHODS.CHEQUE,
-                requiredMessage: "Cheque date is required.",
+                validate: (value) =>
+                    isNaN(Date.parse(value)) ? "Invalid Cheque Date." : null
             },
         },
     ],

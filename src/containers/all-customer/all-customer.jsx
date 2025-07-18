@@ -56,14 +56,18 @@ export default function AllCustomer() {
                     </div>
                   </Link>
                   <div className={style["addAMount"]}>
-                    <div className={style["addIcon"]}>
-                      <Button
-                        variant="linkButton"
-                        path={`/scheme?id=${encodeURI(customer.id)}&customer_name=${encodeURI(customer.name)}`}
-                      >
-                        Add Investment
-                      </Button>
-                    </div>
+                    <Button
+                      variant="linkButton"
+                      path={`/scheme?id=${encodeURI(customer.id)}&customer_name=${encodeURI(customer.name)}`}
+                    >
+                      Add Investment
+                    </Button>
+                    <Button
+                      variant="linkButton"
+                      path={`/receipt?id=${encodeURI(customer.id)}&customer_name=${encodeURI(customer.name)}`}
+                    >
+                      Add Receipt
+                    </Button>
                   </div>
                 </div>
               </div>
