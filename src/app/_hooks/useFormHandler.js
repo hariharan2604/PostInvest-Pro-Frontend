@@ -48,30 +48,17 @@ export const useFormHandler = ({
             const result = await res.json();
             setResponse(result);
 
-            const isArrayResponse = Array.isArray(result);
+            if (result.status === 'success') {
+                setError(false);
+                onSuccess(result);
 
-            if (isArrayResponse) {
-                const allSuccess = result.every((r) => r.success);
-                setError(!allSuccess);
-                if (allSuccess) {
-                    onSuccess(result);
-                    if (forwardPath) router.push(redirectPath);
-                } else {
-                    onSuccess(result);
+                if (forwardPath) {
+                    router.push(redirectPath);
                 }
+            } else {
+                setError(true);
+                onError(result);
             }
-            // Standard single-response case
-            else {
-                if (result.status === 'success') {
-                    setError(false);
-                    onSuccess(result);
-                    if (forwardPath) router.push(redirectPath);
-                } else {
-                    setError(true);
-                    onError(result);
-                }
-            }
-
         } catch (error) {
             setError(true);
             onError(error);
@@ -79,8 +66,7 @@ export const useFormHandler = ({
     };
 
     const handleSubmit = (event) => {
-        if (event?.preventDefault) event.preventDefault();
-
+        event?.preventDefault();
         const validationErrors = validateForm(formData, validationRules);
 
 

@@ -7,7 +7,7 @@ import Profile from "@/components/ui/profile/profile";
 import InfoModal from "@/components/ui/info-modal/info-modal";
 import Button from "@/components/ui/button/button";
 
-import CollectionPendingModal from "../CollectionPendingModal/CollectionPendingModal";
+import CollectionPendingModal from "../collection-pending/collection-pending";
 
 const data = [
   {
@@ -152,12 +152,6 @@ export default function ChequeLeaf() {
         ))}
       </div>
 
-      <CollectionPendingModal
-        openMain={setModalOpen2}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        customer_id={"047ea4e3-6eae-42dc-9af2-b635a4f8ed68"}
-      />
 
       <InfoModal
         onOpen={isModalOpen2}
