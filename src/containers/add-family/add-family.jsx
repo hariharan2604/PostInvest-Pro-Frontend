@@ -17,6 +17,7 @@ import { initialFormData as emptyForm } from "./formData.js";
 import { rules } from "./rules.js";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTitle } from "@/contexts/TitleContext";
+import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
 
 export default function AddFamily() {
   const router = useRouter();
@@ -69,7 +70,8 @@ export default function AddFamily() {
     const customerId = data.id;
 
     try {
-      const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);
+      const res = await fetchWithAuth(`/api/customer/get-customer-detail/${customerId}`);
+      if (!res) return;
       const { data } = await res.json();
 
       if (res.ok && data) {

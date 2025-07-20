@@ -6,6 +6,12 @@ export async function PUT(req, { params }) {
         const requestBody = await req.json();
         const cookieStore = await cookies();
         const accessToken = cookieStore.get('accessToken')?.value;
+        if (!accessToken) {
+            return new Response(JSON.stringify({ message: 'Unauthorized' }), {
+                status: 401,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
         const { id } = await params;
         const customerId = id;
         const date = new Date(requestBody.dob);

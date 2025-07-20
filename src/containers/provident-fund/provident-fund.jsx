@@ -5,6 +5,7 @@ import ProgressBar from "@/components/ui/progressbar/progressbar";
 import { useTitle } from "@/contexts/TitleContext";
 import React, { useEffect, useState } from "react";
 import { formatToLocaleString } from "@/app/_utils/dateformatter";
+import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
 
 export default function Fund({ investmentId }) {
   const { setTitle } = useTitle();
@@ -16,7 +17,8 @@ export default function Fund({ investmentId }) {
   useEffect(() => {
     const fetchInvestmentData = async () => {
       try {
-        const res = await fetch(`/api/investment/get-investment-detail/${investmentId}`);
+        const res = await fetchWithAuth(`/api/investment/get-investment-detail/${investmentId}`);
+        if (!res) return;
         const { data } = await res.json();
 
         if (res.ok && data) {

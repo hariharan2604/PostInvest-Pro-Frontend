@@ -5,6 +5,7 @@ import Image from "next/image";
 import Searchicon from "@icons/search-input.svg";
 import SearchDropdown from "./SearchDropdown";
 import { useRouter } from "next/navigation";
+import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
 import Profile from "../profile/profile";
 
 export default function SearchInput({
@@ -52,10 +53,11 @@ export default function SearchInput({
         const fetchResults = async () => {
             setLoading(true);
             try {
-                const res = await fetch(
+                const res = await fetchWithAuth(
                     `${fetchUrl}?search=${encodeURIComponent(debouncedTerm)}`,
                     { signal: controller.signal }
                 );
+                if (!res) return;
                 if (!res.ok) throw new Error("Failed to fetch");
                 const data = await res.json();
                 const list = (data?.data?.[type] || []).sort((a, b) => {
@@ -122,7 +124,7 @@ export default function SearchInput({
     ), []);
     let renderItem = {
         customer: renderCustomerItem,
-        investment:renderInvestmentItem
+        investment: renderInvestmentItem
     }
     // const renderCustomerItem = useCallback((user) => (
     //     <>

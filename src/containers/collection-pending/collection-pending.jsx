@@ -12,10 +12,11 @@ import {
     PAYMENT_METHODS,
     INSTRUMENT_CLASSES,
 } from "@/app/_data/paymentConstants";
-import { useRouter,useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./collection-pending.module.scss";
 import ChequeInputFields from "./ChequeInputFields";
 import CashInputField from "./CashInputField";
+import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
 
 const createEmptyChequeField = () => ({
     receipt_amount: "",
@@ -80,7 +81,7 @@ export default function CollectionPending() {
             while (inputFields.length <= index) inputFields.push({});
             inputFields[index] = {
                 ...inputFields[index],
-                chq_number:newValue,
+                chq_number: newValue,
             };
             return { ...prev, inputFields };
         });
@@ -91,20 +92,21 @@ export default function CollectionPending() {
 
     useEffect(() => {
         setTitle("Receipt Collection");
-        
-    if (searchParams) {
-      const id = searchParams.get("id") || "";
-      const name = searchParams.get("customer_name") || "";
-      setCustomerId(id);
-      setCustomerName(name);
-      updateFormData({ customer_id: id });
-    }
+
+        if (searchParams) {
+            const id = searchParams.get("id") || "";
+            const name = searchParams.get("customer_name") || "";
+            setCustomerId(id);
+            setCustomerName(name);
+            updateFormData({ customer_id: id });
+        }
     }, [searchParams, setTitle, updateFormData]);
-    
+
     useEffect(() => {
         const fetchBanks = async () => {
             try {
-                const res = await fetch(`/api/bank/bank-data`);
+                const res = await fetchWithAuth(`/api/bank/bank-data`);
+                if (!res) return;
                 const { data } = await res.json();
                 if (res.ok && data) {
                     const { bank_detail } = data;

@@ -13,6 +13,7 @@ import { initialFormData as emptyForm } from "./formData.js";
 import { rules } from "./rules.js";
 import { useRouter, useSearchParams } from "next/navigation";
 import InfoModal from "@/components/ui/info-modal/info-modal";
+import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
 
 export default function AddScheme() {
   const searchParams = useSearchParams();
@@ -53,7 +54,8 @@ export default function AddScheme() {
   useEffect(() => {
     const fetchSchemeDetails = async () => {
       try {
-        const res = await fetch(`/api/investment/scheme-data`);
+        const res = await fetchWithAuth(`/api/investment/scheme-data`);
+        if (!res) return;
         const { data } = await res.json();
         if (res.ok && data) {
           const { scheme_detail } = data;

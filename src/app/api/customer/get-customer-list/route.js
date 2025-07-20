@@ -4,11 +4,15 @@ export async function GET(req) {
     try {
         const cookieStore = await cookies();
         const accessToken = cookieStore.get('accessToken')?.value;
+        if (!accessToken) {
+            return new Response(JSON.stringify({ message: 'Unauthorized' }), {
+                status: 401,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
 
         const { searchParams } = new URL(req.url);
         const search = searchParams.get('search');
-
-
         const requestBody = { search };
 
 

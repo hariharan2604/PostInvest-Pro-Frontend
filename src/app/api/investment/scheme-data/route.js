@@ -4,6 +4,12 @@ export async function GET() {
     try {
         const cookieStore = await cookies();
         const accessToken = cookieStore.get('accessToken')?.value;
+        if (!accessToken) {
+            return new Response(JSON.stringify({ message: 'Unauthorized' }), {
+                status: 401,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
         
         const externalApiResponse = await fetch(`${process.env.API_URL}/investment/schemes`, {
             method: 'GET',

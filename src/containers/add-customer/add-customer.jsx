@@ -17,6 +17,7 @@ import CustomDatePicker from "@/components/ui/CustomDatePicker/CustomDatePicker"
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import { initialFormData as emptyForm } from "./formData";
 import { rules } from './rules.js';
+import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
 
 export default function AddCustomer() {
   const router = useRouter();
@@ -60,7 +61,9 @@ export default function AddCustomer() {
   useEffect(() => {
     const fetchCustomerData = async () => {
       try {
-        const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);
+        const res = await fetchWithAuth(`/api/customer/get-customer-detail/${customerId}`);
+        if (!res) return;
+        
         const { data } = await res.json();
 
         if (res.ok && data) {
