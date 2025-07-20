@@ -97,7 +97,7 @@ export default function CustomerDetails({ customerId }) {
               <AccordionItem header={
                 <div className={detailsStyle["headerRow"]}>
                   <div className={detailsStyle["titleGroup"]}>
-                    <span>Basic Info</span>
+                    Basic Info
                     <Link href={`/customer?id=${customerId}`} className={detailsStyle["editIcon"]}>
                       <Image src={EditIcon} alt="Edit" width={18} height={18} />
                     </Link>
@@ -146,38 +146,42 @@ export default function CustomerDetails({ customerId }) {
           </div>
         </div>
         {/* //scheme section */}
-        <div className={detailsStyle["schemesInfo"]}>
-          <div className={detailsStyle["head"]}>
-            <p>Schemes ({investments.length})</p>
-          </div>
-          <div className={detailsStyle["innerContent"]}>
-            {investments.map((investment, index) => (
-              <Link href={`/fund/${investment.id}`} key={index} passHref>
-                <div className={detailsStyle["dataGroup"]}>
-                  <div className={detailsStyle["profile_text_group"]}>
-                    <Profile
-                      variant="profileText"
-                      profileText={investment.scheme_code}
-                    />
-                    <div className={detailsStyle["detail_info"]}>
-                      <span>{investment.investment_acc_no}</span>
-                      <p>{investment.scheme_name}</p>
-                    </div>
-                  </div>
-                  <div className={detailsStyle["amountInfo"]}>
-                    <span>Installment Amount</span>
-                    <p>{`₹ ${investment.installment_amount}`}</p>
-                  </div>
+        <div className={detailsStyle['accordionItem']}>
+          <Accordion>
+            <AccordionItem header={`Schemes (${investments.length})`}>
+              <div className={detailsStyle["schemesInfo"]}>
+                <div className={detailsStyle["innerContent"]}>
+                  {investments.map((investment, index) => (
+                    <Link href={`/fund/${investment.id}`} key={index} passHref>
+                      <div className={detailsStyle["dataGroup"]}>
+                        <div className={detailsStyle["profile_text_group"]}>
+                          <Profile
+                            variant="profileText"
+                            profileText={investment.scheme_code}
+                          />
+                          <div className={detailsStyle["detail_info"]}>
+                            <span>{investment.investment_acc_no}</span>
+                            <p>{investment.scheme_name}</p>
+                          </div>
+                        </div>
+                        <div className={detailsStyle["amountInfo"]}>
+                          <span>Installment Amount</span>
+                          <p>{`₹ ${investment.installment_amount}`}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </Link>
-            ))}
-          </div>
 
-          <div className={detailsStyle["addMember"]}>
-            <Button variant="linkButton" path={`/scheme?id=${encodeURI(customerId)}&customer_name=${encodeURI(name)}`}>
-              Add Scheme
-            </Button>
-          </div>
+                <div className={detailsStyle["addMember"]}>
+                  <Button variant="linkButton" path={`/scheme?id=${encodeURI(customerId)}&customer_name=${encodeURI(name)}`}>
+                    Add Scheme
+                  </Button>
+                </div>
+              </div>
+            </AccordionItem>
+          </Accordion>
+
         </div>
       </div>
     </>

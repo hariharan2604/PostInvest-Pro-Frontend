@@ -20,5 +20,7 @@ export const isActiveRoute = (pathname, item) => {
         item.path === "/profile" &&
         (pathname.includes("customer") || pathname === "/family-members");
     const isInvestmentActive = item.path === "/fund" && (pathname.includes("fund") || pathname.includes("scheme"));
-    return pathname === item.path || isDashboardActive || isProfileActive || isInvestmentActive;
+    const isInventoryActive = item.path === "/viewChequeLeaf" && (pathname.includes("receipt"));
+
+    return pathname === item.path || isDashboardActive || isProfileActive || isInvestmentActive || isInventoryActive;
 };

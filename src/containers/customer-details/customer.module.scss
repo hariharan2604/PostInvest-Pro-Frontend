@@ -40,7 +40,7 @@
     align-items: center;
     gap: 12px;
     margin: 12px 0;
-    
+
     .textGroup {
       span {
         color: #000000;
@@ -84,7 +84,7 @@
     padding: 10px 0px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
 
     .dataGroup {
       display: flex;
@@ -93,11 +93,11 @@
       gap: 16px;
       flex-wrap: wrap;
       padding: 12px;
-      border: 1px solid #eee;
       border-radius: 8px;
 
       @media (max-width: 767.98px) {
         flex-direction: column;
+        border: 1px solid #eee;
         align-items: flex-start;
         gap: 12px;
       }
@@ -163,18 +163,18 @@
   }
 }
 
-.headerRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+// .headerRow {
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
+// }
 
 .titleGroup {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-weight: 600;
-  font-size: 16px;
+  // font-weight: 600;
+  // font-size: 16px;
 }
 
 .editIcon {
@@ -189,4 +189,3 @@
     background-color: rgba(0, 0, 0, 0.05);
   }
 }
-
