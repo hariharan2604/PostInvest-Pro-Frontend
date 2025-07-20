@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { validateForm } from '../_utils/form-validator';
+import { fetchWithAuth } from '../_utils/fetchWithAuth';
 
 export const useFormHandler = ({
     initialFormData = {},
@@ -37,14 +38,13 @@ export const useFormHandler = ({
 
     const submitData = async () => {
         try {
-            console.log("🚀 ~ submitData ~ formData:", formData);
 
-            const res = await fetch(apiEndpoint, {
+            const res = await fetchWithAuth(apiEndpoint, {
                 method,
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-
+            if (!res) return;
             const result = await res.json();
             setResponse(result);
 

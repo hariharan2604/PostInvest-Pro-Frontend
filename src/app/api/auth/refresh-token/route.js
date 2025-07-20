@@ -1,21 +1,43 @@
 import { cookies } from 'next/headers';
 
-export const POST = async (req) => {
-    const cookieStore = cookies();
+const isLocal = process.env.NEXT_PUBLIC_SITE_ENV === 'local';
+
+export const POST = async () => {
+    const cookieStore = await cookies();
     const refreshToken = cookieStore.get('refreshToken')?.value;
 
     if (!refreshToken) {
-        return new Response(JSON.stringify({ success: false, message: 'No refresh token found' }), { status: 400 });
+        return new Response(JSON.stringify({ success: false, message: 'No refresh token found' }), {
+            status: 400,
+        });
     }
 
     try {
-        const response = await fetch(`${process.env.API_URL}/auth/refresh-token`, {}, {
-            headers: { Authorization: `Bearer ${refreshToken}` },
+        const rawResponse = await fetch(`${process.env.API_URL}/auth/refresh-token`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${refreshToken}`,
+                'Content-Type': 'application/json',
+            },
         });
 
-        if (response.data?.accessToken) {
-            cookieStore.set('accessToken', response.data.accessToken, { httpOnly: true, path: '/', maxAge: 60 * 60 }); s
-            return new Response(JSON.stringify({ success: true, accessToken: response.data.accessToken }), { status: 200 });
+        const responseData = await rawResponse.json();
+        const newAccessToken = responseData?.data?.accessToken;
+
+        if (newAccessToken) {
+            const cookieOptions = {
+                httpOnly: true,
+                secure: !isLocal,
+                path: '/',
+                sameSite: isLocal ? 'Strict' : 'Lax',
+                maxAge: 60 * 15,
+            };
+
+            cookieStore.set('accessToken', newAccessToken, cookieOptions);
+
+            return new Response(JSON.stringify({ success: true, accessToken: newAccessToken }), {
+                status: 200,
+            });
         }
 
         return new Response(JSON.stringify({ success: false, message: 'Failed to refresh token' }), { status: 400 });

@@ -7,6 +7,12 @@ export async function POST(req) {
         const requestBody = await req.json();
         const cookieStore = await cookies();
         const accessToken = cookieStore.get('accessToken')?.value;
+        if (!accessToken) {
+            return new Response(JSON.stringify({ message: 'Unauthorized' }), {
+                status: 401,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
         const date = new Date(requestBody.investment_date);
         requestBody.scheme_id = requestBody?.scheme_id?.value;
         requestBody.investment_date = formatDateStd(date);

@@ -14,6 +14,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useTitle } from "@/contexts/TitleContext";
 import { formatToLocaleString } from "@/app/_utils/dateformatter";
+import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
 
 export default function CustomerDetails({ customerId }) {
   const [customerData, setCustomerData] = useState([]);
@@ -29,7 +30,8 @@ export default function CustomerDetails({ customerId }) {
   useEffect(() => {
     const fetchCustomerData = async () => {
       try {
-        const res = await fetch(`/api/customer/get-customer-detail/${customerId}`);
+        const res = await fetchWithAuth(`/api/customer/get-customer-detail/${customerId}`);
+        if (!res) return;
         const { data } = await res.json();
 
         if (res.ok && data) {

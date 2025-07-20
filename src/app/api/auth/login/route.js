@@ -17,11 +17,10 @@ export const POST = async (req) => {
             const cookieStore = await cookies();
             const cookieOptions = {
                 httpOnly: true,
-                secure: !isLocal, 
+                secure: !isLocal,
                 path: '/',
-                sameSite: isLocal ? 'Strict' : 'Lax',  
+                sameSite: isLocal ? 'Strict' : 'Lax',
             }
-            // Set access and refresh tokens in cookies
             cookieStore.set('accessToken', response.data.accessToken, {
                 ...cookieOptions,
                 maxAge: 60 * 15, // 15 minutes
@@ -29,17 +28,17 @@ export const POST = async (req) => {
 
             cookieStore.set('userId', response.data.id, {
                 ...cookieOptions,
-                maxAge: 60 * 15, // Match access token validity
+                maxAge: 60 * 15, 
             });
 
             cookieStore.set('agentName', response.data.name, {
                 ...cookieOptions,
-                maxAge: 60 * 15, // Match access token validity
+                maxAge: 60 * 15, 
             });
 
             cookieStore.set('refreshToken', response.data.refreshToken, {
                 ...cookieOptions,
-                maxAge: 60 * 60 * 24 * 30, // 30 days
+                maxAge: 60 * 60 * 24 * 7, // 7 days
             });
 
             return new Response(JSON.stringify(cleansed), { status: 200 });

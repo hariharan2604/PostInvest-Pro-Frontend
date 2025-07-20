@@ -6,6 +6,12 @@ export async function POST(req) {
         const requestBody = await req.json();
         const cookieStore = await cookies();
         const accessToken = cookieStore.get('accessToken')?.value;
+        if (!accessToken) {
+            return new Response(JSON.stringify({ message: 'Unauthorized' }), {
+                status: 401,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
         const userId = cookieStore.get('userId')?.value;
         const date = new Date(requestBody.dob);
         requestBody.agent_id = userId;
