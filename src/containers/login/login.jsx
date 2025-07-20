@@ -10,11 +10,10 @@ import { useFormHandler } from "@/app/_hooks/useFormHandler";
 import React from "react";
 import { rules } from "./rules";
 import { initialFormData } from "./formData";
-import { useRouter } from "next/navigation";
 
 
 export default function Home() {
-    const router = useRouter();
+    
     const {
         formData,
         errors,
@@ -25,18 +24,16 @@ export default function Home() {
         initialFormData,
         validationRules: rules,
         apiEndpoint: '/api/auth/login',
-        // redirectPath: '/dashboard',
-        // forwardPath: true,
+        redirectPath: '/dashboard',
+        forwardPath: true,
         onError: (result) => {
             setErrors((prevData) => ({
                 ...prevData,
                 ["response"]: result.error.message,
             }));
         },
-        onSuccess: () => {
-            router.push("/dashboard")
-        }
         
+
     });
     return (
         <>
@@ -46,7 +43,7 @@ export default function Home() {
                         <Image src={login} height={150} width={150} className={styles["logo"]} alt="login-image" priority={true} />
                         <div>
                             <h3><span>Welcome</span></h3>
-                            <p>Please use your credentials to login</p>
+                            <p>Login to Continue..</p>
                         </div>
                     </div>
                     <div className={styles["login-credentials"]}>

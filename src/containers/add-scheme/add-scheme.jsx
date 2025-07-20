@@ -60,7 +60,7 @@ export default function AddScheme() {
           setSchemes(
             scheme_detail.map((item) => ({
               value: String(item.id),
-              label: String(item.scheme_name),
+              label: String(`${item.scheme_name} (${item.scheme_code})`),
             }))
           );
         }

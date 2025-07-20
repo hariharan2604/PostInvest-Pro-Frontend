@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import {  useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { validateForm } from '../_utils/form-validator';
 
 export const useFormHandler = ({
@@ -37,6 +37,8 @@ export const useFormHandler = ({
 
     const submitData = async () => {
         try {
+            console.log("🚀 ~ submitData ~ formData:", formData);
+
             const res = await fetch(apiEndpoint, {
                 method,
                 headers: { 'Content-Type': 'application/json' },
@@ -44,7 +46,6 @@ export const useFormHandler = ({
             });
 
             const result = await res.json();
-
             setResponse(result);
 
             if (result.status === 'success') {
@@ -52,8 +53,7 @@ export const useFormHandler = ({
                 onSuccess(result);
 
                 if (forwardPath) {
-                   
-                    router.push(redirectPath); 
+                    router.push(redirectPath);
                 }
             } else {
                 setError(true);
@@ -63,13 +63,13 @@ export const useFormHandler = ({
             setError(true);
             onError(error);
         }
-
-
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event?.preventDefault();
         const validationErrors = validateForm(formData, validationRules);
+
+
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length === 0) {
@@ -83,7 +83,12 @@ export const useFormHandler = ({
             ...updatedFields,
         }));
     }, []);
-
+    const resetForm = () => {
+        setFormData(initialFormData);
+        setErrors({});
+        setError(false);
+        setResponse(null);
+    };
     return {
         formData,
         updateFormData,
@@ -97,5 +102,6 @@ export const useFormHandler = ({
         handleRadioChange,
         handleDateChange,
         handleSubmit,
+        resetForm
     };
 };

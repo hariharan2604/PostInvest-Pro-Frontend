@@ -8,49 +8,74 @@ import Checkbox from "@/components/ui/checkbox/checkbox";
 import { useEffect, useState } from 'react';
 import Button from '@/components/ui/button/button';
 import React from 'react';
+import { useTitle } from "@/contexts/TitleContext";
 
 export default function AllCustomer() {
   const [customers, setCustomers] = useState([]);
+  const { setTitle } = useTitle();
 
   const handleDataFetch = (result) => {
     setCustomers(result);
   }
+  useEffect(() => {
+    setTitle("Customer Dashboard");
+  }, []);
 
   return (
     <>
-      <SearchHead fetchOnFocus={false} allowEmptySearch={true} enableAdd={true} showRouteOptions={false} enableDropdown={false} onDataFetched={handleDataFetch} />
-      {/* <Checkbox labelVale="Active Customer" /> */}
+      <SearchHead
+        fetchOnFocus={false}
+        allowEmptySearch={true}
+        enableAdd={true}
+        showRouteOptions={false}
+        enableDropdown={false}
+        onDataFetched={handleDataFetch}
+      />
       <div className={style["schemesInfo"]}>
         <div className={style["innerContent"]}>
-          {customers.map((customer, index) => (
-            <div key={index}  className={style["listGroup"]}>
-              <div className={style["dataGroup"]}>
-                <Link href={`/customer-info/${customer.id}`} passHref>
-                  <div className={style["profile_text_group"]}>
-                    <Profile
-                      variant="profileIcon"
-                      profileStatus={customer.profileStatus}
-                    />
-                    <div className={style["detail_info"]}>
-                      <p>{customer.name}</p>
-                      <span>
-                        {customer.mobile} | {customer.email} | {customer.area}
-                      </span>
+          {customers.length === 0 ? (
+            <div className={style["noData"]}>
+              <p>No customers found.</p>
+            </div>
+          ) : (
+            customers.map((customer, index) => (
+              <div key={index} className={style["listGroup"]}>
+                <div className={style["dataGroup"]}>
+                  <Link href={`/customer-info/${customer.id}`} passHref>
+                    <div className={style["profile_text_group"]}>
+                      <Profile
+                        variant="profileIcon"
+                        profileStatus={customer.profileStatus}
+                      />
+                      <div className={style["detail_info"]}>
+                        <p>{customer.name}</p>
+                        <span>
+                          {customer.mobile} | {customer.email} | {customer.area}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-                <div className={style["addAMount"]}>
-                  <div className={style["addIcon"]}>
-                    <Button variant="linkButton" path={`/scheme?id=${encodeURI(customer.id)}&customer_name=${encodeURI(customer.name)}`}>
+                  </Link>
+                  <div className={style["addAMount"]}>
+                    <Button
+                      variant="linkButton"
+                      path={`/scheme?id=${encodeURI(customer.id)}&customer_name=${encodeURI(customer.name)}`}
+                    >
                       Add Investment
+                    </Button>
+                    <Button
+                      variant="linkButton"
+                      path={`/receipt?id=${encodeURI(customer.id)}&customer_name=${encodeURI(customer.name)}`}
+                    >
+                      Add Receipt
                     </Button>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </>
   );
+
 }

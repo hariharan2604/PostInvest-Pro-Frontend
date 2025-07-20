@@ -17,7 +17,7 @@ const Dashboard = ({ name }) => {
         <>
             <Header notifyToIcon={true} />
             <Layout>
-                <SearchHead  enableDropdown={true} showRouteOptions={true} />
+                <SearchHead  enableDropdown={true} showRouteOptions={true} allowEmptySearch={true} />
                 <CardData />
                 <CheckUser />
             </Layout>

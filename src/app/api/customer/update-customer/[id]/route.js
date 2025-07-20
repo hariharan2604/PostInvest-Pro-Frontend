@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import { formatDate } from '@/app/_utils/dateformatter.js';
+import { formatDateStd } from '@/app/_utils/dateformatter.js';
 
 export async function PUT(req, { params }) {
     try {
@@ -12,7 +12,7 @@ export async function PUT(req, { params }) {
         requestBody.id = customerId;
         requestBody.city = requestBody?.city?.value;
         requestBody.state = requestBody?.state?.value;
-        requestBody.dob = formatDate(date);
+        requestBody.dob = formatDateStd(date);
 
         const externalApiResponse = await fetch(`${process.env.API_URL}/customer/update`, {
             method: 'POST',

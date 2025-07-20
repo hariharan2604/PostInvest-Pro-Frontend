@@ -13,7 +13,7 @@ import Button from "@/components/ui/button/button";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useTitle } from "@/contexts/TitleContext";
-import { formatDate } from "@/app/_utils/dateformatter";
+import { formatToLocaleString } from "@/app/_utils/dateformatter";
 
 export default function CustomerDetails({ customerId }) {
   const [customerData, setCustomerData] = useState([]);
@@ -22,8 +22,9 @@ export default function CustomerDetails({ customerId }) {
   const [name, setName] = useState('');
   const { setTitle } = useTitle();
   useEffect(() => {
-    setTitle("Customer Info");
-  })
+    setTitle(name);
+  }, [name]);
+
 
   useEffect(() => {
     const fetchCustomerData = async () => {
@@ -64,7 +65,7 @@ export default function CustomerDetails({ customerId }) {
             },
             {
               icon: DateIcon,
-              text: formatDate(dob_data),
+              text: formatToLocaleString(dob_data),
             },
 
             {
@@ -96,7 +97,7 @@ export default function CustomerDetails({ customerId }) {
               <AccordionItem header={
                 <div className={detailsStyle["headerRow"]}>
                   <div className={detailsStyle["titleGroup"]}>
-                    <span>Basic Info</span>
+                    Basic Info
                     <Link href={`/customer?id=${customerId}`} className={detailsStyle["editIcon"]}>
                       <Image src={EditIcon} alt="Edit" width={18} height={18} />
                     </Link>
@@ -145,38 +146,42 @@ export default function CustomerDetails({ customerId }) {
           </div>
         </div>
         {/* //scheme section */}
-        <div className={detailsStyle["schemesInfo"]}>
-          <div className={detailsStyle["head"]}>
-            <p>Schemes ({investments.length})</p>
-          </div>
-          <div className={detailsStyle["innerContent"]}>
-            {investments.map((investment, index) => (
-              <Link href="/fund" key={index} passHref>
-                <div className={detailsStyle["dataGroup"]}>
-                  <div className={detailsStyle["profile_text_group"]}>
-                    <Profile
-                      variant="profileText"
-                      profileText={investment.scheme_code}
-                    />
-                    <div className={detailsStyle["detail_info"]}>
-                      <span>{investment.investment_acc_no}</span>
-                      <p>{investment.scheme_name}</p>
-                    </div>
-                  </div>
-                  <div className={detailsStyle["amountInfo"]}>
-                    <span>Installment Amount</span>
-                    <p>{`₹ ${investment.installment_amount}`}</p>
-                  </div>
+        <div className={detailsStyle['accordionItem']}>
+          <Accordion>
+            <AccordionItem header={`Schemes (${investments.length})`}>
+              <div className={detailsStyle["schemesInfo"]}>
+                <div className={detailsStyle["innerContent"]}>
+                  {investments.map((investment, index) => (
+                    <Link href={`/fund/${investment.id}`} key={index} passHref>
+                      <div className={detailsStyle["dataGroup"]}>
+                        <div className={detailsStyle["profile_text_group"]}>
+                          <Profile
+                            variant="profileText"
+                            profileText={investment.scheme_code}
+                          />
+                          <div className={detailsStyle["detail_info"]}>
+                            <span>{investment.investment_acc_no}</span>
+                            <p>{investment.scheme_name}</p>
+                          </div>
+                        </div>
+                        <div className={detailsStyle["amountInfo"]}>
+                          <span>Installment Amount</span>
+                          <p>{`₹ ${investment.installment_amount}`}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </Link>
-            ))}
-          </div>
 
-          <div className={detailsStyle["addMember"]}>
-            <Button variant="linkButton" path={`/scheme?id=${encodeURI(customerId)}&customer_name=${encodeURI(name)}`}>
-              Add Scheme
-            </Button>
-          </div>
+                <div className={detailsStyle["addMember"]}>
+                  <Button variant="linkButton" path={`/scheme?id=${encodeURI(customerId)}&customer_name=${encodeURI(name)}`}>
+                    Add Scheme
+                  </Button>
+                </div>
+              </div>
+            </AccordionItem>
+          </Accordion>
+
         </div>
       </div>
     </>

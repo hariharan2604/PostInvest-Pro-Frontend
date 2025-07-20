@@ -1,16 +1,12 @@
-import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
-export async function middleware(request) {
-    const cookieStore = await cookies();
-    const accessToken = cookieStore.get('accessToken')?.value;
+export function middleware(request) {
 
-    // If no access token is found, redirect to the login page
+    const accessToken = request.cookies.get('accessToken')?.value;
     if (!accessToken) {
-        return NextResponse.redirect(new URL('/', request.url)); // Redirect to login page
+        return NextResponse.redirect(new URL('/', request.url));
     }
 
-    // If access token exists, allow the request to proceed
     return NextResponse.next();
 }
 
@@ -19,4 +15,3 @@ export const config = {
         '/((?!api/auth|registration$|$|_next/|favicon.ico|images/|fonts/|media/|icons/).*)',
     ],
 };
-  

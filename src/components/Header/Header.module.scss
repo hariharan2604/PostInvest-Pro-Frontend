@@ -2,8 +2,7 @@
   background-color: #194a8a;
   color: white;
   height: 56px;
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
   align-items: center;
   padding: 0 15px;
   position: relative;
@@ -31,63 +30,85 @@
     }
   }
 
+  .desktopMenu {
+    display: flex;
+    gap: 25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+
+    @media (max-width: 767.98px) {
+      display: none;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 7px 15px;
+      border-radius: 50px;
+      gap: 10px;
+      font-weight: 500;
+      color: #194a8a;
+      transition: all 0.3s;
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+      img {
+        filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(112deg)
+          brightness(107%) contrast(100%);
+      }
+
+      span {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      &.active {
+        background-color: #d0e5ff;
+
+        img {
+          filter: invert(16%) sepia(50%) saturate(3471%) hue-rotate(205deg)
+            brightness(98%) contrast(83%);
+        }
+
+        span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   .footerSection {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    position: relative;
+    gap: 15px;
+    margin-left: auto;
 
-    @media (min-width: 768px) {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 75%;
-      justify-content: center;
-    }
-
-    .desktopMenu {
+    .userIcon {
       display: flex;
-      gap: 25px;
-      height: 100%;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
 
-      @media (max-width: 767.98px) {
-        display: none;
+      img {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.2s ease;
       }
 
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        font-size: 12px;
-        padding: 7px 15px;
-        border-radius: 50px;
-        gap: 10px;
-        font-weight: 500;
-        color: #194a8a;
-        // background: white;
-        transition: all 0.3s;
+      &:hover {
+        background-color: #d0e5ff;
 
         img {
-          filter: invert(99%) sepia(0%) saturate(0%) hue-rotate(112deg)
-            brightness(107%) contrast(100%);
-        }
-
-        span {
-          opacity: 0;
-          transition: opacity 0.3s ease-in-out;
-        }
-
-        &.active {
-          background-color: #d0e5ff;
-
-          img {
-            filter: invert(16%) sepia(50%) saturate(3471%) hue-rotate(205deg)
-              brightness(98%) contrast(83%);
-          }
-
-          span {
-            opacity: 1;
-          }
+          transform: scale(1.05);
         }
       }
     }
@@ -98,8 +119,6 @@
       @media (max-width: 767.98px) {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        width: 100%;
 
         img {
           width: 24px;

@@ -1,25 +1,42 @@
 import { cookies } from 'next/headers';
-import { formatDateStd } from '@/app/_utils/dateformatter.js';
+import { PAYMENT_METHODS, INSTRUMENT_CLASSES } from '@/app/_data/paymentConstants';
+import { formatDateStd } from '@/app/_utils/dateformatter';
 
 export async function POST(req) {
     try {
         const requestBody = await req.json();
         const cookieStore = await cookies();
         const accessToken = cookieStore.get('accessToken')?.value;
-        const userId = cookieStore.get('userId')?.value;
-        const date = new Date(requestBody.dob);
-        requestBody.agent_id = userId;
-        requestBody.city = requestBody?.city?.value;
-        requestBody.state = requestBody?.state?.value;
-        requestBody.dob = formatDateStd(date);
 
-        const externalApiResponse = await fetch(`${process.env.API_URL}/customer/create`, {
+        const {
+            paymentMethod,
+            customer_id,
+            inputFields = [],
+        } = requestBody;
+
+        const isCash = paymentMethod === PAYMENT_METHODS.CASH;
+        const endpoint = `${process.env.API_URL}/receipt/bulk-add`;
+
+        const payload = inputFields.map((field) => ({
+            receipt_type_id: paymentMethod,
+            customer_id,
+            receipt_amount: field.receipt_amount,
+            chq_number: isCash ? null : field.chq_number,
+            cheque_date: isCash ? null : formatDateStd(field.cheque_date),
+            bank_id: isCash ? null : field.bank_id?.value,
+            sb_acc_number: isCash ? null : field.sb_acc_number,
+            instrument_class_id: isCash
+                ? INSTRUMENT_CLASSES.OTHERS
+                : field.instrument_class_id,
+        }));
+
+        const externalApiResponse = await fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`,
             },
-            body: JSON.stringify(requestBody),
+            body: JSON.stringify({ entries: payload }),
         });
 
         if (!externalApiResponse.ok) {
@@ -34,6 +51,7 @@ export async function POST(req) {
                 'Content-Type': 'application/json',
             },
         });
+
     } catch (error) {
         console.error("Error calling external API:", error.message);
 

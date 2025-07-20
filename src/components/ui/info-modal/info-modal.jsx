@@ -4,7 +4,6 @@ import success from '@icons/success.svg'
 import error from '@icons/error.svg'
 import Image from "next/image";
 import successStyles from './info-modal.module.scss'
-import Button from "@/components/ui/button/button";
 
 export default function InfoModal({ showButton = true, errorStatus = false, Title, Content, onClose, onOpen, children }) {
 

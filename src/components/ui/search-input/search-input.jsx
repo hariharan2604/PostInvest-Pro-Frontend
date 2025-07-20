@@ -4,8 +4,8 @@ import styles from "./search-input.module.scss";
 import Image from "next/image";
 import Searchicon from "@icons/search-input.svg";
 import SearchDropdown from "./SearchDropdown";
-import UserIcon from "@icons/user.svg";
 import { useRouter } from "next/navigation";
+import Profile from "../profile/profile";
 
 export default function SearchInput({
     placeholder = "Search...",
@@ -101,15 +101,7 @@ export default function SearchInput({
 
     const renderCustomerItem = useCallback((user) => (
         <>
-            <div className={styles.profileIcon}>
-                <div
-                    className={`${styles.profile} ${user.status === "active"
-                        ? styles.profileActive
-                        : styles.profileInactive}`}
-                >
-                    <Image src={UserIcon} alt="User Icon" />
-                </div>
-            </div>
+            <Profile variant="profileIcon" />
             <div className={styles.userInfo}>
                 <p className={styles.userName}>{user.name}</p>
                 <p className={styles.userPhone}>{user.mobile}</p>
@@ -117,6 +109,39 @@ export default function SearchInput({
             </div>
         </>
     ), []);
+    const renderInvestmentItem = useCallback((investment) => (
+        <>
+            <Profile variant="profileText"
+                profileText={investment.scheme_code} />
+            <div className={styles.userInfo}>
+                <p className={styles.userName}>{investment.investment_acc_no}</p>
+                <p className={styles.userPhone}>{investment.scheme_name}</p>
+                <p className={styles.userEmail}>{investment.investment_status}</p>
+            </div>
+        </>
+    ), []);
+    let renderItem = {
+        customer: renderCustomerItem,
+        investment:renderInvestmentItem
+    }
+    // const renderCustomerItem = useCallback((user) => (
+    //     <>
+    //         <div className={styles.profileIcon}>
+    //             <div
+    //                 className={`${styles.profile} ${user.status === "active"
+    //                     ? styles.profileActive
+    //                     : styles.profileInactive}`}
+    //             >
+    //                 <Image src={UserIcon} alt="User Icon" />
+    //             </div>
+    //         </div>
+    //         <div className={styles.userInfo}>
+    //             <p className={styles.userName}>{user.name}</p>
+    //             <p className={styles.userPhone}>{user.mobile}</p>
+    //             <p className={styles.userEmail}>{user.email}</p>
+    //         </div>
+    //     </>
+    // ), []);
 
     return (
         <div ref={wrapperRef} className={styles["search-wrapper"]}>
@@ -143,7 +168,7 @@ export default function SearchInput({
                         }
                         onSelect?.(id, item);
                     }}
-                    renderItem={renderCustomerItem}
+                    renderItem={renderItem[type]}
                     keyExtractor={(item) => item.id}
                     noResultsMessage="No results found"
                 />
