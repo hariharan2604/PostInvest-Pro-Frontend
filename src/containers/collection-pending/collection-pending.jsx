@@ -34,7 +34,7 @@ export default function CollectionPending() {
     const [chequeStatuses, setChequeStatuses] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [isError, setIsError] = useState(false);
-    const [customerId, setCustomerId] = useState('');
+    // const [customerId, setCustomerId] = useState('');
     const [customerName, setCustomerName] = useState('');
     const { setTitle } = useTitle();
 
@@ -96,7 +96,7 @@ export default function CollectionPending() {
         if (searchParams) {
             const id = searchParams.get("id") || "";
             const name = searchParams.get("customer_name") || "";
-            setCustomerId(id);
+            // setCustomerId(id);
             setCustomerName(name);
             updateFormData({ customer_id: id });
         }
@@ -125,19 +125,26 @@ export default function CollectionPending() {
     }, []);
 
     useEffect(() => {
-        const isDefault =
-            formData.inputFields.length === 1 &&
-            Object.values(formData.inputFields[0]).every(v => v === "" || v === null);
+        if (formData.paymentMethod === PAYMENT_METHODS.CASH) {
+            updateFormData({
+                ...formData,
+                inputFields: [{ receipt_amount: "" }],
+            });
+        }
 
-        if (!isDefault) return;
-
-        updateFormData({
-            customerId,
-            paymentMethod: formData.paymentMethod,
-            inputFields: [createEmptyChequeField()],
-        });
-
+        if (formData.paymentMethod === PAYMENT_METHODS.CHEQUE) {
+            if (
+                formData.inputFields.length === 0 ||
+                !('chq_number' in formData.inputFields[0])
+            ) {
+                updateFormData({
+                    ...formData,
+                    inputFields: [createEmptyChequeField()],
+                });
+            }
+        }
         setChequeStatuses([]);
+
     }, [formData.paymentMethod]);
 
     const handleFieldChange = useCallback((index, field) => (value) => {
@@ -180,16 +187,18 @@ export default function CollectionPending() {
     };
 
     const handleSubmitClick = () => {
-        if (chequeStatuses.length === 0) {
+        if (formData.paymentMethod === PAYMENT_METHODS.CASH) {
             handleSubmit();
+            return;
+        }
+        if (chequeStatuses.length === 0) {
+            handleSubmit(); 
             return;
         }
 
         const failedIndices = chequeStatuses
             .map((status, i) => (status?.status === "failed" ? i : null))
             .filter(i => i !== null);
-
-        console.log("🚀 ~ handleSubmitClick ~ failedIndices:", failedIndices);
 
         if (failedIndices.length === 0) return;
 

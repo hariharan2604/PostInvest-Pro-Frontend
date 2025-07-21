@@ -5,6 +5,9 @@ export const rules = {
         required: true,
         requiredMessage: "Please select a payment method.",
     },
+    customer_id: {
+        required: true,
+    },
     inputFields: [
         {
             receipt_amount: {
