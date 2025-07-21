@@ -28,7 +28,7 @@ export async function fetchWithAuth(url, options = {}, retry = true) {
         }
 
         try {
-            await fetch('/api/auth/logout', { method: 'POST'});
+            await fetch('/api/auth/logout', { method: 'POST' });
         } catch (logoutErr) {
             console.error('⚠️ Failed to logout:', logoutErr);
         }
@@ -40,6 +40,10 @@ export async function fetchWithAuth(url, options = {}, retry = true) {
         return null;
 
     } catch (err) {
+        if (err.name === 'AbortError') {
+            return null; 
+        }
+
         console.error('❌ fetchWithAuth error:', err);
         throw err;
     }
