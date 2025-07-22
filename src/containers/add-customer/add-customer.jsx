@@ -18,6 +18,8 @@ import RadioButton from "@/components/ui/radiobutton/radiobutton";
 import { initialFormData as emptyForm } from "./formData";
 import { rules } from './rules.js';
 import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
+import { createRefMap } from "@/app/_utils/createRefMap";
+import { scrollToFirstError } from "@/app/_utils/scrollToFirstError";
 
 export default function AddCustomer() {
   const router = useRouter();
@@ -31,6 +33,8 @@ export default function AddCustomer() {
     shouldRedirect && router.back();
     setModalOpen(false);
   };
+    const refMap = createRefMap(emptyForm);
+
   const {
     formData,
     updateFormData,
@@ -57,6 +61,12 @@ export default function AddCustomer() {
       setModalOpen(true);
     }
   });
+
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      scrollToFirstError(errors, refMap);
+    }
+  }, [errors,refMap]);
 
   useEffect(() => {
     const fetchCustomerData = async () => {
@@ -102,19 +112,19 @@ export default function AddCustomer() {
   return (
     <>
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Full Name" name="name" onChange={handleInputChange("name")} value={formData.name} errorText={errors.name} />
+        <Input ref={refMap.name} labelText="Full Name" name="name" onChange={handleInputChange("name")} value={formData.name} errorText={errors.name} />
       </div>
 
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Cif" name="cif" onChange={handleInputChange("cif")} value={formData.cif} errorText={errors.cif} />
+        <Input ref={refMap.cif} labelText="Cif" name="cif" onChange={handleInputChange("cif")} value={formData.cif} errorText={errors.cif} />
       </div>
 
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Mobile No" name="mobile" onChange={handleInputChange("mobile")} value={formData.mobile} errorText={errors.mobile} />
+        <Input ref={refMap.mobile} labelText="Mobile No" name="mobile" onChange={handleInputChange("mobile")} value={formData.mobile} errorText={errors.mobile} />
       </div>
 
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Email ID" name="email" onChange={handleInputChange("email")} value={formData.email} errorText={errors.email} />
+        <Input ref={refMap.email} labelText="Email ID" name="email" onChange={handleInputChange("email")} value={formData.email} errorText={errors.email} />
       </div>
 
       <div className={customerStyle["form-group"]}>
@@ -145,6 +155,7 @@ export default function AddCustomer() {
 
       <div className={customerStyle["form-group"]}>
         <CustomDatePicker
+          ref={refMap.dob}
           selectedDate={formData.dob}
           onChange={(date) => handleDateChange('dob', date)}
           label="Date of Birth (DD/MM/YYYY)"
@@ -154,19 +165,21 @@ export default function AddCustomer() {
       </div>
 
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Address Line 1" name="address1" onChange={handleInputChange("address1")} value={formData.address1} errorText={errors.address1} />
+        <Input ref={refMap.address1} labelText="Address Line 1" name="address1" onChange={handleInputChange("address1")} value={formData.address1} errorText={errors.address1} />
       </div>
 
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Address Line 2" name="address2" onChange={handleInputChange("address2")} value={formData.address2} />
+        <Input ref={refMap.address2} labelText="Address Line 2" name="address2" onChange={handleInputChange("address2")} value={formData.address2} />
       </div>
 
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Area" name="area" value={formData.area} onChange={handleInputChange("area")} errorText={errors.area} />
+        <Input ref={refMap.area} labelText="Area" name="area" value={formData.area} onChange={handleInputChange("area")} errorText={errors.area} />
       </div>
 
       <div className={customerStyle["form-group"]}>
         <Selectdropdown
+          id={"city"}
+          ref={refMap.city}
           options={City}
           selectText="Select City"
           setSelectedOption={(value) => handleSelectChange("city", value)}
@@ -177,6 +190,8 @@ export default function AddCustomer() {
 
       <div className={customerStyle["form-group"]}>
         <Selectdropdown
+          id={"state"}
+          ref={refMap.state}
           options={State}
           selectText="Select State"
           setSelectedOption={(value) => handleSelectChange("state", value)}
@@ -186,7 +201,7 @@ export default function AddCustomer() {
       </div>
 
       <div className={customerStyle["form-group"]}>
-        <Input labelText="Zip" name="zip" value={formData.zip} onChange={handleInputChange("zip")} errorText={errors.zip} />
+        <Input ref={refMap.zip} labelText="Zip" name="zip" value={formData.zip} onChange={handleInputChange("zip")} errorText={errors.zip} />
       </div>
 
       <div className={customerStyle["buttonGroup"]}>

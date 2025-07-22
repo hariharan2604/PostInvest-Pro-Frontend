@@ -85,7 +85,7 @@ export default function CollectionPending() {
             };
             return { ...prev, inputFields };
         });
-    }, []);
+    }, [setErrors]);
 
     const isCheque = formData.paymentMethod === PAYMENT_METHODS.CHEQUE;
     const isCash = formData.paymentMethod === PAYMENT_METHODS.CASH;
@@ -127,25 +127,21 @@ export default function CollectionPending() {
     useEffect(() => {
         if (formData.paymentMethod === PAYMENT_METHODS.CASH) {
             updateFormData({
-                ...formData,
+                // ...formData,
                 inputFields: [{ receipt_amount: "" }],
             });
         }
 
         if (formData.paymentMethod === PAYMENT_METHODS.CHEQUE) {
-            if (
-                formData.inputFields.length === 0 ||
-                !('chq_number' in formData.inputFields[0])
-            ) {
-                updateFormData({
-                    ...formData,
-                    inputFields: [createEmptyChequeField()],
-                });
-            }
+            updateFormData({
+                // ...formData,
+                inputFields: [createEmptyChequeField()],
+            });
         }
+        setErrors({});
         setChequeStatuses([]);
 
-    }, [formData.paymentMethod]);
+    }, [formData.paymentMethod, setErrors, updateFormData]);
 
     const handleFieldChange = useCallback((index, field) => (value) => {
         const updated = [...formData.inputFields];
@@ -192,7 +188,7 @@ export default function CollectionPending() {
             return;
         }
         if (chequeStatuses.length === 0) {
-            handleSubmit(); 
+            handleSubmit();
             return;
         }
 

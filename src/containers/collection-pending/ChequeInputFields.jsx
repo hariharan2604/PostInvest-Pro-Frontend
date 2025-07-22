@@ -133,6 +133,7 @@ export default function ChequeInputFields({
 
                         <div className={styles["form-group"]}>
                             <Selectdropdown
+                                id={"banks"}
                                 options={banks}
                                 selectText="Select Bank"
                                 setSelectedOption={(value) =>

@@ -24,7 +24,7 @@ export default function CustomerDetails({ customerId }) {
   const { setTitle } = useTitle();
   useEffect(() => {
     setTitle(name);
-  }, [name]);
+  }, [name,setTitle]);
 
 
   useEffect(() => {

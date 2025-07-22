@@ -3,18 +3,15 @@ import SelectStyle from "./select.module.scss";
 import React from "react";
 import Select from "react-select";
 
-export default function Selectdropdown({
-  options,
-  selectText,
-  selectedOption,
-  setSelectedOption,
-  errorText,
-}) {
+const Selectdropdown = React.forwardRef(function Selectdropdown(
+  { options, selectText, selectedOption, setSelectedOption, errorText, id },
+  ref
+) {
   return (
     <>
-      <div className={SelectStyle["inputGroup"]}>
+      <div className={SelectStyle["inputGroup"]} ref={ref}>
         <Select
-          instanceId="scheme-select"
+          instanceId={id}
           className={SelectStyle["custom_select"]}
           value={selectedOption}
           onChange={setSelectedOption}
@@ -33,7 +30,7 @@ export default function Selectdropdown({
                 border: "1px solid #DDDDDD",
                 boxShadow: "unset",
                 outline: "unset",
-              }
+              },
             }),
             menuPortal: (base) => ({
               ...base,
@@ -81,4 +78,6 @@ export default function Selectdropdown({
       {errorText && <div className={SelectStyle.errorText}>{errorText}</div>}
     </>
   );
-}
+});
+
+export default Selectdropdown;

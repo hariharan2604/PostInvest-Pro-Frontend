@@ -9,7 +9,10 @@ import leftArrow from "@icons/leftCalender.svg";
 import rightArrow from "@icons/rightCalender.svg";
 import styles from "./CustomDatePicker.module.scss";
 
-const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
+const CustomDatePicker = React.forwardRef(function CustomDatePicker(
+  { selectedDate, onChange, label, errorText },
+  ref
+) {
   const range = (start, end, step = 1) => {
     const result = [];
     for (let i = start; i < end; i += step) {
@@ -19,20 +22,67 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
   };
 
   const [isFocused, setIsFocused] = useState(false);
-
   const years = range(1940, new Date().getFullYear() + 1);
   const months = [
-    "January", "February", "March", "April", "May", "June",
+    "January", "Febuary", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December",
   ];
+  const customSelectStyles = {
+    control: (base, state) => ({
+      ...base,
+      minHeight: "32px",
+      height: "32px",
+      fontSize: "14px",
+      backgroundColor: "#fff",
+      borderColor: state.isFocused ? "#ccc" : "#ddd",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "#bbb",
+      },
+    }),
+    menu: (base) => ({
+      ...base,
+      zIndex: 9999,
+      fontSize: "14px",
+    }),
+    menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+    option: (base, state) => ({
+      ...base,
+      backgroundColor: state.isSelected
+        ? "#e0e0e0"
+        : state.isFocused
+          ? "#f0f0f0"
+          : "#fff",
+      color: "#333",
+      fontSize: "14px",
+      cursor: "pointer",
+    }),
+    singleValue: (base) => ({
+      ...base,
+      color: "#333",
+    }),
+    valueContainer: (base) => ({
+      ...base,
+      padding: "0 6px",
+    }),
+    dropdownIndicator: (base) => ({
+      ...base,
+      padding: "0 6px",
+    }),
+    indicatorSeparator: () => ({
+      display: "none",
+    }),
+  };
 
   return (
     <>
       <div
+        ref={ref}
         className={`${styles.customDatePickerContainer} ${isFocused || selectedDate ? styles.active : ""}`}
       >
         <label className={styles.customDatePickerLabel}>{label}</label>
         <DatePicker
+          fixedHeight
           renderCustomHeader={({
             date,
             changeYear,
@@ -43,12 +93,12 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
             nextMonthButtonDisabled,
           }) => (
             <div
+              onMouseDown={(e) => e.stopPropagation()}
               style={{
                 margin: "10px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                backgroundColor: "#f5f5f5",
               }}
             >
               <button
@@ -66,6 +116,9 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
               </button>
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <Select
+                  styles={customSelectStyles}
+                  menuPortalTarget={document.querySelector("#datepicker-portal")}
+                  menuPosition="fixed"
                   options={months.map((month, index) => ({
                     value: index,
                     label: month,
@@ -75,28 +128,17 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
                     label: months[new Date(date).getMonth()],
                   }}
                   onChange={(selectedOption) => changeMonth(selectedOption.value)}
-                  styles={{
-                    control: (base) => ({
-                      ...base,
-                      minWidth: "120px",
-                      fontSize: "14px",
-                    }),
-                  }}
                 />
                 <Select
+                  styles={customSelectStyles}
+                  menuPortalTarget={document.querySelector("#datepicker-portal")}
+                  menuPosition="fixed"
                   options={years.map((year) => ({ value: year, label: year }))}
                   value={{
                     value: new Date(date).getFullYear(),
                     label: new Date(date).getFullYear(),
                   }}
                   onChange={(selectedOption) => changeYear(selectedOption.value)}
-                  styles={{
-                    control: (base) => ({
-                      ...base,
-                      minWidth: "80px",
-                      fontSize: "14px",
-                    }),
-                  }}
                 />
               </div>
               <button
@@ -119,18 +161,18 @@ const CustomDatePicker = ({ selectedDate, onChange, label, errorText }) => {
           selected={selectedDate}
           onChange={onChange}
           dateFormat="dd/MM/yyyy"
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          closeOnScroll={true}
+          onCalendarOpen={() => setIsFocused(true)}
+          onCalendarClose={() => setIsFocused(false)}
+          closeOnScroll
           customInput={<CustomInput />}
-          popperContainer={({ children }) => <div>{children}</div>} // ✅ added fix
+          portalId="datepicker-portal"
         />
         <Image className={styles.DateIcon} src={DateIcon} alt="Custom Date" />
       </div>
       {errorText && <div className={styles.errorText}>{errorText}</div>}
     </>
   );
-};
+});
 
 const CustomInput = React.forwardRef(({ value, onClick }, ref) => (
   <button className={styles.customDatePickerInput} onClick={onClick} ref={ref}>

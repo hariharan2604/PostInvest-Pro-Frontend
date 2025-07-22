@@ -81,7 +81,7 @@ export default function SearchInput({
 
         fetchResults();
         return () => controller.abort();
-    }, [debouncedTerm, fetchUrl, fetchOnFocus, showDropdown, enableDropdown, type, minSearchLength, allowEmptySearch]);
+    }, [debouncedTerm, fetchUrl, fetchOnFocus, showDropdown, enableDropdown, type, minSearchLength, allowEmptySearch,onDataFetched,onError]);
 
     // Outside click to close dropdown
     useEffect(() => {
