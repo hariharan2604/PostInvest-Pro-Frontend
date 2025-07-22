@@ -1,7 +1,8 @@
 "use client";
+import React from "react";
 import styles from "./input.module.scss";
 
-const Input = ({
+const Input = React.forwardRef(({
   type = "text",
   variant = "label",
   labelText,
@@ -10,7 +11,7 @@ const Input = ({
   name,
   errorText,
   ...restProps
-}) => {
+}, ref) => {
   const inputClass = variant === "plain" ? styles.plainInput : "";
   const isDisabled = variant === "disabled";
 
@@ -20,6 +21,7 @@ const Input = ({
         <div className={`${styles.inputGroup} ${inputClass}`}>
           <input
             type={type}
+            ref={ref}
             required
             autoComplete="off"
             onChange={(e) => onChange?.(e.target.value)}
@@ -36,6 +38,6 @@ const Input = ({
       {errorText && <div className={styles.errorText}>{errorText}</div>}
     </>
   );
-};
+});
 
 export default Input;

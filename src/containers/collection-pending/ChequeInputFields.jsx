@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Input from "@/components/ui/input/input";
 import Selectdropdown from "@/components/ui/select/select";
 import RadioButton from "@/components/ui/radiobutton/radiobutton";
@@ -21,15 +21,27 @@ export default function ChequeInputFields({
     handleInstrumentChange,
     handleDeleteField,
 }) {
+    const accordionRefs = useRef([]);
 
+    useEffect(() => {
+        const firstErrorIndex = errors?.findIndex(
+            (err) => err && Object.values(err).some(Boolean)
+        );
+        if (firstErrorIndex !== -1 && accordionRefs.current[firstErrorIndex]) {
+            accordionRefs.current[firstErrorIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+    }, [errors]);
 
     return inputFields.map((inputField, index) => {
         const status = chequeStatuses[index]?.status;
-        console.log("🚀 ~ returninputFields.map ~ status:", status);
 
         return (
             <div
                 key={index}
+                ref={(el) => (accordionRefs.current[index] = el)}
                 className={`${styles["accordion-wrapper"]}`}
             >
                 <Accordion>
@@ -38,26 +50,33 @@ export default function ChequeInputFields({
                             <div className={styles["accordion-header"]}>
                                 <span className={styles.chequeLabel}>
                                     Cheque #{index + 1}
-                                    {status && <div className={`${styles.dot} ${status === "success" ? styles.success : styles.error}`} />}
+                                    {status && (
+                                        <div
+                                            className={`${styles.dot} ${status === "success"
+                                                    ? styles.success
+                                                    : styles.error
+                                                }`}
+                                        />
+                                    )}
                                 </span>
 
-                                {inputFields.length > 1 && status !== "success" && (
-                                    <Image
-                                        className={styles["delete-btn"]}
-                                        src={TrashIcon}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleDeleteField(index);
-                                        }}
-                                        alt="Delete"
-                                        width={24}
-                                        height={24}
-                                    />
-                                )}
+                                {inputFields.length > 1 &&
+                                    status !== "success" && (
+                                        <Image
+                                            className={styles["delete-btn"]}
+                                            src={TrashIcon}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleDeleteField(index);
+                                            }}
+                                            alt="Delete"
+                                            width={24}
+                                            height={24}
+                                        />
+                                    )}
                             </div>
                         }
                     >
-                        {/* <div className={styles["border-top"]}> */}
                         <div className={styles["form-group"]}>
                             <div className={styles["radioGroup"]}>
                                 <div className={styles["flex-class"]}>Type</div>
@@ -69,7 +88,10 @@ export default function ChequeInputFields({
                                     value={INSTRUMENT_CLASSES.DOP}
                                     checkedValue={inputField.instrument_class_id}
                                     onChange={() =>
-                                        handleInstrumentChange(index, INSTRUMENT_CLASSES.DOP)
+                                        handleInstrumentChange(
+                                            index,
+                                            INSTRUMENT_CLASSES.DOP
+                                        )
                                     }
                                 />
                                 <RadioButton
@@ -80,11 +102,15 @@ export default function ChequeInputFields({
                                     value={INSTRUMENT_CLASSES.OTHERS}
                                     checkedValue={inputField.instrument_class_id}
                                     onChange={() =>
-                                        handleInstrumentChange(index, INSTRUMENT_CLASSES.OTHERS)
+                                        handleInstrumentChange(
+                                            index,
+                                            INSTRUMENT_CLASSES.OTHERS
+                                        )
                                     }
                                 />
                             </div>
                         </div>
+
                         <div className={styles["form-group"]}>
                             <Input
                                 labelText="Amount"
@@ -107,6 +133,7 @@ export default function ChequeInputFields({
 
                         <div className={styles["form-group"]}>
                             <Selectdropdown
+                                id={"banks"}
                                 options={banks}
                                 selectText="Select Bank"
                                 setSelectedOption={(value) =>
@@ -127,18 +154,17 @@ export default function ChequeInputFields({
                             />
                         </div>
 
-
-
                         <div className={styles["form-group"]}>
                             <CustomDatePicker
                                 selectedDate={inputField.cheque_date}
-                                onChange={(date) => handleFieldDateChange(index, date)}
+                                onChange={(date) =>
+                                    handleFieldDateChange(index, date)
+                                }
                                 label="Cheque Date (DD/MM/YYYY)"
                                 placeholder="DD/MM/YYYY"
                                 errorText={errors?.[index]?.cheque_date}
                             />
                         </div>
-                        {/* </div> */}
                     </AccordionItem>
                 </Accordion>
             </div>

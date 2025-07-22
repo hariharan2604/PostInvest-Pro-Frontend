@@ -18,6 +18,8 @@ import { rules } from "./rules.js";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTitle } from "@/contexts/TitleContext";
 import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
+import { createRefMap } from "@/app/_utils/createRefMap";
+import { scrollToFirstError } from "@/app/_utils/scrollToFirstError";
 
 export default function AddFamily() {
   const router = useRouter();
@@ -27,6 +29,7 @@ export default function AddFamily() {
   const { setTitle } = useTitle();
   const [modalOpen, setModalOpen] = useState(false);
 
+  const refMap = createRefMap(emptyForm);
   const handleCloseModal = (shouldRedirect = false) => {
     shouldRedirect && router.back();
     setModalOpen(false);
@@ -65,6 +68,12 @@ export default function AddFamily() {
   useEffect(() => {
     setTitle("Add Family Member");
   })
+
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      scrollToFirstError(errors, refMap);
+    }
+  }, [errors,refMap]);
 
   const fetchCustomerData = async (data) => {
     const customerId = data.id;
@@ -109,20 +118,20 @@ export default function AddFamily() {
         <SearchHead showRouteOptions={false} enableAdd={false} enableDropdown={true} onSelectResponse={fetchCustomerData} redirect={false}></SearchHead>
       </div>
       <div className={style["form-group"]}>
-        <Input labelText="Full Name" name="name" onChange={handleInputChange("name")} value={formData.name} errorText={errors.name} />
+        <Input ref={refMap.name} labelText="Full Name" name="name" onChange={handleInputChange("name")} value={formData.name} errorText={errors.name} />
       </div>
       <div className={style["form-group"]}>
-        <Input labelText="Cif" name="cif" onChange={handleInputChange("cif")} value={formData.cif} errorText={errors.cif} />
+        <Input ref={refMap.cif} labelText="Cif" name="cif" onChange={handleInputChange("cif")} value={formData.cif} errorText={errors.cif} />
       </div>
       <div className={style["form-group"]}>
-        <Input labelText="Relationship" name="relationship" onChange={handleInputChange("relationship")} value={formData.relationship} errorText={errors.relationship} />
+        <Input ref={refMap.relationship} labelText="Relationship" name="relationship" onChange={handleInputChange("relationship")} value={formData.relationship} errorText={errors.relationship} />
       </div>
       <div className={style["form-group"]}>
-        <Input labelText="Mobile No" name="mobile" onChange={handleInputChange("mobile")} value={formData.mobile} errorText={errors.mobile} />
+        <Input ref={refMap.mobile} labelText="Mobile No" name="mobile" onChange={handleInputChange("mobile")} value={formData.mobile} errorText={errors.mobile} />
       </div>
 
       <div className={style["form-group"]}>
-        <Input labelText="Email ID" name="email" onChange={handleInputChange("email")} value={formData.email} errorText={errors.email} />
+        <Input ref={refMap.email} labelText="Email ID" name="email" onChange={handleInputChange("email")} value={formData.email} errorText={errors.email} />
       </div>
 
       <div className={style["form-group"]}>
@@ -158,43 +167,48 @@ export default function AddFamily() {
           label="Date of Birth (DD/MM/YYYY)"
           placeholder="DD/MM/YYYY"
           errorText={errors.dob}
+          ref={refMap.dob}
         />
       </div>
 
       <div className={style["form-group"]}>
-        <Input labelText="Address Line 1" name="address1" onChange={handleInputChange("address1")} value={formData.address1} errorText={errors.address1} />
+        <Input ref={refMap.address1} labelText="Address Line 1" name="address1" onChange={handleInputChange("address1")} value={formData.address1} errorText={errors.address1} />
       </div>
 
       <div className={style["form-group"]}>
-        <Input labelText="Address Line 2" name="address2" onChange={handleInputChange("address2")} value={formData.address2} />
+        <Input ref={refMap.address2} labelText="Address Line 2" name="address2" onChange={handleInputChange("address2")} value={formData.address2} />
       </div>
 
       <div className={style["form-group"]}>
-        <Input labelText="Area" name="area" value={formData.area} onChange={handleInputChange("area")} errorText={errors.area} />
+        <Input ref={refMap.area} labelText="Area" name="area" value={formData.area} onChange={handleInputChange("area")} errorText={errors.area} />
       </div>
 
       <div className={style["form-group"]}>
         <Selectdropdown
+          id={"city"}
           options={City}
           selectText="Select City"
           setSelectedOption={(value) => handleSelectChange("city", value)}
           selectedOption={formData.city}
           errorText={errors.city}
+          ref={refMap.city}
         />
       </div>
 
       <div className={style["form-group"]}>
         <Selectdropdown
+          id={"state"}
           options={State}
           selectText="Select State"
           setSelectedOption={(value) => handleSelectChange("state", value)}
           selectedOption={formData.state}
           errorText={errors.state}
+          ref={refMap.state}
         />
       </div>
 
       <div className={style["form-group"]}>
-        <Input labelText="Zip" name="zip" value={formData.zip} onChange={handleInputChange("zip")} errorText={errors.zip} />
+        <Input ref={refMap.zip} labelText="Zip" name="zip" value={formData.zip} onChange={handleInputChange("zip")} errorText={errors.zip} />
       </div>
 
       <div className={style["buttonGroup"]}>

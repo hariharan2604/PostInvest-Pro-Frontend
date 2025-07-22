@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import React, { useState } from "react";
 import Iconinput from "./icon-input.module.scss";
 import Image from "next/image";
 import Input from "../input/input";
@@ -7,8 +7,10 @@ import Input from "../input/input";
 import EyeOpen from "@icons/eye-open.svg";
 import EyeClose from "@icons/eye-close.svg";
 
-const PasswordInput = ({ name = "password", labelText = "Password",
-  placeholder = "Enter your password", errorText, ...restProps }) => {
+const PasswordInput = React.forwardRef(({
+  name = "password", labelText = "Password",
+  placeholder = "Enter your password", errorText, ...restProps
+}, ref) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   // Handle toggle for password visibility
@@ -24,7 +26,8 @@ const PasswordInput = ({ name = "password", labelText = "Password",
         name={name}
         labelText={labelText}
         placeholder={placeholder}
-        value={restProps.value} 
+        value={restProps.value}
+        ref={ref}
       />
 
       <Image
@@ -37,6 +40,6 @@ const PasswordInput = ({ name = "password", labelText = "Password",
     </div>
       {errorText && <div className={Iconinput.errorText}>{errorText}</div>}</>
   );
-};
+});
 
 export default PasswordInput;

@@ -13,9 +13,8 @@ export async function POST(req) {
                 headers: { 'Content-Type': 'application/json' },
             });
         }
-        const date = new Date(requestBody.investment_date);
         requestBody.scheme_id = requestBody?.scheme_id?.value;
-        requestBody.investment_date = formatDateStd(date);
+        requestBody.investment_date = formatDateStd(requestBody.investment_date);
 
         const externalApiResponse = await fetch(`${process.env.API_URL}/investment/add`, {
             method: 'POST',

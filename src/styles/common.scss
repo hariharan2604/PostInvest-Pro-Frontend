@@ -5,4 +5,8 @@
 .react-datepicker__month-container {
   font-family: var(--font-inter), sans-serif;
 }
+.react-datepicker__day--outside-month {
+  opacity: 0.3;
+  pointer-events: none;
+}
 

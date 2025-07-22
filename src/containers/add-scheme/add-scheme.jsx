@@ -14,6 +14,8 @@ import { rules } from "./rules.js";
 import { useRouter, useSearchParams } from "next/navigation";
 import InfoModal from "@/components/ui/info-modal/info-modal";
 import { fetchWithAuth } from "@/app/_utils/fetchWithAuth";
+import { createRefMap } from "@/app/_utils/createRefMap";
+import { scrollToFirstError } from "@/app/_utils/scrollToFirstError";
 
 export default function AddScheme() {
   const searchParams = useSearchParams();
@@ -27,6 +29,8 @@ export default function AddScheme() {
     shouldRedirect && router.back();
     setModalOpen(false);
   };
+  const refMap = createRefMap(emptyForm);
+  
   const {
     formData,
     updateFormData,
@@ -50,7 +54,11 @@ export default function AddScheme() {
       setModalOpen(true);
     }
   });
-
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      scrollToFirstError(errors, refMap);
+    }
+  }, [errors, refMap]);
   useEffect(() => {
     const fetchSchemeDetails = async () => {
       try {
@@ -98,6 +106,8 @@ export default function AddScheme() {
         </div>
         <div className={schemeStyle["form-group"]}>
           <Selectdropdown
+            id={"scheme"}
+            ref={refMap.scheme_id}
             options={schemes}
             selectText="Select Scheme"
             setSelectedOption={(value) => handleSelectChange("scheme_id", value)}
@@ -108,6 +118,7 @@ export default function AddScheme() {
 
         <div className={schemeStyle["form-group"]}>
           <Input
+            ref={refMap.investment_acc_no}
             labelText="Account Number"
             name="investment_acc_no"
             onChange={handleInputChange("investment_acc_no")}
@@ -118,6 +129,7 @@ export default function AddScheme() {
 
         <div className={schemeStyle["form-group"]}>
           <Input
+            ref={refMap.investment_amount}
             labelText="Amount (₹)"
             name="investment_amount"
             onChange={handleInputChange("investment_amount")}
@@ -128,6 +140,7 @@ export default function AddScheme() {
 
         <div className={schemeStyle["form-group"]}>
           <Input
+            ref={refMap.tenure}
             labelText="Tenure (Months)"
             name="tenure"
             onChange={handleInputChange("tenure")}
@@ -138,6 +151,7 @@ export default function AddScheme() {
 
         <div className={schemeStyle["form-group"]}>
           <CustomDatePicker
+            ref={refMap.investment_date}
             selectedDate={formData.investment_date}
             onChange={(date) => handleDateChange("investment_date", date)}
             label="Investment Date (DD/MM/YYYY)"

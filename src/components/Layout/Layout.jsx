@@ -6,7 +6,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="container">
-        <main className={styles.layout}>{children}</main>
+        <main className={styles.layout}>{children}
+          <div id="datepicker-portal" />
+        </main>
       </div>
     </>
   );

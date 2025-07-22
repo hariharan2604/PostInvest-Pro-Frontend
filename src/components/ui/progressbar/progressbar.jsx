@@ -2,26 +2,42 @@
 import { useState, useEffect } from 'react';
 import styles from './progressbar.module.scss';
 
-const calculateProgress = (startDate, endDate, currentDate) => {
+const calculateProgress = (startDate, endDate) => {
+
+  
+  
+  console.log("🚀 ~ calculateProgress ~ startDate:", startDate);
+  console.log("🚀 ~ calculateProgress ~ endDate:", endDate);
+
+  
   const start = new Date(startDate);
   const end = new Date(endDate);
-  const current = new Date(currentDate);
+  const current = new Date();
+
+  if (isNaN(start) || isNaN(end) || end <= start) return 0;
 
   const totalDuration = end - start;
-  const elapsed = current - start;
+  const elapsed = Math.max(0, current - start); 
 
   return Math.min(100, (elapsed / totalDuration) * 100);
 };
+
 
 const calculateRemainingMonths = (endDate, currentDate) => {
   const end = new Date(endDate);
   const current = new Date(currentDate);
 
-  const diff = end - current;
-  const remainingMonths = Math.floor(diff / (1000 * 60 * 60 * 24 * 30));
+  let months =
+    (end.getFullYear() - current.getFullYear()) * 12 +
+    (end.getMonth() - current.getMonth());
 
-  return remainingMonths;
+  if (end.getDate() < current.getDate()) {
+    months -= 1;
+  }
+
+  return Math.max(0, months);
 };
+
 
 const ProgressBar = ({ startDate, endDate }) => {
   const [progress, setProgress] = useState(0);
